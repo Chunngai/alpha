@@ -18,11 +18,12 @@ class LessonViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - Views
     
     lazy var lessonCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: LessonViewController.itemSize, height: LessonViewController.itemSize)
-        layout.minimumInteritemSpacing = 0
+        let collectionViewLayout = UICollectionViewFlowLayout()
+        collectionViewLayout.itemSize = CGSize(width: LessonViewController.itemSize, height: LessonViewController.itemSize)
+        collectionViewLayout.minimumInteritemSpacing = 0
         
-        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: collectionViewLayout)
+        view.addSubview(collectionView)
         collectionView.backgroundColor = UIColor.white
         collectionView.showsVerticalScrollIndicator = true
         collectionView.dataSource = self
@@ -45,7 +46,6 @@ class LessonViewController: UIViewController, UICollectionViewDelegate, UICollec
     func initViews() {
         navigationItem.title = "Lessons"
         
-        view.addSubview(lessonCollectionView)
         lessonCollectionView.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
             make.height.equalToSuperview()
@@ -60,7 +60,7 @@ class LessonViewController: UIViewController, UICollectionViewDelegate, UICollec
         return (section * LessonViewController.numberOfItemsInSection + row)
     }
     
-    // MARK: - Lesson Collection View Date Source
+    // MARK: - UICollectionView Date Source
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return Int(ceil(Float(lessons.count) / Float(LessonViewController.numberOfItemsInSection)))
@@ -82,7 +82,7 @@ class LessonViewController: UIViewController, UICollectionViewDelegate, UICollec
         return cell
     }
     
-    // MARK: - Lesson Collection View Delegate
+    // MARK: - UICollectionView Delegate
 }
 
 extension LessonViewController {

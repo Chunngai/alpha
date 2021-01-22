@@ -18,6 +18,7 @@ struct Lesson {
     
     // MARK: - IO
     
+    // TODO: Load from disk
     static func loadLessons() -> [Lesson] {
         var lessons: [Lesson] = []
         for i in 1...50 {

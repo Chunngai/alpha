@@ -10,36 +10,32 @@ import UIKit
 
 class TextView: UIView {
 
-    var label: UILabel = {
+    // MARK: - Views
+    
+    lazy var label: UILabel = {
         let label = UILabel()
+        addSubview(label)
         label.backgroundColor = .white
         label.textColor = .black
+        label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: TMP.fontSize)
-                
+        label.font = UIFont.systemFont(ofSize: TextView.fontSize)
         return label
     }()
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
+    // MARK: - Init
+    
     override public init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.initViews()
+        self.updateViews()
     }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initViews() {
-        addSubview(label)
+    func updateViews() {
         label.snp.makeConstraints { (make) in
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
@@ -47,4 +43,8 @@ class TextView: UIView {
             make.centerX.equalToSuperview()
         }
     }
+}
+
+extension TextView {
+    static let fontSize = UIScreen.main.bounds.width * 0.06
 }

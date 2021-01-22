@@ -84,7 +84,7 @@ class LessonCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Actions
     @objc func lessonButtonTapped() {
-        let functionSelectionViewController = FunctionSelectionViewController()
+        let functionSelectionViewController = FunctionsViewController()
         functionSelectionViewController.updateValues(lesson: lesson, delegate: delegate)
         delegate.navigationController?.pushViewController(functionSelectionViewController, animated: true)
     }

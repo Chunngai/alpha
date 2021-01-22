@@ -12,3 +12,8 @@ struct Text {
     var greek: String
     var english: String
 }
+
+enum Lang {
+    case greek
+    case english
+}

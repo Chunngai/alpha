@@ -12,12 +12,20 @@ import PDFKit
 
 class LearningViewController: UIViewController {
 
+    // MARK: - Init
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        updateViews()
+    }
+
+    func updateViews() {
+        // TODO: Wrap the code here
         guard let path = Bundle.main.url(forResource: "Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013", withExtension: "pdf") else { return }
         
         let pdfView = PDFView(frame: view.frame)  // Don't use snapkit here!
+        view.addSubview(pdfView)
         if let document = PDFDocument(url: path) {
             pdfView.document = document
         }
@@ -26,18 +34,5 @@ class LearningViewController: UIViewController {
         pdfView.minScaleFactor = pdfView.scaleFactorForSizeToFit
         pdfView.displayMode = .singlePageContinuous
         pdfView.displaysPageBreaks = true
-        view.addSubview(pdfView)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

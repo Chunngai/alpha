@@ -9,29 +9,30 @@
 import UIKit
 
 class TextViewController: UIViewController {
-
+    
+    // MARK: - Models
+        
+    var texts: [Text]!
+        
+    // MARK: - Init
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let texts = ["alpha", "beta", "gamma"]
-               
-        let rect = CGRect(x: 0, y: (navigationController?.navigationBar.frame.maxY)!, width: view.frame.width, height: view.frame.height - (navigationController?.navigationBar.frame.maxY)! - (navigationController?.navigationBar.frame.height)!)
-        let loopView = TextLoopView(frame: rect)
-        self.view.addSubview(loopView)
         
-        //add images
-        loopView.texts = texts
+        updateViews()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateViews() {
+        view.backgroundColor = .white
+        
+        // TODO: - Wrap the code here
+        let rect = CGRect(x: 0, y: (navigationController?.navigationBar.frame.maxY)!, width: view.frame.width, height: view.frame.height - (navigationController?.navigationBar.frame.maxY)! - (navigationController?.navigationBar.frame.height)!)
+        let textLoopView = TextLoopView(frame: rect)
+        self.view.addSubview(textLoopView)
+        textLoopView.updateValues(texts: texts)
     }
-    */
-
+    
+    func updateValues(texts: [Text]) {
+        self.texts = texts
+    }
 }
