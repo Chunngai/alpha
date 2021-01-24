@@ -16,6 +16,7 @@ class FunctionsViewController: UIViewController {
     
     // MARK: - Controllers
     
+    // TODO: protocol
     var delegate: LessonViewController!
     
     // MARK: - Views

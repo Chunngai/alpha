@@ -24,6 +24,11 @@ class TextLoopView: UIView, UIScrollViewDelegate {
         }
     }
     
+    // MARK: - Controllers
+    
+    // TODO: protocols
+    private var delegate: TextViewController!
+    
     // MARK: - Views
     
     lazy var width: CGFloat = {
@@ -81,13 +86,15 @@ class TextLoopView: UIView, UIScrollViewDelegate {
         
     }
     
-    func updateValues(texts: [Text]) {
+    func updateValues(texts: [Text], delegate: TextViewController) {
+        self.delegate = delegate
         self.texts = texts
     }
     
     // MARK: - Actions
     
     @objc func viewDoubleTapped() {
+        textView1.layer.add(textView1.fadeTransition, forKey: CATransitionType.push.rawValue)
         currentLang = currentLang == .greek ? .english : .greek
         updateText()
     }
@@ -119,6 +126,8 @@ class TextLoopView: UIView, UIScrollViewDelegate {
         textView1.label.text = getTextContent(text: texts[currentPage])
         textView0.label.text = getTextContent(text: currentPage == 0 ? texts.last! : texts[currentPage - 1])
         textView2.label.text = getTextContent(text: currentPage == texts.count - 1 ? texts.first! : texts[currentPage + 1])
+        
+        delegate.navigationItem.title = currentLang == .greek ? textView1.label.text : ""
         
         loopScrollView.contentOffset = CGPoint(x: width, y: 0)
     }

@@ -18,14 +18,21 @@ class LessonViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - Views
     
     lazy var lessonCollectionView: UICollectionView = {
+        let itemSize: CGFloat = CGFloat(Int(
+            view.bounds.width
+                * LessonViewController.collectionViewFrameWidthRatio
+                / CGFloat(LessonViewController.numberOfItemsInSection)
+        ))
+        
         let collectionViewLayout = UICollectionViewFlowLayout()
-        collectionViewLayout.itemSize = CGSize(width: LessonViewController.itemSize, height: LessonViewController.itemSize)
+        collectionViewLayout.itemSize = CGSize(width: itemSize, height: itemSize)
         collectionViewLayout.minimumInteritemSpacing = 0
         
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: collectionViewLayout)
         view.addSubview(collectionView)
         collectionView.backgroundColor = UIColor.white
-        collectionView.showsVerticalScrollIndicator = true
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(LessonCollectionViewCell.self, forCellWithReuseIdentifier: LessonViewController.reuseIdentifier)
@@ -47,8 +54,9 @@ class LessonViewController: UIViewController, UICollectionViewDelegate, UICollec
         navigationItem.title = "Lessons"
         
         lessonCollectionView.snp.makeConstraints { (make) in
-            make.width.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(LessonViewController.collectionViewFrameWidthRatio)
             make.height.equalToSuperview()
+            make.centerX.equalToSuperview()
         }
     }
     
@@ -86,7 +94,7 @@ class LessonViewController: UIViewController, UICollectionViewDelegate, UICollec
 }
 
 extension LessonViewController {
+    static let collectionViewFrameWidthRatio: CGFloat = 0.95
     static let numberOfItemsInSection: Int = 5
-    static let itemSize: CGFloat = UIScreen.main.bounds.width / CGFloat(numberOfItemsInSection)
     static let reuseIdentifier = "lessonCollectionViewCell"
 }

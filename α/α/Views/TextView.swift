@@ -12,13 +12,23 @@ class TextView: UIView {
 
     // MARK: - Views
     
+    let fadeTransition: CATransition = {
+        let transition = CATransition()
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        transition.duration = 0.6
+        return transition
+    }()
+    
     lazy var label: UILabel = {
         let label = UILabel()
         addSubview(label)
-        label.backgroundColor = .white
-        label.textColor = .black
+        label.backgroundColor = .black
+        label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.layer.cornerRadius = TextView.cornerRadius
+        label.layer.masksToBounds = true
         label.font = UIFont.systemFont(ofSize: TextView.fontSize)
         return label
     }()
@@ -37,14 +47,16 @@ class TextView: UIView {
     
     func updateViews() {
         label.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top)
-            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
-            make.width.equalToSuperview().multipliedBy(0.8)
+            make.height.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(TextView.labelSizeRatio)
             make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
     }
 }
 
 extension TextView {
     static let fontSize = UIScreen.main.bounds.width * 0.06
+    static let cornerRadius: CGFloat = 10
+    static let labelSizeRatio: CGFloat = 0.95
 }

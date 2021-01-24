@@ -16,6 +16,7 @@ class LessonCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Controllers
     
+    // TODO: protocol
     var delegate: LessonViewController!
     
     // MARK: - Views
@@ -74,10 +75,8 @@ class LessonCollectionViewCell: UICollectionViewCell {
         self.delegate = delegate
         
         if let lesson = lesson {
-//            lessonButton.setBackgroundImage(LessonCollectionViewCell.lessonIconImage, for: .normal)
             lessonButton.setTitle(String(lesson.id), for: .normal)
         } else {
-//            lessonButton.setBackgroundImage(nil, for: .normal)
             lessonButton.setTitle("", for: .normal)
         }
     }

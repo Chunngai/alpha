@@ -28,8 +28,8 @@ class TextViewController: UIViewController {
         // TODO: - Wrap the code here
         let rect = CGRect(x: 0, y: (navigationController?.navigationBar.frame.maxY)!, width: view.frame.width, height: view.frame.height - (navigationController?.navigationBar.frame.maxY)! - (navigationController?.navigationBar.frame.height)!)
         let textLoopView = TextLoopView(frame: rect)
-        self.view.addSubview(textLoopView)
-        textLoopView.updateValues(texts: texts)
+        textLoopView.updateValues(texts: texts, delegate: self)
+        view.addSubview(textLoopView)
     }
     
     func updateValues(texts: [Text]) {

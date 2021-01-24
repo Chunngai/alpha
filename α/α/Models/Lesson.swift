@@ -34,6 +34,27 @@ struct Lesson {
             Text(greek: "παιδεύεις καὶ οὐ κλέπτεις.", english: "You teach and you don't steal."),
             Text(greek: "μὴ γράφε· σπεῦδε φυλάττειν.", english: "Don't write: hasten to protect.")
         ])
+        lessons[3] = Lesson(id: 4, title: "Lesson 4", pdfPath: "", vocab: [
+            Text(greek: "v1", english: "1"),
+            Text(greek: "v2", english: "2")
+        ], sentences: [
+            Text(greek: "s1", english: "1"),
+            Text(greek: "s2", english: "2")
+        ])
+        lessons[4] = Lesson(id: 5, title: "Lesson 4", pdfPath: "", vocab: [
+            Text(greek: "v3", english: "3"),
+            Text(greek: "v4", english: "4")
+        ], sentences: [
+            Text(greek: "s3", english: "3"),
+            Text(greek: "s4", english: "4")
+        ])
+        lessons[5] = Lesson(id: 6, title: "Lesson 4", pdfPath: "", vocab: [
+            Text(greek: "v5", english: "5"),
+            Text(greek: "v6", english: "6")
+        ], sentences: [
+            Text(greek: "s5", english: "5"),
+            Text(greek: "s6", english: "6")
+        ])
         
         return lessons
     }
