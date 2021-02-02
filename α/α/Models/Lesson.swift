@@ -9,10 +9,9 @@
 import Foundation
 
 struct Lesson {
+    
     var id: Int!
-    var title: String {
-        return "Lesson \(id!)"
-    }
+    var title: String!
     
     var pdfPath: String!
     var vocab: [Text]!
@@ -131,6 +130,26 @@ struct Lesson {
                         lesson.sentences.append(Text(greek: el, english: en))
                     }
                     continue
+                }
+            }
+        }
+        
+        guard let path_ = Bundle.main.url(forResource: "lessonTitles", withExtension: "txt") else { return [] }
+        let data_ = try! Data(contentsOf: path_)
+        if let text = String(data: data_, encoding: .utf8) {
+            let linesSubSequences = text.split(separator: "\n")
+            var lines: [String] = []
+            for i in 0..<linesSubSequences.count {
+                lines.append(String(linesSubSequences[i]))
+            }
+            
+            for i in 0..<lines.count {
+                if i < lessons.count {
+                    lessons[i].title = lines[i]
+                } else {
+                    var lesson = Lesson(id: i+1, pdfPath: "", vocab: [], sentences: [])
+                    lesson.title = lines[i]
+                    lessons.append(lesson)
                 }
             }
         }

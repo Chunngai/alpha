@@ -14,10 +14,11 @@
 		FF2917C425B0746700A076F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2917C225B0746700A076F3 /* LaunchScreen.storyboard */; };
 		FF2917CF25B0746700A076F3 /* _Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917CE25B0746700A076F3 /* _Tests.swift */; };
 		FF2917DA25B0746700A076F3 /* _UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917D925B0746700A076F3 /* _UITests.swift */; };
-		FF2917E925B07D8800A076F3 /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917E825B07D8700A076F3 /* LessonCollectionViewCell.swift */; };
 		FF49449425B1EBC100B4EDAA /* LessonNaviViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49449325B1EBC100B4EDAA /* LessonNaviViewController.swift */; };
 		FF4944AC25B1F77300B4EDAA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; };
 		FF4944AD25B1F77300B4EDAA /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF4C268B25C99A420030DFAD /* LessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C268A25C99A420030DFAD /* LessonTableViewCell.swift */; };
+		FF4C269025C9A10F0030DFAD /* lessonTitles.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF4C268F25C9A10F0030DFAD /* lessonTitles.txt */; };
 		FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54225B2B2C70084CEDE /* Lesson.swift */; };
 		FF4CB54925B2C6E10084CEDE /* FunctionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54825B2C6E10084CEDE /* FunctionsViewController.swift */; };
 		FF4CB54D25B2E2480084CEDE /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54C25B2E2480084CEDE /* LearningViewController.swift */; };
@@ -29,7 +30,6 @@
 		FFA3B7D425BB2393002F9D4C /* FunctionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3B7D325BB2393002F9D4C /* FunctionButtonView.swift */; };
 		FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B425B492FD003D84BA /* TextViewController.swift */; };
 		FFAC17B925B4937C003D84BA /* TextLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B825B4937C003D84BA /* TextLoopView.swift */; };
-		FFCFF15725BD3A0200E1E072 /* LessonCollectionViewReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCFF15625BD3A0200E1E072 /* LessonCollectionViewReviewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,9 +91,10 @@
 		FF2917D525B0746700A076F3 /* αUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "αUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2917D925B0746700A076F3 /* _UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _UITests.swift; sourceTree = "<group>"; };
 		FF2917DB25B0746700A076F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF2917E825B07D8700A076F3 /* LessonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF49449325B1EBC100B4EDAA /* LessonNaviViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonNaviViewController.swift; sourceTree = "<group>"; };
 		FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "../../../SnapKit-develop/SnapKit.xcodeproj"; sourceTree = "<group>"; };
+		FF4C268A25C99A420030DFAD /* LessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
+		FF4C268F25C9A10F0030DFAD /* lessonTitles.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = lessonTitles.txt; sourceTree = "<group>"; };
 		FF4CB54225B2B2C70084CEDE /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		FF4CB54825B2C6E10084CEDE /* FunctionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsViewController.swift; sourceTree = "<group>"; };
 		FF4CB54C25B2E2480084CEDE /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
@@ -105,7 +106,6 @@
 		FFA3B7D325BB2393002F9D4C /* FunctionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionButtonView.swift; sourceTree = "<group>"; };
 		FFAC17B425B492FD003D84BA /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		FFAC17B825B4937C003D84BA /* TextLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLoopView.swift; sourceTree = "<group>"; };
-		FFCFF15625BD3A0200E1E072 /* LessonCollectionViewReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCollectionViewReviewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +137,7 @@
 		FF2917AB25B0746600A076F3 = {
 			isa = PBXGroup;
 			children = (
+				FF4C268F25C9A10F0030DFAD /* lessonTitles.txt */,
 				FF4CB54E25B2E7440084CEDE /* Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf */,
 				FF7007C525BD6FF900455656 /* lessons.txt */,
 				FF2917B625B0746600A076F3 /* α */,
@@ -194,8 +195,7 @@
 		FF49449125B1EA4400B4EDAA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FF2917E825B07D8700A076F3 /* LessonCollectionViewCell.swift */,
-				FFCFF15625BD3A0200E1E072 /* LessonCollectionViewReviewCell.swift */,
+				FF4C268A25C99A420030DFAD /* LessonTableViewCell.swift */,
 				FFA3B7D325BB2393002F9D4C /* FunctionButtonView.swift */,
 				FFA3B7CF25BAFC78002F9D4C /* TextView.swift */,
 				FFAC17B825B4937C003D84BA /* TextLoopView.swift */,
@@ -373,6 +373,7 @@
 				FF2917C425B0746700A076F3 /* LaunchScreen.storyboard in Resources */,
 				FF4CB54F25B2E7440084CEDE /* Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf in Resources */,
 				FF2917C125B0746700A076F3 /* Assets.xcassets in Resources */,
+				FF4C269025C9A10F0030DFAD /* lessonTitles.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,14 +401,13 @@
 				FF4CB54D25B2E2480084CEDE /* LearningViewController.swift in Sources */,
 				FFA3B7D425BB2393002F9D4C /* FunctionButtonView.swift in Sources */,
 				FF49449425B1EBC100B4EDAA /* LessonNaviViewController.swift in Sources */,
-				FF2917E925B07D8800A076F3 /* LessonCollectionViewCell.swift in Sources */,
 				FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */,
 				FF2917BC25B0746600A076F3 /* LessonViewController.swift in Sources */,
 				FF4CB54925B2C6E10084CEDE /* FunctionsViewController.swift in Sources */,
 				FF2917B825B0746600A076F3 /* AppDelegate.swift in Sources */,
 				FFA3B7D025BAFC78002F9D4C /* TextView.swift in Sources */,
 				FF4CB55425B32DCC0084CEDE /* Text.swift in Sources */,
-				FFCFF15725BD3A0200E1E072 /* LessonCollectionViewReviewCell.swift in Sources */,
+				FF4C268B25C99A420030DFAD /* LessonTableViewCell.swift in Sources */,
 				FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */,
 				FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */,
 				FF2917BA25B0746600A076F3 /* SceneDelegate.swift in Sources */,

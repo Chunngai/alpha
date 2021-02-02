@@ -10,5 +10,10 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    static let lightBlue = UIColor(red: 0.8, green: 1, blue: 1, alpha: 1)
+    static let lightBlue = UIColor(
+        red: CGFloat(173) / 255,
+        green: CGFloat(216) / 255,
+        blue: CGFloat(230) / 255,
+        alpha: 1
+    )
 }

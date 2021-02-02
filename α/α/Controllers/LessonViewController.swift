@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class LessonViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class LessonViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LessonTableViewCellDelegate {
     
     // MARK: - Models
     
@@ -17,28 +17,26 @@ class LessonViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // MARK: - Views
     
-    lazy var lessonCollectionView: UICollectionView = {
-        let collectionViewLayout = UICollectionViewFlowLayout()
-        collectionViewLayout.minimumInteritemSpacing = 0
+    lazy var lessonTableView: UITableView = {
+        let tableView = UITableView(frame: CGRect(), style: .grouped)
+        view.addSubview(tableView)
         
-        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: collectionViewLayout)
-        view.addSubview(collectionView)
-        collectionView.backgroundColor = UIColor.white
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.alwaysBounceVertical = true
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(LessonCollectionViewCell.self, forCellWithReuseIdentifier: LessonViewController.lessonCellReuseIdentifier)
-        collectionView.register(LessonCollectionViewReviewCell.self, forCellWithReuseIdentifier: LessonViewController.reviewCellReuseIdentifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(LessonTableViewCell.classForCoder(), forCellReuseIdentifier: LessonViewController.lessonCellReuseIdentifier)
+        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = LessonViewController.tableViewEstimatedRowHeight
+        tableView.rowHeight = LessonViewController.tableViewrowHeight
         
-        return collectionView
+        return tableView
     }()
     
     // MARK: - Init
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         lessons = Lesson.loadLessons()
         
         initViews()
@@ -47,8 +45,8 @@ class LessonViewController: UIViewController, UICollectionViewDelegate, UICollec
     func initViews() {
         navigationItem.title = "Lessons"
         
-        lessonCollectionView.snp.makeConstraints { (make) in
-            make.width.equalToSuperview().multipliedBy(LessonViewController.collectionViewFrameWidthRatio)
+        lessonTableView.snp.makeConstraints { (make) in
+            make.width.equalToSuperview().multipliedBy(LessonViewController.tableViewWidthRatio)
             make.height.equalToSuperview()
             make.centerX.equalToSuperview()
         }
@@ -56,80 +54,37 @@ class LessonViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // MARK: - Utils
     
-    static func getLessonIndex(indexPath: IndexPath) -> Int {
-        let section = indexPath.section
-        let row = indexPath.row
-        return ((section - 1) * LessonViewController.numberOfItemsInSection + row)
+    
+    // MARK: - UITableView Data Source
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
-    // MARK: - UICollectionView Date Source
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return Int(ceil(Float(lessons.count) / Float(LessonViewController.numberOfItemsInSection))) + 1
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return lessons.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == LessonViewController.reviewSection {
-            return 1
-        } else {
-            return LessonViewController.numberOfItemsInSection
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // TODO: create a cell
-        if indexPath.section == LessonViewController.reviewSection {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LessonViewController.reviewCellReuseIdentifier, for: indexPath) as! LessonCollectionViewReviewCell
-            cell.updateValues(delegate: self)
-            return cell
-        }
-        
-        var lesson: Lesson? = nil
-        let lessonIndex = LessonViewController.getLessonIndex(indexPath: indexPath)
-        if lessonIndex < lessons.count {
-            lesson = lessons[lessonIndex]
-        }
-
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LessonViewController.lessonCellReuseIdentifier, for: indexPath) as! LessonCollectionViewCell
-        cell.updateValues(lesson: lesson, delegate: self)
-        
-        // FIXME: Do something when the cell has no lesson
-        if lesson == nil {
-            cell.lessonButton.backgroundColor = collectionView.backgroundColor
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: LessonViewController.lessonCellReuseIdentifier) as! LessonTableViewCell
+        cell.updateValues(lesson: lessons[indexPath.row], delegate: self)
         
         return cell
     }
     
-    // MARK: - UICollectionView Delegate
+    // MARK: - LessonTableViewCell Delegate
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSize: CGFloat = CGFloat(Int(
-            view.bounds.width
-                * LessonViewController.collectionViewFrameWidthRatio
-                / CGFloat(LessonViewController.numberOfItemsInSection)
-        ))
-        
-        var width: CGFloat = 0
-        var height: CGFloat = 0
-        if indexPath == IndexPath(row: 0, section: 0) {
-            width = CGFloat(Int(
-                collectionView.frame.width
-                - itemSize * (1 - LessonCollectionViewCell.sizeRatio)
-            ))
-        } else {
-            width = itemSize
-        }
-        height = itemSize
-        
-        return CGSize(width: width, height: height)
+    func displayFunctionViewController(lesson: Lesson) {
+        let functionSelectionViewController = FunctionsViewController()
+        functionSelectionViewController.updateValues(lesson: lesson, delegate: self)
+        navigationController?.pushViewController(functionSelectionViewController, animated: true)
     }
 }
 
 extension LessonViewController {
-    static let reviewSection: Int = 0
-    static let collectionViewFrameWidthRatio: CGFloat = 0.95
-    static let numberOfItemsInSection: Int = 5
-    static let lessonCellReuseIdentifier = "lessonCollectionViewCell"
-    static let reviewCellReuseIdentifier = "lessonCollectionViewReviewCell"
+    static let tableViewWidthRatio: CGFloat = 0.95
+    static let lessonCellReuseIdentifier = "LessonTableViewCell"
+    static let tableViewEstimatedRowHeight: CGFloat = UIScreen.main.bounds.height * 0.145
+    static let tableViewrowHeight: CGFloat = UIScreen.main.bounds.height * 0.067
 }
+
