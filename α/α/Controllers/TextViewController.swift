@@ -23,6 +23,8 @@ class TextViewController: UIViewController {
     }
     
     func updateViews() {
+        navigationItem.largeTitleDisplayMode = .never
+        
         view.backgroundColor = .white
         
         // TODO: - Wrap the code here

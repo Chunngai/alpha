@@ -118,7 +118,14 @@ class TextLoopView: UIView, UIScrollViewDelegate {
     private func getTextContent(text: Text) -> String {
         switch currentLang {
         case .greek: return text.greek
-        case .english: return text.english
+        case .english:
+            var content = text.english
+            if let explanation = text.explanation {
+                content += "\n\n"
+                content += explanation
+            }
+            
+            return content
         }
     }
     

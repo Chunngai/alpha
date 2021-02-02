@@ -63,7 +63,7 @@ class FunctionsViewController: UIViewController {
     
     func updateViews() {
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.title = "Lesson \(lesson.id)"
+        navigationItem.title = lesson.title
         
         view.backgroundColor = .white
         

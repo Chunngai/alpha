@@ -11,6 +11,8 @@ import Foundation
 struct Text {
     var greek: String
     var english: String
+    
+    var explanation: String?
 }
 
 enum Lang {

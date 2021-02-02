@@ -28,6 +28,7 @@ class LessonCollectionViewCell: UICollectionViewCell {
     
     lazy var lessonButton: UIButton = {
         let button = UIButton()
+        view.addSubview(button)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8
         button.backgroundColor = .black
@@ -54,13 +55,12 @@ class LessonCollectionViewCell: UICollectionViewCell {
     func updateViews() {
         contentView.addSubview(view)
         view.snp.makeConstraints { (make) in
-            make.width.equalToSuperview().multipliedBy(0.9)
-            make.height.equalToSuperview().multipliedBy(0.9)
+            make.width.equalToSuperview().multipliedBy(LessonCollectionViewCell.sizeRatio)
+            make.height.equalToSuperview().multipliedBy(LessonCollectionViewCell.sizeRatio)
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
         
-        view.addSubview(lessonButton)
         lessonButton.snp.makeConstraints { (make) in
             make.height.equalToSuperview()
             make.width.equalToSuperview()
@@ -83,13 +83,15 @@ class LessonCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Actions
     @objc func lessonButtonTapped() {
-        let functionSelectionViewController = FunctionsViewController()
-        functionSelectionViewController.updateValues(lesson: lesson, delegate: delegate)
-        delegate.navigationController?.pushViewController(functionSelectionViewController, animated: true)
+        if let lesson = lesson {
+            let functionSelectionViewController = FunctionsViewController()
+            functionSelectionViewController.updateValues(lesson: lesson, delegate: delegate)
+            delegate.navigationController?.pushViewController(functionSelectionViewController, animated: true)
+        }
     }
 }
 
 extension LessonCollectionViewCell {
-    static let lessonIconImage: UIImage = UIImage(imageLiteralResourceName: "lesson_icon")
+    static let sizeRatio: CGFloat = 0.9
     static let fontSize: CGFloat = UIScreen.main.bounds.width * 0.05
 }
