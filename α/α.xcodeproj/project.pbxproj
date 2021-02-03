@@ -25,9 +25,9 @@
 		FF4CB54F25B2E7440084CEDE /* Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF4CB54E25B2E7440084CEDE /* Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf */; };
 		FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */; };
 		FF4CB55425B32DCC0084CEDE /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB55325B32DCC0084CEDE /* Text.swift */; };
+		FF55241825CAF400008FA902 /* FunctionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF55241725CAF400008FA902 /* FunctionTableViewCell.swift */; };
 		FF7007C825BD6FF900455656 /* lessons.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF7007C525BD6FF900455656 /* lessons.txt */; };
 		FFA3B7D025BAFC78002F9D4C /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3B7CF25BAFC78002F9D4C /* TextView.swift */; };
-		FFA3B7D425BB2393002F9D4C /* FunctionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3B7D325BB2393002F9D4C /* FunctionButtonView.swift */; };
 		FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B425B492FD003D84BA /* TextViewController.swift */; };
 		FFAC17B925B4937C003D84BA /* TextLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B825B4937C003D84BA /* TextLoopView.swift */; };
 /* End PBXBuildFile section */
@@ -101,9 +101,9 @@
 		FF4CB54E25B2E7440084CEDE /* Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf"; path = "../../Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf"; sourceTree = "<group>"; };
 		FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FF4CB55325B32DCC0084CEDE /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		FF55241725CAF400008FA902 /* FunctionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionTableViewCell.swift; sourceTree = "<group>"; };
 		FF7007C525BD6FF900455656 /* lessons.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = lessons.txt; path = ../../lessons.txt; sourceTree = "<group>"; };
 		FFA3B7CF25BAFC78002F9D4C /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
-		FFA3B7D325BB2393002F9D4C /* FunctionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionButtonView.swift; sourceTree = "<group>"; };
 		FFAC17B425B492FD003D84BA /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		FFAC17B825B4937C003D84BA /* TextLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLoopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,7 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				FF4C268A25C99A420030DFAD /* LessonTableViewCell.swift */,
-				FFA3B7D325BB2393002F9D4C /* FunctionButtonView.swift */,
+				FF55241725CAF400008FA902 /* FunctionTableViewCell.swift */,
 				FFA3B7CF25BAFC78002F9D4C /* TextView.swift */,
 				FFAC17B825B4937C003D84BA /* TextLoopView.swift */,
 				FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */,
@@ -399,7 +399,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF4CB54D25B2E2480084CEDE /* LearningViewController.swift in Sources */,
-				FFA3B7D425BB2393002F9D4C /* FunctionButtonView.swift in Sources */,
 				FF49449425B1EBC100B4EDAA /* LessonNaviViewController.swift in Sources */,
 				FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */,
 				FF2917BC25B0746600A076F3 /* LessonViewController.swift in Sources */,
@@ -408,6 +407,7 @@
 				FFA3B7D025BAFC78002F9D4C /* TextView.swift in Sources */,
 				FF4CB55425B32DCC0084CEDE /* Text.swift in Sources */,
 				FF4C268B25C99A420030DFAD /* LessonTableViewCell.swift in Sources */,
+				FF55241825CAF400008FA902 /* FunctionTableViewCell.swift in Sources */,
 				FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */,
 				FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */,
 				FF2917BA25B0746600A076F3 /* SceneDelegate.swift in Sources */,
