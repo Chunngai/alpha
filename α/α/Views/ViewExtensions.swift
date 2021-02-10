@@ -11,9 +11,9 @@ import UIKit
 
 extension UIColor {
     static let lightBlue = UIColor(
-        red: CGFloat(173) / 255,
-        green: CGFloat(216) / 255,
-        blue: CGFloat(230) / 255,
+        red: CGFloat(210) / 255,
+        green: CGFloat(239) / 255,
+        blue: CGFloat(255) / 255,
         alpha: 1
     )
 }
