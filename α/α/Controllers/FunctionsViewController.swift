@@ -60,6 +60,20 @@ class FunctionsViewController: UIViewController, UITableViewDataSource, UITableV
 //        return stackView
 //    }()
     
+    lazy var lessonLabel: UILabel = {
+        let label = UILabel()
+        titleLabel.addSubview(label)
+        label.backgroundColor = UIColor.lightBlue
+        label.textColor = .black
+        label.textAlignment = .center
+        label.layer.cornerRadius = 15
+        label.layer.maskedCorners = CACornerMask(rawValue:CACornerMask.layerMaxXMaxYCorner.rawValue)
+        label.layer.masksToBounds = true
+        label.text = "Lesson \(lesson.id!)"
+        
+        return label
+    }()
+    
     lazy var titieLabelShadowView: UIView = {
         let labelView = UIView()
         view.addSubview(labelView)
@@ -130,14 +144,21 @@ class FunctionsViewController: UIViewController, UITableViewDataSource, UITableV
     
     func updateViews() {
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.title = "Lesson \(lesson.id!)"
+//        navigationItem.title = "Lesson \(lesson.id!)"
         
         view.backgroundColor = .white
+        
+        lessonLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.23)
+            make.leading.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.35)
+        }
         
         titieLabelShadowView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(UIScreen.main.bounds.height * 0.12)
-            make.height.equalTo(UIScreen.main.bounds.height * 0.2)
+            make.height.equalTo(UIScreen.main.bounds.height * 0.25)
             make.width.equalTo(UIScreen.main.bounds.width * 0.9)
         }
         titleLabel.snp.makeConstraints { (make) in
