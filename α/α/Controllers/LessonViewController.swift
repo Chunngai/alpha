@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class LessonViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LessonTableViewCellDelegate {
+class LessonViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LessonTableViewCellDelegate, FunctionsViewControllerDelegate {
     
     // MARK: - Models
     
@@ -46,7 +46,7 @@ class LessonViewController: UIViewController, UITableViewDataSource, UITableView
         navigationItem.title = "Lessons"
         
         lessonTableView.snp.makeConstraints { (make) in
-            make.width.equalToSuperview().multipliedBy(LessonViewController.tableViewWidthRatio)
+            make.width.equalToSuperview().multipliedBy(0.95)
             make.height.equalToSuperview()
             make.centerX.equalToSuperview()
         }
@@ -79,10 +79,31 @@ class LessonViewController: UIViewController, UITableViewDataSource, UITableView
         functionSelectionViewController.updateValues(lesson: lesson, delegate: self)
         navigationController?.pushViewController(functionSelectionViewController, animated: true)
     }
+    
+    // MARK: - FunctionsViewController Deleagte
+    
+    func learnButtonTapped() {
+        
+    }
+    
+    func vocabButtonTapped() {
+        
+    }
+    
+    func sentencesButtonTapped() {
+        
+    }
+    
+    func readingButtonTapped() {
+        
+    }
+    
+    func testButtonTapped() {
+        
+    }
 }
 
 extension LessonViewController {
-    static let tableViewWidthRatio: CGFloat = 0.95
     static let lessonCellReuseIdentifier = "LessonTableViewCell"
     static let tableViewEstimatedRowHeight: CGFloat = UIScreen.main.bounds.height * 0.145
     static let tableViewrowHeight: CGFloat = UIScreen.main.bounds.height * 0.067

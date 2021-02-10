@@ -42,7 +42,7 @@ class LessonTableViewCell: UITableViewCell {
     lazy var button: UIButton = {
         let button = UIButton()
         contentView.addSubview(button)
-        button.layer.cornerRadius = LessonTableViewCell.cornerRadius
+        button.layer.cornerRadius = 8
         button.layer.masksToBounds = true
         button.backgroundColor = .lightBlue
         button.setTitleColor(.black, for: .normal)
@@ -106,11 +106,15 @@ class LessonTableViewCell: UITableViewCell {
 }
 
 extension LessonTableViewCell {
-    static let cornerRadius: CGFloat = 8
     static let buttonLeftRightInset: CGFloat = UIScreen.main.bounds.width * 0.02
     static let buttonTopInset: CGFloat = UIScreen.main.bounds.height * 0.005
     static let labelWidth: CGFloat = UIScreen.main.bounds.width * 0.085
-    static let buttonTitleEdgeInsets = UIEdgeInsets(top: 0, left: labelWidth + UIScreen.main.bounds.width * 0.014, bottom: 0, right: UIScreen.main.bounds.width * 0.024)
+    static let buttonTitleEdgeInsets = UIEdgeInsets(
+        top: 0,
+        left: labelWidth + UIScreen.main.bounds.width * 0.014,
+        bottom: 0,
+        right: UIScreen.main.bounds.width * 0.024
+    )
 }
 
 protocol LessonTableViewCellDelegate {

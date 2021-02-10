@@ -27,7 +27,7 @@ class TextView: UIView {
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.layer.cornerRadius = TextView.cornerRadius
+        label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         label.font = UIFont.systemFont(ofSize: TextView.fontSize)
         return label
@@ -48,7 +48,7 @@ class TextView: UIView {
     func updateViews() {
         label.snp.makeConstraints { (make) in
             make.height.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(TextView.labelSizeRatio)
+            make.width.equalToSuperview().multipliedBy(0.95)
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
@@ -57,6 +57,4 @@ class TextView: UIView {
 
 extension TextView {
     static let fontSize = UIScreen.main.bounds.width * 0.06
-    static let cornerRadius: CGFloat = 10
-    static let labelSizeRatio: CGFloat = 0.95
 }
