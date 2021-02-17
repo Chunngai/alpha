@@ -82,23 +82,32 @@ class LessonViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - FunctionsViewController Deleagte
     
-    func learnButtonTapped() {
+    func learningButtonTapped(lesson: Lesson) {
+        let learningViewController = LearningViewController()
+        navigationController?.pushViewController(learningViewController, animated: true)
+    }
+    
+    func vocabButtonTapped(lesson: Lesson) {
+        guard lesson.vocab.count > 0 else { return }
+        
+        let vocabViewController = TextViewController()
+        vocabViewController.updateValues(texts: lesson.vocab)
+        navigationController?.pushViewController(vocabViewController, animated: true)
+    }
+    
+    func sentencesButtonTapped(lesson: Lesson) {
+        guard lesson.sentences.count > 0 else { return }
+        
+        let sentencesViewController = TextViewController()
+        sentencesViewController.updateValues(texts: lesson.sentences)
+        navigationController?.pushViewController(sentencesViewController, animated: true)
+    }
+    
+    func readingButtonTapped(lesson: Lesson) {
         
     }
     
-    func vocabButtonTapped() {
-        
-    }
-    
-    func sentencesButtonTapped() {
-        
-    }
-    
-    func readingButtonTapped() {
-        
-    }
-    
-    func testButtonTapped() {
+    func testButtonTapped(lesson: Lesson) {
         
     }
 }

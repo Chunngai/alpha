@@ -11,11 +11,19 @@ import UIKit
 class FunctionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     let cellLabelDict: [Int: String] = [
-        0: "Learn",
-        1: "Vocab",
+        0: "Learning",
+        1: "Vocabulary",
         2: "Sentences",
         3: "Reading",
         4: "Test"
+    ]
+    
+    let cellImageViewDict: [Int: UIImage] = [
+        0: UIImage(imageLiteralResourceName: "learning"),
+        1: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
+        2: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
+        3: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
+        4: UIImage(imageLiteralResourceName: "test")
     ]
     
     // MARK: - Models
@@ -145,29 +153,6 @@ class FunctionsViewController: UIViewController, UITableViewDataSource, UITableV
         self.delegate = delegate
     }
     
-    // MARK: - Actions
-    
-    @objc func learningButtonTapped() {
-        let learningViewController = LearningViewController()
-        delegate.navigationController?.pushViewController(learningViewController, animated: true)
-    }
-    
-    @objc func vocabButtonTapped() {
-        guard lesson.vocab.count > 0 else { return }
-        
-        let vocabViewController = TextViewController()
-        vocabViewController.updateValues(texts: lesson.vocab)
-        delegate.navigationController?.pushViewController(vocabViewController, animated: true)
-    }
-    
-    @objc func sentencesButtonTapped() {
-        guard lesson.sentences.count > 0 else { return }
-        
-        let sentencesViewController = TextViewController()
-        sentencesViewController.updateValues(texts: lesson.sentences)
-        delegate.navigationController?.pushViewController(sentencesViewController, animated: true)
-    }
-    
     // MARK: - UITableView Data Source
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -182,10 +167,24 @@ class FunctionsViewController: UIViewController, UITableViewDataSource, UITableV
 //        let cell = tableView.dequeueReusableCell(withIdentifier: FunctionsViewController.functionCellReuseIdentifier) as! FunctionTableViewCell
         let cell = UITableViewCell(style: .default, reuseIdentifier: FunctionsViewController.functionCellReuseIdentifier)
         cell.textLabel?.text = cellLabelDict[indexPath.row]
-        cell.imageView?.image = UIImage(imageLiteralResourceName: "lesson_icon")
+        cell.imageView?.image = cellImageViewDict[indexPath.row]
+        cell.imageView?.image = cell.imageView?.image!.scale(to: 0.5)
         cell.selectionStyle = .none
         
         return cell
+    }
+    
+    // MARK: - UITableView Delegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0: delegate.learningButtonTapped(lesson: lesson)
+        case 1: delegate.vocabButtonTapped(lesson: lesson)
+        case 2: delegate.sentencesButtonTapped(lesson: lesson)
+        case 3: delegate.readingButtonTapped(lesson: lesson)
+        case 4: delegate.testButtonTapped(lesson: lesson)
+        default: return
+        }
     }
 }
 
@@ -207,9 +206,9 @@ extension FunctionsViewController {
 }
 
 protocol FunctionsViewControllerDelegate {
-    func learnButtonTapped()
-    func vocabButtonTapped()
-    func sentencesButtonTapped()
-    func readingButtonTapped()
-    func testButtonTapped()
+    func learningButtonTapped(lesson: Lesson)
+    func vocabButtonTapped(lesson: Lesson)
+    func sentencesButtonTapped(lesson: Lesson)
+    func readingButtonTapped(lesson: Lesson)
+    func testButtonTapped(lesson: Lesson)
 }
