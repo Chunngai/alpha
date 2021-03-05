@@ -10,6 +10,8 @@ import UIKit
 
 class TextViewController: UIViewController {
     
+    var type_: TextView.Type_!
+    
     // MARK: - Models
         
     var texts: [Text]!
@@ -28,13 +30,18 @@ class TextViewController: UIViewController {
         view.backgroundColor = .white
         
         // TODO: - Wrap the code here
-        let rect = CGRect(x: 0, y: (navigationController?.navigationBar.frame.maxY)!, width: view.frame.width, height: view.frame.height - (navigationController?.navigationBar.frame.maxY)! - (navigationController?.navigationBar.frame.height)!)
-        let textLoopView = TextLoopView(frame: rect)
-        textLoopView.updateValues(texts: texts, delegate: self)
+        let textLoopView = TextLoopView(frame: CGRect(
+            x: 0,
+            y: (navigationController?.navigationBar.frame.maxY)!,
+            width: view.frame.width,
+            height: view.frame.height - (navigationController?.navigationBar.frame.maxY)! - (navigationController?.navigationBar.frame.height)!)
+        )
         view.addSubview(textLoopView)
+        textLoopView.updateValues(texts: texts, type_: type_)
     }
     
-    func updateValues(texts: [Text]) {
+    func updateValues(texts: [Text], type_: TextView.Type_) {
         self.texts = texts
+        self.type_ = type_
     }
 }

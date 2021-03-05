@@ -51,9 +51,7 @@ class LessonViewController: UIViewController, UITableViewDataSource, UITableView
             make.centerX.equalToSuperview()
         }
     }
-    
-    // MARK: - Utils
-    
+        
     
     // MARK: - UITableView Data Source
     
@@ -91,7 +89,7 @@ class LessonViewController: UIViewController, UITableViewDataSource, UITableView
         guard lesson.vocab.count > 0 else { return }
         
         let vocabViewController = TextViewController()
-        vocabViewController.updateValues(texts: lesson.vocab)
+        vocabViewController.updateValues(texts: lesson.vocab, type_: TextView.Type_.word)
         navigationController?.pushViewController(vocabViewController, animated: true)
     }
     
@@ -99,7 +97,7 @@ class LessonViewController: UIViewController, UITableViewDataSource, UITableView
         guard lesson.sentences.count > 0 else { return }
         
         let sentencesViewController = TextViewController()
-        sentencesViewController.updateValues(texts: lesson.sentences)
+        sentencesViewController.updateValues(texts: lesson.sentences, type_: TextView.Type_.sent)
         navigationController?.pushViewController(sentencesViewController, animated: true)
     }
     

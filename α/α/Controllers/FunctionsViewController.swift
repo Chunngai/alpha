@@ -72,7 +72,6 @@ class FunctionsViewController: UIViewController, UITableViewDataSource, UITableV
         label.text = lesson.title
         label.numberOfLines = 0
         label.font = FunctionsViewController.titleLabelFont
-        label.layoutMargins = FunctionsViewController.titleLabelMargins
         
         return label
     }()
@@ -85,8 +84,8 @@ class FunctionsViewController: UIViewController, UITableViewDataSource, UITableV
         labelView.layer.shadowRadius = 10
         labelView.layer.shadowOffset = FunctionsViewController.shadowViewShadowOffset
             
-            return labelView
-        }()
+        return labelView
+    }()
     
     lazy var functionTableView: UITableView = {
         let tableView = UITableView(frame: CGRect(), style: .plain)
@@ -197,12 +196,6 @@ extension FunctionsViewController {
 extension FunctionsViewController {
     static let shadowViewShadowOffset: CGSize = CGSize(width: UIScreen.main.bounds.width * 0.01, height: UIScreen.main.bounds.height * 0.006)
     static let titleLabelFont: UIFont = UIFont.systemFont(ofSize: UIScreen.main.bounds.width * 0.05)
-    static let titleLabelMargins: UIEdgeInsets = UIEdgeInsets(
-        top: UIScreen.main.bounds.width * 0.05,
-        left: UIScreen.main.bounds.width * 0.05,
-        bottom: UIScreen.main.bounds.width * 0.05,
-        right: UIScreen.main.bounds.width * 0.05
-    )
 }
 
 protocol FunctionsViewControllerDelegate {

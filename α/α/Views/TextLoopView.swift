@@ -11,7 +11,7 @@ import UIKit
 class TextLoopView: UIView, UIScrollViewDelegate {
 
     private var currentPage: Int = 0
-    private var currentLang: Lang = .greek
+    private var textViewType: TextView.Type_!
     
     // MARK: - Models
     
@@ -23,11 +23,6 @@ class TextLoopView: UIView, UIScrollViewDelegate {
             self.updateText()
         }
     }
-    
-    // MARK: - Controllers
-    
-    // TODO: protocols
-    private var delegate: TextViewController!
     
     // MARK: - Views
     
@@ -86,17 +81,23 @@ class TextLoopView: UIView, UIScrollViewDelegate {
         
     }
     
-    func updateValues(texts: [Text], delegate: TextViewController) {
-        self.delegate = delegate
+    func updateValues(texts: [Text], type_: TextView.Type_) {
         self.texts = texts
+        self.textViewType = type_
     }
     
     // MARK: - Actions
     
     @objc func viewDoubleTapped() {
-        textView1.layer.add(textView1.fadeTransition, forKey: CATransitionType.push.rawValue)
-        currentLang = currentLang == .greek ? .english : .greek
-        updateText()
+        if textViewType == .word {
+            textView0.changeMode()
+            textView1.changeMode()
+            textView2.changeMode()
+        } else {
+            textView0.changeLang()
+            textView1.changeLang()
+            textView2.changeLang()
+        }
     }
     
     // MARK: - UIScrollView delegate
@@ -115,27 +116,11 @@ class TextLoopView: UIView, UIScrollViewDelegate {
 
     // MARK: - Utils
     
-    private func getTextContent(text: Text) -> String {
-        switch currentLang {
-        case .greek: return text.greek
-        case .english:
-            var content = text.english
-            if let explanation = text.explanation {
-                content += "\n\n"
-                content += explanation
-            }
-            
-            return content
-        }
-    }
-    
     private func updateText() {
-        textView1.label.text = getTextContent(text: texts[currentPage])
-        textView0.label.text = getTextContent(text: currentPage == 0 ? texts.last! : texts[currentPage - 1])
-        textView2.label.text = getTextContent(text: currentPage == texts.count - 1 ? texts.first! : texts[currentPage + 1])
-        
-        delegate.navigationItem.title = currentLang == .greek ? textView1.label.text : ""
-        
+        textView1.setText(text: texts[currentPage])
+        textView0.setText(text: currentPage == 0 ? texts.last! : texts[currentPage - 1])
+        textView2.setText(text: currentPage == texts.count - 1 ? texts.first! : texts[currentPage + 1])
+
         loopScrollView.contentOffset = CGPoint(x: width, y: 0)
     }
     

@@ -14,8 +14,3 @@ struct Text {
     
     var explanation: String?
 }
-
-enum Lang {
-    case greek
-    case english
-}
