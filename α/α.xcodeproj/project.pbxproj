@@ -22,9 +22,18 @@
 		FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54225B2B2C70084CEDE /* Lesson.swift */; };
 		FF4CB54925B2C6E10084CEDE /* FunctionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54825B2C6E10084CEDE /* FunctionsViewController.swift */; };
 		FF4CB54D25B2E2480084CEDE /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54C25B2E2480084CEDE /* LearningViewController.swift */; };
-		FF4CB54F25B2E7440084CEDE /* Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF4CB54E25B2E7440084CEDE /* Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf */; };
 		FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */; };
 		FF4CB55425B32DCC0084CEDE /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB55325B32DCC0084CEDE /* Text.swift */; };
+		FF53437F25F38FBD00A45B9D /* ch9.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF53437525F38FBC00A45B9D /* ch9.pdf */; };
+		FF53438025F38FBD00A45B9D /* ch4.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF53437625F38FBC00A45B9D /* ch4.pdf */; };
+		FF53438125F38FBD00A45B9D /* ch5.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF53437725F38FBC00A45B9D /* ch5.pdf */; };
+		FF53438225F38FBD00A45B9D /* ch3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF53437825F38FBC00A45B9D /* ch3.pdf */; };
+		FF53438325F38FBD00A45B9D /* ch7.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF53437925F38FBC00A45B9D /* ch7.pdf */; };
+		FF53438425F38FBD00A45B9D /* ch2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF53437A25F38FBC00A45B9D /* ch2.pdf */; };
+		FF53438525F38FBD00A45B9D /* ch1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF53437B25F38FBC00A45B9D /* ch1.pdf */; };
+		FF53438625F38FBD00A45B9D /* ch6.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF53437C25F38FBD00A45B9D /* ch6.pdf */; };
+		FF53438725F38FBD00A45B9D /* ch8.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF53437D25F38FBD00A45B9D /* ch8.pdf */; };
+		FF53438825F38FBD00A45B9D /* ch10.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF53437E25F38FBD00A45B9D /* ch10.pdf */; };
 		FF55241825CAF400008FA902 /* FunctionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF55241725CAF400008FA902 /* FunctionTableViewCell.swift */; };
 		FF7007C825BD6FF900455656 /* lessons.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF7007C525BD6FF900455656 /* lessons.txt */; };
 		FFA3B7D025BAFC78002F9D4C /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3B7CF25BAFC78002F9D4C /* TextView.swift */; };
@@ -98,9 +107,18 @@
 		FF4CB54225B2B2C70084CEDE /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		FF4CB54825B2C6E10084CEDE /* FunctionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsViewController.swift; sourceTree = "<group>"; };
 		FF4CB54C25B2E2480084CEDE /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
-		FF4CB54E25B2E7440084CEDE /* Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf"; path = "../../Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf"; sourceTree = "<group>"; };
 		FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FF4CB55325B32DCC0084CEDE /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		FF53437525F38FBC00A45B9D /* ch9.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ch9.pdf; path = ../../../../../Volumes/Windows/Users/Neko/Desktop/ch9.pdf; sourceTree = "<group>"; };
+		FF53437625F38FBC00A45B9D /* ch4.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ch4.pdf; path = ../../../../../Volumes/Windows/Users/Neko/Desktop/ch4.pdf; sourceTree = "<group>"; };
+		FF53437725F38FBC00A45B9D /* ch5.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ch5.pdf; path = ../../../../../Volumes/Windows/Users/Neko/Desktop/ch5.pdf; sourceTree = "<group>"; };
+		FF53437825F38FBC00A45B9D /* ch3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ch3.pdf; path = ../../../../../Volumes/Windows/Users/Neko/Desktop/ch3.pdf; sourceTree = "<group>"; };
+		FF53437925F38FBC00A45B9D /* ch7.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ch7.pdf; path = ../../../../../Volumes/Windows/Users/Neko/Desktop/ch7.pdf; sourceTree = "<group>"; };
+		FF53437A25F38FBC00A45B9D /* ch2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ch2.pdf; path = ../../../../../Volumes/Windows/Users/Neko/Desktop/ch2.pdf; sourceTree = "<group>"; };
+		FF53437B25F38FBC00A45B9D /* ch1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ch1.pdf; path = ../../../../../Volumes/Windows/Users/Neko/Desktop/ch1.pdf; sourceTree = "<group>"; };
+		FF53437C25F38FBD00A45B9D /* ch6.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ch6.pdf; path = ../../../../../Volumes/Windows/Users/Neko/Desktop/ch6.pdf; sourceTree = "<group>"; };
+		FF53437D25F38FBD00A45B9D /* ch8.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ch8.pdf; path = ../../../../../Volumes/Windows/Users/Neko/Desktop/ch8.pdf; sourceTree = "<group>"; };
+		FF53437E25F38FBD00A45B9D /* ch10.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ch10.pdf; path = ../../../../../Volumes/Windows/Users/Neko/Desktop/ch10.pdf; sourceTree = "<group>"; };
 		FF55241725CAF400008FA902 /* FunctionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionTableViewCell.swift; sourceTree = "<group>"; };
 		FF7007C525BD6FF900455656 /* lessons.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = lessons.txt; path = ../../lessons.txt; sourceTree = "<group>"; };
 		FFA3B7CF25BAFC78002F9D4C /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
@@ -137,8 +155,17 @@
 		FF2917AB25B0746600A076F3 = {
 			isa = PBXGroup;
 			children = (
+				FF53437B25F38FBC00A45B9D /* ch1.pdf */,
+				FF53437A25F38FBC00A45B9D /* ch2.pdf */,
+				FF53437825F38FBC00A45B9D /* ch3.pdf */,
+				FF53437625F38FBC00A45B9D /* ch4.pdf */,
+				FF53437725F38FBC00A45B9D /* ch5.pdf */,
+				FF53437C25F38FBD00A45B9D /* ch6.pdf */,
+				FF53437925F38FBC00A45B9D /* ch7.pdf */,
+				FF53437D25F38FBD00A45B9D /* ch8.pdf */,
+				FF53437525F38FBC00A45B9D /* ch9.pdf */,
+				FF53437E25F38FBD00A45B9D /* ch10.pdf */,
 				FF4C268F25C9A10F0030DFAD /* lessonTitles.txt */,
-				FF4CB54E25B2E7440084CEDE /* Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf */,
 				FF7007C525BD6FF900455656 /* lessons.txt */,
 				FF2917B625B0746600A076F3 /* α */,
 				FF2917CD25B0746700A076F3 /* αTests */,
@@ -369,11 +396,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF53438825F38FBD00A45B9D /* ch10.pdf in Resources */,
+				FF53438625F38FBD00A45B9D /* ch6.pdf in Resources */,
+				FF53438025F38FBD00A45B9D /* ch4.pdf in Resources */,
 				FF7007C825BD6FF900455656 /* lessons.txt in Resources */,
+				FF53438525F38FBD00A45B9D /* ch1.pdf in Resources */,
+				FF53437F25F38FBD00A45B9D /* ch9.pdf in Resources */,
+				FF53438325F38FBD00A45B9D /* ch7.pdf in Resources */,
+				FF53438725F38FBD00A45B9D /* ch8.pdf in Resources */,
 				FF2917C425B0746700A076F3 /* LaunchScreen.storyboard in Resources */,
-				FF4CB54F25B2E7440084CEDE /* Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013.pdf in Resources */,
 				FF2917C125B0746700A076F3 /* Assets.xcassets in Resources */,
+				FF53438225F38FBD00A45B9D /* ch3.pdf in Resources */,
 				FF4C269025C9A10F0030DFAD /* lessonTitles.txt in Resources */,
+				FF53438425F38FBD00A45B9D /* ch2.pdf in Resources */,
+				FF53438125F38FBD00A45B9D /* ch5.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

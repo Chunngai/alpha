@@ -82,6 +82,7 @@ class LessonViewController: UIViewController, UITableViewDataSource, UITableView
     
     func learningButtonTapped(lesson: Lesson) {
         let learningViewController = LearningViewController()
+        learningViewController.updateValues(lessonId: lesson.id)
         navigationController?.pushViewController(learningViewController, animated: true)
     }
     

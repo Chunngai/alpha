@@ -12,6 +12,8 @@ import PDFKit
 
 class LearningViewController: UIViewController {
 
+    var document: PDFDocument!
+    
     // MARK: - Init
     
     override func viewDidLoad() {
@@ -21,18 +23,19 @@ class LearningViewController: UIViewController {
     }
 
     func updateViews() {
-        // TODO: Wrap the code here
-        guard let path = Bundle.main.url(forResource: "Anne H. Groton From Alpha to Omega A Beginning Course in Classical Greek  2013", withExtension: "pdf") else { return }
-        
         let pdfView = PDFView(frame: view.frame)  // Don't use snapkit here!
         view.addSubview(pdfView)
-        if let document = PDFDocument(url: path) {
-            pdfView.document = document
-        }
+        pdfView.document = document
         pdfView.autoScales = true
         pdfView.maxScaleFactor = 4.0
         pdfView.minScaleFactor = pdfView.scaleFactorForSizeToFit
         pdfView.displayMode = .singlePageContinuous
         pdfView.displaysPageBreaks = true
+    }
+    
+    func updateValues(lessonId: Int) {
+        guard let url = Bundle.main.url(forResource: "ch\(lessonId)", withExtension: "pdf") else { return }
+        guard let doc = PDFDocument(url: url) else { return }
+        document = doc
     }
 }
