@@ -8,20 +8,9 @@
 
 import UIKit
 
-class FunctionTableViewCell: UITableViewCell {
+class MenuTableViewCell: UITableViewCell {
 
     // MARK: - Init
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)

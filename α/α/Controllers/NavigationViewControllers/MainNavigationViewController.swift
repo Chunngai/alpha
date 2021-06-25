@@ -8,11 +8,15 @@
 
 import UIKit
 
-class LessonNavigationViewController: UINavigationController {
+class MainNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        initViews()
+    }
+    
+    func initViews() {
         navigationBar.prefersLargeTitles = true
         navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }

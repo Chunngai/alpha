@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class LessonViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LessonTableViewCellDelegate, FunctionsViewControllerDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeTableViewCellDelegate, MenuViewControllerDelegate {
     
     // MARK: - Models
     
@@ -23,11 +23,14 @@ class LessonViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(LessonTableViewCell.classForCoder(), forCellReuseIdentifier: LessonViewController.lessonCellReuseIdentifier)
+        tableView.register(
+            HomeTableViewCell.classForCoder(),
+            forCellReuseIdentifier: HomeViewController.tableViewCellReuseIdentifier
+        )
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = LessonViewController.tableViewEstimatedRowHeight
-        tableView.rowHeight = LessonViewController.tableViewrowHeight
+        tableView.estimatedRowHeight = HomeViewController.tableViewEstimatedRowHeight
+        tableView.rowHeight = HomeViewController.tableViewRowHeight
         
         return tableView
     }()
@@ -51,8 +54,9 @@ class LessonViewController: UIViewController, UITableViewDataSource, UITableView
             make.centerX.equalToSuperview()
         }
     }
-        
-    
+}
+
+extension HomeViewController {
     // MARK: - UITableView Data Source
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,24 +68,27 @@ class LessonViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: LessonViewController.lessonCellReuseIdentifier) as! LessonTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewController.tableViewCellReuseIdentifier) as! HomeTableViewCell
         cell.updateValues(lesson: lessons[indexPath.row], delegate: self)
-        
         return cell
     }
+}
+
+extension HomeViewController {
+    // MARK: - HomeTableViewCell Delegate
     
-    // MARK: - LessonTableViewCell Delegate
-    
-    func displayFunctionViewController(lesson: Lesson) {
-        let functionSelectionViewController = FunctionsViewController()
-        functionSelectionViewController.updateValues(lesson: lesson, delegate: self)
-        navigationController?.pushViewController(functionSelectionViewController, animated: true)
+    func pushMenuViewController(lesson: Lesson) {
+        let menuViewController = MenuViewController()
+        menuViewController.updateValues(lesson: lesson, delegate: self)
+        navigationController?.pushViewController(menuViewController, animated: true)
     }
-    
-    // MARK: - FunctionsViewController Deleagte
+}
+ 
+extension HomeViewController {
+    // MARK: - MenuViewController Deleagte
     
     func learningButtonTapped(lesson: Lesson) {
-        let learningViewController = LearningViewController()
+        let learningViewController = ContentViewController()
         learningViewController.updateValues(lessonId: lesson.id)
         navigationController?.pushViewController(learningViewController, animated: true)
     }
@@ -111,9 +118,9 @@ class LessonViewController: UIViewController, UITableViewDataSource, UITableView
     }
 }
 
-extension LessonViewController {
-    static let lessonCellReuseIdentifier = "LessonTableViewCell"
+extension HomeViewController {
+    static let tableViewCellReuseIdentifier = "HomeTableViewCell"
     static let tableViewEstimatedRowHeight: CGFloat = UIScreen.main.bounds.height * 0.145
-    static let tableViewrowHeight: CGFloat = UIScreen.main.bounds.height * 0.067
+    static let tableViewRowHeight: CGFloat = UIScreen.main.bounds.height * 0.067
 }
 

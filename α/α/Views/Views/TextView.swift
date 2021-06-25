@@ -80,8 +80,8 @@ class TextView: UIView {
         return label
     }()
     
-    lazy var mearningLabel: UIEdgeInsetsLabel = {
-        let label = UIEdgeInsetsLabel(top: TextView.inset, left: TextView.inset, bottom: TextView.inset, right: TextView.inset)
+    lazy var mearningLabel: EdgeInsetsLabel = {
+        let label = EdgeInsetsLabel(top: TextView.inset, left: TextView.inset, bottom: TextView.inset, right: TextView.inset)
         mainView.addSubview(label)
         label.backgroundColor = .lightText
         label.textColor = .black
@@ -94,8 +94,8 @@ class TextView: UIView {
         return label
     }()
     
-    lazy var explanationLabel: UIEdgeInsetsLabel = {
-        let label = UIEdgeInsetsLabel(top: TextView.inset, left: TextView.inset, bottom: TextView.inset, right: TextView.inset)
+    lazy var explanationLabel: EdgeInsetsLabel = {
+        let label = EdgeInsetsLabel(top: TextView.inset, left: TextView.inset, bottom: TextView.inset, right: TextView.inset)
         mainView.addSubview(label)
         label.backgroundColor = .lightText
         label.textColor = .black

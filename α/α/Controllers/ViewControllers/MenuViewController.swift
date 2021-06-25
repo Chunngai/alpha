@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FunctionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     let cellLabelDict: [Int: String] = [
         0: "Learning",
@@ -32,13 +32,14 @@ class FunctionsViewController: UIViewController, UITableViewDataSource, UITableV
     
     // MARK: - Controllers
         
-    var delegate: LessonViewController!
+    var delegate: HomeViewController!
     
     // MARK: - Views
     
     lazy var lessonLabel: UILabel = {
         let label = UILabel()
         titleLabel.addSubview(label)
+        
         label.backgroundColor = UIColor.lightBlue
         label.textColor = .black
         label.textAlignment = .center
@@ -53,22 +54,24 @@ class FunctionsViewController: UIViewController, UITableViewDataSource, UITableV
     lazy var titieLabelShadowView: UIView = {
         let labelView = UIView()
         view.addSubview(labelView)
+        
         labelView.layer.shadowColor = UIColor.lightGray.cgColor
         labelView.layer.shadowOpacity = 0.8
         labelView.layer.shadowRadius = 10
-        labelView.layer.shadowOffset = FunctionsViewController.shadowViewShadowOffset
+        labelView.layer.shadowOffset = MenuViewController.shadowOffset
         
         return labelView
     }()
     
-    lazy var titleLabel: UIEdgeInsetsLabel = {
-        let label = UIEdgeInsetsLabel(
-            top: FunctionsViewController.inset,
-            left: FunctionsViewController.inset,
-            bottom: FunctionsViewController.inset,
-            right: FunctionsViewController.inset
+    lazy var titleLabel: EdgeInsetsLabel = {
+        let label = EdgeInsetsLabel(
+            top: MenuViewController.titleLabelinset,
+            left: MenuViewController.titleLabelinset,
+            bottom: MenuViewController.titleLabelinset,
+            right: MenuViewController.titleLabelinset
         )
         titieLabelShadowView.addSubview(label)
+        
         label.backgroundColor = .white
         label.textColor = .black
         label.textAlignment = .center
@@ -76,31 +79,33 @@ class FunctionsViewController: UIViewController, UITableViewDataSource, UITableV
         label.layer.masksToBounds = true
         label.text = lesson.title
         label.numberOfLines = 0
-        label.font = FunctionsViewController.titleLabelFont
+        label.font = MenuViewController.titleLabelFont
         
         return label
     }()
     
-    lazy var functionTableShadowView: UIView = {
+    lazy var menuTableShadowView: UIView = {
         let labelView = UIView()
         view.addSubview(labelView)
+        
         labelView.layer.shadowColor = UIColor.lightGray.cgColor
         labelView.layer.shadowOpacity = 0.8
         labelView.layer.shadowRadius = 10
-        labelView.layer.shadowOffset = FunctionsViewController.shadowViewShadowOffset
+        labelView.layer.shadowOffset = MenuViewController.shadowOffset
             
         return labelView
     }()
     
-    lazy var functionTableView: UITableView = {
+    lazy var menuTableView: UITableView = {
         let tableView = UITableView(frame: CGRect(), style: .plain)
-        functionTableShadowView.addSubview(tableView)
+        menuTableShadowView.addSubview(tableView)
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .white
         tableView.layer.cornerRadius = 15
-        tableView.estimatedRowHeight = FunctionsViewController.tableViewEstimatedRowHeight
-        tableView.rowHeight = FunctionsViewController.tableViewrowHeight
+        tableView.estimatedRowHeight = MenuViewController.tableViewEstimatedRowHeight
+        tableView.rowHeight = MenuViewController.tableViewrowHeight
         tableView.isScrollEnabled = false
         
         return tableView
@@ -138,25 +143,27 @@ class FunctionsViewController: UIViewController, UITableViewDataSource, UITableV
             make.height.equalToSuperview().multipliedBy(0.95)
         }
         
-        functionTableShadowView.snp.makeConstraints { (make) in
+        menuTableShadowView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.top.equalTo(titieLabelShadowView.snp.bottom).offset(UIScreen.main.bounds.height * 0.025)
-            make.height.equalTo(FunctionsViewController.tableViewrowHeight * 5)
+            make.height.equalTo(MenuViewController.tableViewrowHeight * 5)
             make.width.equalTo(titieLabelShadowView.snp.width)
         }
-        functionTableView.snp.makeConstraints { (make) in
+        menuTableView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.98)
-            make.height.equalTo(FunctionsViewController.tableViewrowHeight * 5)
+            make.height.equalTo(MenuViewController.tableViewrowHeight * 5)
         }
     }
     
-    func updateValues(lesson: Lesson, delegate: LessonViewController) {
+    func updateValues(lesson: Lesson, delegate: HomeViewController) {
         self.lesson = lesson
         
         self.delegate = delegate
     }
-    
+}
+
+extension MenuViewController {
     // MARK: - UITableView Data Source
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -168,16 +175,16 @@ class FunctionsViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: FunctionsViewController.functionCellReuseIdentifier) as! FunctionTableViewCell
-        let cell = UITableViewCell(style: .default, reuseIdentifier: FunctionsViewController.functionCellReuseIdentifier)
+        let cell = UITableViewCell(style: .default, reuseIdentifier: MenuViewController.functionCellReuseIdentifier)
         cell.textLabel?.text = cellLabelDict[indexPath.row]
-        cell.imageView?.image = cellImageViewDict[indexPath.row]
-        cell.imageView?.image = cell.imageView?.image!.scale(to: 0.5)
+        cell.imageView?.image = cellImageViewDict[indexPath.row]?.scale(to: 0.5)
         cell.selectionStyle = .none
         
         return cell
     }
-    
+}
+
+extension MenuViewController {
     // MARK: - UITableView Delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -192,19 +199,18 @@ class FunctionsViewController: UIViewController, UITableViewDataSource, UITableV
     }
 }
 
-extension FunctionsViewController {
+extension MenuViewController {
     static let functionCellReuseIdentifier = "FunctionTableViewCell"
     static let tableViewEstimatedRowHeight: CGFloat = UIScreen.main.bounds.height * 0.145
     static let tableViewrowHeight: CGFloat = UIScreen.main.bounds.height * 0.090
-}
 
-extension FunctionsViewController {
-    static let shadowViewShadowOffset: CGSize = CGSize(width: UIScreen.main.bounds.width * 0.01, height: UIScreen.main.bounds.height * 0.006)
+    
+    static let shadowOffset: CGSize = CGSize(width: UIScreen.main.bounds.width * 0.01, height: UIScreen.main.bounds.height * 0.006)
     static let titleLabelFont: UIFont = UIFont.systemFont(ofSize: UIScreen.main.bounds.width * 0.05)
-    static let inset = UIScreen.main.bounds.width * 0.02
+    static let titleLabelinset = UIScreen.main.bounds.width * 0.02
 }
 
-protocol FunctionsViewControllerDelegate {
+protocol MenuViewControllerDelegate {
     func learningButtonTapped(lesson: Lesson)
     func vocabButtonTapped(lesson: Lesson)
     func sentencesButtonTapped(lesson: Lesson)

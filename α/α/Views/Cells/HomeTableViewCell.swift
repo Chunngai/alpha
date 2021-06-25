@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LessonTableViewCell: UITableViewCell {
+class HomeTableViewCell: UITableViewCell {
 
     // MARK: - Models
     
@@ -21,7 +21,7 @@ class LessonTableViewCell: UITableViewCell {
     
     // MARK: - Controllers
     
-    var delegate: LessonViewController!
+    var delegate: HomeViewController!
     
     // MARK: - Views
     
@@ -33,44 +33,36 @@ class LessonTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var tapGestureRecognizer: UITapGestureRecognizer = {
-        let gesture = UITapGestureRecognizer()
-        gesture.addTarget(self, action: #selector(buttonTapped))
-        return gesture
-    }()
-    
     lazy var button: UIButton = {
         let button = UIButton()
         contentView.addSubview(button)
+        
+        button.addSubview(label)
+        label.snp.makeConstraints { (make) in
+            make.left.top.bottom.equalToSuperview()
+            make.width.equalTo(HomeTableViewCell.labelWidth)
+        }
+        
+        var tapGestureRecognizer: UITapGestureRecognizer = {
+            let recognizer = UITapGestureRecognizer()
+            recognizer.addTarget(self, action: #selector(buttonTapped))
+            return recognizer
+        }()
+        button.addGestureRecognizer(tapGestureRecognizer)
+        
         button.layer.cornerRadius = 8
         button.layer.masksToBounds = true
         button.backgroundColor = .lightBlue
         button.setTitleColor(.black, for: .normal)
         button.contentHorizontalAlignment = .left
-        button.titleEdgeInsets = LessonTableViewCell.buttonTitleEdgeInsets
+        button.titleEdgeInsets = HomeTableViewCell.buttonTitleEdgeInsets
         button.titleLabel?.lineBreakMode = .byTruncatingTail
-        button.addGestureRecognizer(tapGestureRecognizer)
-        button.addSubview(label)
-        label.snp.makeConstraints { (make) in
-            make.left.top.bottom.equalToSuperview()
-            make.width.equalTo(LessonTableViewCell.labelWidth)
-        }
+        
         return button
     }()
         
     // MARK: - Init
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -87,28 +79,30 @@ class LessonTableViewCell: UITableViewCell {
         
         contentView.addSubview(button)
         button.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview().inset(LessonTableViewCell.buttonLeftRightInset)
-            make.top.equalToSuperview().inset(LessonTableViewCell.buttonTopInset)
+            make.left.right.equalToSuperview().inset(HomeTableViewCell.buttonLeftRightInset)
+            make.top.equalToSuperview().inset(HomeTableViewCell.buttonTopInset)
             make.bottom.equalToSuperview()
         }
     }
     
-    func updateValues(lesson: Lesson, delegate: LessonViewController) {
+    func updateValues(lesson: Lesson, delegate: HomeViewController) {
         self.lesson = lesson
+        
         self.delegate = delegate
     }
     
     // MARK: - Actions
     
     @objc func buttonTapped() {
-        delegate.displayFunctionViewController(lesson: lesson)
+        delegate.pushMenuViewController(lesson: lesson)
     }
 }
 
-extension LessonTableViewCell {
+extension HomeTableViewCell {
+    static let labelWidth: CGFloat = UIScreen.main.bounds.width * 0.085
+    
     static let buttonLeftRightInset: CGFloat = UIScreen.main.bounds.width * 0.02
     static let buttonTopInset: CGFloat = UIScreen.main.bounds.height * 0.005
-    static let labelWidth: CGFloat = UIScreen.main.bounds.width * 0.085
     static let buttonTitleEdgeInsets = UIEdgeInsets(
         top: 0,
         left: labelWidth + UIScreen.main.bounds.width * 0.014,
@@ -117,6 +111,6 @@ extension LessonTableViewCell {
     )
 }
 
-protocol LessonTableViewCellDelegate {
-    func displayFunctionViewController(lesson: Lesson)
+protocol HomeTableViewCellDelegate {
+    func pushMenuViewController(lesson: Lesson)
 }

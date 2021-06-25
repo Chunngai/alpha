@@ -9,24 +9,27 @@
 /* Begin PBXBuildFile section */
 		FF2917B825B0746600A076F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917B725B0746600A076F3 /* AppDelegate.swift */; };
 		FF2917BA25B0746600A076F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917B925B0746600A076F3 /* SceneDelegate.swift */; };
-		FF2917BC25B0746600A076F3 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917BB25B0746600A076F3 /* LessonViewController.swift */; };
+		FF2917BC25B0746600A076F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917BB25B0746600A076F3 /* HomeViewController.swift */; };
 		FF2917C125B0746700A076F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2917C025B0746700A076F3 /* Assets.xcassets */; };
 		FF2917C425B0746700A076F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2917C225B0746700A076F3 /* LaunchScreen.storyboard */; };
 		FF2917CF25B0746700A076F3 /* _Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917CE25B0746700A076F3 /* _Tests.swift */; };
 		FF2917DA25B0746700A076F3 /* _UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917D925B0746700A076F3 /* _UITests.swift */; };
-		FF49449425B1EBC100B4EDAA /* LessonNaviViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49449325B1EBC100B4EDAA /* LessonNaviViewController.swift */; };
+		FF45EDB52685D3AD0008E469 /* lesson2.json in Resources */ = {isa = PBXBuildFile; fileRef = FF45EDB02685D3AC0008E469 /* lesson2.json */; };
+		FF45EDB62685D3AD0008E469 /* lesson3.json in Resources */ = {isa = PBXBuildFile; fileRef = FF45EDB12685D3AC0008E469 /* lesson3.json */; };
+		FF45EDB72685D3AD0008E469 /* lesson5.json in Resources */ = {isa = PBXBuildFile; fileRef = FF45EDB22685D3AC0008E469 /* lesson5.json */; };
+		FF45EDB82685D3AD0008E469 /* lesson1.json in Resources */ = {isa = PBXBuildFile; fileRef = FF45EDB32685D3AD0008E469 /* lesson1.json */; };
+		FF45EDB92685D3AD0008E469 /* lesson4.json in Resources */ = {isa = PBXBuildFile; fileRef = FF45EDB42685D3AD0008E469 /* lesson4.json */; };
+		FF45EDBB2685E3990008E469 /* EdgeInsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDBA2685E3990008E469 /* EdgeInsetsLabel.swift */; };
+		FF49449425B1EBC100B4EDAA /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */; };
 		FF4944AC25B1F77300B4EDAA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; };
 		FF4944AD25B1F77300B4EDAA /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FF4C268B25C99A420030DFAD /* LessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C268A25C99A420030DFAD /* LessonTableViewCell.swift */; };
-		FF4C269025C9A10F0030DFAD /* lessonTitles.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF4C268F25C9A10F0030DFAD /* lessonTitles.txt */; };
+		FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */; };
 		FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54225B2B2C70084CEDE /* Lesson.swift */; };
-		FF4CB54925B2C6E10084CEDE /* FunctionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54825B2C6E10084CEDE /* FunctionsViewController.swift */; };
-		FF4CB54D25B2E2480084CEDE /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54C25B2E2480084CEDE /* LearningViewController.swift */; };
+		FF4CB54925B2C6E10084CEDE /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */; };
+		FF4CB54D25B2E2480084CEDE /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54C25B2E2480084CEDE /* ContentViewController.swift */; };
 		FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */; };
 		FF4CB55425B32DCC0084CEDE /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB55325B32DCC0084CEDE /* Text.swift */; };
-		FF4E78B925F3C43500853495 /* lessons.json in Resources */ = {isa = PBXBuildFile; fileRef = FF4E78B625F3C43400853495 /* lessons.json */; };
-		FF55241825CAF400008FA902 /* FunctionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF55241725CAF400008FA902 /* FunctionTableViewCell.swift */; };
-		FF7007C825BD6FF900455656 /* lessons.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF7007C525BD6FF900455656 /* lessons.txt */; };
+		FF55241825CAF400008FA902 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF55241725CAF400008FA902 /* MenuTableViewCell.swift */; };
 		FF94BB3F25F3B259007E6DA4 /* lesson9.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3325F3B259007E6DA4 /* lesson9.pdf */; };
 		FF94BB4025F3B259007E6DA4 /* lesson2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3625F3B259007E6DA4 /* lesson2.pdf */; };
 		FF94BB4125F3B259007E6DA4 /* lesson5.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3725F3B259007E6DA4 /* lesson5.pdf */; };
@@ -39,7 +42,7 @@
 		FF94BB4825F3B25A007E6DA4 /* lesson10.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3E25F3B259007E6DA4 /* lesson10.pdf */; };
 		FFA3B7D025BAFC78002F9D4C /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3B7CF25BAFC78002F9D4C /* TextView.swift */; };
 		FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B425B492FD003D84BA /* TextViewController.swift */; };
-		FFAC17B925B4937C003D84BA /* TextLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B825B4937C003D84BA /* TextLoopView.swift */; };
+		FFAC17B925B4937C003D84BA /* LoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B825B4937C003D84BA /* LoopView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,10 +91,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FF2917B425B0746600A076F3 /* 	.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "	.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF2917B425B0746600A076F3 /* α.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "α.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2917B725B0746600A076F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF2917B925B0746600A076F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FF2917BB25B0746600A076F3 /* LessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
+		FF2917BB25B0746600A076F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FF2917C025B0746700A076F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF2917C325B0746700A076F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF2917C525B0746700A076F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,18 +104,21 @@
 		FF2917D525B0746700A076F3 /* αUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "αUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2917D925B0746700A076F3 /* _UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _UITests.swift; sourceTree = "<group>"; };
 		FF2917DB25B0746700A076F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF49449325B1EBC100B4EDAA /* LessonNaviViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonNaviViewController.swift; sourceTree = "<group>"; };
+		FF45EDB02685D3AC0008E469 /* lesson2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson2.json; path = ../../lesson2.json; sourceTree = "<group>"; };
+		FF45EDB12685D3AC0008E469 /* lesson3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson3.json; path = ../../lesson3.json; sourceTree = "<group>"; };
+		FF45EDB22685D3AC0008E469 /* lesson5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson5.json; path = ../../lesson5.json; sourceTree = "<group>"; };
+		FF45EDB32685D3AD0008E469 /* lesson1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson1.json; path = ../../lesson1.json; sourceTree = "<group>"; };
+		FF45EDB42685D3AD0008E469 /* lesson4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson4.json; path = ../../lesson4.json; sourceTree = "<group>"; };
+		FF45EDBA2685E3990008E469 /* EdgeInsetsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsLabel.swift; sourceTree = "<group>"; };
+		FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "../../../SnapKit-develop/SnapKit.xcodeproj"; sourceTree = "<group>"; };
-		FF4C268A25C99A420030DFAD /* LessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
-		FF4C268F25C9A10F0030DFAD /* lessonTitles.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = lessonTitles.txt; sourceTree = "<group>"; };
+		FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		FF4CB54225B2B2C70084CEDE /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
-		FF4CB54825B2C6E10084CEDE /* FunctionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsViewController.swift; sourceTree = "<group>"; };
-		FF4CB54C25B2E2480084CEDE /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
+		FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		FF4CB54C25B2E2480084CEDE /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FF4CB55325B32DCC0084CEDE /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
-		FF4E78B625F3C43400853495 /* lessons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lessons.json; path = ../../lessons.json; sourceTree = "<group>"; };
-		FF55241725CAF400008FA902 /* FunctionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionTableViewCell.swift; sourceTree = "<group>"; };
-		FF7007C525BD6FF900455656 /* lessons.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = lessons.txt; path = ../../lessons.txt; sourceTree = "<group>"; };
+		FF55241725CAF400008FA902 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		FF94BB3325F3B259007E6DA4 /* lesson9.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson9.pdf; path = ../../lesson9.pdf; sourceTree = "<group>"; };
 		FF94BB3625F3B259007E6DA4 /* lesson2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson2.pdf; path = ../../lesson2.pdf; sourceTree = "<group>"; };
 		FF94BB3725F3B259007E6DA4 /* lesson5.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson5.pdf; path = ../../lesson5.pdf; sourceTree = "<group>"; };
@@ -125,7 +131,7 @@
 		FF94BB3E25F3B259007E6DA4 /* lesson10.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson10.pdf; path = ../../lesson10.pdf; sourceTree = "<group>"; };
 		FFA3B7CF25BAFC78002F9D4C /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		FFAC17B425B492FD003D84BA /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
-		FFAC17B825B4937C003D84BA /* TextLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLoopView.swift; sourceTree = "<group>"; };
+		FFAC17B825B4937C003D84BA /* LoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,8 +163,11 @@
 		FF2917AB25B0746600A076F3 = {
 			isa = PBXGroup;
 			children = (
-				FF4C268F25C9A10F0030DFAD /* lessonTitles.txt */,
-				FF7007C525BD6FF900455656 /* lessons.txt */,
+				FF45EDB32685D3AD0008E469 /* lesson1.json */,
+				FF45EDB02685D3AC0008E469 /* lesson2.json */,
+				FF45EDB12685D3AC0008E469 /* lesson3.json */,
+				FF45EDB42685D3AD0008E469 /* lesson4.json */,
+				FF45EDB22685D3AC0008E469 /* lesson5.json */,
 				FF94BB3B25F3B259007E6DA4 /* lesson1.pdf */,
 				FF94BB3625F3B259007E6DA4 /* lesson2.pdf */,
 				FF94BB3925F3B259007E6DA4 /* lesson3.pdf */,
@@ -169,7 +178,6 @@
 				FF94BB3C25F3B259007E6DA4 /* lesson8.pdf */,
 				FF94BB3325F3B259007E6DA4 /* lesson9.pdf */,
 				FF94BB3E25F3B259007E6DA4 /* lesson10.pdf */,
-				FF4E78B625F3C43400853495 /* lessons.json */,
 				FF2917B625B0746600A076F3 /* α */,
 				FF2917CD25B0746700A076F3 /* αTests */,
 				FF2917D825B0746700A076F3 /* αUITests */,
@@ -181,7 +189,7 @@
 		FF2917B525B0746600A076F3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FF2917B425B0746600A076F3 /* 	.app */,
+				FF2917B425B0746600A076F3 /* α.app */,
 				FF2917CA25B0746700A076F3 /* αTests.xctest */,
 				FF2917D525B0746700A076F3 /* αUITests.xctest */,
 			);
@@ -222,13 +230,49 @@
 			path = "αUITests";
 			sourceTree = "<group>";
 		};
+		FF45EDBC2685E6DF0008E469 /* NavigationViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */,
+			);
+			path = NavigationViewControllers;
+			sourceTree = "<group>";
+		};
+		FF45EDBD2685E6F10008E469 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF2917BB25B0746600A076F3 /* HomeViewController.swift */,
+				FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */,
+				FF4CB54C25B2E2480084CEDE /* ContentViewController.swift */,
+				FFAC17B425B492FD003D84BA /* TextViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FF45EDBE2685E7060008E469 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */,
+				FF55241725CAF400008FA902 /* MenuTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FF45EDBF2685E70F0008E469 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FFA3B7CF25BAFC78002F9D4C /* TextView.swift */,
+				FFAC17B825B4937C003D84BA /* LoopView.swift */,
+				FF45EDBA2685E3990008E469 /* EdgeInsetsLabel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FF49449125B1EA4400B4EDAA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FF4C268A25C99A420030DFAD /* LessonTableViewCell.swift */,
-				FF55241725CAF400008FA902 /* FunctionTableViewCell.swift */,
-				FFA3B7CF25BAFC78002F9D4C /* TextView.swift */,
-				FFAC17B825B4937C003D84BA /* TextLoopView.swift */,
+				FF45EDBE2685E7060008E469 /* Cells */,
+				FF45EDBF2685E70F0008E469 /* Views */,
 				FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */,
 			);
 			path = Views;
@@ -237,11 +281,8 @@
 		FF49449225B1EA5800B4EDAA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FF49449325B1EBC100B4EDAA /* LessonNaviViewController.swift */,
-				FF2917BB25B0746600A076F3 /* LessonViewController.swift */,
-				FF4CB54825B2C6E10084CEDE /* FunctionsViewController.swift */,
-				FF4CB54C25B2E2480084CEDE /* LearningViewController.swift */,
-				FFAC17B425B492FD003D84BA /* TextViewController.swift */,
+				FF45EDBC2685E6DF0008E469 /* NavigationViewControllers */,
+				FF45EDBD2685E6F10008E469 /* ViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -274,9 +315,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FF2917B325B0746600A076F3 /* 	 */ = {
+		FF2917B325B0746600A076F3 /* α */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FF2917DE25B0746700A076F3 /* Build configuration list for PBXNativeTarget "	" */;
+			buildConfigurationList = FF2917DE25B0746700A076F3 /* Build configuration list for PBXNativeTarget "α" */;
 			buildPhases = (
 				FF2917B025B0746600A076F3 /* Sources */,
 				FF2917B125B0746600A076F3 /* Frameworks */,
@@ -287,9 +328,9 @@
 			);
 			dependencies = (
 			);
-			name = "	";
+			name = "α";
 			productName = "α";
-			productReference = FF2917B425B0746600A076F3 /* 	.app */;
+			productReference = FF2917B425B0746600A076F3 /* α.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FF2917C925B0746700A076F3 /* αTests */ = {
@@ -370,7 +411,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				FF2917B325B0746600A076F3 /* 	 */,
+				FF2917B325B0746600A076F3 /* α */,
 				FF2917C925B0746700A076F3 /* αTests */,
 				FF2917D425B0746700A076F3 /* αUITests */,
 			);
@@ -399,21 +440,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF7007C825BD6FF900455656 /* lessons.txt in Resources */,
 				FF94BB4425F3B259007E6DA4 /* lesson4.pdf in Resources */,
-				FF4E78B925F3C43500853495 /* lessons.json in Resources */,
 				FF94BB4025F3B259007E6DA4 /* lesson2.pdf in Resources */,
+				FF45EDB62685D3AD0008E469 /* lesson3.json in Resources */,
 				FF94BB3F25F3B259007E6DA4 /* lesson9.pdf in Resources */,
 				FF94BB4525F3B259007E6DA4 /* lesson1.pdf in Resources */,
 				FF2917C425B0746700A076F3 /* LaunchScreen.storyboard in Resources */,
 				FF94BB4125F3B259007E6DA4 /* lesson5.pdf in Resources */,
 				FF94BB4725F3B259007E6DA4 /* lesson7.pdf in Resources */,
 				FF94BB4625F3B259007E6DA4 /* lesson8.pdf in Resources */,
+				FF45EDB52685D3AD0008E469 /* lesson2.json in Resources */,
 				FF94BB4225F3B259007E6DA4 /* lesson6.pdf in Resources */,
+				FF45EDB82685D3AD0008E469 /* lesson1.json in Resources */,
 				FF2917C125B0746700A076F3 /* Assets.xcassets in Resources */,
 				FF94BB4825F3B25A007E6DA4 /* lesson10.pdf in Resources */,
+				FF45EDB92685D3AD0008E469 /* lesson4.json in Resources */,
+				FF45EDB72685D3AD0008E469 /* lesson5.json in Resources */,
 				FF94BB4325F3B259007E6DA4 /* lesson3.pdf in Resources */,
-				FF4C269025C9A10F0030DFAD /* lessonTitles.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,20 +481,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF4CB54D25B2E2480084CEDE /* LearningViewController.swift in Sources */,
-				FF49449425B1EBC100B4EDAA /* LessonNaviViewController.swift in Sources */,
+				FF4CB54D25B2E2480084CEDE /* ContentViewController.swift in Sources */,
+				FF49449425B1EBC100B4EDAA /* MainNavigationViewController.swift in Sources */,
 				FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */,
-				FF2917BC25B0746600A076F3 /* LessonViewController.swift in Sources */,
-				FF4CB54925B2C6E10084CEDE /* FunctionsViewController.swift in Sources */,
+				FF45EDBB2685E3990008E469 /* EdgeInsetsLabel.swift in Sources */,
+				FF2917BC25B0746600A076F3 /* HomeViewController.swift in Sources */,
+				FF4CB54925B2C6E10084CEDE /* MenuViewController.swift in Sources */,
 				FF2917B825B0746600A076F3 /* AppDelegate.swift in Sources */,
 				FFA3B7D025BAFC78002F9D4C /* TextView.swift in Sources */,
 				FF4CB55425B32DCC0084CEDE /* Text.swift in Sources */,
-				FF4C268B25C99A420030DFAD /* LessonTableViewCell.swift in Sources */,
-				FF55241825CAF400008FA902 /* FunctionTableViewCell.swift in Sources */,
+				FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */,
+				FF55241825CAF400008FA902 /* MenuTableViewCell.swift in Sources */,
 				FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */,
 				FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */,
 				FF2917BA25B0746600A076F3 /* SceneDelegate.swift in Sources */,
-				FFAC17B925B4937C003D84BA /* TextLoopView.swift in Sources */,
+				FFAC17B925B4937C003D84BA /* LoopView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,12 +520,12 @@
 /* Begin PBXTargetDependency section */
 		FF2917CC25B0746700A076F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FF2917B325B0746600A076F3 /* 	 */;
+			target = FF2917B325B0746600A076F3 /* α */;
 			targetProxy = FF2917CB25B0746700A076F3 /* PBXContainerItemProxy */;
 		};
 		FF2917D725B0746700A076F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FF2917B325B0746600A076F3 /* 	 */;
+			target = FF2917B325B0746600A076F3 /* α */;
 			targetProxy = FF2917D625B0746700A076F3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -625,7 +669,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Sola.alpha;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "α";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -644,7 +688,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Sola.alpha;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "α";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -746,7 +790,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FF2917DE25B0746700A076F3 /* Build configuration list for PBXNativeTarget "	" */ = {
+		FF2917DE25B0746700A076F3 /* Build configuration list for PBXNativeTarget "α" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FF2917DF25B0746700A076F3 /* Debug */,

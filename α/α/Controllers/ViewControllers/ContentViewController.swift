@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import PDFKit
 
-class LearningViewController: UIViewController {
+class ContentViewController: UIViewController {
 
     var document: PDFDocument!
     
@@ -25,6 +25,7 @@ class LearningViewController: UIViewController {
     func updateViews() {
         let pdfView = PDFView(frame: view.frame)  // Don't use snapkit here!
         view.addSubview(pdfView)
+        
         pdfView.document = document
         pdfView.autoScales = true
         pdfView.maxScaleFactor = 4.0

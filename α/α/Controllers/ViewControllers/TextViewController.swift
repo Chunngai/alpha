@@ -30,7 +30,7 @@ class TextViewController: UIViewController {
         view.backgroundColor = .white
         
         // TODO: - Wrap the code here
-        let textLoopView = TextLoopView(frame: CGRect(
+        let textLoopView = LoopView(frame: CGRect(
             x: 0,
             y: (navigationController?.navigationBar.frame.maxY)!,
             width: view.frame.width,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextLoopView: UIView, UIScrollViewDelegate {
+class LoopView: UIView, UIScrollViewDelegate {
 
     private var currentPage: Int = 0
     private var textViewType: TextView.Type_!
