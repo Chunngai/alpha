@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Lesson {
+struct Lesson: Codable {
     
     var id: Int!
     var title: String!
@@ -23,7 +23,7 @@ struct Lesson {
     
     // TODO: Load from disk
     static func loadLessons() -> [Lesson] {
-        var lessons: [Lesson] = []
+//        var lessons: [Lesson] = []
         
 //        for i in 1...50 {
 //            lessons.append(Lesson(id: i, title: "Lesson" + String(i), pdfPath: "", vocab: [], sentences: []))
@@ -60,117 +60,132 @@ struct Lesson {
 //            Text(greek: "s6", english: "6")
 //        ])
         
-        guard let path = Bundle.main.url(forResource: "lessons", withExtension: "txt") else { return [] }
+//        guard let path = Bundle.main.url(forResource: "lessons", withExtension: "txt") else { return [] }
+//
+//        let data = try! Data(contentsOf: path)
+//        if let text = String(data: data, encoding: .utf8) {
+//            let linesSubSequences = text.split(separator: "\n")
+//            var lines: [String] = []
+//            for i in 0..<linesSubSequences.count {
+//                lines.append(String(linesSubSequences[i]))
+//            }
+//
+//            var lesson = Lesson(id: nil, pdfPath: "", vocab: [], sentences: [])
+//            while !lines.isEmpty {
+//                var line = lines.removeFirst()
+//
+//                if line.contains("<LESSON id=") {
+//                    lesson.id = Int(Lesson.getRegexResult(text: line, pattern: "<LESSON id=\"(\\d+)\">", group: 1)!)
+//                    continue
+//                }
+//                if line.contains("</LESSON>") {
+//                    lessons.append(lesson)
+//                    lesson = Lesson(id: nil, pdfPath: "", vocab: [], sentences: [])
+//                    continue
+//                }
+//
+//                if line.contains("<VOCAB>") {
+//                    while true {
+//                        line = lines.removeFirst()
+//                        if line.trimmingCharacters(in: .whitespaces) == "<EXPLANATION>" {
+//                            let explanation = lines.removeFirst().trimmingCharacters(in: .whitespaces)
+//
+//                            var text = lesson.vocab.removeLast()
+//                            text = Text(greek: text.greek, english: text.english, explanation: explanation)
+//                            lesson.vocab.append(text)
+//
+//                            lines.removeFirst()
+//                            continue
+//                        }
+//                        if line.trimmingCharacters(in: .whitespaces) == "" {
+//                            continue
+//                        }
+//                        if line == "</VOCAB>" {
+//                            break
+//                        }
+//                        let el = line.trimmingCharacters(in: [" "])
+//
+//                        line = lines.removeFirst()
+//                        let en = line.trimmingCharacters(in: [" "])
+//
+//                        lesson.vocab.append(Text(greek: el, english: en))
+//                    }
+//                    continue
+//                }
+//
+//                if line.contains("<SENTENCES>") {
+//                    while true {
+//                        line = lines.removeFirst()
+//                        if line.trimmingCharacters(in: .whitespaces) == "" {
+//                            continue
+//                        }
+//                        if line == "</SENTENCES>" {
+//                            break
+//                        }
+//                        let el = line.trimmingCharacters(in: [" "])
+//
+//                        line = lines.removeFirst()
+//                        let en = line.trimmingCharacters(in: [" "])
+//
+//                        lesson.sentences.append(Text(greek: el, english: en))
+//                    }
+//                    continue
+//                }
+//            }
+//        }
+//
+//        guard let path_ = Bundle.main.url(forResource: "lessonTitles", withExtension: "txt") else { return [] }
+//        let data_ = try! Data(contentsOf: path_)
+//        if let text = String(data: data_, encoding: .utf8) {
+//            let linesSubSequences = text.split(separator: "\n")
+//            var lines: [String] = []
+//            for i in 0..<linesSubSequences.count {
+//                lines.append(String(linesSubSequences[i]))
+//            }
+//
+//            for i in 0..<lines.count {
+//                if i < lessons.count {
+//                    lessons[i].title = lines[i]
+//                } else {
+//                    var lesson = Lesson(id: i+1, pdfPath: "", vocab: [], sentences: [])
+//                    lesson.title = lines[i]
+//                    lessons.append(lesson)
+//                }
+//            }
+//        }
         
-        let data = try! Data(contentsOf: path)
-        if let text = String(data: data, encoding: .utf8) {
-            let linesSubSequences = text.split(separator: "\n")
-            var lines: [String] = []
-            for i in 0..<linesSubSequences.count {
-                lines.append(String(linesSubSequences[i]))
+        guard let path = Bundle.main.path(forResource: "lessons", ofType: ".json") else { return [] }
+        let localData = NSData.init(contentsOfFile: path)! as Data
+        do {
+            let lessonsModel = try JSONDecoder().decode(LessonsModel.self, from: localData)
+            var lessons: [Lesson] = []
+            for lesson in lessonsModel.lessons {
+                lessons.append(lesson)
             }
-            
-            var lesson = Lesson(id: nil, pdfPath: "", vocab: [], sentences: [])
-            while !lines.isEmpty {
-                var line = lines.removeFirst()
-                
-                if line.contains("<LESSON id=") {
-                    lesson.id = Int(Lesson.getRegexResult(text: line, pattern: "<LESSON id=\"(\\d+)\">", group: 1)!)
-                    continue
-                }
-                if line.contains("</LESSON>") {
-                    lessons.append(lesson)
-                    lesson = Lesson(id: nil, pdfPath: "", vocab: [], sentences: [])
-                    continue
-                }
-                
-                if line.contains("<VOCAB>") {
-                    while true {
-                        line = lines.removeFirst()
-                        if line.trimmingCharacters(in: .whitespaces) == "<EXPLANATION>" {
-                            let explanation = lines.removeFirst().trimmingCharacters(in: .whitespaces)
-                            
-                            var text = lesson.vocab.removeLast()
-                            text = Text(greek: text.greek, english: text.english, explanation: explanation)
-                            lesson.vocab.append(text)
-                            
-                            lines.removeFirst()
-                            continue
-                        }
-                        if line.trimmingCharacters(in: .whitespaces) == "" {
-                            continue
-                        }
-                        if line == "</VOCAB>" {
-                            break
-                        }
-                        let el = line.trimmingCharacters(in: [" "])
-                        
-                        line = lines.removeFirst()
-                        let en = line.trimmingCharacters(in: [" "])
-                        
-                        lesson.vocab.append(Text(greek: el, english: en))
-                    }
-                    continue
-                }
-                
-                if line.contains("<SENTENCES>") {
-                    while true {
-                        line = lines.removeFirst()
-                        if line.trimmingCharacters(in: .whitespaces) == "" {
-                            continue
-                        }
-                        if line == "</SENTENCES>" {
-                            break
-                        }
-                        let el = line.trimmingCharacters(in: [" "])
-                        
-                        line = lines.removeFirst()
-                        let en = line.trimmingCharacters(in: [" "])
-                        
-                        lesson.sentences.append(Text(greek: el, english: en))
-                    }
-                    continue
-                }
-            }
-        }
-        
-        guard let path_ = Bundle.main.url(forResource: "lessonTitles", withExtension: "txt") else { return [] }
-        let data_ = try! Data(contentsOf: path_)
-        if let text = String(data: data_, encoding: .utf8) {
-            let linesSubSequences = text.split(separator: "\n")
-            var lines: [String] = []
-            for i in 0..<linesSubSequences.count {
-                lines.append(String(linesSubSequences[i]))
-            }
-            
-            for i in 0..<lines.count {
-                if i < lessons.count {
-                    lessons[i].title = lines[i]
-                } else {
-                    var lesson = Lesson(id: i+1, pdfPath: "", vocab: [], sentences: [])
-                    lesson.title = lines[i]
-                    lessons.append(lesson)
-                }
-            }
-        }
-        
-        return lessons
+            return lessons
+        } catch {
+            return []
+        }        
     }
     
     // MARK: - Utils
     
-    static func getRegexResult(text: String, pattern: String, group: Int) -> String? {
-        let pattern = pattern
-        let regex = try? NSRegularExpression(pattern: pattern, options: [])
-        let res = regex?.firstMatch(in: text, options: [], range: NSRange(location: 0, length: text.count))
-        
-        if let res = res {
-            let dataCountRange = res.range(at: group)
-            let startIndex = text.index(text.startIndex, offsetBy: dataCountRange.location)
-            let endIndex = text.index(text.startIndex, offsetBy: dataCountRange.location + dataCountRange.length)
-            return String(text[startIndex..<endIndex])
-        }
-        
-        return nil
-    }
+//    static func getRegexResult(text: String, pattern: String, group: Int) -> String? {
+//        let pattern = pattern
+//        let regex = try? NSRegularExpression(pattern: pattern, options: [])
+//        let res = regex?.firstMatch(in: text, options: [], range: NSRange(location: 0, length: text.count))
+//
+//        if let res = res {
+//            let dataCountRange = res.range(at: group)
+//            let startIndex = text.index(text.startIndex, offsetBy: dataCountRange.location)
+//            let endIndex = text.index(text.startIndex, offsetBy: dataCountRange.location + dataCountRange.length)
+//            return String(text[startIndex..<endIndex])
+//        }
+//
+//        return nil
+//    }
+}
+
+struct LessonsModel: Codable {
+    var lessons: [Lesson]
 }

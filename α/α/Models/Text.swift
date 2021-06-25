@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Text {
+struct Text: Codable {
     var greek: String
     var english: String
     

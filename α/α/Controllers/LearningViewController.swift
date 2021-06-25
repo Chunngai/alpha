@@ -34,7 +34,7 @@ class LearningViewController: UIViewController {
     }
     
     func updateValues(lessonId: Int) {
-        guard let url = Bundle.main.url(forResource: "ch\(lessonId)", withExtension: "pdf") else { return }
+        guard let url = Bundle.main.url(forResource: "lesson\(lessonId)", withExtension: "pdf") else { return }
         guard let doc = PDFDocument(url: url) else { return }
         document = doc
     }

@@ -61,8 +61,13 @@ class FunctionsViewController: UIViewController, UITableViewDataSource, UITableV
         return labelView
     }()
     
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
+    lazy var titleLabel: UIEdgeInsetsLabel = {
+        let label = UIEdgeInsetsLabel(
+            top: FunctionsViewController.inset,
+            left: FunctionsViewController.inset,
+            bottom: FunctionsViewController.inset,
+            right: FunctionsViewController.inset
+        )
         titieLabelShadowView.addSubview(label)
         label.backgroundColor = .white
         label.textColor = .black
@@ -196,6 +201,7 @@ extension FunctionsViewController {
 extension FunctionsViewController {
     static let shadowViewShadowOffset: CGSize = CGSize(width: UIScreen.main.bounds.width * 0.01, height: UIScreen.main.bounds.height * 0.006)
     static let titleLabelFont: UIFont = UIFont.systemFont(ofSize: UIScreen.main.bounds.width * 0.05)
+    static let inset = UIScreen.main.bounds.width * 0.02
 }
 
 protocol FunctionsViewControllerDelegate {
