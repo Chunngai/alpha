@@ -97,7 +97,10 @@ extension HomeViewController {
         guard lesson.vocab.count > 0 else { return }
         
         let vocabViewController = TextViewController()
-        vocabViewController.updateValues(texts: lesson.vocab, type_: TextView.Type_.word)
+        vocabViewController.updateValues(
+            texts: lesson.vocab,
+            mode: TextViewController.Mode.vocabulary
+        )
         navigationController?.pushViewController(vocabViewController, animated: true)
     }
     
@@ -105,7 +108,10 @@ extension HomeViewController {
         guard lesson.sentences.count > 0 else { return }
         
         let sentencesViewController = TextViewController()
-        sentencesViewController.updateValues(texts: lesson.sentences, type_: TextView.Type_.sent)
+        sentencesViewController.updateValues(
+            texts: lesson.sentences,
+            mode: TextViewController.Mode.sentences
+        )
         navigationController?.pushViewController(sentencesViewController, animated: true)
     }
     
