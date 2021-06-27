@@ -29,7 +29,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         )
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = HomeViewController.tableViewEstimatedRowHeight
+//        tableView.estimatedRowHeight = HomeViewController.tableViewEstimatedRowHeight
         tableView.rowHeight = HomeViewController.tableViewRowHeight
         
         return tableView
@@ -124,6 +124,6 @@ extension HomeViewController {
 extension HomeViewController {
     static let tableViewCellReuseIdentifier = "HomeTableViewCell"
     static let tableViewEstimatedRowHeight: CGFloat = UIScreen.main.bounds.height * 0.145
-    static let tableViewRowHeight: CGFloat = UIScreen.main.bounds.height * 0.067
+    static let tableViewRowHeight: CGFloat = UIScreen.main.bounds.height * 0.078
 }
 
