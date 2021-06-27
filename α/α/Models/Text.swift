@@ -9,8 +9,8 @@
 import Foundation
 
 struct Text: Codable {
-    var greek: String
-    var english: String
+    var greek: String!
+    var english: String!
     
     var explanation: String?
 }

@@ -15,12 +15,6 @@ class DetailedTextView: BaseTextView {
     lazy var wordLabel: UILabel = {
         let label = UILabel()
         mainView.addSubview(label)
-        label.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().inset(30)
-            make.leading.equalToSuperview().inset(25)
-            make.trailing.equalToSuperview().inset(25)
-            make.height.equalToSuperview().multipliedBy(0.08)
-        }
         
         label.backgroundColor = mainView.backgroundColor
         label.textColor = .black
@@ -31,7 +25,7 @@ class DetailedTextView: BaseTextView {
         return label
     }()
     
-    lazy var mearningLabel: EdgeInsetsLabel = {
+    lazy var meaningLabel: EdgeInsetsLabel = {
         let label = EdgeInsetsLabel(
             top: DetailedTextView.labelInset,
             left: DetailedTextView.labelInset,
@@ -39,11 +33,6 @@ class DetailedTextView: BaseTextView {
             right: DetailedTextView.labelInset
         )
         mainView.addSubview(label)
-        label.snp.makeConstraints { (make) in
-            make.top.equalTo(wordLabel.snp.bottom).offset(20)
-            make.leading.equalTo(wordLabel.snp.leading)
-            make.width.equalTo(wordLabel.snp.width)
-        }
         
         label.backgroundColor = .lightText
         label.textColor = .black
@@ -65,11 +54,6 @@ class DetailedTextView: BaseTextView {
             right: DetailedTextView.labelInset
         )
         mainView.addSubview(label)
-        label.snp.makeConstraints { (make) in
-            make.top.equalTo(mearningLabel.snp.bottom).offset(20)
-            make.leading.equalTo(wordLabel.snp.leading)
-            make.width.equalTo(wordLabel.snp.width)
-        }
         
         label.backgroundColor = .lightText
         label.textColor = .black
@@ -97,6 +81,25 @@ class DetailedTextView: BaseTextView {
     
     override func updateViews() {
         super.updateViews()
+        
+        wordLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().inset(30)
+            make.leading.equalToSuperview().inset(25)
+            make.trailing.equalToSuperview().inset(25)
+            make.height.equalToSuperview().multipliedBy(0.08)
+        }
+        
+        meaningLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(wordLabel.snp.bottom).offset(20)
+            make.leading.equalTo(wordLabel.snp.leading)
+            make.width.equalTo(wordLabel.snp.width)
+        }
+        
+        explanationLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(meaningLabel.snp.bottom).offset(20)
+            make.leading.equalTo(wordLabel.snp.leading)
+            make.width.equalTo(wordLabel.snp.width)
+        }
     }
 }
 

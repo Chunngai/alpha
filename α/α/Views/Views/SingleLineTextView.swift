@@ -15,12 +15,6 @@ class SingleLineTextView: BaseTextView {
     lazy var label: UILabel = {
         let label = UILabel()
         mainView.addSubview(label)
-        label.snp.makeConstraints { (make) in
-            make.height.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.90)
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-        }
         
         label.backgroundColor = mainView.backgroundColor
         label.textColor = .black
@@ -45,6 +39,13 @@ class SingleLineTextView: BaseTextView {
     
     override func updateViews() {
         super.updateViews()
+        
+        label.snp.makeConstraints { (make) in
+            make.height.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.90)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
     }
 }
 

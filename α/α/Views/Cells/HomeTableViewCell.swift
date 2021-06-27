@@ -77,7 +77,6 @@ class HomeTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         self.backgroundColor = .white
         
-        contentView.addSubview(button)
         button.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview().inset(HomeTableViewCell.buttonLeftRightInset)
             make.top.equalToSuperview().inset(HomeTableViewCell.buttonTopInset)

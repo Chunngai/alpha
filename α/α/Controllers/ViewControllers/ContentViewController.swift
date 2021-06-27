@@ -14,15 +14,9 @@ class ContentViewController: UIViewController {
 
     var document: PDFDocument!
     
-    // MARK: - Init
+    // MARK: - Views
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        updateViews()
-    }
-
-    func updateViews() {
+    lazy var pdfView: PDFView = {
         let pdfView = PDFView(frame: view.frame)  // Don't use snapkit here!
         view.addSubview(pdfView)
         
@@ -32,6 +26,22 @@ class ContentViewController: UIViewController {
         pdfView.minScaleFactor = pdfView.scaleFactorForSizeToFit
         pdfView.displayMode = .singlePageContinuous
         pdfView.displaysPageBreaks = true
+        
+        return pdfView
+    }()
+    
+    // MARK: - Init
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        updateViews()
+    }
+
+    func updateViews() {
+        // TODO: - how to display the pdf view wo the pring statement here?
+        // TODO: - or use snapkit here?
+        print(pdfView)
     }
     
     func updateValues(lessonId: Int) {

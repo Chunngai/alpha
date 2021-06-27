@@ -34,7 +34,10 @@ class LoopView: UIView, UIScrollViewDelegate {
     lazy var height: CGFloat = {
         return self.frame.size.height
     }()
-        
+    
+    private let textView0: TextViewSelector = TextViewSelector()
+    private let textView1: TextViewSelector = TextViewSelector()
+    private let textView2: TextViewSelector = TextViewSelector()
     lazy private var loopScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         addSubview(scrollView)
@@ -63,9 +66,6 @@ class LoopView: UIView, UIScrollViewDelegate {
         
         return scrollView
     }()
-    private let textView0: TextViewSelector = TextViewSelector()
-    private let textView1: TextViewSelector = TextViewSelector()
-    private let textView2: TextViewSelector = TextViewSelector()
     
     // MARK: - Init
         
@@ -111,7 +111,6 @@ class LoopView: UIView, UIScrollViewDelegate {
 }
 
 extension LoopView {
-    // MARK: - UIScrollView delegate
     
     private func endScrollMethod(ratio:CGFloat) {
         if ratio <= 0.7 {
@@ -131,6 +130,8 @@ extension LoopView {
         
         self.updateTexts()
     }
+    
+    // MARK: - UIScrollView delegate
     
     internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let ratio = scrollView.contentOffset.x / width

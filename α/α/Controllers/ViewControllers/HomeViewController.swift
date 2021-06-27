@@ -48,6 +48,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func initViews() {
         navigationItem.title = "Lessons"
         
+        // Cannot add the snippet of code below to the closure of lessonTableView.
+        // There must be some code that accesses the lessonTableView
+        // to activate it since it is lazy.
         lessonTableView.snp.makeConstraints { (make) in
             make.width.equalToSuperview().multipliedBy(0.95)
             make.height.equalToSuperview()

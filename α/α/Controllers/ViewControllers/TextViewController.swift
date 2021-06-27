@@ -9,6 +9,12 @@
 import UIKit
 
 class TextViewController: UIViewController {
+    
+    var mode: TextViewController.Mode!
+    
+    // MARK: - Models
+    
+    var texts: [Text]!
         
     // MARK: - Views
     
@@ -37,9 +43,6 @@ class TextViewController: UIViewController {
         view.addSubview(loopView)
         loopView.updateValues(texts: texts, mode: mode)
     }
-    
-    var texts: [Text]!
-    var mode: TextViewController.Mode!
     
     func updateValues(texts: [Text], mode: TextViewController.Mode) {
         self.texts = texts

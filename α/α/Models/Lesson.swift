@@ -16,11 +16,11 @@ struct Lesson: Codable {
     var vocab: [Text]!
     var sentences: [Text]!
     
-    // MARK: IO.
+    // MARK: IO
     
     static func loadLesson(id: Int) -> Lesson? {
-        guard let fpLesson = Bundle.main.path(forResource: "lesson\(id)", ofType: ".json") else { return nil }
-        let lessonData = NSData.init(contentsOfFile: fpLesson)! as Data
+        guard let lessonPath = Bundle.main.path(forResource: "lesson\(id)", ofType: ".json") else { return nil }
+        let lessonData = NSData.init(contentsOfFile: lessonPath)! as Data
         do {
             let lesson = try JSONDecoder().decode(Lesson.self, from: lessonData)
             return lesson

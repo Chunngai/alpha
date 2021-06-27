@@ -36,21 +36,6 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: - Views
     
-    lazy var lessonLabel: UILabel = {
-        let label = UILabel()
-        titleLabel.addSubview(label)
-        
-        label.backgroundColor = UIColor.lightBlue
-        label.textColor = .black
-        label.textAlignment = .center
-        label.layer.cornerRadius = titleLabel.layer.cornerRadius
-        label.layer.maskedCorners = CACornerMask(rawValue:CACornerMask.layerMaxXMaxYCorner.rawValue)
-        label.layer.masksToBounds = true
-        label.text = "Lesson \(lesson.id!)"
-        
-        return label
-    }()
-    
     lazy var titieLabelShadowView: UIView = {
         let labelView = UIView()
         view.addSubview(labelView)
@@ -80,6 +65,21 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         label.text = lesson.title
         label.numberOfLines = 0
         label.font = MenuViewController.titleLabelFont
+        
+        return label
+    }()
+    
+    lazy var lessonLabel: UILabel = {
+        let label = UILabel()
+        titleLabel.addSubview(label)
+        
+        label.backgroundColor = UIColor.lightBlue
+        label.textColor = .black
+        label.textAlignment = .center
+        label.layer.cornerRadius = titleLabel.layer.cornerRadius
+        label.layer.maskedCorners = CACornerMask(rawValue:CACornerMask.layerMaxXMaxYCorner.rawValue)
+        label.layer.masksToBounds = true
+        label.text = "Lesson \(lesson.id!)"
         
         return label
     }()
@@ -133,9 +133,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         titieLabelShadowView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(UIScreen.main.bounds.height * 0.12)
-            make.height.equalTo(UIScreen.main.bounds.height * 0.25)
-            make.width.equalTo(UIScreen.main.bounds.width * 0.9)
+            make.top.equalToSuperview().offset(MenuViewController.titleShadowViewTopOffset)
+            make.height.equalTo(MenuViewController.titleShadowViewHeight)
+            make.width.equalTo(MenuViewController.titleShadowViewWidth)
         }
         titleLabel.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
@@ -145,14 +145,14 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         menuTableShadowView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(titieLabelShadowView.snp.bottom).offset(UIScreen.main.bounds.height * 0.025)
+            make.top.equalTo(titieLabelShadowView.snp.bottom).offset(MenuViewController.tableShadowViewOffset)
             make.height.equalTo(MenuViewController.tableViewrowHeight * 5)
             make.width.equalTo(titieLabelShadowView.snp.width)
         }
         menuTableView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.98)
-            make.height.equalTo(MenuViewController.tableViewrowHeight * 5)
+            make.height.equalTo(menuTableShadowView)
         }
     }
     
@@ -208,6 +208,11 @@ extension MenuViewController {
     static let shadowOffset: CGSize = CGSize(width: UIScreen.main.bounds.width * 0.01, height: UIScreen.main.bounds.height * 0.006)
     static let titleLabelFont: UIFont = UIFont.systemFont(ofSize: UIScreen.main.bounds.width * 0.05)
     static let titleLabelinset = UIScreen.main.bounds.width * 0.02
+    
+    static let titleShadowViewTopOffset = UIScreen.main.bounds.height * 0.12
+    static let titleShadowViewHeight = UIScreen.main.bounds.height * 0.25
+    static let titleShadowViewWidth = UIScreen.main.bounds.width * 0.9
+    static let tableShadowViewOffset = UIScreen.main.bounds.height * 0.025
 }
 
 protocol MenuViewControllerDelegate {

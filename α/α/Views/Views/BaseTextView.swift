@@ -15,12 +15,6 @@ class BaseTextView: UIView {
     lazy var mainView: UIView = {
         let mainView = UIView()
         addSubview(mainView)
-        mainView.snp.makeConstraints { (make) in
-            make.height.equalToSuperview().multipliedBy(0.90)
-            make.width.equalToSuperview().multipliedBy(0.90)
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-        }
         
         mainView.backgroundColor = .lightBlue
         mainView.layer.cornerRadius = 10
@@ -42,5 +36,11 @@ class BaseTextView: UIView {
     }
     
     func updateViews() {
+        mainView.snp.makeConstraints { (make) in
+            make.height.equalToSuperview().multipliedBy(0.90)
+            make.width.equalToSuperview().multipliedBy(0.90)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
     }
 }

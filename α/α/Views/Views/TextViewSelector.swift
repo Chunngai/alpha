@@ -15,20 +15,12 @@ class TextViewSelector: UIView {
     lazy var singleLineTextView: SingleLineTextView = {
         let textView = SingleLineTextView()
         addSubview(textView)
-        textView.snp.makeConstraints { (make) in
-            make.top.bottom.left.right.equalToSuperview()
-        }
-        
         return textView
     }()
     
     lazy var detailedTextView: DetailedTextView = {
         let textView = DetailedTextView()
         addSubview(textView)
-        textView.snp.makeConstraints { (make) in
-            make.top.bottom.left.right.equalToSuperview()
-        }
-        
         return textView
     }()
 
@@ -45,6 +37,13 @@ class TextViewSelector: UIView {
     }
     
     func updateViews() {
+        singleLineTextView.snp.makeConstraints { (make) in
+            make.top.bottom.left.right.equalToSuperview()
+        }
+        
+        detailedTextView.snp.makeConstraints { (make) in
+            make.top.bottom.left.right.equalToSuperview()
+        }
     }
     
     // MARK: - Utils
@@ -74,7 +73,7 @@ class TextViewSelector: UIView {
         singleLineTextView.isHidden = true
         
         detailedTextView.wordLabel.text = greekString
-        detailedTextView.mearningLabel.text = englishString
+        detailedTextView.meaningLabel.text = englishString
         if let explanationString = explanationString {
             detailedTextView.explanationLabel.isHidden = false
             detailedTextView.explanationLabel.text = explanationString
