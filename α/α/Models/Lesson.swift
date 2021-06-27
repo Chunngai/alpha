@@ -11,10 +11,10 @@ import Foundation
 struct Lesson: Codable {
     var id: Int!
     var title: String!
+    var vocab: [Word]!
+    var sentences: [Sentence]!
     
     var pdfPath: String!
-    var vocab: [Text]!
-    var sentences: [Text]!
     
     // MARK: IO
     
@@ -31,7 +31,7 @@ struct Lesson: Codable {
     
     static func loadLessons() -> [Lesson] {
         var lessons: [Lesson] = []
-        for id in 1...5 {
+        for id in 1...3 {
             if let lesson = loadLesson(id: id) {
                 lessons.append(lesson)
             }

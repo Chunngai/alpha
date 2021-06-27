@@ -9,12 +9,11 @@
 import UIKit
 
 class TextViewController: UIViewController {
-    
-    var mode: TextViewController.Mode!
-    
+        
     // MARK: - Models
     
-    var texts: [Text]!
+    var vocab: [Word]?
+    var sentences: [Sentence]?
         
     // MARK: - Views
     
@@ -41,18 +40,11 @@ class TextViewController: UIViewController {
             height: view.frame.height - (navigationController?.navigationBar.frame.maxY)! - (navigationController?.navigationBar.frame.height)!)
         )
         view.addSubview(loopView)
-        loopView.updateValues(texts: texts, mode: mode)
+        loopView.updateValues(vocab: vocab, sentences: sentences)
     }
     
-    func updateValues(texts: [Text], mode: TextViewController.Mode) {
-        self.texts = texts
-        self.mode = mode
-    }
-}
-
-extension TextViewController {
-    enum Mode {
-        case vocabulary
-        case sentences
+    func updateValues(vocab: [Word]? = nil, sentences: [Sentence]? = nil) {
+        self.vocab = vocab
+        self.sentences = sentences
     }
 }

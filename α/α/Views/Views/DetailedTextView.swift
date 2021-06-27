@@ -25,7 +25,21 @@ class DetailedTextView: BaseTextView {
         return label
     }()
     
-    lazy var meaningLabel: EdgeInsetsLabel = {
+    lazy var meaningLabel: UILabel = {
+        let label = UILabel()
+        mainView.addSubview(label)
+        
+        label.backgroundColor = mainView.backgroundColor
+        label.textColor = .lightGray
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.text = "Meanings: "
+        
+        return label
+    }()
+    
+    lazy var meaningContentLabel: EdgeInsetsLabel = {
         let label = EdgeInsetsLabel(
             top: DetailedTextView.labelInset,
             left: DetailedTextView.labelInset,
@@ -40,13 +54,27 @@ class DetailedTextView: BaseTextView {
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: DetailedTextView.mearningLabelFontSize)
         label.sizeToFit()
-        label.layer.cornerRadius = 10
+        label.layer.cornerRadius = 5
         label.layer.masksToBounds = true
         
         return label
     }()
     
-    lazy var explanationLabel: EdgeInsetsLabel = {
+    lazy var explanationLabel: UILabel = {
+        let label = UILabel()
+        mainView.addSubview(label)
+        
+        label.backgroundColor = mainView.backgroundColor
+        label.textColor = .lightGray
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.text = "Explanation: "
+        
+        return label
+    }()
+    
+    lazy var explanationContentLabel: EdgeInsetsLabel = {
         let label = EdgeInsetsLabel(
             top: DetailedTextView.labelInset,
             left: DetailedTextView.labelInset,
@@ -61,7 +89,7 @@ class DetailedTextView: BaseTextView {
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: DetailedTextView.explanationLabelFontSize)
         label.sizeToFit()
-        label.layer.cornerRadius = 10
+        label.layer.cornerRadius = 5
         label.layer.masksToBounds = true
         
         return label
@@ -95,8 +123,20 @@ class DetailedTextView: BaseTextView {
             make.width.equalTo(wordLabel.snp.width)
         }
         
+        meaningContentLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(meaningLabel.snp.bottom).offset(10)
+            make.leading.equalTo(wordLabel.snp.leading)
+            make.width.equalTo(wordLabel.snp.width)
+        }
+        
         explanationLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(meaningLabel.snp.bottom).offset(20)
+            make.top.equalTo(meaningContentLabel.snp.bottom).offset(20)
+            make.leading.equalTo(wordLabel.snp.leading)
+            make.width.equalTo(wordLabel.snp.width)
+        }
+        
+        explanationContentLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(explanationLabel.snp.bottom).offset(10)
             make.leading.equalTo(wordLabel.snp.leading)
             make.width.equalTo(wordLabel.snp.width)
         }
@@ -105,7 +145,8 @@ class DetailedTextView: BaseTextView {
 
 extension DetailedTextView {
     static let wordLabelFontSize = UIScreen.main.bounds.width * 0.09
-    static let mearningLabelFontSize = UIScreen.main.bounds.width * 0.05
+//    static let mearningLabelFontSize = UIScreen.main.bounds.width * 0.05
+    static let mearningLabelFontSize = UIScreen.main.bounds.width * 0.04
     static let explanationLabelFontSize = UIScreen.main.bounds.width * 0.04
     static let labelInset = UIScreen.main.bounds.width * 0.02
 }

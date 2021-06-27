@@ -11,13 +11,12 @@ import UIKit
 class LoopView: UIView, UIScrollViewDelegate {
 
     private var currentPage: Int = 0
-    
-    private var mode: TextViewController.Mode!
+    private var totalPage: Int!
     private var isBrief: Bool = true
     
     // MARK: - Models
     
-    private var texts: [Text]! {
+    private var vocab: [Word]? {
         willSet{
             currentPage = 0
         }
@@ -25,7 +24,15 @@ class LoopView: UIView, UIScrollViewDelegate {
             self.updateTexts()
         }
     }
-    
+    private var sentences: [Sentence]? {
+        willSet{
+            currentPage = 0
+        }
+        didSet{
+            self.updateTexts()
+        }
+    }
+        
     // MARK: - Views
     
     lazy var width: CGFloat = {
@@ -83,9 +90,11 @@ class LoopView: UIView, UIScrollViewDelegate {
         
     }
     
-    func updateValues(texts: [Text], mode: TextViewController.Mode) {
-        self.mode = mode
-        self.texts = texts
+    func updateValues(vocab: [Word]?, sentences: [Sentence]?) {
+        self.vocab = vocab
+        self.sentences = sentences
+        
+        totalPage = vocab != nil ? vocab!.count : sentences!.count
     }
     
     // MARK: - Actions
@@ -98,13 +107,23 @@ class LoopView: UIView, UIScrollViewDelegate {
     // MARK: - Utils
     
     private func updateTexts() {
-        let textView1Text = texts[currentPage]
-        let textView0Text = currentPage == 0 ? texts.last! : texts[currentPage - 1]
-        let textView2Text = currentPage == texts.count - 1 ? texts.first! : texts[currentPage + 1]
-                
-        textView0.selectView(text: textView0Text, isBrief: isBrief, mode: mode)
-        textView1.selectView(text: textView1Text, isBrief: isBrief, mode: mode)
-        textView2.selectView(text: textView2Text, isBrief: isBrief, mode: mode)
+        if let vocab = vocab {
+            let textView1Word = vocab[currentPage]
+            let textView0Word = currentPage == 0 ? vocab.last! : vocab[currentPage - 1]
+            let textView2Word = currentPage == vocab.count - 1 ? vocab.first! : vocab[currentPage + 1]
+            
+            textView0.displayWord(word: textView0Word, isBrief: isBrief)
+            textView1.displayWord(word: textView1Word, isBrief: isBrief)
+            textView2.displayWord(word: textView2Word, isBrief: isBrief)
+        } else if let sentences = sentences {
+            let textView1Sentence = sentences[currentPage]
+            let textView0Sentence = currentPage == 0 ? sentences.last! : sentences[currentPage - 1]
+            let textView2Sentence = currentPage == sentences.count - 1 ? sentences.first! : sentences[currentPage + 1]
+            
+            textView0.displaySentence(sentence: textView0Sentence, isBrief: isBrief)
+            textView1.displaySentence(sentence: textView1Sentence, isBrief: isBrief)
+            textView2.displaySentence(sentence: textView2Sentence, isBrief: isBrief)
+        }
 
         loopScrollView.contentOffset = CGPoint(x: width, y: 0)
     }
@@ -115,13 +134,13 @@ extension LoopView {
     private func endScrollMethod(ratio:CGFloat) {
         if ratio <= 0.7 {
             if currentPage - 1 < 0 {
-                currentPage = texts.count - 1
+                currentPage = totalPage - 1
             } else {
                 currentPage -= 1
             }
         }
         if ratio >= 1.3 {
-            if currentPage == texts.count - 1 {
+            if currentPage == totalPage - 1 {
                 currentPage = 0
             } else {
                 currentPage += 1

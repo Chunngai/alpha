@@ -48,17 +48,16 @@ class TextViewSelector: UIView {
     
     // MARK: - Utils
     
-    func selectView(text: Text, isBrief: Bool, mode: TextViewController.Mode) {
-        if mode == .vocabulary {
-            if isBrief {
-                displaySingleLine(string: text.greek)
-            } else {
-                displayDetailed(greekString: text.greek, englishString: text.english, explanationString: text.explanation)
-            }
+    func displayWord(word: Word, isBrief: Bool) {
+        if isBrief {
+            displaySingleLine(string: word.word)
         } else {
-            displaySingleLine(string: isBrief ? text.greek : text.english)
+            displayDetailed(greekString: word.word, englishString: word.wordMeanings, explanationString: word.explanation)
         }
-        
+    }
+    
+    func displaySentence(sentence: Sentence, isBrief: Bool) {
+        displaySingleLine(string: isBrief ? sentence.greekSentence: sentence.englishSentence)
     }
     
     func displaySingleLine(string: String) {
@@ -73,12 +72,14 @@ class TextViewSelector: UIView {
         singleLineTextView.isHidden = true
         
         detailedTextView.wordLabel.text = greekString
-        detailedTextView.meaningLabel.text = englishString
+        detailedTextView.meaningContentLabel.text = englishString
         if let explanationString = explanationString {
             detailedTextView.explanationLabel.isHidden = false
-            detailedTextView.explanationLabel.text = explanationString
+            detailedTextView.explanationContentLabel.isHidden = false
+            detailedTextView.explanationContentLabel.text = explanationString
         } else {
             detailedTextView.explanationLabel.isHidden = true
+            detailedTextView.explanationContentLabel.isHidden = true
         }
     }
 }

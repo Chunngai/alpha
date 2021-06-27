@@ -100,10 +100,7 @@ extension HomeViewController {
         guard lesson.vocab.count > 0 else { return }
         
         let vocabViewController = TextViewController()
-        vocabViewController.updateValues(
-            texts: lesson.vocab,
-            mode: TextViewController.Mode.vocabulary
-        )
+        vocabViewController.updateValues(vocab: lesson.vocab)
         navigationController?.pushViewController(vocabViewController, animated: true)
     }
     
@@ -111,10 +108,7 @@ extension HomeViewController {
         guard lesson.sentences.count > 0 else { return }
         
         let sentencesViewController = TextViewController()
-        sentencesViewController.updateValues(
-            texts: lesson.sentences,
-            mode: TextViewController.Mode.sentences
-        )
+        sentencesViewController.updateValues(sentences: lesson.sentences)
         navigationController?.pushViewController(sentencesViewController, animated: true)
     }
     
