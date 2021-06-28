@@ -12,13 +12,17 @@ struct Word: Codable {
     private var stem: String!
     private var prefix: String?
     private var suffix: String?
+    private var article: String?
     private var meanings: [Meanings]!
     var explanation: String?
     
     var word: String {
         var word = ""
+        if let article = article {
+            word = "\(article) "
+        }
         if let prefix = prefix {
-            word = "\(prefix)·"
+            word += "\(prefix)·"
         }
         word += stem
         if let suffix = suffix {

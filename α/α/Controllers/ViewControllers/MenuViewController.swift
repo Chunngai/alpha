@@ -202,7 +202,7 @@ extension MenuViewController {
 }
 
 extension MenuViewController {
-    static let functionCellReuseIdentifier = "FunctionTableViewCell"
+    static let functionCellReuseIdentifier = "MenuTableViewCell"
     static let tableViewEstimatedRowHeight: CGFloat = UIScreen.main.bounds.height * 0.145
     static let tableViewrowHeight: CGFloat = UIScreen.main.bounds.height * 0.090
 

@@ -33,7 +33,6 @@
 		FF4CB54925B2C6E10084CEDE /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */; };
 		FF4CB54D25B2E2480084CEDE /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54C25B2E2480084CEDE /* ContentViewController.swift */; };
 		FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */; };
-		FF55241825CAF400008FA902 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF55241725CAF400008FA902 /* MenuTableViewCell.swift */; };
 		FF6E86FB2688EBA100C4A3A5 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FA2688EBA100C4A3A5 /* Word.swift */; };
 		FF6E86FF2688EBB500C4A3A5 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */; };
 		FF94BB3F25F3B259007E6DA4 /* lesson9.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3325F3B259007E6DA4 /* lesson9.pdf */; };
@@ -128,7 +127,6 @@
 		FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		FF4CB54C25B2E2480084CEDE /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
-		FF55241725CAF400008FA902 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		FF6E86FA2688EBA100C4A3A5 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		FF94BB3325F3B259007E6DA4 /* lesson9.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson9.pdf; path = ../../lesson9.pdf; sourceTree = "<group>"; };
@@ -266,7 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */,
-				FF55241725CAF400008FA902 /* MenuTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -512,7 +509,6 @@
 				FF48A9092688EB8100E965E2 /* TestViewController.swift in Sources */,
 				FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */,
 				FF45EDC92685F86A0008E469 /* DetailedTextView.swift in Sources */,
-				FF55241825CAF400008FA902 /* MenuTableViewCell.swift in Sources */,
 				FF4241DD26876A620002C4F4 /* TextViewSelector.swift in Sources */,
 				FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */,
 				FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */,
