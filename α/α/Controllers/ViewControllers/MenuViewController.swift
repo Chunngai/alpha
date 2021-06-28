@@ -176,6 +176,8 @@ extension MenuViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: MenuViewController.functionCellReuseIdentifier)
+        cell.backgroundColor = .white
+        cell.textLabel?.textColor = .gray
         cell.textLabel?.text = cellLabelDict[indexPath.row]
         cell.imageView?.image = cellImageViewDict[indexPath.row]?.scale(to: 0.5)
         cell.selectionStyle = .none

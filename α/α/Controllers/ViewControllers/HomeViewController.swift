@@ -117,13 +117,17 @@ extension HomeViewController {
     }
     
     func testButtonTapped(lesson: Lesson) {
+        guard lesson.sentences.count > 0 else { return }
         
+        let testViewController = TestViewController()
+        testViewController.updateValues(sentences: lesson.sentences)
+        navigationController?.pushViewController(testViewController, animated: true)
     }
 }
 
 extension HomeViewController {
     static let tableViewCellReuseIdentifier = "HomeTableViewCell"
     static let tableViewEstimatedRowHeight: CGFloat = UIScreen.main.bounds.height * 0.145
-    static let tableViewRowHeight: CGFloat = UIScreen.main.bounds.height * 0.078
+    static let tableViewRowHeight: CGFloat = UIScreen.main.bounds.height * 0.065
 }
 

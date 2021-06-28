@@ -44,3 +44,32 @@ extension UIImage {
         return resize(widthRatio: ratio, heightRatio: ratio)
     }
 }
+
+extension NSMutableAttributedString {
+    func set(attributes: [NSAttributedString.Key: Any], with color: UIColor, for textToFind: String? = nil) {
+        let range: NSRange?
+        if let text = textToFind {
+            range = self.mutableString.range(of: text, options: .caseInsensitive)
+        } else {
+            range = NSMakeRange(0, self.length)
+        }
+        if range!.location != NSNotFound {
+            addAttributes(attributes, range: range!)
+        }
+    }
+    
+    func setUnderline(with color: UIColor, for textToFind: String? = nil) {
+        set(
+            attributes: [
+                .underlineStyle : NSUnderlineStyle.thick.rawValue,
+                .underlineColor: color
+            ],
+            with: color,
+            for: textToFind
+        )
+    }
+    
+    func setHightlight(with color: UIColor, for textToFind: String? = nil) {
+        set(attributes: [.backgroundColor : color], with: color, for: textToFind)
+    }
+}

@@ -101,7 +101,7 @@ extension HomeTableViewCell {
     static let labelWidth: CGFloat = UIScreen.main.bounds.width * 0.085
     
     static let buttonLeftRightInset: CGFloat = UIScreen.main.bounds.width * 0.02
-    static let buttonTopInset: CGFloat = UIScreen.main.bounds.height * 0.010
+    static let buttonTopInset: CGFloat = UIScreen.main.bounds.height * 0.005
     static let buttonTitleEdgeInsets = UIEdgeInsets(
         top: 0,
         left: labelWidth + UIScreen.main.bounds.width * 0.014,

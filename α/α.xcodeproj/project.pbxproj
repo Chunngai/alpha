@@ -15,6 +15,7 @@
 		FF2917CF25B0746700A076F3 /* _Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917CE25B0746700A076F3 /* _Tests.swift */; };
 		FF2917DA25B0746700A076F3 /* _UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917D925B0746700A076F3 /* _UITests.swift */; };
 		FF4241DD26876A620002C4F4 /* TextViewSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4241DC26876A620002C4F4 /* TextViewSelector.swift */; };
+		FF4583D826899003001115C9 /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4583D726899003001115C9 /* UnderlineTextField.swift */; };
 		FF45EDB52685D3AD0008E469 /* lesson2.json in Resources */ = {isa = PBXBuildFile; fileRef = FF45EDB02685D3AC0008E469 /* lesson2.json */; };
 		FF45EDB62685D3AD0008E469 /* lesson3.json in Resources */ = {isa = PBXBuildFile; fileRef = FF45EDB12685D3AC0008E469 /* lesson3.json */; };
 		FF45EDB72685D3AD0008E469 /* lesson5.json in Resources */ = {isa = PBXBuildFile; fileRef = FF45EDB22685D3AC0008E469 /* lesson5.json */; };
@@ -23,6 +24,7 @@
 		FF45EDBB2685E3990008E469 /* EdgeInsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDBA2685E3990008E469 /* EdgeInsetsLabel.swift */; };
 		FF45EDC72685F8040008E469 /* SingleLineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDC62685F8040008E469 /* SingleLineTextView.swift */; };
 		FF45EDC92685F86A0008E469 /* DetailedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDC82685F86A0008E469 /* DetailedTextView.swift */; };
+		FF48A9092688EB8100E965E2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48A9082688EB8100E965E2 /* TestViewController.swift */; };
 		FF49449425B1EBC100B4EDAA /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */; };
 		FF4944AC25B1F77300B4EDAA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; };
 		FF4944AD25B1F77300B4EDAA /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -109,6 +111,7 @@
 		FF2917D925B0746700A076F3 /* _UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _UITests.swift; sourceTree = "<group>"; };
 		FF2917DB25B0746700A076F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF4241DC26876A620002C4F4 /* TextViewSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewSelector.swift; sourceTree = "<group>"; };
+		FF4583D726899003001115C9 /* UnderlineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
 		FF45EDB02685D3AC0008E469 /* lesson2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson2.json; path = ../../lesson2.json; sourceTree = "<group>"; };
 		FF45EDB12685D3AC0008E469 /* lesson3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson3.json; path = ../../lesson3.json; sourceTree = "<group>"; };
 		FF45EDB22685D3AC0008E469 /* lesson5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson5.json; path = ../../lesson5.json; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 		FF45EDBA2685E3990008E469 /* EdgeInsetsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsLabel.swift; sourceTree = "<group>"; };
 		FF45EDC62685F8040008E469 /* SingleLineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineTextView.swift; sourceTree = "<group>"; };
 		FF45EDC82685F86A0008E469 /* DetailedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedTextView.swift; sourceTree = "<group>"; };
+		FF48A9082688EB8100E965E2 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "../../../SnapKit-develop/SnapKit.xcodeproj"; sourceTree = "<group>"; };
 		FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -253,6 +257,7 @@
 				FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */,
 				FF4CB54C25B2E2480084CEDE /* ContentViewController.swift */,
 				FFAC17B425B492FD003D84BA /* TextViewController.swift */,
+				FF48A9082688EB8100E965E2 /* TestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				FF4241DC26876A620002C4F4 /* TextViewSelector.swift */,
 				FFAC17B825B4937C003D84BA /* LoopView.swift */,
 				FF45EDBA2685E3990008E469 /* EdgeInsetsLabel.swift */,
+				FF4583D726899003001115C9 /* UnderlineTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 				FF2917B825B0746600A076F3 /* AppDelegate.swift in Sources */,
 				FFA3B7D025BAFC78002F9D4C /* BaseTextView.swift in Sources */,
 				FF6E86FB2688EBA100C4A3A5 /* Word.swift in Sources */,
+				FF48A9092688EB8100E965E2 /* TestViewController.swift in Sources */,
 				FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */,
 				FF45EDC92685F86A0008E469 /* DetailedTextView.swift in Sources */,
 				FF55241825CAF400008FA902 /* MenuTableViewCell.swift in Sources */,
@@ -512,6 +519,7 @@
 				FF45EDC72685F8040008E469 /* SingleLineTextView.swift in Sources */,
 				FF2917BA25B0746600A076F3 /* SceneDelegate.swift in Sources */,
 				FFAC17B925B4937C003D84BA /* LoopView.swift in Sources */,
+				FF4583D826899003001115C9 /* UnderlineTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
