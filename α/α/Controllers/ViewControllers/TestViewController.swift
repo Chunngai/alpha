@@ -271,10 +271,13 @@ extension TestViewController {
             
             inputAnswerTokens.remove(at: inputAnswerTokens.firstIndex(of: token)!)
     
-            attributedToken.setHightlight(with: .green)
+            attributedToken.setHightlight(color: .green)
             matchedTokens.append(attributedToken)
         }
-        questionLabel.attributedText = matchedTokens.joined(with: " ")
+        questionLabel.attributedText = matchedTokens.joined(
+            with: " ",
+            ignoring: TestViewController.punctuations
+        )
     }
 }
 
@@ -303,13 +306,13 @@ extension Sentence {
 }
 
 extension Sequence where Iterator.Element:NSAttributedString {
-    func joined(with separator: NSAttributedString) -> NSAttributedString {
+    func joined(with separator: NSAttributedString, ignoring charactersToIgnore: String = "") -> NSAttributedString {
         var isFirst = true
         return self.reduce(NSMutableAttributedString()) {
             (r, e) in
             if isFirst {
                 isFirst = false
-            } else {
+            } else if !charactersToIgnore.contains(e.string) {
                 r.append(separator)
             }
             r.append(e)
@@ -317,7 +320,7 @@ extension Sequence where Iterator.Element:NSAttributedString {
         }
     }
     
-    func joined(with separator: String) -> NSAttributedString {
-        return joined(with: NSAttributedString(string: separator))
+    func joined(with separator: String, ignoring charactersToIgnore: String = "") -> NSAttributedString {
+        return joined(with: NSAttributedString(string: separator), ignoring: charactersToIgnore)
     }
 }

@@ -1,0 +1,299 @@
+//
+//  ReadingViewController.swift
+//  α
+//
+//  Created by Sola on 2021/6/30.
+//  Copyright © 2021 Sola. All rights reserved.
+//
+
+import UIKit
+
+class ReadingViewController: UIViewController {
+
+    // MARK: - Models
+    
+    var reading: Reading!
+    
+    // MARK: - Views
+    
+    lazy var mainView: UIView = {
+        let mainView = UIView()
+        view.addSubview(mainView)
+        
+        mainView.addGestureRecognizer({
+            let gestureRecognizer = UITapGestureRecognizer()
+            gestureRecognizer.addTarget(self, action: #selector(removeExplanationLabel))
+            return gestureRecognizer
+        }())
+        
+        mainView.backgroundColor = .lightBlue
+        mainView.layer.cornerRadius = 10
+        mainView.layer.masksToBounds = true
+        
+        return mainView
+    }()
+    
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        self.mainView.addSubview(label)
+        
+        label.backgroundColor = self.mainView.backgroundColor
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 19)
+        
+        return label
+    }()
+    
+    lazy var separationLine: SeparationLine = {
+        let line = SeparationLine()
+        self.mainView.addSubview(line)
+        return line
+    }()
+    
+    lazy var textView: UITextView = {
+        let textView = UITextView()
+        self.mainView.addSubview(textView)
+        
+        textView.addGestureRecognizer({
+            let tapGestureRecognizer = UITapGestureRecognizer()
+            tapGestureRecognizer.addTarget(self, action: #selector(somewhereInTextViewTapped(_:)))
+            return tapGestureRecognizer
+        }())
+        
+        textView.backgroundColor = self.mainView.backgroundColor
+        textView.isEditable = false
+        textView.attributedText = NSAttributedString(
+            string: " ",
+            attributes: [
+                NSAttributedString.Key.paragraphStyle: {
+                    let paragraph = NSMutableParagraphStyle()
+                    paragraph.lineSpacing = 10
+                    paragraph.alignment = .justified
+                    paragraph.lineBreakMode = .byWordWrapping
+                    return paragraph
+                }(),
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)
+            ]
+        )
+        
+        return textView
+    }()
+    
+    lazy var explanationLabelShadowView: UIView = {
+        let labelView = UIView()
+        labelView.layer.shadowColor = UIColor.lightGray.cgColor
+        labelView.layer.shadowOpacity = 0.8
+        labelView.layer.shadowRadius = 10
+        labelView.layer.shadowOffset = ReadingViewController.shadowOffset
+        labelView.tag = 1
+        return labelView
+    }()
+    
+    lazy var explanationLabel: EdgeInsetsLabel = {
+        let label = EdgeInsetsLabel(
+            top: ReadingViewController.explnationLabelinset,
+            left: ReadingViewController.explnationLabelinset,
+            bottom: ReadingViewController.explnationLabelinset,
+            right: ReadingViewController.explnationLabelinset
+        )
+        explanationLabelShadowView.addSubview(label)
+        
+        label.backgroundColor = self.mainView.backgroundColor
+        label.textColor = .darkGray
+        label.textAlignment = .left
+        label.layer.cornerRadius = 10
+        label.layer.masksToBounds = true
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 13)
+        
+        return label
+    }()
+    
+    // MARK: - Init
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        updateViews()
+    }
+    
+    func updateViews() {
+        view.backgroundColor = .white
+        
+        mainView.snp.makeConstraints { (make) in
+            make.height.equalToSuperview().multipliedBy(0.80)
+            make.width.equalToSuperview().multipliedBy(0.90)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(20)
+        }
+        
+        titleLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().inset(30)
+            make.leading.equalToSuperview().inset(25)
+            make.trailing.equalToSuperview().inset(25)
+            make.height.equalToSuperview().multipliedBy(0.08)
+        }
+        titleLabel.attributedText = {
+            let title = NSMutableAttributedString(string: reading.title)
+            title.setBold(
+                for: String(reading.title.split(separator: "\n")[0]),
+                fontSize: titleLabel.font.pointSize
+            )
+            return title
+        }()
+        
+        separationLine.snp.makeConstraints { (make) in
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.8)
+            make.height.equalTo(0.5)
+        }
+        
+        textView.snp.makeConstraints { (make) in
+            make.top.equalTo(separationLine.snp.bottom).offset(30)
+            make.bottom.equalToSuperview().inset(50)
+            make.width.equalToSuperview().multipliedBy(0.8)
+            make.centerX.equalToSuperview()
+        }
+        textView.text = reading.text.indent()
+        underlineVocab()
+    }
+    
+    func updateValues(reading: Reading) {
+        self.reading = reading
+    }
+
+    // MARK: - Actions
+    
+    @objc func somewhereInTextViewTapped(_ sender: UITapGestureRecognizer) {
+        func getPointInTextView() -> CGPoint {
+            var point = sender.location(in: tappedTextView)
+            point.x -= tappedTextView.textContainerInset.left
+            point.y -= tappedTextView.textContainerInset.top
+            return point
+        }
+        
+        func isValidCharacterIndex(characterIndex: Int) -> Bool {
+            return characterIndex < tappedTextView.textStorage.length
+        }
+        
+        func getForegroundColor(characterIndex: Int) -> UIColor {
+            let foregroundColor = tappedTextView.attributedText.attribute(
+                NSAttributedString.Key.foregroundColor,
+                at: characterIndex,
+                effectiveRange: nil
+            )
+            return foregroundColor as! UIColor
+        }
+        
+        removeExplanationLabel()
+        
+        let tappedTextView = sender.view as! UITextView
+                
+        let tappedCharacterIndex = tappedTextView.layoutManager.characterIndex(
+            for: getPointInTextView(),
+            in: tappedTextView.textContainer,
+            fractionOfDistanceBetweenInsertionPoints: nil
+        )
+        if !isValidCharacterIndex(characterIndex: tappedCharacterIndex) {
+            return
+        }
+        if getForegroundColor(characterIndex: tappedCharacterIndex) != .systemBlue {
+            return
+        }
+        
+        var characterIndexLowerBound: Int = tappedCharacterIndex
+        var characterIndexUpperBound: Int = tappedCharacterIndex
+        while true {
+            characterIndexLowerBound -= 1
+            if !isValidCharacterIndex(characterIndex: characterIndexLowerBound) || getForegroundColor(characterIndex: characterIndexLowerBound) != .systemBlue {
+                characterIndexLowerBound += 1
+                break
+            }
+        }
+        while true {
+            characterIndexUpperBound += 1
+            if !isValidCharacterIndex(characterIndex: characterIndexUpperBound) || getForegroundColor(characterIndex: characterIndexUpperBound) != .systemBlue {
+                characterIndexUpperBound -= 1
+                break
+            }
+        }
+
+        let tappedRange = NSRange(
+            location: characterIndexLowerBound,
+            length: characterIndexUpperBound - characterIndexLowerBound + 1
+        )
+        let tappedSpan = (tappedTextView.attributedText.string as NSString).substring(with: tappedRange)
+        
+        let wordItem = getWordItemFromTappedSpan(span: tappedSpan)
+        if let wordItem = wordItem {
+            popExplanationView(
+                at: sender.location(in: mainView),
+                with: wordItem
+            )
+        }
+    }
+    
+    @objc func removeExplanationLabel() {
+        for view in mainView.subviews where view.tag == 1 {
+            view.removeFromSuperview()
+        }
+    }
+    
+    // MARK: - Utils
+    
+    func underlineVocab() {
+        textView.attributedText = {
+            let text = NSMutableAttributedString(attributedString: textView.attributedText!)
+            for wordItem in reading.vocab {
+                text.setTextColor(for: wordItem.word, color: .systemBlue)
+            }
+            return text
+        }()
+    }
+    
+    func getWordItemFromTappedSpan(span: String) -> WordItem? {
+        for wordItem in reading.vocab {
+            if wordItem.word == span {
+                return wordItem
+            }
+        }
+        return nil
+    }
+    
+    func popExplanationView(at point: CGPoint, with wordItem: WordItem) {
+        let width: CGFloat = 200
+        let yOffset: CGFloat = 10
+
+        let safeX: CGFloat
+        let safeFactor: CGFloat = 1.2
+        if point.x + width * safeFactor <= mainView.frame.maxX {
+            safeX = point.x
+        } else {
+            safeX = mainView.frame.maxX - width * safeFactor
+        }
+                
+        mainView.addSubview(explanationLabelShadowView)
+        explanationLabelShadowView.snp.makeConstraints { (make) in
+            make.leading.equalTo(safeX)
+            make.top.equalTo(point.y + yOffset)
+            make.width.equalTo(width)
+        }
+        
+        explanationLabel.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        explanationLabel.text = wordItem.explanation
+    }
+}
+
+extension ReadingViewController {
+    static let shadowOffset: CGSize = CGSize(width: UIScreen.main.bounds.width * 0.01, height: UIScreen.main.bounds.height * 0.006)
+    static let explnationLabelinset = UIScreen.main.bounds.width * 0.025
+}
+
+extension String {
+    func indent(by indent: Int = 10) -> String {
+        return String(repeating: " ", count: indent) + self
+    }
+}

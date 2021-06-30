@@ -11,8 +11,9 @@ import Foundation
 struct Lesson: Codable {
     var id: Int!
     var title: String!
-    var vocab: [Word]!
-    var sentences: [Sentence]!
+    var vocab: [Word]?
+    var sentences: [Sentence]?
+    var reading: Reading?
     
     var pdfPath: String!
     
@@ -31,7 +32,7 @@ struct Lesson: Codable {
     
     static func loadLessons() -> [Lesson] {
         var lessons: [Lesson] = []
-        for id in 1...4 {
+        for id in 1...5 {
             if let lesson = loadLesson(id: id) {
                 lessons.append(lesson)
             }

@@ -46,7 +46,7 @@ extension UIImage {
 }
 
 extension NSMutableAttributedString {
-    func set(attributes: [NSAttributedString.Key: Any], with color: UIColor, for textToFind: String? = nil) {
+    func set(attributes: [NSAttributedString.Key: Any], for textToFind: String? = nil) {
         let range: NSRange?
         if let text = textToFind {
             range = self.mutableString.range(of: text, options: .caseInsensitive)
@@ -58,18 +58,25 @@ extension NSMutableAttributedString {
         }
     }
     
-    func setUnderline(with color: UIColor, for textToFind: String? = nil) {
+    func setUnderline(for textToFind: String? = nil, color: UIColor = .black, style: NSUnderlineStyle = .single) {
         set(
             attributes: [
-                .underlineStyle : NSUnderlineStyle.thick.rawValue,
+                .underlineStyle : style.rawValue,
                 .underlineColor: color
             ],
-            with: color,
             for: textToFind
         )
     }
     
-    func setHightlight(with color: UIColor, for textToFind: String? = nil) {
-        set(attributes: [.backgroundColor : color], with: color, for: textToFind)
+    func setHightlight(for textToFind: String? = nil, color: UIColor) {
+        set(attributes: [.backgroundColor : color], for: textToFind)
+    }
+    
+    func setBold(for textToFind: String? = nil, fontSize: CGFloat) {
+        set(attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: fontSize)], for: textToFind)
+    }
+    
+    func setTextColor(for textToFind: String? = nil, color: UIColor) {
+        set(attributes: [NSAttributedString.Key.foregroundColor : color], for: textToFind)
     }
 }

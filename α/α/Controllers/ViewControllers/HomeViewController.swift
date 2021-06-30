@@ -97,30 +97,34 @@ extension HomeViewController {
     }
     
     func vocabButtonTapped(lesson: Lesson) {
-        guard lesson.vocab.count > 0 else { return }
+        guard lesson.vocab != nil && lesson.vocab!.count > 0 else { return }
         
         let vocabViewController = TextViewController()
-        vocabViewController.updateValues(vocab: lesson.vocab)
+        vocabViewController.updateValues(vocab: lesson.vocab!)
         navigationController?.pushViewController(vocabViewController, animated: true)
     }
     
     func sentencesButtonTapped(lesson: Lesson) {
-        guard lesson.sentences.count > 0 else { return }
+        guard lesson.sentences != nil && lesson.sentences!.count > 0 else { return }
         
         let sentencesViewController = TextViewController()
-        sentencesViewController.updateValues(sentences: lesson.sentences)
+        sentencesViewController.updateValues(sentences: lesson.sentences!)
         navigationController?.pushViewController(sentencesViewController, animated: true)
     }
     
     func readingButtonTapped(lesson: Lesson) {
+        guard lesson.reading != nil else { return }
         
+        let readingViewController = ReadingViewController()
+        readingViewController.updateValues(reading: lesson.reading!)
+        navigationController?.pushViewController(readingViewController, animated: true)
     }
     
     func testButtonTapped(lesson: Lesson) {
-        guard lesson.sentences.count > 0 else { return }
+        guard lesson.sentences != nil && lesson.sentences!.count > 0 else { return }
         
         let testViewController = TestViewController()
-        testViewController.updateValues(sentences: lesson.sentences)
+        testViewController.updateValues(sentences: lesson.sentences!)
         navigationController?.pushViewController(testViewController, animated: true)
     }
 }
