@@ -20,7 +20,7 @@ class SingleLineCardView: BaseCardView {
         label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: SingleLineCardView.labelFontSize)
+        label.font = UIFont.systemFont(ofSize: 25)
         
         return label
     }()
@@ -47,8 +47,4 @@ class SingleLineCardView: BaseCardView {
             make.centerY.equalToSuperview()
         }
     }
-}
-
-extension SingleLineCardView {
-    static let labelFontSize = UIScreen.main.bounds.width * 0.06
 }

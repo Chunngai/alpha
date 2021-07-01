@@ -24,10 +24,16 @@ class CardLoopView: UIView, UIScrollViewDelegate {
         willSet{
             currentPage = 0
         }
+        didSet {
+            updateTexts()
+        }
     }
     private var sentences: [Sentence]? {
         willSet{
             currentPage = 0
+        }
+        didSet {
+            updateTexts()
         }
     }
         

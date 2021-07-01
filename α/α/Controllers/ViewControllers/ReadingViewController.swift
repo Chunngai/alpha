@@ -39,7 +39,7 @@ class ReadingViewController: UIViewController {
         
         label.backgroundColor = self.mainView.backgroundColor
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 19)
+        label.font = UIFont.systemFont(ofSize: 25)
         
         return label
     }()
@@ -67,12 +67,12 @@ class ReadingViewController: UIViewController {
             attributes: [
                 NSAttributedString.Key.paragraphStyle: {
                     let paragraph = NSMutableParagraphStyle()
-                    paragraph.lineSpacing = 10
+                    paragraph.lineSpacing = 5
                     paragraph.alignment = .justified
                     paragraph.lineBreakMode = .byWordWrapping
                     return paragraph
                 }(),
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 19)
             ]
         )
         
@@ -131,7 +131,6 @@ class ReadingViewController: UIViewController {
             make.top.equalToSuperview().inset(30)
             make.leading.equalToSuperview().inset(25)
             make.trailing.equalToSuperview().inset(25)
-            make.height.equalToSuperview().multipliedBy(0.08)
         }
         titleLabel.attributedText = {
             let title = NSMutableAttributedString(string: reading.title)
