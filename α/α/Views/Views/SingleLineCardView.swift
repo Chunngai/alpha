@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SingleLineTextView: BaseTextView {
+class SingleLineCardView: BaseCardView {
     
     // MARK: - Views
     
@@ -20,7 +20,7 @@ class SingleLineTextView: BaseTextView {
         label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: SingleLineTextView.labelFontSize)
+        label.font = UIFont.systemFont(ofSize: SingleLineCardView.labelFontSize)
         
         return label
     }()
@@ -49,6 +49,6 @@ class SingleLineTextView: BaseTextView {
     }
 }
 
-extension SingleLineTextView {
+extension SingleLineCardView {
     static let labelFontSize = UIScreen.main.bounds.width * 0.06
 }

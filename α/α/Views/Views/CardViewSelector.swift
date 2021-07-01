@@ -8,20 +8,20 @@
 
 import UIKit
 
-class TextViewSelector: UIView {
+class CardViewSelector: UIView {
 
     // MARK: - Views
     
-    lazy var singleLineTextView: SingleLineTextView = {
-        let textView = SingleLineTextView()
-        addSubview(textView)
-        return textView
+    lazy var singleLineCardView: SingleLineCardView = {
+        let cardView = SingleLineCardView()
+        addSubview(cardView)
+        return cardView
     }()
     
-    lazy var detailedTextView: DetailedTextView = {
-        let textView = DetailedTextView()
-        addSubview(textView)
-        return textView
+    lazy var detailedCardView: DetailedCardView = {
+        let cardView = DetailedCardView()
+        addSubview(cardView)
+        return cardView
     }()
 
     // MARK: - Init
@@ -37,11 +37,11 @@ class TextViewSelector: UIView {
     }
     
     func updateViews() {
-        singleLineTextView.snp.makeConstraints { (make) in
+        singleLineCardView.snp.makeConstraints { (make) in
             make.top.bottom.left.right.equalToSuperview()
         }
         
-        detailedTextView.snp.makeConstraints { (make) in
+        detailedCardView.snp.makeConstraints { (make) in
             make.top.bottom.left.right.equalToSuperview()
         }
     }
@@ -61,25 +61,25 @@ class TextViewSelector: UIView {
     }
     
     func displaySingleLine(string: String) {
-        singleLineTextView.isHidden = false
-        detailedTextView.isHidden = true
+        singleLineCardView.isHidden = false
+        detailedCardView.isHidden = true
         
-        singleLineTextView.label.text = string
+        singleLineCardView.label.text = string
     }
     
     func displayDetailed(greekString: String, englishString: String, explanationString: String?) {
-        detailedTextView.isHidden = false
-        singleLineTextView.isHidden = true
+        detailedCardView.isHidden = false
+        singleLineCardView.isHidden = true
         
-        detailedTextView.wordLabel.text = greekString
-        detailedTextView.meaningContentLabel.text = englishString
+        detailedCardView.wordLabel.text = greekString
+        detailedCardView.meaningContentLabel.text = englishString
         if let explanationString = explanationString {
-            detailedTextView.explanationLabel.isHidden = false
-            detailedTextView.explanationContentLabel.isHidden = false
-            detailedTextView.explanationContentLabel.text = explanationString
+            detailedCardView.explanationLabel.isHidden = false
+            detailedCardView.explanationContentLabel.isHidden = false
+            detailedCardView.explanationContentLabel.text = explanationString
         } else {
-            detailedTextView.explanationLabel.isHidden = true
-            detailedTextView.explanationContentLabel.isHidden = true
+            detailedCardView.explanationLabel.isHidden = true
+            detailedCardView.explanationContentLabel.isHidden = true
         }
     }
 }

@@ -8,9 +8,13 @@
 
 import UIKit
 
-class LoopView: UIView, UIScrollViewDelegate {
+class CardLoopView: UIView, UIScrollViewDelegate {
 
-    private var currentPage: Int = 0
+    var currentPage: Int = 0 {
+        didSet {
+            updateTexts()
+        }
+    }
     private var totalPage: Int!
     private var isBrief: Bool = true
     
@@ -20,16 +24,10 @@ class LoopView: UIView, UIScrollViewDelegate {
         willSet{
             currentPage = 0
         }
-        didSet{
-            self.updateTexts()
-        }
     }
     private var sentences: [Sentence]? {
         willSet{
             currentPage = 0
-        }
-        didSet{
-            self.updateTexts()
         }
     }
         
@@ -42,9 +40,9 @@ class LoopView: UIView, UIScrollViewDelegate {
         return self.frame.size.height
     }()
     
-    private let textView0: TextViewSelector = TextViewSelector()
-    private let textView1: TextViewSelector = TextViewSelector()
-    private let textView2: TextViewSelector = TextViewSelector()
+    private let cardView0: CardViewSelector = CardViewSelector()
+    private let cardView1: CardViewSelector = CardViewSelector()
+    private let cardView2: CardViewSelector = CardViewSelector()
     lazy private var loopScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         addSubview(scrollView)
@@ -57,14 +55,14 @@ class LoopView: UIView, UIScrollViewDelegate {
         scrollView.bounces = false
         scrollView.isPagingEnabled = true
         
-        textView0.frame = CGRect(x: width * 0.0, y: 0, width: width, height: height)
-        textView1.frame = CGRect(x: width * 1.0, y: 0, width: width, height: height)
-        textView2.frame = CGRect(x: width * 2.0, y: 0, width: width, height: height)
-        scrollView.addSubview(textView0)
-        scrollView.addSubview(textView1)
-        scrollView.addSubview(textView2)
+        cardView0.frame = CGRect(x: width * 0.0, y: 0, width: width, height: height)
+        cardView1.frame = CGRect(x: width * 1.0, y: 0, width: width, height: height)
+        cardView2.frame = CGRect(x: width * 2.0, y: 0, width: width, height: height)
+        scrollView.addSubview(cardView0)
+        scrollView.addSubview(cardView1)
+        scrollView.addSubview(cardView2)
         
-        textView1.addGestureRecognizer({
+        cardView1.addGestureRecognizer({
             let tapGestureRecognizer = UITapGestureRecognizer()
             tapGestureRecognizer.numberOfTapsRequired = 2
             tapGestureRecognizer.addTarget(self, action: #selector(viewDoubleTapped))
@@ -106,30 +104,30 @@ class LoopView: UIView, UIScrollViewDelegate {
 
     // MARK: - Utils
     
-    private func updateTexts() {
+    func updateTexts() {
         if let vocab = vocab {
             let textView1Word = vocab[currentPage]
             let textView0Word = currentPage == 0 ? vocab.last! : vocab[currentPage - 1]
             let textView2Word = currentPage == vocab.count - 1 ? vocab.first! : vocab[currentPage + 1]
             
-            textView0.displayWord(word: textView0Word, isBrief: isBrief)
-            textView1.displayWord(word: textView1Word, isBrief: isBrief)
-            textView2.displayWord(word: textView2Word, isBrief: isBrief)
+            cardView0.displayWord(word: textView0Word, isBrief: isBrief)
+            cardView1.displayWord(word: textView1Word, isBrief: isBrief)
+            cardView2.displayWord(word: textView2Word, isBrief: isBrief)
         } else if let sentences = sentences {
             let textView1Sentence = sentences[currentPage]
             let textView0Sentence = currentPage == 0 ? sentences.last! : sentences[currentPage - 1]
             let textView2Sentence = currentPage == sentences.count - 1 ? sentences.first! : sentences[currentPage + 1]
             
-            textView0.displaySentence(sentence: textView0Sentence, isBrief: isBrief)
-            textView1.displaySentence(sentence: textView1Sentence, isBrief: isBrief)
-            textView2.displaySentence(sentence: textView2Sentence, isBrief: isBrief)
+            cardView0.displaySentence(sentence: textView0Sentence, isBrief: isBrief)
+            cardView1.displaySentence(sentence: textView1Sentence, isBrief: isBrief)
+            cardView2.displaySentence(sentence: textView2Sentence, isBrief: isBrief)
         }
 
         loopScrollView.contentOffset = CGPoint(x: width, y: 0)
     }
 }
 
-extension LoopView {
+extension CardLoopView {
     
     private func endScrollMethod(ratio:CGFloat) {
         if ratio <= 0.7 {
@@ -146,8 +144,6 @@ extension LoopView {
                 currentPage += 1
             }
         }
-        
-        self.updateTexts()
     }
     
     // MARK: - UIScrollView delegate

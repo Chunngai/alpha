@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailedTextView: BaseTextView {
+class DetailedCardView: BaseCardView {
     
     // MARK: - Views
     
@@ -20,7 +20,7 @@ class DetailedTextView: BaseTextView {
         label.textColor = .black
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: DetailedTextView.wordLabelFontSize)
+        label.font = UIFont.systemFont(ofSize: DetailedCardView.wordLabelFontSize)
         
         return label
     }()
@@ -41,10 +41,10 @@ class DetailedTextView: BaseTextView {
     
     lazy var meaningContentLabel: EdgeInsetsLabel = {
         let label = EdgeInsetsLabel(
-            top: DetailedTextView.labelInset,
-            left: DetailedTextView.labelInset,
-            bottom: DetailedTextView.labelInset,
-            right: DetailedTextView.labelInset
+            top: DetailedCardView.labelInset,
+            left: DetailedCardView.labelInset,
+            bottom: DetailedCardView.labelInset,
+            right: DetailedCardView.labelInset
         )
         mainView.addSubview(label)
         
@@ -52,7 +52,7 @@ class DetailedTextView: BaseTextView {
         label.textColor = .black
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: DetailedTextView.mearningLabelFontSize)
+        label.font = UIFont.systemFont(ofSize: DetailedCardView.mearningLabelFontSize)
         label.sizeToFit()
         label.layer.cornerRadius = 5
         label.layer.masksToBounds = true
@@ -76,10 +76,10 @@ class DetailedTextView: BaseTextView {
     
     lazy var explanationContentLabel: EdgeInsetsLabel = {
         let label = EdgeInsetsLabel(
-            top: DetailedTextView.labelInset,
-            left: DetailedTextView.labelInset,
-            bottom: DetailedTextView.labelInset,
-            right: DetailedTextView.labelInset
+            top: DetailedCardView.labelInset,
+            left: DetailedCardView.labelInset,
+            bottom: DetailedCardView.labelInset,
+            right: DetailedCardView.labelInset
         )
         mainView.addSubview(label)
         
@@ -87,7 +87,7 @@ class DetailedTextView: BaseTextView {
         label.textColor = .black
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: DetailedTextView.explanationLabelFontSize)
+        label.font = UIFont.systemFont(ofSize: DetailedCardView.explanationLabelFontSize)
         label.sizeToFit()
         label.layer.cornerRadius = 5
         label.layer.masksToBounds = true
@@ -143,7 +143,7 @@ class DetailedTextView: BaseTextView {
     }
 }
 
-extension DetailedTextView {
+extension DetailedCardView {
     static let wordLabelFontSize = UIScreen.main.bounds.width * 0.09
 //    static let mearningLabelFontSize = UIScreen.main.bounds.width * 0.05
     static let mearningLabelFontSize = UIScreen.main.bounds.width * 0.04

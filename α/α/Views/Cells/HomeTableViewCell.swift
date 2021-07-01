@@ -78,7 +78,7 @@ class HomeTableViewCell: UITableViewCell {
         self.backgroundColor = .white
         
         button.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview().inset(HomeTableViewCell.buttonLeftRightInset)
+            make.width.equalToSuperview()
             make.top.equalToSuperview().inset(HomeTableViewCell.buttonTopInset)
             make.bottom.equalToSuperview()
         }
@@ -100,7 +100,6 @@ class HomeTableViewCell: UITableViewCell {
 extension HomeTableViewCell {
     static let labelWidth: CGFloat = UIScreen.main.bounds.width * 0.085
     
-    static let buttonLeftRightInset: CGFloat = UIScreen.main.bounds.width * 0.02
     static let buttonTopInset: CGFloat = UIScreen.main.bounds.height * 0.005
     static let buttonTitleEdgeInsets = UIEdgeInsets(
         top: 0,

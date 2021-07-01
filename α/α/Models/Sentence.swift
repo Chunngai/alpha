@@ -29,4 +29,12 @@ struct Sentence: Codable {
             return "\(english_!)*"
         }
     }
+    
+    var isGreekTranslated: Bool {
+        return greek_ != nil
+    }
+    
+    var isEnglishTranslated: Bool {
+        return english_ != nil
+    }
 }

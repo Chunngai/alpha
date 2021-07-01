@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseTextView: UIView {
+class BaseCardView: UIView {
     
     // MARK: - Views
     

@@ -29,7 +29,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         )
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
-//        tableView.estimatedRowHeight = HomeViewController.tableViewEstimatedRowHeight
         tableView.rowHeight = HomeViewController.tableViewRowHeight
         
         return tableView
@@ -52,7 +51,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // There must be some code that accesses the lessonTableView
         // to activate it since it is lazy.
         lessonTableView.snp.makeConstraints { (make) in
-            make.width.equalToSuperview().multipliedBy(0.95)
+            make.width.equalToSuperview().multipliedBy(0.90)
             make.height.equalToSuperview()
             make.centerX.equalToSuperview()
         }
