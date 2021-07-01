@@ -10,22 +10,11 @@ import UIKit
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    let cellLabelDict: [Int: String] = [
-        0: "Learning",
-        1: "Vocabulary",
-        2: "Sentences",
-        3: "Reading",
-        4: "Test"
-    ]
-    
-    let cellImageViewDict: [Int: UIImage] = [
-        0: UIImage(imageLiteralResourceName: "learning"),
-        1: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
-        2: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
-        3: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
-        4: UIImage(imageLiteralResourceName: "test")
-    ]
-    
+    var rowNumber: Int = 0
+    var cellLabelDict: [Int: String] = [:]
+    var cellImageViewDict: [Int: UIImage] = [:]
+    var actions: [(Lesson) -> ()] = []
+        
     // MARK: - Models
     
     var lesson: Lesson!
@@ -146,7 +135,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         menuTableShadowView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.top.equalTo(titieLabelShadowView.snp.bottom).offset(MenuViewController.tableShadowViewOffset)
-            make.height.equalTo(MenuViewController.tableViewrowHeight * 5)
+            make.height.equalTo(MenuViewController.tableViewrowHeight * CGFloat(rowNumber))
             make.width.equalTo(titieLabelShadowView.snp.width)
         }
         menuTableView.snp.makeConstraints { (make) in
@@ -158,8 +147,49 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func updateValues(lesson: Lesson, delegate: HomeViewController) {
         self.lesson = lesson
-        
         self.delegate = delegate
+        prepareForDrawingTable()
+    }
+    
+    // MARK: - Utils
+    
+    func prepareForDrawingTable() {
+        var index: Int {
+            return rowNumber - 1
+        }
+        
+        rowNumber += 1
+        cellLabelDict[index] = MenuViewController.labels[0]
+        cellImageViewDict[index] = MenuViewController.images[0]
+        actions.append(delegate.learningButtonTapped)
+
+        if lesson.vocab != nil {
+            rowNumber += 1
+            cellLabelDict[index] = MenuViewController.labels[1]
+            cellImageViewDict[index] = MenuViewController.images[1]
+            actions.append(delegate.vocabButtonTapped)
+        }
+        
+        if lesson.sentences != nil {
+            rowNumber += 1
+            cellLabelDict[index] = MenuViewController.labels[2]
+            cellImageViewDict[index] = MenuViewController.images[2]
+            actions.append(delegate.sentencesButtonTapped)
+        }
+        
+        if lesson.reading != nil {
+            rowNumber += 1
+            cellLabelDict[index] = MenuViewController.labels[3]
+            cellImageViewDict[index] = MenuViewController.images[3]
+            actions.append(delegate.readingButtonTapped)
+        }
+        
+        if lesson.sentences != nil {
+            rowNumber += 1
+            cellLabelDict[index] = MenuViewController.labels[4]
+            cellImageViewDict[index] = MenuViewController.images[4]
+            actions.append(delegate.testButtonTapped)
+        }
     }
 }
 
@@ -171,7 +201,7 @@ extension MenuViewController {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellLabelDict.count
+        return rowNumber
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -190,18 +220,26 @@ extension MenuViewController {
     // MARK: - UITableView Delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0: delegate.learningButtonTapped(lesson: lesson)
-        case 1: delegate.vocabButtonTapped(lesson: lesson)
-        case 2: delegate.sentencesButtonTapped(lesson: lesson)
-        case 3: delegate.readingButtonTapped(lesson: lesson)
-        case 4: delegate.testButtonTapped(lesson: lesson)
-        default: return
-        }
+        actions[indexPath.row](lesson)
     }
 }
 
 extension MenuViewController {
+    static let labels = [
+        "Learning",
+        "Vocabulary",
+        "Sentences",
+        "Reading",
+        "Test"
+    ]
+    static let images = [
+        0: UIImage(imageLiteralResourceName: "learning"),
+        1: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
+        2: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
+        3: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
+        4: UIImage(imageLiteralResourceName: "test")
+    ]
+    
     static let functionCellReuseIdentifier = "MenuTableViewCell"
     static let tableViewEstimatedRowHeight: CGFloat = UIScreen.main.bounds.height * 0.145
     static let tableViewrowHeight: CGFloat = UIScreen.main.bounds.height * 0.090
