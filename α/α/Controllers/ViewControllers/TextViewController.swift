@@ -39,12 +39,7 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }()
     
     lazy var displayListBarButtonItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(
-            title: "[=]",
-            style: .plain,
-            target: self,
-            action: #selector(displayList)
-        )
+        let item = UIBarButtonItem(image: TextViewController.barButtonItemSystemImageWhenDisplayingLoop, style: .plain, target: self, action: #selector(barButtonItemTapped))
         return item
     }()
     
@@ -101,9 +96,26 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: - Actions
     
-    @objc func displayList() {
+    @objc func barButtonItemTapped() {
+        if listView.isHidden {
+            displayList()
+        } else if loopView.isHidden {
+            displayLoop()
+        }
+    }
+    
+    func displayList() {
         listView.isHidden = false
         loopView.isHidden = true
+        displayListBarButtonItem.image = TextViewController.barButtonItemSystemImageWhenDisplayingList
+    }
+    
+    // MARK: - Utils
+    
+    func displayLoop() {
+        listView.isHidden = true
+        loopView.isHidden = false
+        displayListBarButtonItem.image = TextViewController.barButtonItemSystemImageWhenDisplayingLoop
     }
 }
 
@@ -130,8 +142,7 @@ extension TextViewController {
     // MARK: - UITableView Delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        listView.isHidden = true
-        loopView.isHidden = false
+        displayLoop()
         loopView.currentPage = indexPath.row
     }
 }
@@ -139,4 +150,6 @@ extension TextViewController {
 extension TextViewController {
     static let tableViewRowHeight: CGFloat = UIScreen.main.bounds.height * 0.065
     static let tableViewCellReuseIdentifier = "TextTableViewCell"
+    static let barButtonItemSystemImageWhenDisplayingList = UIImage(systemName: "line.horizontal.3.decrease.circle.fill")
+    static let barButtonItemSystemImageWhenDisplayingLoop = UIImage(systemName: "line.horizontal.3.decrease.circle")
 }
