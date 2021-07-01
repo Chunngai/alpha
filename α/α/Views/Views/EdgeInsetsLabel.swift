@@ -10,6 +10,9 @@ import UIKit
 
 class EdgeInsetsLabel: UILabel {
     
+    // MARK: - TODO: wrap the label in a content view instead.
+    // the current solution does not take the numberOfLines into account.
+    
     var top: CGFloat!
     var left: CGFloat!
     var bottom: CGFloat!

@@ -16,9 +16,9 @@ class TextTableViewCell: UITableViewCell {
     
     lazy var label: UILabel = {
         let label = EdgeInsetsLabel(
-            top: 15,
+            top: 10,
             left: 10,
-            bottom: 15,
+            bottom: 10,
             right: 10
         )
         contentView.addSubview(label)
@@ -54,7 +54,11 @@ class TextTableViewCell: UITableViewCell {
             make.width.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.9)
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+            
+            // Only one line in the label is displayed
+            // on the actual device
+            // when using the following line.
+//            make.centerY.equalToSuperview()
         }
     }
     

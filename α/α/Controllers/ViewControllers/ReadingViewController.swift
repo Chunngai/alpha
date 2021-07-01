@@ -40,6 +40,7 @@ class ReadingViewController: UIViewController {
         label.backgroundColor = self.mainView.backgroundColor
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 25)
+        label.textColor = .black
         
         return label
     }()
@@ -72,7 +73,8 @@ class ReadingViewController: UIViewController {
                     paragraph.lineBreakMode = .byWordWrapping
                     return paragraph
                 }(),
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 19)
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 19),
+                NSAttributedString.Key.foregroundColor: UIColor.black
             ]
         )
         
