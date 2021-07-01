@@ -50,9 +50,9 @@ class TextViewSelector: UIView {
     
     func displayWord(word: Word, isBrief: Bool) {
         if isBrief {
-            displaySingleLine(string: word.word)
+            displaySingleLine(string: word.wordEntry)
         } else {
-            displayDetailed(greekString: word.word, englishString: word.wordMeanings, explanationString: word.explanation)
+            displayDetailed(greekString: word.wordEntry, englishString: word.wordMeanings, explanationString: word.explanation)
         }
     }
     

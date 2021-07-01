@@ -32,7 +32,7 @@ struct Lesson: Codable {
     
     static func loadLessons() -> [Lesson] {
         var lessons: [Lesson] = []
-        for id in 1...5 {
+        for id in 1...6 {
             if let lesson = loadLesson(id: id) {
                 lessons.append(lesson)
             }
