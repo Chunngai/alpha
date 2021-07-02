@@ -63,6 +63,7 @@ class ReadingViewController: UIViewController {
         
         textView.backgroundColor = self.mainView.backgroundColor
         textView.isEditable = false
+        textView.isSelectable = false
         textView.attributedText = NSAttributedString(
             string: " ",
             attributes: [
@@ -136,9 +137,18 @@ class ReadingViewController: UIViewController {
         }
         titleLabel.attributedText = {
             let title = NSMutableAttributedString(string: reading.title)
+            
+            let splits = reading.title.split(separator: "\n")
+            let mainTitle = splits[0]
+            let subTitle = splits[1]
+            
             title.setBold(
-                for: String(reading.title.split(separator: "\n")[0]),
+                for: String(mainTitle),
                 fontSize: titleLabel.font.pointSize
+            )
+            title.set(
+                attributes: [.font : textView.font!],
+                for: String(subTitle)
             )
             return title
         }()
@@ -157,7 +167,7 @@ class ReadingViewController: UIViewController {
             make.centerX.equalToSuperview()
         }
         textView.text = reading.text.indent()
-        underlineVocab()
+        colorVocab()
     }
     
     func updateValues(reading: Reading) {
@@ -243,7 +253,7 @@ class ReadingViewController: UIViewController {
     
     // MARK: - Utils
     
-    func underlineVocab() {
+    func colorVocab() {
         textView.attributedText = {
             let text = NSMutableAttributedString(attributedString: textView.attributedText!)
             for wordItem in reading.vocab {

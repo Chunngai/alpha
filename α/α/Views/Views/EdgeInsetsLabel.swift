@@ -10,25 +10,17 @@ import UIKit
 
 class EdgeInsetsLabel: UILabel {
     
-    // MARK: - TODO: wrap the label in a content view instead.
-    // the current solution does not take the numberOfLines into account.
+    // MARK: - TODO: the current solution does not take the numberOfLines into account.
     
-    var top: CGFloat!
-    var left: CGFloat!
-    var bottom: CGFloat!
-    var right: CGFloat!
+    var edgeInsets: UIEdgeInsets!
     
-    open override var intrinsicContentSize: CGSize {
+    override var intrinsicContentSize: CGSize {
+        numberOfLines = 0
+        
         var size = super.intrinsicContentSize
         size.height = size.height + edgeInsets.top + edgeInsets.bottom
         size.width = size.width + edgeInsets.left + edgeInsets.right
         return size
-    }
-    
-    // MARK: - Views
-    
-    var edgeInsets: UIEdgeInsets{
-        return UIEdgeInsets(top: self.top, left: self.left, bottom: self.bottom, right: self.right)
     }
     
     // MARK: - Init
@@ -36,10 +28,7 @@ class EdgeInsetsLabel: UILabel {
     init(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) {
         super.init(frame: CGRect())
         
-        self.top = top
-        self.left = left
-        self.bottom = bottom
-        self.right = right
+        edgeInsets = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
     }
     
     required init?(coder: NSCoder) {
@@ -49,14 +38,13 @@ class EdgeInsetsLabel: UILabel {
     // MARK: - Drawing
     
     override func drawText(in rect: CGRect) {
-        let r = rect.inset(by: edgeInsets)
-        super.drawText(in: r)
+        super.drawText(in: rect.inset(by: edgeInsets))
     }
     
     override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines n: Int) -> CGRect {
-        let b = bounds
-        let tr = b.inset(by: edgeInsets)
-        let ctr = super.textRect(forBounds: tr, limitedToNumberOfLines: 0)
-        return ctr
+        return super.textRect(
+            forBounds: bounds.inset(by: edgeInsets),
+            limitedToNumberOfLines: 0
+        )
     }
 }

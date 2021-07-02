@@ -114,7 +114,6 @@ class DetailedCardView: BaseCardView {
             make.top.equalToSuperview().inset(30)
             make.leading.equalToSuperview().inset(25)
             make.trailing.equalToSuperview().inset(25)
-            make.height.equalToSuperview().multipliedBy(0.08)
         }
         
         meaningLabel.snp.makeConstraints { (make) in

@@ -10,7 +10,7 @@ import UIKit
 
 class TextViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var entries: [String] = []
+    var entries: [NSMutableAttributedString] = []
     
     // MARK: - Models
     
@@ -78,17 +78,39 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if let vocab = vocab {
             for word in vocab {
-                entries.append(word.wordEntry)
+                let wordEntry = NSMutableAttributedString(string: word.wordEntry)
+                let wordMeanings = NSMutableAttributedString(string: word.wordMeanings.replacingOccurrences(of: "\n\n", with: "\n"))
+                wordMeanings.set(attributes: [
+                    NSAttributedString.Key.foregroundColor : UIColor.gray,
+                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)
+                ])
+                let entry: NSMutableAttributedString = NSMutableAttributedString(string: "")
+                entry.append(wordEntry)
+                entry.append(NSMutableAttributedString(string: "\n"))
+                entry.append(wordMeanings)
+                
+                // Tmp solution for "..."
+                let additionalEndingString = NSMutableAttributedString(string: "[PAD]")
+                additionalEndingString.set(attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightBlue])
+                entry.append(additionalEndingString)
+                
+                entries.append(entry)
             }
         }
         if let sentences = sentences {
             for sentence in sentences {
-                var entry: String = ""
+                var entry: NSMutableAttributedString!
                 if sentence.isEnglishTranslated {
-                    entry = sentence.greekSentence
+                    entry = NSMutableAttributedString(string: sentence.greekSentence)
                 } else if sentence.isGreekTranslated {
-                    entry = sentence.englishSentence
+                    entry = NSMutableAttributedString(string: sentence.englishSentence)
                 }
+                
+                // Tmp solution for "..."
+                let additionalEndingString = NSMutableAttributedString(string: "[PAD]")
+                additionalEndingString.set(attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightBlue])
+                entry.append(additionalEndingString)
+                
                 entries.append(entry)
             }
         }

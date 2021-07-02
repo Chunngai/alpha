@@ -9,17 +9,15 @@
 import UIKit
 
 class TextTableViewCell: UITableViewCell {
-    
-    var entry: String!
-    
+        
     // MARK: - Views
     
     lazy var label: UILabel = {
         let label = EdgeInsetsLabel(
-            top: 10,
-            left: 10,
-            bottom: 10,
-            right: 10
+            top: 20,
+            left: 20,
+            bottom: 20,
+            right: 20
         )
         contentView.addSubview(label)
                 
@@ -62,8 +60,7 @@ class TextTableViewCell: UITableViewCell {
         }
     }
     
-    func updateValues(entry: String) {
-        self.entry = entry
-        label.text = entry + String.init(repeating: " ", count: 5)  // MARK: - TODO edde inset label "..."
+    func updateValues(entry: NSMutableAttributedString) {
+        label.attributedText = entry
     }
 }

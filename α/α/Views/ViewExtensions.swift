@@ -48,8 +48,8 @@ extension UIImage {
 extension NSMutableAttributedString {
     func set(attributes: [NSAttributedString.Key: Any], for textToFind: String? = nil) {
         let range: NSRange?
-        if let text = textToFind {
-            range = self.mutableString.range(of: text, options: .caseInsensitive)
+        if let textToFind = textToFind {
+            range = self.mutableString.range(of: textToFind)
         } else {
             range = NSMakeRange(0, self.length)
         }

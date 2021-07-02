@@ -57,7 +57,11 @@ class CardViewSelector: UIView {
     }
     
     func displaySentence(sentence: Sentence, isBrief: Bool) {
-        displaySingleLine(string: isBrief ? sentence.greekSentence: sentence.englishSentence)
+        if sentence.isEnglishTranslated {
+            displaySingleLine(string: isBrief ? sentence.greekSentence : sentence.englishSentence)
+        } else if sentence.isGreekTranslated {
+            displaySingleLine(string: isBrief ? sentence.englishSentence : sentence.greekSentence)
+        }
     }
     
     func displaySingleLine(string: String) {
