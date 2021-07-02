@@ -88,13 +88,6 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 entry.append(wordEntry)
                 entry.append(NSMutableAttributedString(string: "\n"))
                 entry.append(wordMeanings)
-                
-                // Tmp solution for "..."
-                let additionalEndingString = NSMutableAttributedString(string: "[PAD]")
-                additionalEndingString.set(attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightBlue])
-                entry.append(additionalEndingString)
-                
-                entries.append(entry)
             }
         }
         if let sentences = sentences {
@@ -105,12 +98,6 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 } else if sentence.isGreekTranslated {
                     entry = NSMutableAttributedString(string: sentence.englishSentence)
                 }
-                
-                // Tmp solution for "..."
-                let additionalEndingString = NSMutableAttributedString(string: "[PAD]")
-                additionalEndingString.set(attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightBlue])
-                entry.append(additionalEndingString)
-                
                 entries.append(entry)
             }
         }
