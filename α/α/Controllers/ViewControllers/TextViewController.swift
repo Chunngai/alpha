@@ -164,4 +164,14 @@ extension TextViewController {
     static let tableViewCellReuseIdentifier = "TextTableViewCell"
     static let barButtonItemSystemImageWhenDisplayingList = UIImage(systemName: "line.horizontal.3.decrease.circle.fill")
     static let barButtonItemSystemImageWhenDisplayingLoop = UIImage(systemName: "line.horizontal.3.decrease.circle")
+//    static let posBackgroundColors: [String: UIColor] = [
+//        "verb": UIColor.verbColor,
+//        "noun": UIColor.systemYellow,
+//        "pronoun": UIColor.systemOrange,
+//        "adjective": UIColor.systemPink,
+//        "adverb": UIColor.systemGreen,
+//        "preposition": UIColor.systemPurple,
+//        "conjunction": UIColor.brown,
+//        "particle": UIColor.magenta
+//    ]
 }

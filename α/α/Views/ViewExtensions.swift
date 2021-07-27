@@ -10,12 +10,18 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    static let lightBlue = UIColor(
-        red: CGFloat(210) / 255,
-        green: CGFloat(239) / 255,
-        blue: CGFloat(255) / 255,
-        alpha: 1
-    )
+    static func intRGB2UIColor(red: Int, green: Int, blue: Int, alpha: CGFloat = 1) -> UIColor {
+        return UIColor(
+            red: CGFloat(red) / 255,
+            green: CGFloat(green) / 255,
+            blue: CGFloat(blue) / 255,
+            alpha: alpha
+        )
+    }
+}
+
+extension UIColor {
+    static let lightBlue = intRGB2UIColor(red: 210, green: 239, blue: 255)
 }
 
 extension UIImage {

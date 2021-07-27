@@ -209,7 +209,7 @@ extension MenuViewController {
         cell.backgroundColor = .white
         cell.textLabel?.textColor = .darkGray
         cell.textLabel?.text = cellLabelDict[indexPath.row]
-        cell.imageView?.image = cellImageViewDict[indexPath.row]?.scale(to: 0.5)
+        cell.imageView?.image = cellImageViewDict[indexPath.row]?.scale(to: 0.4)
         cell.selectionStyle = .none
         
         return cell
@@ -233,11 +233,16 @@ extension MenuViewController {
         "Test"
     ]
     static let images = [
-        0: UIImage(imageLiteralResourceName: "learning"),
-        1: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
-        2: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
-        3: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
-        4: UIImage(imageLiteralResourceName: "test")
+//        0: UIImage(imageLiteralResourceName: "learning"),
+//        1: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
+//        2: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
+//        3: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
+//        4: UIImage(imageLiteralResourceName: "test")
+        0: UIImage(imageLiteralResourceName: "learning_icon"),
+        1: UIImage(imageLiteralResourceName: "vocab_icon"),
+        2: UIImage(imageLiteralResourceName: "sentences_icon"),
+        3: UIImage(imageLiteralResourceName: "reading_icon"),
+        4: UIImage(imageLiteralResourceName: "test_icon")
     ]
     
     static let functionCellReuseIdentifier = "MenuTableViewCell"

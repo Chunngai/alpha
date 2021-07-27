@@ -25,7 +25,7 @@ class DetailedCardView: BaseCardView {
         return label
     }()
     
-    lazy var meaningLabel: UILabel = {
+    lazy var meaningsLabel: UILabel = {
         let label = UILabel()
         mainView.addSubview(label)
         
@@ -39,7 +39,7 @@ class DetailedCardView: BaseCardView {
         return label
     }()
     
-    lazy var meaningContentLabel: EdgeInsetsLabel = {
+    lazy var meaningsContentLabel: EdgeInsetsLabel = {
         let label = EdgeInsetsLabel(
             top: DetailedCardView.labelInset,
             left: DetailedCardView.labelInset,
@@ -116,20 +116,20 @@ class DetailedCardView: BaseCardView {
             make.trailing.equalToSuperview().inset(25)
         }
         
-        meaningLabel.snp.makeConstraints { (make) in
+        meaningsLabel.snp.makeConstraints { (make) in
             make.top.equalTo(wordLabel.snp.bottom).offset(20)
             make.leading.equalTo(wordLabel.snp.leading)
             make.width.equalTo(wordLabel.snp.width)
         }
         
-        meaningContentLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(meaningLabel.snp.bottom).offset(10)
+        meaningsContentLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(meaningsLabel.snp.bottom).offset(10)
             make.leading.equalTo(wordLabel.snp.leading)
             make.width.equalTo(wordLabel.snp.width)
         }
         
         explanationLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(meaningContentLabel.snp.bottom).offset(20)
+            make.top.equalTo(meaningsContentLabel.snp.bottom).offset(20)
             make.leading.equalTo(wordLabel.snp.leading)
             make.width.equalTo(wordLabel.snp.width)
         }

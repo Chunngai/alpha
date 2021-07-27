@@ -76,7 +76,7 @@ class CardViewSelector: UIView {
         singleLineCardView.isHidden = true
         
         detailedCardView.wordLabel.text = greekString
-        detailedCardView.meaningContentLabel.text = englishString
+        detailedCardView.meaningsContentLabel.text = englishString
         if let explanationString = explanationString {
             detailedCardView.explanationLabel.isHidden = false
             detailedCardView.explanationContentLabel.isHidden = false

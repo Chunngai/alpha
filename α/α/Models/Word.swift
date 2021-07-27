@@ -46,14 +46,14 @@ struct Word: Codable {
         for (i, wordMeaningsItem) in meanings.enumerated() {
             var stringBuffer = ""
             
-            stringBuffer = "[\(wordMeaningsItem.pos!)]\n"
+            stringBuffer = "[\(wordMeaningsItem.pos!)] "
             stringBuffer += "\(wordMeaningsItem.meanings!)."
             if let usage = wordMeaningsItem.usage {
-                stringBuffer += " \(usage)."
+                stringBuffer += "\n\(usage)."
             }
             
             if i != meanings.count - 1 {
-                stringBuffer += "\n\n"
+                stringBuffer += "\n"
             }
             
             wordMeanings += "\(stringBuffer)"
