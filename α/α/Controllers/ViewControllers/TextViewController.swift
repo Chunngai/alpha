@@ -88,6 +88,8 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 entry.append(wordEntry)
                 entry.append(NSMutableAttributedString(string: "\n"))
                 entry.append(wordMeanings)
+                
+                entries.append(entry)
             }
         }
         if let sentences = sentences {
@@ -98,6 +100,7 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 } else if sentence.isGreekTranslated {
                     entry = NSMutableAttributedString(string: sentence.englishSentence)
                 }
+                
                 entries.append(entry)
             }
         }

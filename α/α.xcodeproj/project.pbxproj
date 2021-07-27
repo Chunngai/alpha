@@ -25,10 +25,12 @@
 		FF45EDC72685F8040008E469 /* SingleLineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDC62685F8040008E469 /* SingleLineCardView.swift */; };
 		FF45EDC92685F86A0008E469 /* DetailedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDC82685F86A0008E469 /* DetailedCardView.swift */; };
 		FF48A9092688EB8100E965E2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48A9082688EB8100E965E2 /* TestViewController.swift */; };
+		FF48B9F5269C09E7007A2ADD /* lesson7.json in Resources */ = {isa = PBXBuildFile; fileRef = FF48B9F4269C09E7007A2ADD /* lesson7.json */; };
+		FF48B9F7269C0A07007A2ADD /* lesson6.json in Resources */ = {isa = PBXBuildFile; fileRef = FF48B9F6269C0A07007A2ADD /* lesson6.json */; };
 		FF49449425B1EBC100B4EDAA /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */; };
 		FF4944AC25B1F77300B4EDAA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; };
 		FF4944AD25B1F77300B4EDAA /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FF4A8161268D4B5600752F5E /* lesson6.json in Resources */ = {isa = PBXBuildFile; fileRef = FF4A815E268D4B5600752F5E /* lesson6.json */; };
+		FF49D35426AAF76C00FD62E2 /* lesson8.json in Resources */ = {isa = PBXBuildFile; fileRef = FF49D35126AAF76C00FD62E2 /* lesson8.json */; };
 		FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */; };
 		FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54225B2B2C70084CEDE /* Lesson.swift */; };
 		FF4CB54925B2C6E10084CEDE /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */; };
@@ -125,9 +127,11 @@
 		FF45EDC62685F8040008E469 /* SingleLineCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineCardView.swift; sourceTree = "<group>"; };
 		FF45EDC82685F86A0008E469 /* DetailedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCardView.swift; sourceTree = "<group>"; };
 		FF48A9082688EB8100E965E2 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		FF48B9F4269C09E7007A2ADD /* lesson7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson7.json; path = ../../lesson7.json; sourceTree = "<group>"; };
+		FF48B9F6269C0A07007A2ADD /* lesson6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson6.json; path = ../../lesson6.json; sourceTree = "<group>"; };
 		FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "../../../SnapKit-develop/SnapKit.xcodeproj"; sourceTree = "<group>"; };
-		FF4A815E268D4B5600752F5E /* lesson6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson6.json; path = ../../lesson6.json; sourceTree = "<group>"; };
+		FF49D35126AAF76C00FD62E2 /* lesson8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson8.json; path = ../../lesson8.json; sourceTree = "<group>"; };
 		FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		FF4CB54225B2B2C70084CEDE /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -188,7 +192,9 @@
 				FF45EDB12685D3AC0008E469 /* lesson3.json */,
 				FF45EDB42685D3AD0008E469 /* lesson4.json */,
 				FF45EDB22685D3AC0008E469 /* lesson5.json */,
-				FF4A815E268D4B5600752F5E /* lesson6.json */,
+				FF48B9F6269C0A07007A2ADD /* lesson6.json */,
+				FF48B9F4269C09E7007A2ADD /* lesson7.json */,
+				FF49D35126AAF76C00FD62E2 /* lesson8.json */,
 				FF94BB3B25F3B259007E6DA4 /* lesson1.pdf */,
 				FF94BB3625F3B259007E6DA4 /* lesson2.pdf */,
 				FF94BB3925F3B259007E6DA4 /* lesson3.pdf */,
@@ -477,14 +483,16 @@
 				FF94BB4525F3B259007E6DA4 /* lesson1.pdf in Resources */,
 				FF2917C425B0746700A076F3 /* LaunchScreen.storyboard in Resources */,
 				FF94BB4125F3B259007E6DA4 /* lesson5.pdf in Resources */,
+				FF48B9F5269C09E7007A2ADD /* lesson7.json in Resources */,
+				FF48B9F7269C0A07007A2ADD /* lesson6.json in Resources */,
 				FF94BB4725F3B259007E6DA4 /* lesson7.pdf in Resources */,
 				FF94BB4625F3B259007E6DA4 /* lesson8.pdf in Resources */,
 				FF45EDB52685D3AD0008E469 /* lesson2.json in Resources */,
+				FF49D35426AAF76C00FD62E2 /* lesson8.json in Resources */,
 				FF94BB4225F3B259007E6DA4 /* lesson6.pdf in Resources */,
 				FF45EDB82685D3AD0008E469 /* lesson1.json in Resources */,
 				FF2917C125B0746700A076F3 /* Assets.xcassets in Resources */,
 				FF94BB4825F3B25A007E6DA4 /* lesson10.pdf in Resources */,
-				FF4A8161268D4B5600752F5E /* lesson6.json in Resources */,
 				FF45EDB92685D3AD0008E469 /* lesson4.json in Resources */,
 				FF45EDB72685D3AD0008E469 /* lesson5.json in Resources */,
 				FF94BB4325F3B259007E6DA4 /* lesson3.pdf in Resources */,
