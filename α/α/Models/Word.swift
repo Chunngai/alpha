@@ -49,7 +49,7 @@ struct Word: Codable {
             stringBuffer = "[\(wordMeaningsItem.pos!)] "
             stringBuffer += "\(wordMeaningsItem.meanings!)."
             if let usage = wordMeaningsItem.usage {
-                stringBuffer += "\n\(usage)."
+                stringBuffer += "\n◎ \(usage)."
             }
             
             if i != meanings.count - 1 {

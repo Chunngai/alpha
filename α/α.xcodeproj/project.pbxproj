@@ -37,6 +37,7 @@
 		FF4CB54D25B2E2480084CEDE /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54C25B2E2480084CEDE /* ContentViewController.swift */; };
 		FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */; };
 		FF4FC922268E0227000885C3 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4FC921268E0227000885C3 /* TextTableViewCell.swift */; };
+		FF6CF0EC26B30CC600E3E28B /* lesson9.json in Resources */ = {isa = PBXBuildFile; fileRef = FF6CF0E926B30CC600E3E28B /* lesson9.json */; };
 		FF6E86FB2688EBA100C4A3A5 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FA2688EBA100C4A3A5 /* Word.swift */; };
 		FF6E86FF2688EBB500C4A3A5 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */; };
 		FF94BB3F25F3B259007E6DA4 /* lesson9.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3325F3B259007E6DA4 /* lesson9.pdf */; };
@@ -138,6 +139,7 @@
 		FF4CB54C25B2E2480084CEDE /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FF4FC921268E0227000885C3 /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		FF6CF0E926B30CC600E3E28B /* lesson9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson9.json; path = ../../lesson9.json; sourceTree = "<group>"; };
 		FF6E86FA2688EBA100C4A3A5 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		FF94BB3325F3B259007E6DA4 /* lesson9.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson9.pdf; path = ../../lesson9.pdf; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				FF48B9F6269C0A07007A2ADD /* lesson6.json */,
 				FF48B9F4269C09E7007A2ADD /* lesson7.json */,
 				FF49D35126AAF76C00FD62E2 /* lesson8.json */,
+				FF6CF0E926B30CC600E3E28B /* lesson9.json */,
 				FF94BB3B25F3B259007E6DA4 /* lesson1.pdf */,
 				FF94BB3625F3B259007E6DA4 /* lesson2.pdf */,
 				FF94BB3925F3B259007E6DA4 /* lesson3.pdf */,
@@ -484,6 +487,7 @@
 				FF2917C425B0746700A076F3 /* LaunchScreen.storyboard in Resources */,
 				FF94BB4125F3B259007E6DA4 /* lesson5.pdf in Resources */,
 				FF48B9F5269C09E7007A2ADD /* lesson7.json in Resources */,
+				FF6CF0EC26B30CC600E3E28B /* lesson9.json in Resources */,
 				FF48B9F7269C0A07007A2ADD /* lesson6.json in Resources */,
 				FF94BB4725F3B259007E6DA4 /* lesson7.pdf in Resources */,
 				FF94BB4625F3B259007E6DA4 /* lesson8.pdf in Resources */,

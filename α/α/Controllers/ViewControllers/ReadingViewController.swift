@@ -265,7 +265,7 @@ class ReadingViewController: UIViewController {
     
     func getWordItemFromTappedSpan(span: String) -> WordItem? {
         for wordItem in reading.vocab {
-            if wordItem.word == span {
+            if wordItem.word.compare(span, options: [String.CompareOptions.caseInsensitive, String.CompareOptions.diacriticInsensitive], range: nil, locale: nil) == .orderedSame {
                 return wordItem
             }
         }

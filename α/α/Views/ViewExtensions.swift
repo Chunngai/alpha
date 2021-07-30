@@ -55,7 +55,7 @@ extension NSMutableAttributedString {
     func set(attributes: [NSAttributedString.Key: Any], for textToFind: String? = nil) {
         let range: NSRange?
         if let textToFind = textToFind {
-            range = self.mutableString.range(of: textToFind)
+            range = self.mutableString.range(of: textToFind, options: [.caseInsensitive, .diacriticInsensitive])
         } else {
             range = NSMakeRange(0, self.length)
         }
