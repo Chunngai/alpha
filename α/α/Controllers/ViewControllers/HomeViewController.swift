@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeTableViewCellDelegate, MenuViewControllerDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeLessonTableViewCellDelegate, HomeTextBookTableViewCellDelegate, MenuViewControllerDelegate {
     
     // MARK: - Models
     
@@ -24,8 +24,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(
-            HomeTableViewCell.classForCoder(),
-            forCellReuseIdentifier: HomeViewController.tableViewCellReuseIdentifier
+            HomeLessonTableViewCell.classForCoder(),
+            forCellReuseIdentifier: HomeViewController.homeLessonTableViewCellReuseIdentifier
+        )
+        tableView.register(
+            HomeTextBookTableViewCell.classForCoder(),
+            forCellReuseIdentifier: HomeViewController.homeTextBookTableViewCellReuseIdentifier
         )
         tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .none
@@ -39,7 +43,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        lessons = Lesson.loadLessons()
+        lessons = TextBook.loadLessons()
         
         initViews()
     }
@@ -63,17 +67,33 @@ extension HomeViewController {
     // MARK: - UITableView Data Source
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lessons.count
+        switch (section) {
+        case 0:
+            return 1
+        case 1:
+            return lessons.count
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewController.tableViewCellReuseIdentifier) as! HomeTableViewCell
-        cell.updateValues(lesson: lessons[indexPath.row], delegate: self)
-        return cell
+        switch (indexPath.section) {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewController.homeTextBookTableViewCellReuseIdentifier) as! HomeTextBookTableViewCell
+            cell.updateValues(delegate: self)
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewController.homeLessonTableViewCellReuseIdentifier) as! HomeLessonTableViewCell
+            cell.updateValues(lesson: lessons[indexPath.row], delegate: self)
+            return cell
+        default:
+            return UITableViewCell()
+        }
     }
 }
 
@@ -86,13 +106,23 @@ extension HomeViewController {
         navigationController?.pushViewController(menuViewController, animated: true)
     }
 }
+
+extension HomeViewController {
+    // MARK: - HomeTextBookTableViewCellDelegate
+    
+    func textBookButtonTapped() {
+        let learningViewController = ContentViewController()
+        learningViewController.updateValues(fileName: "textBook")
+        navigationController?.pushViewController(learningViewController, animated: true)
+    }
+}
  
 extension HomeViewController {
     // MARK: - MenuViewController Deleagte
     
     func learningButtonTapped(lesson: Lesson) {
         let learningViewController = ContentViewController()
-        learningViewController.updateValues(lessonId: lesson.id)
+        learningViewController.updateValues(fileName: lesson.pdfName)
         navigationController?.pushViewController(learningViewController, animated: true)
     }
     
@@ -130,7 +160,8 @@ extension HomeViewController {
 }
 
 extension HomeViewController {
-    static let tableViewCellReuseIdentifier = "HomeTableViewCell"
+    static let homeLessonTableViewCellReuseIdentifier = "HomeLessonTableViewCell"
+    static let homeTextBookTableViewCellReuseIdentifier = "HomeTextBookTableViewCell"
     static let tableViewEstimatedRowHeight: CGFloat = UIScreen.main.bounds.height * 0.145
     static let tableViewRowHeight: CGFloat = UIScreen.main.bounds.height * 0.065
 }

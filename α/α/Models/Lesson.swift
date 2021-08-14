@@ -15,8 +15,12 @@ struct Lesson: Codable {
     var sentences: [Sentence]?
     var reading: Reading?
     
-    var pdfPath: String!
-    
+    var pdfName: String {
+        return "lesson\(id!)"
+    }
+}
+
+struct TextBook: Codable {
     // MARK: IO
     
     static func loadLesson(id: Int) -> Lesson? {
@@ -32,7 +36,7 @@ struct Lesson: Codable {
     
     static func loadLessons() -> [Lesson] {
         var lessons: [Lesson] = []
-        for id in 1...11 {
+        for id in 1...50 {
             if let lesson = loadLesson(id: id) {
                 lessons.append(lesson)
             }

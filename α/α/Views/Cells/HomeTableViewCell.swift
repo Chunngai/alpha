@@ -9,15 +9,6 @@
 import UIKit
 
 class HomeTableViewCell: UITableViewCell {
-
-    // MARK: - Models
-    
-    var lesson: Lesson! {
-        didSet {
-            label.text = String(lesson.id)
-            button.setTitle(lesson.title, for: .normal)
-        }
-    }
     
     // MARK: - Controllers
     
@@ -84,16 +75,9 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
-    func updateValues(lesson: Lesson, delegate: HomeViewController) {
-        self.lesson = lesson
-        
-        self.delegate = delegate
-    }
-    
     // MARK: - Actions
     
     @objc func buttonTapped() {
-        delegate.pushMenuViewController(lesson: lesson)
     }
 }
 
@@ -107,8 +91,4 @@ extension HomeTableViewCell {
         bottom: 0,
         right: UIScreen.main.bounds.width * 0.024
     )
-}
-
-protocol HomeTableViewCellDelegate {
-    func pushMenuViewController(lesson: Lesson)
 }

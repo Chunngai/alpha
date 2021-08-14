@@ -49,12 +49,16 @@
 		FF49449425B1EBC100B4EDAA /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */; };
 		FF4944AC25B1F77300B4EDAA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; };
 		FF4944AD25B1F77300B4EDAA /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF4B38CF26C794C000E56988 /* lesson12.json in Resources */ = {isa = PBXBuildFile; fileRef = FF4B38CC26C794C000E56988 /* lesson12.json */; };
 		FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */; };
 		FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54225B2B2C70084CEDE /* Lesson.swift */; };
 		FF4CB54925B2C6E10084CEDE /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */; };
 		FF4CB54D25B2E2480084CEDE /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54C25B2E2480084CEDE /* ContentViewController.swift */; };
 		FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */; };
 		FF4FC922268E0227000885C3 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4FC921268E0227000885C3 /* TextTableViewCell.swift */; };
+		FF52BCB526C798EF0095A7D0 /* textBook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF52BCB226C798EF0095A7D0 /* textBook.pdf */; };
+		FF52BCB726C79BF30095A7D0 /* HomeTextBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB626C79BF30095A7D0 /* HomeTextBookTableViewCell.swift */; };
+		FF52BCB926C79F570095A7D0 /* HomeLessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */; };
 		FF6E86FB2688EBA100C4A3A5 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FA2688EBA100C4A3A5 /* Word.swift */; };
 		FF6E86FF2688EBB500C4A3A5 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */; };
 		FFA3B7D025BAFC78002F9D4C /* BaseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3B7CF25BAFC78002F9D4C /* BaseCardView.swift */; };
@@ -158,12 +162,16 @@
 		FF48A9082688EB8100E965E2 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "../../../SnapKit-develop/SnapKit.xcodeproj"; sourceTree = "<group>"; };
+		FF4B38CC26C794C000E56988 /* lesson12.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson12.json; path = ../../lessons/lesson12.json; sourceTree = "<group>"; };
 		FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		FF4CB54225B2B2C70084CEDE /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		FF4CB54C25B2E2480084CEDE /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FF4FC921268E0227000885C3 /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		FF52BCB226C798EF0095A7D0 /* textBook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = textBook.pdf; path = ../../lessons/textBook.pdf; sourceTree = "<group>"; };
+		FF52BCB626C79BF30095A7D0 /* HomeTextBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTextBookTableViewCell.swift; sourceTree = "<group>"; };
+		FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonTableViewCell.swift; sourceTree = "<group>"; };
 		FF6E86FA2688EBA100C4A3A5 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		FFA3B7CF25BAFC78002F9D4C /* BaseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCardView.swift; sourceTree = "<group>"; };
@@ -225,10 +233,12 @@
 				FF2120D326BE5C9500B71D63 /* lesson10.pdf */,
 				FF2120C726BE5C9400B71D63 /* lesson11.json */,
 				FF2120CF26BE5C9500B71D63 /* lesson11.pdf */,
+				FF4B38CC26C794C000E56988 /* lesson12.json */,
 				FF2120D126BE5C9500B71D63 /* lesson12.pdf */,
 				FF2120DC26BE5C9600B71D63 /* lesson13.pdf */,
 				FF2120DD26BE5C9600B71D63 /* lesson14.pdf */,
 				FF2120C426BE5C9400B71D63 /* lesson15.pdf */,
+				FF52BCB226C798EF0095A7D0 /* textBook.pdf */,
 				FF2917B625B0746600A076F3 /* α */,
 				FF2917CD25B0746700A076F3 /* αTests */,
 				FF2917D825B0746700A076F3 /* αUITests */,
@@ -306,6 +316,8 @@
 			isa = PBXGroup;
 			children = (
 				FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */,
+				FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */,
+				FF52BCB626C79BF30095A7D0 /* HomeTextBookTableViewCell.swift */,
 				FF4FC921268E0227000885C3 /* TextTableViewCell.swift */,
 			);
 			path = Cells;
@@ -505,12 +517,14 @@
 				FF2120F626BE5C9600B71D63 /* lesson13.pdf in Resources */,
 				FF2120EA26BE5C9600B71D63 /* lesson4.pdf in Resources */,
 				FF2120E326BE5C9600B71D63 /* lesson8.json in Resources */,
+				FF4B38CF26C794C000E56988 /* lesson12.json in Resources */,
 				FF2120E226BE5C9600B71D63 /* lesson10.json in Resources */,
 				FF2120F226BE5C9600B71D63 /* lesson1.json in Resources */,
 				FF2120DF26BE5C9600B71D63 /* lesson5.pdf in Resources */,
 				FF2917C425B0746700A076F3 /* LaunchScreen.storyboard in Resources */,
 				FF2120F726BE5C9600B71D63 /* lesson14.pdf in Resources */,
 				FF2120EF26BE5C9600B71D63 /* lesson7.json in Resources */,
+				FF52BCB526C798EF0095A7D0 /* textBook.pdf in Resources */,
 				FF2120E726BE5C9600B71D63 /* lesson9.pdf in Resources */,
 				FF2120F326BE5C9600B71D63 /* lesson3.pdf in Resources */,
 				FF2120E026BE5C9600B71D63 /* lesson6.json in Resources */,
@@ -560,6 +574,7 @@
 				FF2917BC25B0746600A076F3 /* HomeViewController.swift in Sources */,
 				FF4CB54925B2C6E10084CEDE /* MenuViewController.swift in Sources */,
 				FFEFA7AA268BE88E005622C7 /* SeparationLine.swift in Sources */,
+				FF52BCB926C79F570095A7D0 /* HomeLessonTableViewCell.swift in Sources */,
 				FF2917B825B0746600A076F3 /* AppDelegate.swift in Sources */,
 				FFA3B7D025BAFC78002F9D4C /* BaseCardView.swift in Sources */,
 				FFEFA7A8268BE88E005622C7 /* Reading.swift in Sources */,
@@ -567,6 +582,7 @@
 				FF48A9092688EB8100E965E2 /* TestViewController.swift in Sources */,
 				FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */,
 				FF45EDC92685F86A0008E469 /* DetailedCardView.swift in Sources */,
+				FF52BCB726C79BF30095A7D0 /* HomeTextBookTableViewCell.swift in Sources */,
 				FF4241DD26876A620002C4F4 /* CardViewSelector.swift in Sources */,
 				FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */,
 				FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */,

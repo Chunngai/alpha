@@ -44,8 +44,8 @@ class ContentViewController: UIViewController {
         print(pdfView)
     }
     
-    func updateValues(lessonId: Int) {
-        guard let url = Bundle.main.url(forResource: "lesson\(lessonId)", withExtension: "pdf") else { return }
+    func updateValues(fileName: String) {
+        guard let url = Bundle.main.url(forResource: "\(fileName)", withExtension: "pdf") else { return }
         guard let doc = PDFDocument(url: url) else { return }
         document = doc
     }
