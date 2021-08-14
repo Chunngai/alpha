@@ -110,8 +110,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func updateViews() {
         navigationItem.largeTitleDisplayMode = .never
-        
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         
         lessonLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
@@ -207,7 +206,7 @@ extension MenuViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: MenuViewController.functionCellReuseIdentifier)
         cell.backgroundColor = .white
-        cell.textLabel?.textColor = .darkGray
+        cell.textLabel?.textColor = .black
         cell.textLabel?.text = cellLabelDict[indexPath.row]
         cell.imageView?.image = cellImageViewDict[indexPath.row]?.scale(to: 0.4)
         cell.selectionStyle = .none
@@ -238,11 +237,11 @@ extension MenuViewController {
 //        2: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
 //        3: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
 //        4: UIImage(imageLiteralResourceName: "test")
-        0: UIImage(imageLiteralResourceName: "learning_icon"),
-        1: UIImage(imageLiteralResourceName: "vocab_icon"),
-        2: UIImage(imageLiteralResourceName: "sentences_icon"),
-        3: UIImage(imageLiteralResourceName: "reading_icon"),
-        4: UIImage(imageLiteralResourceName: "test_icon")
+        0: UIImage(imageLiteralResourceName: "learning_icon").setColor(color: .lightBlueForIcon),
+        1: UIImage(imageLiteralResourceName: "vocab_icon").setColor(color: .lightBlueForIcon),
+        2: UIImage(imageLiteralResourceName: "sentences_icon").setColor(color: .lightBlueForIcon),
+        3: UIImage(imageLiteralResourceName: "reading_icon").setColor(color: .lightBlueForIcon),
+        4: UIImage(imageLiteralResourceName: "test_icon").setColor(color: .lightBlueForIcon)
     ]
     
     static let functionCellReuseIdentifier = "MenuTableViewCell"

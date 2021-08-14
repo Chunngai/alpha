@@ -46,7 +46,7 @@ class TextTableViewCell: UITableViewCell {
     
     func updateViews() {
         self.selectionStyle = .none
-        self.backgroundColor = .white
+        self.backgroundColor = .background
         
         label.snp.makeConstraints { (make) in
             make.width.equalToSuperview()

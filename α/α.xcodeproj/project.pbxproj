@@ -7,6 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF2120DE26BE5C9600B71D63 /* lesson15.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120C426BE5C9400B71D63 /* lesson15.pdf */; };
+		FF2120DF26BE5C9600B71D63 /* lesson5.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120C526BE5C9400B71D63 /* lesson5.pdf */; };
+		FF2120E026BE5C9600B71D63 /* lesson6.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2120C626BE5C9400B71D63 /* lesson6.json */; };
+		FF2120E126BE5C9600B71D63 /* lesson11.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2120C726BE5C9400B71D63 /* lesson11.json */; };
+		FF2120E226BE5C9600B71D63 /* lesson10.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2120C826BE5C9400B71D63 /* lesson10.json */; };
+		FF2120E326BE5C9600B71D63 /* lesson8.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2120C926BE5C9400B71D63 /* lesson8.json */; };
+		FF2120E426BE5C9600B71D63 /* lesson3.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2120CA26BE5C9500B71D63 /* lesson3.json */; };
+		FF2120E526BE5C9600B71D63 /* lesson9.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2120CB26BE5C9500B71D63 /* lesson9.json */; };
+		FF2120E626BE5C9600B71D63 /* lesson5.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2120CC26BE5C9500B71D63 /* lesson5.json */; };
+		FF2120E726BE5C9600B71D63 /* lesson9.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120CD26BE5C9500B71D63 /* lesson9.pdf */; };
+		FF2120E826BE5C9600B71D63 /* lesson7.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120CE26BE5C9500B71D63 /* lesson7.pdf */; };
+		FF2120E926BE5C9600B71D63 /* lesson11.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120CF26BE5C9500B71D63 /* lesson11.pdf */; };
+		FF2120EA26BE5C9600B71D63 /* lesson4.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120D026BE5C9500B71D63 /* lesson4.pdf */; };
+		FF2120EB26BE5C9600B71D63 /* lesson12.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120D126BE5C9500B71D63 /* lesson12.pdf */; };
+		FF2120EC26BE5C9600B71D63 /* lesson6.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120D226BE5C9500B71D63 /* lesson6.pdf */; };
+		FF2120ED26BE5C9600B71D63 /* lesson10.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120D326BE5C9500B71D63 /* lesson10.pdf */; };
+		FF2120EE26BE5C9600B71D63 /* lesson8.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120D426BE5C9500B71D63 /* lesson8.pdf */; };
+		FF2120EF26BE5C9600B71D63 /* lesson7.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2120D526BE5C9500B71D63 /* lesson7.json */; };
+		FF2120F026BE5C9600B71D63 /* lesson1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120D626BE5C9500B71D63 /* lesson1.pdf */; };
+		FF2120F126BE5C9600B71D63 /* lesson4.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2120D726BE5C9500B71D63 /* lesson4.json */; };
+		FF2120F226BE5C9600B71D63 /* lesson1.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2120D826BE5C9500B71D63 /* lesson1.json */; };
+		FF2120F326BE5C9600B71D63 /* lesson3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120D926BE5C9500B71D63 /* lesson3.pdf */; };
+		FF2120F426BE5C9600B71D63 /* lesson2.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2120DA26BE5C9500B71D63 /* lesson2.json */; };
+		FF2120F526BE5C9600B71D63 /* lesson2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120DB26BE5C9600B71D63 /* lesson2.pdf */; };
+		FF2120F626BE5C9600B71D63 /* lesson13.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120DC26BE5C9600B71D63 /* lesson13.pdf */; };
+		FF2120F726BE5C9600B71D63 /* lesson14.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120DD26BE5C9600B71D63 /* lesson14.pdf */; };
 		FF2917B825B0746600A076F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917B725B0746600A076F3 /* AppDelegate.swift */; };
 		FF2917BA25B0746600A076F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917B925B0746600A076F3 /* SceneDelegate.swift */; };
 		FF2917BC25B0746600A076F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917BB25B0746600A076F3 /* HomeViewController.swift */; };
@@ -16,40 +42,21 @@
 		FF2917DA25B0746700A076F3 /* _UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917D925B0746700A076F3 /* _UITests.swift */; };
 		FF4241DD26876A620002C4F4 /* CardViewSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4241DC26876A620002C4F4 /* CardViewSelector.swift */; };
 		FF4583D826899003001115C9 /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4583D726899003001115C9 /* UnderlineTextField.swift */; };
-		FF45EDB52685D3AD0008E469 /* lesson2.json in Resources */ = {isa = PBXBuildFile; fileRef = FF45EDB02685D3AC0008E469 /* lesson2.json */; };
-		FF45EDB62685D3AD0008E469 /* lesson3.json in Resources */ = {isa = PBXBuildFile; fileRef = FF45EDB12685D3AC0008E469 /* lesson3.json */; };
-		FF45EDB72685D3AD0008E469 /* lesson5.json in Resources */ = {isa = PBXBuildFile; fileRef = FF45EDB22685D3AC0008E469 /* lesson5.json */; };
-		FF45EDB82685D3AD0008E469 /* lesson1.json in Resources */ = {isa = PBXBuildFile; fileRef = FF45EDB32685D3AD0008E469 /* lesson1.json */; };
-		FF45EDB92685D3AD0008E469 /* lesson4.json in Resources */ = {isa = PBXBuildFile; fileRef = FF45EDB42685D3AD0008E469 /* lesson4.json */; };
 		FF45EDBB2685E3990008E469 /* EdgeInsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDBA2685E3990008E469 /* EdgeInsetsLabel.swift */; };
 		FF45EDC72685F8040008E469 /* SingleLineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDC62685F8040008E469 /* SingleLineCardView.swift */; };
 		FF45EDC92685F86A0008E469 /* DetailedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDC82685F86A0008E469 /* DetailedCardView.swift */; };
 		FF48A9092688EB8100E965E2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48A9082688EB8100E965E2 /* TestViewController.swift */; };
-		FF48B9F5269C09E7007A2ADD /* lesson7.json in Resources */ = {isa = PBXBuildFile; fileRef = FF48B9F4269C09E7007A2ADD /* lesson7.json */; };
-		FF48B9F7269C0A07007A2ADD /* lesson6.json in Resources */ = {isa = PBXBuildFile; fileRef = FF48B9F6269C0A07007A2ADD /* lesson6.json */; };
 		FF49449425B1EBC100B4EDAA /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */; };
 		FF4944AC25B1F77300B4EDAA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; };
 		FF4944AD25B1F77300B4EDAA /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FF49D35426AAF76C00FD62E2 /* lesson8.json in Resources */ = {isa = PBXBuildFile; fileRef = FF49D35126AAF76C00FD62E2 /* lesson8.json */; };
 		FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */; };
 		FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54225B2B2C70084CEDE /* Lesson.swift */; };
 		FF4CB54925B2C6E10084CEDE /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */; };
 		FF4CB54D25B2E2480084CEDE /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54C25B2E2480084CEDE /* ContentViewController.swift */; };
 		FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */; };
 		FF4FC922268E0227000885C3 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4FC921268E0227000885C3 /* TextTableViewCell.swift */; };
-		FF6CF0EC26B30CC600E3E28B /* lesson9.json in Resources */ = {isa = PBXBuildFile; fileRef = FF6CF0E926B30CC600E3E28B /* lesson9.json */; };
 		FF6E86FB2688EBA100C4A3A5 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FA2688EBA100C4A3A5 /* Word.swift */; };
 		FF6E86FF2688EBB500C4A3A5 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */; };
-		FF94BB3F25F3B259007E6DA4 /* lesson9.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3325F3B259007E6DA4 /* lesson9.pdf */; };
-		FF94BB4025F3B259007E6DA4 /* lesson2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3625F3B259007E6DA4 /* lesson2.pdf */; };
-		FF94BB4125F3B259007E6DA4 /* lesson5.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3725F3B259007E6DA4 /* lesson5.pdf */; };
-		FF94BB4225F3B259007E6DA4 /* lesson6.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3825F3B259007E6DA4 /* lesson6.pdf */; };
-		FF94BB4325F3B259007E6DA4 /* lesson3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3925F3B259007E6DA4 /* lesson3.pdf */; };
-		FF94BB4425F3B259007E6DA4 /* lesson4.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3A25F3B259007E6DA4 /* lesson4.pdf */; };
-		FF94BB4525F3B259007E6DA4 /* lesson1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3B25F3B259007E6DA4 /* lesson1.pdf */; };
-		FF94BB4625F3B259007E6DA4 /* lesson8.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3C25F3B259007E6DA4 /* lesson8.pdf */; };
-		FF94BB4725F3B259007E6DA4 /* lesson7.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3D25F3B259007E6DA4 /* lesson7.pdf */; };
-		FF94BB4825F3B25A007E6DA4 /* lesson10.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF94BB3E25F3B259007E6DA4 /* lesson10.pdf */; };
 		FFA3B7D025BAFC78002F9D4C /* BaseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3B7CF25BAFC78002F9D4C /* BaseCardView.swift */; };
 		FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B425B492FD003D84BA /* TextViewController.swift */; };
 		FFAC17B925B4937C003D84BA /* CardLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B825B4937C003D84BA /* CardLoopView.swift */; };
@@ -104,6 +111,32 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FF2120C426BE5C9400B71D63 /* lesson15.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson15.pdf; path = ../../lessons/lesson15.pdf; sourceTree = "<group>"; };
+		FF2120C526BE5C9400B71D63 /* lesson5.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson5.pdf; path = ../../lessons/lesson5.pdf; sourceTree = "<group>"; };
+		FF2120C626BE5C9400B71D63 /* lesson6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson6.json; path = ../../lessons/lesson6.json; sourceTree = "<group>"; };
+		FF2120C726BE5C9400B71D63 /* lesson11.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson11.json; path = ../../lessons/lesson11.json; sourceTree = "<group>"; };
+		FF2120C826BE5C9400B71D63 /* lesson10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson10.json; path = ../../lessons/lesson10.json; sourceTree = "<group>"; };
+		FF2120C926BE5C9400B71D63 /* lesson8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson8.json; path = ../../lessons/lesson8.json; sourceTree = "<group>"; };
+		FF2120CA26BE5C9500B71D63 /* lesson3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson3.json; path = ../../lessons/lesson3.json; sourceTree = "<group>"; };
+		FF2120CB26BE5C9500B71D63 /* lesson9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson9.json; path = ../../lessons/lesson9.json; sourceTree = "<group>"; };
+		FF2120CC26BE5C9500B71D63 /* lesson5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson5.json; path = ../../lessons/lesson5.json; sourceTree = "<group>"; };
+		FF2120CD26BE5C9500B71D63 /* lesson9.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson9.pdf; path = ../../lessons/lesson9.pdf; sourceTree = "<group>"; };
+		FF2120CE26BE5C9500B71D63 /* lesson7.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson7.pdf; path = ../../lessons/lesson7.pdf; sourceTree = "<group>"; };
+		FF2120CF26BE5C9500B71D63 /* lesson11.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson11.pdf; path = ../../lessons/lesson11.pdf; sourceTree = "<group>"; };
+		FF2120D026BE5C9500B71D63 /* lesson4.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson4.pdf; path = ../../lessons/lesson4.pdf; sourceTree = "<group>"; };
+		FF2120D126BE5C9500B71D63 /* lesson12.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson12.pdf; path = ../../lessons/lesson12.pdf; sourceTree = "<group>"; };
+		FF2120D226BE5C9500B71D63 /* lesson6.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson6.pdf; path = ../../lessons/lesson6.pdf; sourceTree = "<group>"; };
+		FF2120D326BE5C9500B71D63 /* lesson10.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson10.pdf; path = ../../lessons/lesson10.pdf; sourceTree = "<group>"; };
+		FF2120D426BE5C9500B71D63 /* lesson8.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson8.pdf; path = ../../lessons/lesson8.pdf; sourceTree = "<group>"; };
+		FF2120D526BE5C9500B71D63 /* lesson7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson7.json; path = ../../lessons/lesson7.json; sourceTree = "<group>"; };
+		FF2120D626BE5C9500B71D63 /* lesson1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson1.pdf; path = ../../lessons/lesson1.pdf; sourceTree = "<group>"; };
+		FF2120D726BE5C9500B71D63 /* lesson4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson4.json; path = ../../lessons/lesson4.json; sourceTree = "<group>"; };
+		FF2120D826BE5C9500B71D63 /* lesson1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson1.json; path = ../../lessons/lesson1.json; sourceTree = "<group>"; };
+		FF2120D926BE5C9500B71D63 /* lesson3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson3.pdf; path = ../../lessons/lesson3.pdf; sourceTree = "<group>"; };
+		FF2120DA26BE5C9500B71D63 /* lesson2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson2.json; path = ../../lessons/lesson2.json; sourceTree = "<group>"; };
+		FF2120DB26BE5C9600B71D63 /* lesson2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson2.pdf; path = ../../lessons/lesson2.pdf; sourceTree = "<group>"; };
+		FF2120DC26BE5C9600B71D63 /* lesson13.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson13.pdf; path = ../../lessons/lesson13.pdf; sourceTree = "<group>"; };
+		FF2120DD26BE5C9600B71D63 /* lesson14.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson14.pdf; path = ../../lessons/lesson14.pdf; sourceTree = "<group>"; };
 		FF2917B425B0746600A076F3 /* α.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "α.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2917B725B0746600A076F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF2917B925B0746600A076F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,39 +152,20 @@
 		FF2917DB25B0746700A076F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF4241DC26876A620002C4F4 /* CardViewSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewSelector.swift; sourceTree = "<group>"; };
 		FF4583D726899003001115C9 /* UnderlineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
-		FF45EDB02685D3AC0008E469 /* lesson2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson2.json; path = ../../lesson2.json; sourceTree = "<group>"; };
-		FF45EDB12685D3AC0008E469 /* lesson3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson3.json; path = ../../lesson3.json; sourceTree = "<group>"; };
-		FF45EDB22685D3AC0008E469 /* lesson5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson5.json; path = ../../lesson5.json; sourceTree = "<group>"; };
-		FF45EDB32685D3AD0008E469 /* lesson1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson1.json; path = ../../lesson1.json; sourceTree = "<group>"; };
-		FF45EDB42685D3AD0008E469 /* lesson4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson4.json; path = ../../lesson4.json; sourceTree = "<group>"; };
 		FF45EDBA2685E3990008E469 /* EdgeInsetsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsLabel.swift; sourceTree = "<group>"; };
 		FF45EDC62685F8040008E469 /* SingleLineCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineCardView.swift; sourceTree = "<group>"; };
 		FF45EDC82685F86A0008E469 /* DetailedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCardView.swift; sourceTree = "<group>"; };
 		FF48A9082688EB8100E965E2 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		FF48B9F4269C09E7007A2ADD /* lesson7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson7.json; path = ../../lesson7.json; sourceTree = "<group>"; };
-		FF48B9F6269C0A07007A2ADD /* lesson6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson6.json; path = ../../lesson6.json; sourceTree = "<group>"; };
 		FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "../../../SnapKit-develop/SnapKit.xcodeproj"; sourceTree = "<group>"; };
-		FF49D35126AAF76C00FD62E2 /* lesson8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson8.json; path = ../../lesson8.json; sourceTree = "<group>"; };
 		FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		FF4CB54225B2B2C70084CEDE /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		FF4CB54C25B2E2480084CEDE /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FF4FC921268E0227000885C3 /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
-		FF6CF0E926B30CC600E3E28B /* lesson9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson9.json; path = ../../lesson9.json; sourceTree = "<group>"; };
 		FF6E86FA2688EBA100C4A3A5 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
-		FF94BB3325F3B259007E6DA4 /* lesson9.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson9.pdf; path = ../../lesson9.pdf; sourceTree = "<group>"; };
-		FF94BB3625F3B259007E6DA4 /* lesson2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson2.pdf; path = ../../lesson2.pdf; sourceTree = "<group>"; };
-		FF94BB3725F3B259007E6DA4 /* lesson5.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson5.pdf; path = ../../lesson5.pdf; sourceTree = "<group>"; };
-		FF94BB3825F3B259007E6DA4 /* lesson6.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson6.pdf; path = ../../lesson6.pdf; sourceTree = "<group>"; };
-		FF94BB3925F3B259007E6DA4 /* lesson3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson3.pdf; path = ../../lesson3.pdf; sourceTree = "<group>"; };
-		FF94BB3A25F3B259007E6DA4 /* lesson4.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson4.pdf; path = ../../lesson4.pdf; sourceTree = "<group>"; };
-		FF94BB3B25F3B259007E6DA4 /* lesson1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson1.pdf; path = ../../lesson1.pdf; sourceTree = "<group>"; };
-		FF94BB3C25F3B259007E6DA4 /* lesson8.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson8.pdf; path = ../../lesson8.pdf; sourceTree = "<group>"; };
-		FF94BB3D25F3B259007E6DA4 /* lesson7.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson7.pdf; path = ../../lesson7.pdf; sourceTree = "<group>"; };
-		FF94BB3E25F3B259007E6DA4 /* lesson10.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson10.pdf; path = ../../lesson10.pdf; sourceTree = "<group>"; };
 		FFA3B7CF25BAFC78002F9D4C /* BaseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCardView.swift; sourceTree = "<group>"; };
 		FFAC17B425B492FD003D84BA /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		FFAC17B825B4937C003D84BA /* CardLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLoopView.swift; sourceTree = "<group>"; };
@@ -189,25 +203,32 @@
 		FF2917AB25B0746600A076F3 = {
 			isa = PBXGroup;
 			children = (
-				FF45EDB32685D3AD0008E469 /* lesson1.json */,
-				FF45EDB02685D3AC0008E469 /* lesson2.json */,
-				FF45EDB12685D3AC0008E469 /* lesson3.json */,
-				FF45EDB42685D3AD0008E469 /* lesson4.json */,
-				FF45EDB22685D3AC0008E469 /* lesson5.json */,
-				FF48B9F6269C0A07007A2ADD /* lesson6.json */,
-				FF48B9F4269C09E7007A2ADD /* lesson7.json */,
-				FF49D35126AAF76C00FD62E2 /* lesson8.json */,
-				FF6CF0E926B30CC600E3E28B /* lesson9.json */,
-				FF94BB3B25F3B259007E6DA4 /* lesson1.pdf */,
-				FF94BB3625F3B259007E6DA4 /* lesson2.pdf */,
-				FF94BB3925F3B259007E6DA4 /* lesson3.pdf */,
-				FF94BB3A25F3B259007E6DA4 /* lesson4.pdf */,
-				FF94BB3725F3B259007E6DA4 /* lesson5.pdf */,
-				FF94BB3825F3B259007E6DA4 /* lesson6.pdf */,
-				FF94BB3D25F3B259007E6DA4 /* lesson7.pdf */,
-				FF94BB3C25F3B259007E6DA4 /* lesson8.pdf */,
-				FF94BB3325F3B259007E6DA4 /* lesson9.pdf */,
-				FF94BB3E25F3B259007E6DA4 /* lesson10.pdf */,
+				FF2120D826BE5C9500B71D63 /* lesson1.json */,
+				FF2120D626BE5C9500B71D63 /* lesson1.pdf */,
+				FF2120DA26BE5C9500B71D63 /* lesson2.json */,
+				FF2120DB26BE5C9600B71D63 /* lesson2.pdf */,
+				FF2120CA26BE5C9500B71D63 /* lesson3.json */,
+				FF2120D926BE5C9500B71D63 /* lesson3.pdf */,
+				FF2120D726BE5C9500B71D63 /* lesson4.json */,
+				FF2120D026BE5C9500B71D63 /* lesson4.pdf */,
+				FF2120CC26BE5C9500B71D63 /* lesson5.json */,
+				FF2120C526BE5C9400B71D63 /* lesson5.pdf */,
+				FF2120C626BE5C9400B71D63 /* lesson6.json */,
+				FF2120D226BE5C9500B71D63 /* lesson6.pdf */,
+				FF2120D526BE5C9500B71D63 /* lesson7.json */,
+				FF2120CE26BE5C9500B71D63 /* lesson7.pdf */,
+				FF2120C926BE5C9400B71D63 /* lesson8.json */,
+				FF2120D426BE5C9500B71D63 /* lesson8.pdf */,
+				FF2120CB26BE5C9500B71D63 /* lesson9.json */,
+				FF2120CD26BE5C9500B71D63 /* lesson9.pdf */,
+				FF2120C826BE5C9400B71D63 /* lesson10.json */,
+				FF2120D326BE5C9500B71D63 /* lesson10.pdf */,
+				FF2120C726BE5C9400B71D63 /* lesson11.json */,
+				FF2120CF26BE5C9500B71D63 /* lesson11.pdf */,
+				FF2120D126BE5C9500B71D63 /* lesson12.pdf */,
+				FF2120DC26BE5C9600B71D63 /* lesson13.pdf */,
+				FF2120DD26BE5C9600B71D63 /* lesson14.pdf */,
+				FF2120C426BE5C9400B71D63 /* lesson15.pdf */,
 				FF2917B625B0746600A076F3 /* α */,
 				FF2917CD25B0746700A076F3 /* αTests */,
 				FF2917D825B0746700A076F3 /* αUITests */,
@@ -479,27 +500,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF94BB4425F3B259007E6DA4 /* lesson4.pdf in Resources */,
-				FF94BB4025F3B259007E6DA4 /* lesson2.pdf in Resources */,
-				FF45EDB62685D3AD0008E469 /* lesson3.json in Resources */,
-				FF94BB3F25F3B259007E6DA4 /* lesson9.pdf in Resources */,
-				FF94BB4525F3B259007E6DA4 /* lesson1.pdf in Resources */,
+				FF2120EE26BE5C9600B71D63 /* lesson8.pdf in Resources */,
+				FF2120E926BE5C9600B71D63 /* lesson11.pdf in Resources */,
+				FF2120F626BE5C9600B71D63 /* lesson13.pdf in Resources */,
+				FF2120EA26BE5C9600B71D63 /* lesson4.pdf in Resources */,
+				FF2120E326BE5C9600B71D63 /* lesson8.json in Resources */,
+				FF2120E226BE5C9600B71D63 /* lesson10.json in Resources */,
+				FF2120F226BE5C9600B71D63 /* lesson1.json in Resources */,
+				FF2120DF26BE5C9600B71D63 /* lesson5.pdf in Resources */,
 				FF2917C425B0746700A076F3 /* LaunchScreen.storyboard in Resources */,
-				FF94BB4125F3B259007E6DA4 /* lesson5.pdf in Resources */,
-				FF48B9F5269C09E7007A2ADD /* lesson7.json in Resources */,
-				FF6CF0EC26B30CC600E3E28B /* lesson9.json in Resources */,
-				FF48B9F7269C0A07007A2ADD /* lesson6.json in Resources */,
-				FF94BB4725F3B259007E6DA4 /* lesson7.pdf in Resources */,
-				FF94BB4625F3B259007E6DA4 /* lesson8.pdf in Resources */,
-				FF45EDB52685D3AD0008E469 /* lesson2.json in Resources */,
-				FF49D35426AAF76C00FD62E2 /* lesson8.json in Resources */,
-				FF94BB4225F3B259007E6DA4 /* lesson6.pdf in Resources */,
-				FF45EDB82685D3AD0008E469 /* lesson1.json in Resources */,
+				FF2120F726BE5C9600B71D63 /* lesson14.pdf in Resources */,
+				FF2120EF26BE5C9600B71D63 /* lesson7.json in Resources */,
+				FF2120E726BE5C9600B71D63 /* lesson9.pdf in Resources */,
+				FF2120F326BE5C9600B71D63 /* lesson3.pdf in Resources */,
+				FF2120E026BE5C9600B71D63 /* lesson6.json in Resources */,
+				FF2120F426BE5C9600B71D63 /* lesson2.json in Resources */,
+				FF2120E426BE5C9600B71D63 /* lesson3.json in Resources */,
+				FF2120E826BE5C9600B71D63 /* lesson7.pdf in Resources */,
+				FF2120EC26BE5C9600B71D63 /* lesson6.pdf in Resources */,
+				FF2120F026BE5C9600B71D63 /* lesson1.pdf in Resources */,
+				FF2120F526BE5C9600B71D63 /* lesson2.pdf in Resources */,
+				FF2120ED26BE5C9600B71D63 /* lesson10.pdf in Resources */,
 				FF2917C125B0746700A076F3 /* Assets.xcassets in Resources */,
-				FF94BB4825F3B25A007E6DA4 /* lesson10.pdf in Resources */,
-				FF45EDB92685D3AD0008E469 /* lesson4.json in Resources */,
-				FF45EDB72685D3AD0008E469 /* lesson5.json in Resources */,
-				FF94BB4325F3B259007E6DA4 /* lesson3.pdf in Resources */,
+				FF2120F126BE5C9600B71D63 /* lesson4.json in Resources */,
+				FF2120EB26BE5C9600B71D63 /* lesson12.pdf in Resources */,
+				FF2120E626BE5C9600B71D63 /* lesson5.json in Resources */,
+				FF2120E526BE5C9600B71D63 /* lesson9.json in Resources */,
+				FF2120DE26BE5C9600B71D63 /* lesson15.pdf in Resources */,
+				FF2120E126BE5C9600B71D63 /* lesson11.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

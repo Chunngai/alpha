@@ -107,7 +107,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     }
     
     func updateViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         
         mainView.snp.makeConstraints { (make) in
             make.height.equalToSuperview().multipliedBy(0.80)

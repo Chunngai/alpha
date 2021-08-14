@@ -75,7 +75,7 @@ class HomeTableViewCell: UITableViewCell {
     
     func updateInitialViews() {
         self.selectionStyle = .none
-        self.backgroundColor = .white
+        self.backgroundColor = .background
         
         button.snp.makeConstraints { (make) in
             make.width.equalToSuperview()

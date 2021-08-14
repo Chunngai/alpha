@@ -31,7 +31,7 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
             TextTableViewCell.classForCoder(),
             forCellReuseIdentifier: TextViewController.tableViewCellReuseIdentifier
         )
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .none
         tableView.isHidden = true
         
@@ -52,7 +52,7 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func updateViews() {        
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         navigationItem.rightBarButtonItem = displayListBarButtonItem
 
         // TODO: - Wrap the code here

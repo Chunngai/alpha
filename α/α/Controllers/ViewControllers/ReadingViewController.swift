@@ -121,7 +121,7 @@ class ReadingViewController: UIViewController {
     }
     
     func updateViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         
         mainView.snp.makeConstraints { (make) in
             make.height.equalToSuperview().multipliedBy(0.80)
@@ -166,7 +166,7 @@ class ReadingViewController: UIViewController {
             make.width.equalToSuperview().multipliedBy(0.8)
             make.centerX.equalToSuperview()
         }
-        textView.text = reading.text.indent()
+        textView.text = makeText(text: reading.text)
         colorVocab()
     }
     
@@ -252,6 +252,16 @@ class ReadingViewController: UIViewController {
     }
     
     // MARK: - Utils
+    
+    func makeText(text: String) -> String {
+        let paras = text.split(separator: "\n")
+        var text = ""
+        for para in paras {
+            text += String(para).indent()
+            text += "\n"
+        }
+        return text
+    }
     
     func colorVocab() {
         textView.attributedText = {

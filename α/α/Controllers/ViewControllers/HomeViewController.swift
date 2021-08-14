@@ -27,7 +27,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             HomeTableViewCell.classForCoder(),
             forCellReuseIdentifier: HomeViewController.tableViewCellReuseIdentifier
         )
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .none
         tableView.rowHeight = HomeViewController.tableViewRowHeight
         
@@ -45,7 +45,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func initViews() {
-        navigationItem.title = "Lessons"
+        navigationItem.title = "Ελληνική"
+        view.backgroundColor = .background
         
         // Cannot add the snippet of code below to the closure of lessonTableView.
         // There must be some code that accesses the lessonTableView

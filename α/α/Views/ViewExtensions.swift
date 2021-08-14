@@ -22,6 +22,8 @@ extension UIColor {
 
 extension UIColor {
     static let lightBlue = intRGB2UIColor(red: 210, green: 239, blue: 255)
+    static let lightBlueForIcon = intRGB2UIColor(red: 190, green: 219, blue: 235)
+    static let background = UIColor.systemGray6
 }
 
 extension UIImage {
@@ -48,6 +50,24 @@ extension UIImage {
     
     func scale(to ratio: CGFloat) -> UIImage {
         return resize(widthRatio: ratio, heightRatio: ratio)
+    }
+}
+
+extension UIImage {
+    func setColor(color: UIColor) -> UIImage {
+        UIGraphicsBeginImageContext(self.size)
+        
+        color.setFill()
+        
+        let bounds = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        UIRectFill(bounds)
+        self.draw(in: bounds, blendMode: CGBlendMode.destinationIn, alpha: 1.0)
+        
+        let coloredImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return coloredImage!
     }
 }
 
