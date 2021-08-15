@@ -106,3 +106,13 @@ extension NSMutableAttributedString {
         set(attributes: [NSAttributedString.Key.foregroundColor : color], for: textToFind)
     }
 }
+
+extension UISearchBar {
+    var isEmpty: Bool {
+        if let keyWords = text {
+            return keyWords.trimmingCharacters(in: CharacterSet(charactersIn: " ")).count == 0
+        } else {
+            return true
+        }
+    }
+}

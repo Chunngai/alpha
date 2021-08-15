@@ -9,7 +9,12 @@
 import UIKit
 import SnapKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeLessonTableViewCellDelegate, HomeTextBookTableViewCellDelegate, MenuViewControllerDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeLessonTableViewCellDelegate, HomeIndexTableViewCellDelegate, MenuViewControllerDelegate {
+    
+    lazy var indexCellMapping: [(title: String, funcWhenTapped: () -> Void)] = [
+        (title: "Text Book", funcWhenTapped: textBookButtonTapped),
+        (title: "Vocabulary", funcWhenTapped: vocabularyButtonTapped)
+    ]
     
     // MARK: - Models
     
@@ -28,8 +33,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             forCellReuseIdentifier: HomeViewController.homeLessonTableViewCellReuseIdentifier
         )
         tableView.register(
-            HomeTextBookTableViewCell.classForCoder(),
-            forCellReuseIdentifier: HomeViewController.homeTextBookTableViewCellReuseIdentifier
+            HomeIndexTableViewCell.classForCoder(),
+            forCellReuseIdentifier: HomeViewController.homeIndexTableViewCellReuseIdentifier
         )
         tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .none
@@ -50,6 +55,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func initViews() {
         navigationItem.title = "Ελληνική"
+        navigationItem.largeTitleDisplayMode = .always
         view.backgroundColor = .background
         
         // Cannot add the snippet of code below to the closure of lessonTableView.
@@ -73,7 +79,7 @@ extension HomeViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
         case 0:
-            return 1
+            return 2
         case 1:
             return lessons.count
         default:
@@ -82,14 +88,17 @@ extension HomeViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch (indexPath.section) {
+        let section = indexPath.section
+        let row = indexPath.row
+        
+        switch (section) {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewController.homeTextBookTableViewCellReuseIdentifier) as! HomeTextBookTableViewCell
-            cell.updateValues(delegate: self)
+            let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewController.homeIndexTableViewCellReuseIdentifier) as! HomeIndexTableViewCell
+            cell.updateValues(buttonTitle: indexCellMapping[row].title, funcWhenTapped: indexCellMapping[row].funcWhenTapped)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewController.homeLessonTableViewCellReuseIdentifier) as! HomeLessonTableViewCell
-            cell.updateValues(lesson: lessons[indexPath.row], delegate: self)
+            cell.updateValues(lesson: lessons[row], delegate: self)
             return cell
         default:
             return UITableViewCell()
@@ -108,12 +117,19 @@ extension HomeViewController {
 }
 
 extension HomeViewController {
-    // MARK: - HomeTextBookTableViewCellDelegate
+    // MARK: - HomeIndexTableViewCell Delegate
     
     func textBookButtonTapped() {
         let learningViewController = ContentViewController()
+        learningViewController.navigationItem.largeTitleDisplayMode = .never
         learningViewController.updateValues(fileName: "textBook")
         navigationController?.pushViewController(learningViewController, animated: true)
+    }
+    
+    func vocabularyButtonTapped() {
+        let vocabularyViewController = VocabularyViewController()
+        vocabularyViewController.updateValues(lessons: lessons)
+        navigationController?.pushViewController(vocabularyViewController, animated: true)
     }
 }
  
@@ -161,8 +177,7 @@ extension HomeViewController {
 
 extension HomeViewController {
     static let homeLessonTableViewCellReuseIdentifier = "HomeLessonTableViewCell"
-    static let homeTextBookTableViewCellReuseIdentifier = "HomeTextBookTableViewCell"
+    static let homeIndexTableViewCellReuseIdentifier = "HomeIndexTableViewCell"
     static let tableViewEstimatedRowHeight: CGFloat = UIScreen.main.bounds.height * 0.145
     static let tableViewRowHeight: CGFloat = UIScreen.main.bounds.height * 0.065
 }
-
