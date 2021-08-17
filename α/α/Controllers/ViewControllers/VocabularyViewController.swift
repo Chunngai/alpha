@@ -44,7 +44,7 @@ class VocabularyViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .singleLine
-        tableView.tableHeaderView = searchBar
+//        tableView.tableHeaderView = searchBar
         
         return tableView
     }()
@@ -59,6 +59,7 @@ class VocabularyViewController: UIViewController, UITableViewDataSource, UITable
     
     func updateInitialViews() {
         navigationItem.largeTitleDisplayMode = .never
+        navigationItem.titleView = searchBar
         view.backgroundColor = .background
                 
         tableView.snp.makeConstraints { (make) in
