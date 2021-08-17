@@ -12,30 +12,13 @@ class TextTableViewCell: UITableViewCell {
         
     // MARK: - Views
     
-//    lazy var numberLabel: UILabel = {
-//        let label = UILabel()
-//        contentView.addSubview(label)
-//
-////        label.layer.cornerRadius = label.frame.width / 2
-//        label.layer.masksToBounds = true
-//        label.backgroundColor = .lightBlue
-//
-//        return label
-//    }()
-    
-    lazy var label: EdgeInsetsLabel = {
-        let label = EdgeInsetsLabel(
-            top: 10,
-            left: 15,
-            bottom: 10,
-            right: 15
-        )
+    lazy var label: PaddingLabel = {
+        let label = PaddingLabel(edgeInsets: UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15))
         contentView.addSubview(label)
-                
-//        label.layer.cornerRadius = 8
-        label.layer.masksToBounds = true
+        
         label.backgroundColor = .white
-        label.textColor = .black
+        label.layer.masksToBounds = true
+        label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 19)
         label.numberOfLines = 0
@@ -59,28 +42,16 @@ class TextTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         self.backgroundColor = .background
         
-//        numberLabel.snp.makeConstraints { (make) in
-//            make.left.equalToSuperview()
-//            make.height.equalTo(30)
-//            make.width.equalTo(30)
-//            make.centerY.equalToSuperview()
-//        }
-        
         label.snp.makeConstraints { (make) in
-//            make.left.equalTo(numberLabel.snp.right).offset(10)
             make.width.equalToSuperview()
-//            make.right.equalToSuperview().inset(10)
             make.height.equalToSuperview().multipliedBy(0.9)
-            make.centerX.equalToSuperview()
-
-            // Only one line in the label is displayed
-            // on the actual device
-            // when using the following line.
-//            make.centerY.equalToSuperview()
         }
     }
     
     func updateValues(entry: NSMutableAttributedString) {
         label.attributedText = entry
+        if label.actualNumberOfLines == 1 {  // Short sentences.
+            label.text! += "\n"
+        }
     }
 }

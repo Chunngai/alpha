@@ -92,13 +92,8 @@ class ReadingViewController: UIViewController {
         return labelView
     }()
     
-    lazy var explanationLabel: EdgeInsetsLabel = {
-        let label = EdgeInsetsLabel(
-            top: ReadingViewController.explnationLabelinset,
-            left: ReadingViewController.explnationLabelinset,
-            bottom: ReadingViewController.explnationLabelinset,
-            right: ReadingViewController.explnationLabelinset
-        )
+    lazy var explanationLabel: PaddingLabel = {
+        let label = PaddingLabel(padding: ReadingViewController.explnationLabelinset)
         explanationLabelShadowView.addSubview(label)
         
         label.backgroundColor = self.mainView.backgroundColor

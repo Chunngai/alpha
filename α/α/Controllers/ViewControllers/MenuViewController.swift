@@ -37,13 +37,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return labelView
     }()
     
-    lazy var titleLabel: EdgeInsetsLabel = {
-        let label = EdgeInsetsLabel(
-            top: MenuViewController.titleLabelinset,
-            left: MenuViewController.titleLabelinset,
-            bottom: MenuViewController.titleLabelinset,
-            right: MenuViewController.titleLabelinset
-        )
+    lazy var titleLabel: PaddingLabel = {
+        let label = PaddingLabel(padding: MenuViewController.titleLabelinset)
         titieLabelShadowView.addSubview(label)
         
         label.backgroundColor = .white
@@ -251,7 +246,7 @@ extension MenuViewController {
     
     static let shadowOffset: CGSize = CGSize(width: UIScreen.main.bounds.width * 0.01, height: UIScreen.main.bounds.height * 0.006)
     static let titleLabelFont: UIFont = UIFont.systemFont(ofSize: UIScreen.main.bounds.width * 0.05)
-    static let titleLabelinset = UIScreen.main.bounds.width * 0.02
+    static let titleLabelinset = UIScreen.main.bounds.width * 0.03
     
     static let titleShadowViewTopOffset = UIScreen.main.bounds.height * 0.12
     static let titleShadowViewHeight = UIScreen.main.bounds.height * 0.25

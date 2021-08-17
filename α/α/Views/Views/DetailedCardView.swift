@@ -39,13 +39,8 @@ class DetailedCardView: BaseCardView {
         return label
     }()
     
-    lazy var meaningsContentLabel: EdgeInsetsLabel = {
-        let label = EdgeInsetsLabel(
-            top: DetailedCardView.labelInset,
-            left: DetailedCardView.labelInset,
-            bottom: DetailedCardView.labelInset,
-            right: DetailedCardView.labelInset
-        )
+    lazy var meaningsContentLabel: PaddingLabel = {
+        let label = PaddingLabel(padding: DetailedCardView.labelInset)
         mainView.addSubview(label)
         
         label.backgroundColor = .lightText
@@ -74,13 +69,8 @@ class DetailedCardView: BaseCardView {
         return label
     }()
     
-    lazy var explanationContentLabel: EdgeInsetsLabel = {
-        let label = EdgeInsetsLabel(
-            top: DetailedCardView.labelInset,
-            left: DetailedCardView.labelInset,
-            bottom: DetailedCardView.labelInset,
-            right: DetailedCardView.labelInset
-        )
+    lazy var explanationContentLabel: PaddingLabel = {
+        let label = PaddingLabel(padding: DetailedCardView.labelInset)
         mainView.addSubview(label)
         
         label.backgroundColor = .lightText
