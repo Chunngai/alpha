@@ -50,8 +50,9 @@ class TextTableViewCell: UITableViewCell {
     
     func updateValues(entry: NSMutableAttributedString) {
         label.attributedText = entry
-        if label.actualNumberOfLines == 1 {  // Short sentences.
-            label.text! += "\n"
-        }
+        // TODO: - The actualNumberOfLines is not accurate
+//        if label.actualNumberOfLines == 1 {  // Short sentences.
+//            label.text! += "\n"
+//        }
     }
 }

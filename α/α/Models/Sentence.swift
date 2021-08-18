@@ -13,7 +13,9 @@ struct Sentence: Codable {
     private var english: String?
     private var greek_: String?
     private var english_: String?
-    
+}
+ 
+extension Sentence {
     var greekSentence: String {
         if let greek = greek {
             return greek

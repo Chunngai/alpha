@@ -23,45 +23,47 @@ struct Word: Codable {
         var usage: String?
     }
     
-    private var forms: [Form]!
+    var forms: [Form]!
     var meanings: [Meanings]!
     var explanation: String?
-    
+}
+
+extension Word {
     var wordEntry: String {
-        var wordEntry = ""
+        var wordEntryConstructor = ""
         
-        for (i, form) in forms.enumerated() {
+        var wordEntriesOfEachForm: [String] = []
+        for form in forms {
             let wordEntryOfForm = getWordEntry(of: form)
-            wordEntry += wordEntryOfForm
-            if i != forms.count - 1 {
-                wordEntry += ", "
-            }
+            wordEntriesOfEachForm.append(wordEntryOfForm)
         }
+        wordEntryConstructor.append(wordEntriesOfEachForm.joined(separator: ", "))
         
-        return wordEntry
+        return wordEntryConstructor
     }
     
     var wordMeanings: String {
-        var wordMeanings = ""
-        for (i, wordMeaningsItem) in meanings.enumerated() {
-            var stringBuffer = ""
-            
-            stringBuffer = "[\(wordMeaningsItem.pos!)] "
-            stringBuffer += "\(wordMeaningsItem.meanings!)."
-            if let usage = wordMeaningsItem.usage {
-                stringBuffer += "\n☆ \(usage)"
-            }
-            
-            if i != meanings.count - 1 {
-                stringBuffer += "\n"
-            }
-            
-            wordMeanings += "\(stringBuffer)"
-        }
+        var wordMeaningsConstructor = ""
         
-        return wordMeanings
+        var wordMeaningsItems: [String] = []
+        for wordMeaningsItem in meanings {
+            var wordMeaningsItemConstructor = ""
+            
+            wordMeaningsItemConstructor = "[\(wordMeaningsItem.pos!)] "
+            wordMeaningsItemConstructor.append("\(wordMeaningsItem.meanings!).")
+            if let usage = wordMeaningsItem.usage {
+                wordMeaningsItemConstructor.append("\n☆ \(usage)")
+            }
+            
+            wordMeaningsItems.append(wordMeaningsItemConstructor)
+        }
+        wordMeaningsConstructor = wordMeaningsItems.joined(separator: "\n")
+        
+        return wordMeaningsConstructor
     }
-    
+}
+
+extension Word {
     func articleSequence(of form: Form, with articles: [String]) -> String {
         return articles.joined(separator: ", ") + " "
     }
