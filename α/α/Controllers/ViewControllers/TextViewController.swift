@@ -9,8 +9,6 @@
 import UIKit
 
 class TextViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    var entries: [NSMutableAttributedString] = []
     
     // MARK: - Models
     
@@ -75,35 +73,6 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func updateValues(vocab: [Word]? = nil, sentences: [Sentence]? = nil) {
         self.vocab = vocab
         self.sentences = sentences
-        
-        if let vocab = vocab {
-            for word in vocab {
-                let wordEntry = NSMutableAttributedString(string: word.wordEntry)
-                let wordMeanings = NSMutableAttributedString(string: word.wordMeanings.replacingOccurrences(of: "\n\n", with: "\n"))
-                wordMeanings.set(attributes: [
-                    NSAttributedString.Key.foregroundColor : UIColor.gray,
-                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)
-                ])
-                let entry: NSMutableAttributedString = NSMutableAttributedString(string: "")
-                entry.append(wordEntry)
-                entry.append(NSMutableAttributedString(string: "\n"))
-                entry.append(wordMeanings)
-                
-                entries.append(entry)
-            }
-        }
-        if let sentences = sentences {
-            for sentence in sentences {
-                var entry: NSMutableAttributedString!
-                if sentence.isEnglishTranslated {
-                    entry = NSMutableAttributedString(string: sentence.greekSentence)
-                } else if sentence.isGreekTranslated {
-                    entry = NSMutableAttributedString(string: sentence.englishSentence)
-                }
-                
-                entries.append(entry)
-            }
-        }
     }
     
     // MARK: - Actions
@@ -116,13 +85,13 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    // MARK: - Utils
+    
     func displayList() {
         listView.isHidden = false
         loopView.isHidden = true
         displayListBarButtonItem.image = TextViewController.barButtonItemSystemImageWhenDisplayingList
     }
-    
-    // MARK: - Utils
     
     func displayLoop() {
         listView.isHidden = true
@@ -139,13 +108,22 @@ extension TextViewController {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entries.count
+        if let vocab = vocab {
+            return vocab.count
+        } else if let sentences = sentences {
+            return sentences.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TextViewController.tableViewCellReuseIdentifier) as! TextTableViewCell
-        cell.updateValues(entry: entries[indexPath.row])
-        
+        if let vocab = vocab {
+            cell.updateValues(word: vocab[indexPath.row])
+        } else if let sentences = sentences {
+            cell.updateValues(sentence: sentences[indexPath.row])
+        }
         return cell
     }
 }

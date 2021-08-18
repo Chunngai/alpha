@@ -43,4 +43,29 @@ extension Word {
         "conjunction": "conj.",
         "particle": "part."
     ]
+    static let posList = Word.posAbbr.keys
+    
+    var wordMeaningsWithMarks: String {
+        var wordMeaningsConstructor = ""
+        
+        var wordMeaningsItems: [String] = []
+        for wordMeaningsItem in meanings {
+            var wordMeaningsItemConstructor = ""
+            
+            var pos = wordMeaningsItem.pos!
+            if let abbrPos = Word.posAbbr[wordMeaningsItem.pos!] {
+                pos = abbrPos
+            }
+            wordMeaningsItemConstructor = " \(pos) "
+            wordMeaningsItemConstructor.append("\(wordMeaningsItem.meanings!).")
+            if let usage = wordMeaningsItem.usage {
+                wordMeaningsItemConstructor.append("\n☆ \(usage)")
+            }
+            
+            wordMeaningsItems.append(wordMeaningsItemConstructor)
+        }
+        wordMeaningsConstructor = wordMeaningsItems.joined(separator: "\n")
+        
+        return wordMeaningsConstructor
+    }
 }

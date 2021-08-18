@@ -75,12 +75,23 @@ extension NSMutableAttributedString {
     func set(attributes: [NSAttributedString.Key: Any], for textToFind: String? = nil) {
         let range: NSRange?
         if let textToFind = textToFind {
-            range = self.mutableString.range(of: textToFind, options: [.caseInsensitive, .diacriticInsensitive])
+            range = self.mutableString.range(of: textToFind, options: String.caseAndDiacriticInsensitiveCompareOptions)
         } else {
             range = NSMakeRange(0, self.length)
         }
         if range!.location != NSNotFound {
             addAttributes(attributes, range: range!)
+        }
+    }
+    
+    func setAll(attributes: [NSAttributedString.Key: Any], for textToFind: String) {
+        var range = NSRange(location: 0, length: self.length)
+        while (range.location != NSNotFound) {
+            range = (self.string as NSString).range(of: textToFind, options: [], range: range)
+            if (range.location != NSNotFound) {
+                self.addAttributes(attributes, range: NSRange(location: range.location, length: textToFind.count))
+                range = NSRange(location: range.location + range.length, length: self.string.count - (range.location + range.length))
+            }
         }
     }
     
@@ -94,7 +105,7 @@ extension NSMutableAttributedString {
         )
     }
     
-    func setHightlight(for textToFind: String? = nil, color: UIColor) {
+    func setBackgroundColor(for textToFind: String? = nil, color: UIColor) {
         set(attributes: [.backgroundColor : color], for: textToFind)
     }
     

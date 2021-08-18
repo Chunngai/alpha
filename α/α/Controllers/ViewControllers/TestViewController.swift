@@ -271,7 +271,7 @@ extension TestViewController {
             
             inputAnswerTokens.remove(at: inputAnswerTokens.firstIndex(of: token)!)
     
-            attributedToken.setHightlight(color: .green)
+            attributedToken.setBackgroundColor(color: .green)
             matchedTokens.append(attributedToken)
         }
         questionLabel.attributedText = matchedTokens.joined(
