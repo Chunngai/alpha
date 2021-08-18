@@ -57,6 +57,7 @@ extension Word {
                 pos = abbrPos
             }
             wordMeaningsItemConstructor = " \(pos) "
+            wordMeaningsItemConstructor += " "
             wordMeaningsItemConstructor.append("\(wordMeaningsItem.meanings!).")
             if let usage = wordMeaningsItem.usage {
                 wordMeaningsItemConstructor.append("\n☆ \(usage)")

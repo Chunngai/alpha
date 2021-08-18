@@ -252,7 +252,7 @@ class ReadingViewController: UIViewController {
         let paras = text.split(separator: "\n")
         var text = ""
         for para in paras {
-            text += String(para).leftIndent(by: 4 * 2)
+            text += String(para).leftIndent(by: 4)
             text += "\n"
         }
         return text
