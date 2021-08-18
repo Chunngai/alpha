@@ -24,7 +24,7 @@ struct Word: Codable {
     }
     
     private var forms: [Form]!
-    private var meanings: [Meanings]!
+    var meanings: [Meanings]!
     var explanation: String?
     
     var wordEntry: String {

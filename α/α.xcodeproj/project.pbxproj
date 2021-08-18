@@ -42,7 +42,6 @@
 		FF2917DA25B0746700A076F3 /* _UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2917D925B0746700A076F3 /* _UITests.swift */; };
 		FF4241DD26876A620002C4F4 /* CardViewSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4241DC26876A620002C4F4 /* CardViewSelector.swift */; };
 		FF4583D826899003001115C9 /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4583D726899003001115C9 /* UnderlineTextField.swift */; };
-		FF45EDBB2685E3990008E469 /* EdgeInsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDBA2685E3990008E469 /* EdgeInsetsLabel.swift */; };
 		FF45EDC72685F8040008E469 /* SingleLineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDC62685F8040008E469 /* SingleLineCardView.swift */; };
 		FF45EDC92685F86A0008E469 /* DetailedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDC82685F86A0008E469 /* DetailedCardView.swift */; };
 		FF48A9092688EB8100E965E2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48A9082688EB8100E965E2 /* TestViewController.swift */; };
@@ -58,6 +57,9 @@
 		FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */; };
 		FF4D926E26C7CF54009598F2 /* VocabularyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4D926D26C7CF54009598F2 /* VocabularyViewController.swift */; };
 		FF4FC922268E0227000885C3 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4FC921268E0227000885C3 /* TextTableViewCell.swift */; };
+		FF51645B26CCB9E8009C4BEF /* VocabularyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF51645A26CCB9E8009C4BEF /* VocabularyTableViewCell.swift */; };
+		FF51645E26CCDCBE009C4BEF /* TypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF51645D26CCDCBE009C4BEF /* TypeExtensions.swift */; };
+		FF51646026CCDDF3009C4BEF /* TextViewWithRoundCornersBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF51645F26CCDDF3009C4BEF /* TextViewWithRoundCornersBackground.swift */; };
 		FF52BCB526C798EF0095A7D0 /* textBook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF52BCB226C798EF0095A7D0 /* textBook.pdf */; };
 		FF52BCB726C79BF30095A7D0 /* HomeIndexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */; };
 		FF52BCB926C79F570095A7D0 /* HomeLessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */; };
@@ -158,7 +160,6 @@
 		FF2917DB25B0746700A076F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF4241DC26876A620002C4F4 /* CardViewSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewSelector.swift; sourceTree = "<group>"; };
 		FF4583D726899003001115C9 /* UnderlineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
-		FF45EDBA2685E3990008E469 /* EdgeInsetsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsLabel.swift; sourceTree = "<group>"; };
 		FF45EDC62685F8040008E469 /* SingleLineCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineCardView.swift; sourceTree = "<group>"; };
 		FF45EDC82685F86A0008E469 /* DetailedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCardView.swift; sourceTree = "<group>"; };
 		FF48A9082688EB8100E965E2 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +174,9 @@
 		FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FF4D926D26C7CF54009598F2 /* VocabularyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyViewController.swift; sourceTree = "<group>"; };
 		FF4FC921268E0227000885C3 /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		FF51645A26CCB9E8009C4BEF /* VocabularyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VocabularyTableViewCell.swift; path = "α/Controllers/ViewControllers/VocabularyTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		FF51645D26CCDCBE009C4BEF /* TypeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeExtensions.swift; sourceTree = "<group>"; };
+		FF51645F26CCDDF3009C4BEF /* TextViewWithRoundCornersBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewWithRoundCornersBackground.swift; sourceTree = "<group>"; };
 		FF52BCB226C798EF0095A7D0 /* textBook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = textBook.pdf; path = ../../lessons/textBook.pdf; sourceTree = "<group>"; };
 		FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexTableViewCell.swift; sourceTree = "<group>"; };
 		FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonTableViewCell.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 		FF2917B625B0746600A076F3 /* α */ = {
 			isa = PBXGroup;
 			children = (
+				FF51645C26CCDCA6009C4BEF /* Extensions */,
 				FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */,
 				FF4CB53F25B2B2840084CEDE /* Models */,
 				FF49449225B1EA5800B4EDAA /* Controllers */,
@@ -307,12 +312,12 @@
 			isa = PBXGroup;
 			children = (
 				FF2917BB25B0746600A076F3 /* HomeViewController.swift */,
+				FF4D926D26C7CF54009598F2 /* VocabularyViewController.swift */,
 				FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */,
 				FF4CB54C25B2E2480084CEDE /* ContentViewController.swift */,
 				FFAC17B425B492FD003D84BA /* TextViewController.swift */,
 				FFEFA7A3268BE86F005622C7 /* ReadingViewController.swift */,
 				FF48A9082688EB8100E965E2 /* TestViewController.swift */,
-				FF4D926D26C7CF54009598F2 /* VocabularyViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */,
 				FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */,
 				FF4FC921268E0227000885C3 /* TextTableViewCell.swift */,
+				FF51645A26CCB9E8009C4BEF /* VocabularyTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -336,10 +342,10 @@
 				FF45EDC82685F86A0008E469 /* DetailedCardView.swift */,
 				FF4241DC26876A620002C4F4 /* CardViewSelector.swift */,
 				FFAC17B825B4937C003D84BA /* CardLoopView.swift */,
-				FF45EDBA2685E3990008E469 /* EdgeInsetsLabel.swift */,
 				FF4BD5EC26CBE75300818D9F /* PaddingLabel.swift */,
 				FF4583D726899003001115C9 /* UnderlineTextField.swift */,
 				FFEFA7A9268BE88E005622C7 /* SeparationLine.swift */,
+				FF51645F26CCDDF3009C4BEF /* TextViewWithRoundCornersBackground.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -349,7 +355,6 @@
 			children = (
 				FF45EDBE2685E7060008E469 /* Cells */,
 				FF45EDBF2685E70F0008E469 /* Views */,
-				FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -388,6 +393,15 @@
 				FFEFA7A7268BE88E005622C7 /* Reading.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FF51645C26CCDCA6009C4BEF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF51645D26CCDCBE009C4BEF /* TypeExtensions.swift */,
+				FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -576,7 +590,6 @@
 				FF49449425B1EBC100B4EDAA /* MainNavigationViewController.swift in Sources */,
 				FF6E86FF2688EBB500C4A3A5 /* Sentence.swift in Sources */,
 				FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */,
-				FF45EDBB2685E3990008E469 /* EdgeInsetsLabel.swift in Sources */,
 				FF2917BC25B0746600A076F3 /* HomeViewController.swift in Sources */,
 				FF4CB54925B2C6E10084CEDE /* MenuViewController.swift in Sources */,
 				FFEFA7AA268BE88E005622C7 /* SeparationLine.swift in Sources */,
@@ -585,6 +598,7 @@
 				FF2917B825B0746600A076F3 /* AppDelegate.swift in Sources */,
 				FFA3B7D025BAFC78002F9D4C /* BaseCardView.swift in Sources */,
 				FFEFA7A8268BE88E005622C7 /* Reading.swift in Sources */,
+				FF51645B26CCB9E8009C4BEF /* VocabularyTableViewCell.swift in Sources */,
 				FF6E86FB2688EBA100C4A3A5 /* Word.swift in Sources */,
 				FF48A9092688EB8100E965E2 /* TestViewController.swift in Sources */,
 				FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */,
@@ -597,7 +611,9 @@
 				FF4FC922268E0227000885C3 /* TextTableViewCell.swift in Sources */,
 				FF45EDC72685F8040008E469 /* SingleLineCardView.swift in Sources */,
 				FF2917BA25B0746600A076F3 /* SceneDelegate.swift in Sources */,
+				FF51646026CCDDF3009C4BEF /* TextViewWithRoundCornersBackground.swift in Sources */,
 				FFAC17B925B4937C003D84BA /* CardLoopView.swift in Sources */,
+				FF51645E26CCDCBE009C4BEF /* TypeExtensions.swift in Sources */,
 				FF4583D826899003001115C9 /* UnderlineTextField.swift in Sources */,
 				FFEFA7A4268BE86F005622C7 /* ReadingViewController.swift in Sources */,
 			);

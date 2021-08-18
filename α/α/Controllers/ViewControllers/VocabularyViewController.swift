@@ -42,9 +42,9 @@ class VocabularyViewController: UIViewController, UITableViewDataSource, UITable
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(VocabularyTableViewCell.classForCoder(), forCellReuseIdentifier: VocabularyViewController.cellReuseIdentifier)
         tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .singleLine
-//        tableView.tableHeaderView = searchBar
         
         return tableView
     }()
@@ -96,9 +96,10 @@ extension VocabularyViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = dataSource[indexPath.section].vocab[indexPath.row].wordEntry
-        cell.selectionStyle = .none
+        let word = dataSource[indexPath.section].vocab[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: VocabularyViewController.cellReuseIdentifier) as! VocabularyTableViewCell
+        cell.updateValues(wordEntry: word.wordEntry, wordMeanings: word.meanings)
         return cell
     }
 }
@@ -140,8 +141,6 @@ extension VocabularyViewController {
     }
 }
 
-extension String {
-    func caseAndDiacriticInsensitivelyContains(_ aString: String) -> Bool {
-        return self.range(of: aString, options: [String.CompareOptions.caseInsensitive, String.CompareOptions.diacriticInsensitive]) != nil
-    }
+extension VocabularyViewController {
+    static let cellReuseIdentifier = "VocabularyTableViewCell"
 }
