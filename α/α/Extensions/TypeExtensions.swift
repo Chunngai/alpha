@@ -22,6 +22,14 @@ extension String {
             return nil
         }
     }
+    
+    func leftIndent(by indent: Int) -> String {
+        return String(repeating: " ", count: indent) + self
+    }
+    
+    func indent(leftIndent: Int, rightIndent: Int) -> String {
+        return String(repeating: " ", count: leftIndent) + self + String(repeating: " ", count: rightIndent)
+    }
 }
 
 extension Word {

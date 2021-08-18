@@ -252,7 +252,7 @@ class ReadingViewController: UIViewController {
         let paras = text.split(separator: "\n")
         var text = ""
         for para in paras {
-            text += String(para).indent()
+            text += String(para).leftIndent(by: 4 * 2)
             text += "\n"
         }
         return text
@@ -306,10 +306,4 @@ class ReadingViewController: UIViewController {
 extension ReadingViewController {
     static let shadowOffset: CGSize = CGSize(width: UIScreen.main.bounds.width * 0.01, height: UIScreen.main.bounds.height * 0.006)
     static let explnationLabelinset = UIScreen.main.bounds.width * 0.025
-}
-
-extension String {
-    func indent(by indent: Int = 10) -> String {
-        return String(repeating: " ", count: indent) + self
-    }
 }

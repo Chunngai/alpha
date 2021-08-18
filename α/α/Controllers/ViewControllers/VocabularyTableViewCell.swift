@@ -57,31 +57,34 @@ class VocabularyTableViewCell: UITableViewCell {
     }
     
     func updateValues(wordEntry: String, wordMeanings: [Word.Meanings]) {
-        let posList: [String] = getPosList(wordMeanings: wordMeanings)
+        let posTokenList: [String] = getPosTokenList(wordMeanings: wordMeanings)
         
-        textView.text = posList.joined(separator: " ") + " " + wordEntry
-        
-        highlightPos(in: posList)
+        textView.text = posTokenList.joined(separator: " ") + " " + wordEntry
+
+        highlightPosToken(in: posTokenList)
     }
     
     // MARK: - Utils
     
-    func getPosList(wordMeanings: [Word.Meanings]) -> [String] {
+    func getPosTokenList(wordMeanings: [Word.Meanings]) -> [String] {
         var list: [String] = []
         for item in wordMeanings {
             let pos = Word.posAbbr[item.pos]
-            if let pos = pos, !list.contains(pos) {
-                list.append(pos)
+            if let pos = pos {
+                let posToken = pos.indent(leftIndent: 1, rightIndent: 1)
+                if !list.contains(posToken) {
+                    list.append(posToken)
+                }
             }
         }
         return list
     }
     
-    func highlightPos(in posList: [String]) {
-        for pos in posList {
+    func highlightPosToken(in posTokenList: [String]) {
+        for posToken in posTokenList {
             textView.textStorage.setAttributes(
                 VocabularyTableViewCell.posAttributes,
-                range: textView.text!.nsrange(of: pos, options: String.caseAndDiacriticInsensitiveCompareOptions)!
+                range: textView.text!.nsrange(of: posToken, options: String.caseAndDiacriticInsensitiveCompareOptions)!
             )
         }
     }
