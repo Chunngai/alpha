@@ -52,7 +52,7 @@ class CardViewSelector: UIView {
         if isBrief {
             displaySingleLine(string: word.wordEntry)
         } else {
-            displayDetailed(greekString: word.wordEntry, englishString: word.wordMeanings, explanationString: word.explanation)
+            displayDetailed(wordEntry: word.wordEntry, wordMeanings: word.wordMeaningsWithMarks, explanationString: word.explanation)
         }
     }
     
@@ -71,12 +71,12 @@ class CardViewSelector: UIView {
         singleLineCardView.label.text = string
     }
     
-    func displayDetailed(greekString: String, englishString: String, explanationString: String?) {
+    func displayDetailed(wordEntry: String, wordMeanings: String, explanationString: String?) {
         detailedCardView.isHidden = false
         singleLineCardView.isHidden = true
         
-        detailedCardView.wordLabel.text = greekString
-        detailedCardView.meaningsContentLabel.text = englishString
+        detailedCardView.wordLabel.text = wordEntry
+        detailedCardView.meaningsContentTextView.text = wordMeanings
         if let explanationString = explanationString {
             detailedCardView.explanationLabel.isHidden = false
             detailedCardView.explanationContentLabel.isHidden = false
@@ -85,5 +85,7 @@ class CardViewSelector: UIView {
             detailedCardView.explanationLabel.isHidden = true
             detailedCardView.explanationContentLabel.isHidden = true
         }
+        
+        detailedCardView.highlightPosTokens()
     }
 }

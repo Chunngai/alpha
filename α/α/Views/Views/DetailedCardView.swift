@@ -28,31 +28,45 @@ class DetailedCardView: BaseCardView {
     lazy var meaningsLabel: UILabel = {
         let label = UILabel()
         mainView.addSubview(label)
-        
+
         label.backgroundColor = mainView.backgroundColor
         label.textColor = .lightGray
         label.textAlignment = .left
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 15)
         label.text = "Meanings: "
-        
+
         return label
     }()
     
-    lazy var meaningsContentLabel: PaddingLabel = {
-        let label = PaddingLabel(padding: DetailedCardView.labelInset)
-        mainView.addSubview(label)
+    lazy var meaningsContentTextView: TextViewWithRoundCornersBackground = {
+        let textStorage = NSTextStorage()
+
+        let textLayoutManager = LayoutManagerForRoundedCornersBackground()
+        textLayoutManager.cornerRadius = 5
+        textStorage.addLayoutManager(textLayoutManager)
         
-        label.backgroundColor = .lightText
-        label.textColor = .black
-        label.textAlignment = .left
-        label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: DetailedCardView.mearningLabelFontSize)
-        label.sizeToFit()
-        label.layer.cornerRadius = 5
-        label.layer.masksToBounds = true
+        let textContainer = NSTextContainer(size: mainView.bounds.size)
+        textLayoutManager.addTextContainer(textContainer)
         
-        return label
+        // TODO: - Wrap the code above.
+        
+        let textView = TextViewWithRoundCornersBackground(frame: CGRect.zero, textContainer: textContainer)
+        mainView.addSubview(textView)
+        
+        textView.backgroundColor = .lightText
+        textView.textColor = .black
+        textView.textAlignment = .left
+        textView.font = UIFont.systemFont(ofSize: DetailedCardView.mearningsContentTextViewFontSize)
+        textView.sizeToFit()
+        textView.layer.cornerRadius = 5
+        textView.layer.masksToBounds = true
+        textView.isEditable = false
+        // The statement below makes contentSize.height be 0.
+        textView.isScrollEnabled = false  // Wo it the cell height is not accurate.
+        textView.contentInset = DetailedCardView.textViewInsets
+        
+        return textView
     }()
     
     lazy var explanationLabel: UILabel = {
@@ -112,14 +126,14 @@ class DetailedCardView: BaseCardView {
             make.width.equalTo(wordLabel.snp.width)
         }
         
-        meaningsContentLabel.snp.makeConstraints { (make) in
+        meaningsContentTextView.snp.makeConstraints { (make) in
             make.top.equalTo(meaningsLabel.snp.bottom).offset(10)
             make.leading.equalTo(wordLabel.snp.leading)
             make.width.equalTo(wordLabel.snp.width)
         }
         
         explanationLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(meaningsContentLabel.snp.bottom).offset(20)
+            make.top.equalTo(meaningsContentTextView.snp.bottom).offset(20)
             make.leading.equalTo(wordLabel.snp.leading)
             make.width.equalTo(wordLabel.snp.width)
         }
@@ -130,12 +144,28 @@ class DetailedCardView: BaseCardView {
             make.width.equalTo(wordLabel.snp.width)
         }
     }
+    
+    // MARK: - Utils
+    
+    func highlightPosTokens() {
+        for pos in Word.posList {
+            let posToken = Word.posAbbr[pos]!.indent(leftIndent: 1, rightIndent: 1)
+            
+            let range = meaningsContentTextView.text.range(of: posToken)
+            if range != nil {
+                meaningsContentTextView.textStorage.setAll(
+                    attributes: TextTableViewCell.posAttributes,
+                    for: posToken
+                )
+            }
+        }
+    }
 }
 
 extension DetailedCardView {
     static let wordLabelFontSize = UIScreen.main.bounds.width * 0.09
-//    static let mearningLabelFontSize = UIScreen.main.bounds.width * 0.05
-    static let mearningLabelFontSize = UIScreen.main.bounds.width * 0.04
+    static let mearningsContentTextViewFontSize = UIScreen.main.bounds.width * 0.04
     static let explanationLabelFontSize = UIScreen.main.bounds.width * 0.04
     static let labelInset = UIScreen.main.bounds.width * 0.02
+    static let textViewInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 }
