@@ -17,7 +17,19 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     // MARK: - Views
     
-    var loopView: CardLoopView!
+    lazy var loopView: CardLoopView = {
+        // TODO: - Fix it
+        let loopView = CardLoopView(
+            frame: CGRect(
+                x: 0,
+                y: 88,
+                width: 414,
+                height: 764
+            )
+        )
+        view.addSubview(loopView)
+        return loopView
+    }()
     
     lazy var listView: UITableView = {
         let tableView = UITableView(frame: CGRect(), style: .grouped)
@@ -52,22 +64,14 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func updateViews() {        
         view.backgroundColor = .background
         navigationItem.rightBarButtonItem = displayListBarButtonItem
-
-        // Temporary solution for word detail from vocab controller.
-        // TODO: - Fix it.
-        if let vocab = vocab, vocab.count == 1 {
-            navigationItem.rightBarButtonItem = nil
-        }
         
         // TODO: - Wrap the code here
-        loopView = CardLoopView(frame: CGRect(
-            x: 0,
-            y: (navigationController?.navigationBar.frame.maxY)!,
-            width: view.frame.width,
-            height: view.frame.height - (navigationController?.navigationBar.frame.maxY)! - (navigationController?.navigationBar.frame.height)!)
-        )
-        view.addSubview(loopView)
-        loopView.updateValues(vocab: vocab, sentences: sentences)
+//        loopView = CardLoopView(frame: CGRect(
+//            x: 0,
+//            y: (navigationController?.navigationBar.frame.maxY)!,
+//            width: view.frame.width,
+//            height: view.frame.height - (navigationController?.navigationBar.frame.maxY)! - (navigationController?.navigationBar.frame.height)!)
+//        )
         
         listView.snp.makeConstraints { (make) in
             make.width.equalToSuperview().multipliedBy(0.90)
@@ -79,6 +83,8 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func updateValues(vocab: [Word]? = nil, sentences: [Sentence]? = nil) {
         self.vocab = vocab
         self.sentences = sentences
+        
+        loopView.updateValues(vocab: vocab, sentences: sentences)
     }
     
     // MARK: - Actions

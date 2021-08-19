@@ -25,7 +25,7 @@ class PaddingLabel: UIView {
         super.init(frame: frame)
     }
     
-    convenience init(edgeInsets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)) {
+    convenience init(edgeInsets: UIEdgeInsets) {
         self.init(frame: CGRect.zero)
         
         self.edgeInsets = edgeInsets
@@ -45,6 +45,10 @@ class PaddingLabel: UIView {
         self.init(padding: CGFloat(padding))
     }
     
+    convenience init() {
+        self.init(padding: 10)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -58,17 +62,5 @@ extension PaddingLabel {
         set {
             label[keyPath: keyPath] = newValue
         }
-    }
-}
-
-extension PaddingLabel {
-    var actualNumberOfLines: Int {
-        let maxSize = CGSize(width: label.frame.size.width, height: CGFloat(Float.infinity))
-        let charSize = label.font.lineHeight
-        let text = (label.text ?? "") as NSString
-        
-        let textSize = text.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : label.font!], context: nil)
-        let linesRoundedUp = Int(ceil(textSize.height / charSize))
-        return linesRoundedUp
     }
 }

@@ -46,34 +46,40 @@ class CardLoopView: UIView, UIScrollViewDelegate {
         return self.frame.size.height
     }()
     
-    private let cardView0: CardViewSelector = CardViewSelector()
-    private let cardView1: CardViewSelector = CardViewSelector()
-    private let cardView2: CardViewSelector = CardViewSelector()
-    lazy private var loopScrollView: UIScrollView = {
+    lazy private var cardView0: CardViewSelector = {
+        let cardView = CardViewSelector()
+        loopScrollView.addSubview(cardView)
+        return cardView
+    }()
+    lazy private var cardView1: CardViewSelector = {
+        let cardView = CardViewSelector()
+        loopScrollView.addSubview(cardView)
+        
+        cardView.addGestureRecognizer({
+            let tapGestureRecognizer = UITapGestureRecognizer()
+            tapGestureRecognizer.numberOfTapsRequired = 2
+            tapGestureRecognizer.addTarget(self, action: #selector(viewDoubleTapped))
+            return tapGestureRecognizer
+        }())
+        
+        return cardView
+    }()
+    lazy private var cardView2: CardViewSelector = {
+        let cardView = CardViewSelector()
+        loopScrollView.addSubview(cardView)
+        return cardView
+    }()
+    
+    lazy var loopScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         addSubview(scrollView)
         
-        scrollView.frame = CGRect(x: 0, y: 0, width: width, height: height)
         scrollView.contentSize = CGSize(width: width * 3.0, height: height)
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.delegate = self
         scrollView.bounces = false
         scrollView.isPagingEnabled = true
-        
-        cardView0.frame = CGRect(x: width * 0.0, y: 0, width: width, height: height)
-        cardView1.frame = CGRect(x: width * 1.0, y: 0, width: width, height: height)
-        cardView2.frame = CGRect(x: width * 2.0, y: 0, width: width, height: height)
-        scrollView.addSubview(cardView0)
-        scrollView.addSubview(cardView1)
-        scrollView.addSubview(cardView2)
-        
-        cardView1.addGestureRecognizer({
-            let tapGestureRecognizer = UITapGestureRecognizer()
-            tapGestureRecognizer.numberOfTapsRequired = 2
-            tapGestureRecognizer.addTarget(self, action: #selector(viewDoubleTapped))
-            return tapGestureRecognizer
-        }())
         
         return scrollView
     }()
@@ -91,7 +97,33 @@ class CardLoopView: UIView, UIScrollViewDelegate {
     }
     
     private func updateViews(){
+        cardView0.snp.makeConstraints { (make) in
+            make.left.equalTo(0)
+            make.top.equalTo(0)
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+        }
         
+        cardView1.snp.makeConstraints { (make) in
+            make.left.equalTo(width)
+            make.top.equalTo(0)
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+        
+        cardView2.snp.makeConstraints { (make) in
+            make.left.equalTo(width * 2)
+            make.top.equalTo(0)
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+        
+        loopScrollView.snp.makeConstraints { (make) in
+            make.left.equalTo(0)
+            make.top.equalTo(0)
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+        }
     }
     
     func updateValues(vocab: [Word]?, sentences: [Sentence]?) {
@@ -99,12 +131,6 @@ class CardLoopView: UIView, UIScrollViewDelegate {
         self.sentences = sentences
         
         totalPage = vocab != nil ? vocab!.count : sentences!.count
-        
-        // Temporary solution for word detail from vocab controller.
-        // TODO: - Fix it.
-        if let vocab = vocab, vocab.count == 1 {
-            loopScrollView.isScrollEnabled = false
-        }
     }
     
     // MARK: - Actions

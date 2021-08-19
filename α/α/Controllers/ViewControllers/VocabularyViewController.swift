@@ -147,6 +147,8 @@ extension VocabularyViewController {
     func pushWordDetails(word: Word) {
         let vocabViewController = TextViewController()
         vocabViewController.updateValues(vocab: [word])
+        vocabViewController.navigationItem.rightBarButtonItem = nil
+        vocabViewController.loopView.loopScrollView.isScrollEnabled = false
         navigationController?.pushViewController(vocabViewController, animated: true)
     }
 }

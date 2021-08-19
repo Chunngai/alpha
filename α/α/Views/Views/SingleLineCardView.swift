@@ -12,15 +12,16 @@ class SingleLineCardView: BaseCardView {
     
     // MARK: - Views
     
-    lazy var label: UILabel = {
-        let label = UILabel()
+    lazy var label: PaddingLabel = {
+        let label = PaddingLabel(padding: SingleLineCardView.labelPadding)
         mainView.addSubview(label)
-        
+
         label.backgroundColor = mainView.backgroundColor
-        label.textColor = .black
-        label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 25)
+        label.attributedText = NSAttributedString(
+            string: " ",
+            attributes: SingleLineCardView.labelAttributes
+        )
         
         return label
     }()
@@ -42,9 +43,24 @@ class SingleLineCardView: BaseCardView {
         
         label.snp.makeConstraints { (make) in
             make.height.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.90)
+            make.width.equalToSuperview()
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
     }
+}
+
+extension SingleLineCardView {
+    static let labelPadding = 20
+    static let labelAttributes: [NSAttributedString.Key: Any] = [
+        .paragraphStyle: {
+            let paragraph = NSMutableParagraphStyle()
+            paragraph.lineSpacing = 5
+            paragraph.alignment = .center
+            paragraph.lineBreakMode = .byWordWrapping
+            return paragraph
+        }(),
+        .font: UIFont.systemFont(ofSize: 25),
+        .foregroundColor: UIColor.black
+    ]
 }
