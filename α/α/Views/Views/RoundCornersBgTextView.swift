@@ -16,6 +16,19 @@ class RoundCornersBgTextView: UITextView {
         super.init(frame: frame, textContainer: textContainer)
     }
     
+    convenience init(frame: CGRect, textContainerSize: CGSize) {
+        let textStorage = NSTextStorage()
+        
+        let textLayoutManager = LayoutManagerForRoundedCornersBackground()
+        textLayoutManager.cornerRadius = 5
+        textStorage.addLayoutManager(textLayoutManager)
+        
+        let textContainer = NSTextContainer(size: textContainerSize)
+        textLayoutManager.addTextContainer(textContainer)
+        
+        self.init(frame: frame, textContainer: textContainer)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

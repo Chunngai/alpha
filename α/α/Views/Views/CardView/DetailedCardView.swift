@@ -40,18 +40,7 @@ class DetailedCardView: BaseCardView {
     }()
     
     lazy var meaningsContentTextView: RoundCornersBgTextView = {
-        let textStorage = NSTextStorage()
-
-        let textLayoutManager = LayoutManagerForRoundedCornersBackground()
-        textLayoutManager.cornerRadius = DetailedCardView.textBackgroundCornerRadius
-        textStorage.addLayoutManager(textLayoutManager)
-        
-        let textContainer = NSTextContainer(size: mainView.bounds.size)
-        textLayoutManager.addTextContainer(textContainer)
-        
-        // TODO: - Wrap the code above.
-        
-        let textView = RoundCornersBgTextView(frame: CGRect.zero, textContainer: textContainer)
+        let textView = RoundCornersBgTextView(frame: CGRect.zero, textContainerSize: mainView.bounds.size)
         mainView.addSubview(textView)
         
         textView.backgroundColor = .lightText

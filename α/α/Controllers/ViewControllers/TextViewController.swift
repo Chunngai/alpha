@@ -65,7 +65,6 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         view.backgroundColor = Theme.backgroundColor
         navigationItem.rightBarButtonItem = barButtonItem
         
-        // TODO: - Wrap the code here
 //        loopView = CardLoopView(frame: CGRect(
 //            x: 0,
 //            y: (navigationController?.navigationBar.frame.maxY)!,

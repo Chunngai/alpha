@@ -41,8 +41,7 @@ class PDFViewController: UIViewController {
     func updateViews() {
         navigationItem.largeTitleDisplayMode = .never
         
-        // TODO: - how to display the pdf view wo the pring statement here?
-        // TODO: - or use snapkit here?
+        // TODO: - how to display the pdf view wo the print statement here? or use snapkit here?
         print(pdfView)
     }
     

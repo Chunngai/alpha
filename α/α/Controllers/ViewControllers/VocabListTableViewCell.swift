@@ -20,19 +20,8 @@ class VocabListTableViewCell: UITableViewCell {
     
     // MARK: - Views
     
-    lazy var textView: RoundCornersBgTextView = {
-        let textStorage = NSTextStorage()
-
-        let textLayoutManager = LayoutManagerForRoundedCornersBackground()
-        textLayoutManager.cornerRadius = 5
-        textStorage.addLayoutManager(textLayoutManager)
-        
-        let textContainer = NSTextContainer(size: self.contentView.bounds.size)
-        textLayoutManager.addTextContainer(textContainer)
-        
-        // TODO: - Wrap the code above.
-        
-        let textView = RoundCornersBgTextView(frame: CGRect.zero, textContainer: textContainer)
+    lazy var textView: RoundCornersBgTextView = {        
+        let textView = RoundCornersBgTextView(frame: CGRect.zero, textContainerSize: self.contentView.bounds.size)
         contentView.addSubview(textView)
         
         textView.addGestureRecognizer({
