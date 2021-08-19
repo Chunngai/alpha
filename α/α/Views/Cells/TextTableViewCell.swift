@@ -123,17 +123,18 @@ class TextTableViewCell: UITableViewCell {
 extension TextTableViewCell {
     static let textViewInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
     
-    static let font = UIFont.systemFont(ofSize: 16)
+//    static let wordEntryFont = UIFont.systemFont(ofSize: 17)
+//    static let wordMeaningsFont = UIFont.systemFont(ofSize: 15)
     static let posAttributes: [NSAttributedString.Key: Any] = [
-        .font: TextTableViewCell.font,
+        .font: Theme.bodyFont,
         .backgroundColor : UIColor.lightBlue
     ]
     static let grayTextAttributes: [NSAttributedString.Key: Any] = [
-        .font : TextTableViewCell.font,
+        .font : Theme.bodyFont,
         .foregroundColor : UIColor.gray
     ]
     static let blackTextAttributes: [NSAttributedString.Key: Any] = [
-        .font : TextTableViewCell.font,
+        .font : Theme.bodyFont,
         .foregroundColor : UIColor.black
     ]
 }

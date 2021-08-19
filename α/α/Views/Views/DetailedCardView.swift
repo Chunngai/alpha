@@ -20,7 +20,7 @@ class DetailedCardView: BaseCardView {
         label.textColor = .black
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: DetailedCardView.wordLabelFontSize)
+        label.font = Theme.title1Font
         
         return label
     }()
@@ -33,8 +33,8 @@ class DetailedCardView: BaseCardView {
         label.textColor = .lightGray
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 15)
         label.text = "Meanings: "
+        label.font = Theme.headlineFont
 
         return label
     }()
@@ -57,7 +57,7 @@ class DetailedCardView: BaseCardView {
         textView.backgroundColor = .lightText
         textView.textColor = .black
         textView.textAlignment = .left
-        textView.font = UIFont.systemFont(ofSize: DetailedCardView.mearningsContentTextViewFontSize)
+        textView.font = Theme.bodyFont
         textView.sizeToFit()
         textView.layer.cornerRadius = 5
         textView.layer.masksToBounds = true
@@ -77,7 +77,7 @@ class DetailedCardView: BaseCardView {
         label.textColor = .lightGray
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = Theme.headlineFont
         label.text = "Explanation: "
         
         return label
@@ -91,7 +91,7 @@ class DetailedCardView: BaseCardView {
         label.textColor = .black
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: DetailedCardView.explanationLabelFontSize)
+        label.font = Theme.bodyFont
         label.sizeToFit()
         label.layer.cornerRadius = 5
         label.layer.masksToBounds = true
@@ -163,9 +163,6 @@ class DetailedCardView: BaseCardView {
 }
 
 extension DetailedCardView {
-    static let wordLabelFontSize = UIScreen.main.bounds.width * 0.09
-    static let mearningsContentTextViewFontSize = UIScreen.main.bounds.width * 0.04
-    static let explanationLabelFontSize = UIScreen.main.bounds.width * 0.04
     static let labelInset = UIScreen.main.bounds.width * 0.02
     static let textViewInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 }

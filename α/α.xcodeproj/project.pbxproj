@@ -63,6 +63,7 @@
 		FF52BCB526C798EF0095A7D0 /* textBook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF52BCB226C798EF0095A7D0 /* textBook.pdf */; };
 		FF52BCB726C79BF30095A7D0 /* HomeIndexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */; };
 		FF52BCB926C79F570095A7D0 /* HomeLessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */; };
+		FF627D7126CE2C50004182D6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D7026CE2C50004182D6 /* Theme.swift */; };
 		FF6E86FB2688EBA100C4A3A5 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FA2688EBA100C4A3A5 /* Word.swift */; };
 		FF6E86FF2688EBB500C4A3A5 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */; };
 		FFA3B7D025BAFC78002F9D4C /* BaseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3B7CF25BAFC78002F9D4C /* BaseCardView.swift */; };
@@ -180,6 +181,7 @@
 		FF52BCB226C798EF0095A7D0 /* textBook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = textBook.pdf; path = ../../lessons/textBook.pdf; sourceTree = "<group>"; };
 		FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexTableViewCell.swift; sourceTree = "<group>"; };
 		FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonTableViewCell.swift; sourceTree = "<group>"; };
+		FF627D7026CE2C50004182D6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FF6E86FA2688EBA100C4A3A5 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		FFA3B7CF25BAFC78002F9D4C /* BaseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCardView.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 			children = (
 				FF45EDBE2685E7060008E469 /* Cells */,
 				FF45EDBF2685E70F0008E469 /* Views */,
+				FF627D7026CE2C50004182D6 /* Theme.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				FF6E86FB2688EBA100C4A3A5 /* Word.swift in Sources */,
 				FF48A9092688EB8100E965E2 /* TestViewController.swift in Sources */,
 				FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */,
+				FF627D7126CE2C50004182D6 /* Theme.swift in Sources */,
 				FF45EDC92685F86A0008E469 /* DetailedCardView.swift in Sources */,
 				FF52BCB726C79BF30095A7D0 /* HomeIndexTableViewCell.swift in Sources */,
 				FF4241DD26876A620002C4F4 /* CardViewSelector.swift in Sources */,

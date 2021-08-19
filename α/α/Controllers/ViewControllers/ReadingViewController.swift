@@ -39,7 +39,6 @@ class ReadingViewController: UIViewController {
         
         label.backgroundColor = self.mainView.backgroundColor
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 25)
         label.textColor = .black
         
         return label
@@ -74,7 +73,7 @@ class ReadingViewController: UIViewController {
                     paragraph.lineBreakMode = .byWordWrapping
                     return paragraph
                 }(),
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 19),
+                NSAttributedString.Key.font: Theme.bodyFont,
                 NSAttributedString.Key.foregroundColor: UIColor.black
             ]
         )
@@ -102,7 +101,7 @@ class ReadingViewController: UIViewController {
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 13)
+        label.font = Theme.footNoteFont
         
         return label
     }()
@@ -137,12 +136,13 @@ class ReadingViewController: UIViewController {
             let mainTitle = splits[0]
             let subTitle = splits[1]
             
-            title.setBold(
-                for: String(mainTitle),
-                fontSize: titleLabel.font.pointSize
-            )
             title.set(
-                attributes: [.font : textView.font!],
+                attributes: [.font: Theme.title1Font],
+                for: String(mainTitle)
+            )
+            
+            title.set(
+                attributes: [.font: Theme.title2Font],
                 for: String(subTitle)
             )
             return title

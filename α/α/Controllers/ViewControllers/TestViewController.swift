@@ -72,7 +72,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         label.layer.cornerRadius = 15
         label.layer.masksToBounds = true
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 25)
+        label.font = Theme.title1Font
         label.isUserInteractionEnabled = true
         
         return label
@@ -88,7 +88,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         textField.textAlignment = .center
         textField.layer.cornerRadius = 15
         textField.layer.masksToBounds = true
-        textField.font = UIFont.systemFont(ofSize: 23)
+        textField.font = Theme.title2Font
         
         return textField
     }()

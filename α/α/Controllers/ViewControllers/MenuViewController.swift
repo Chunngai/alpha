@@ -48,7 +48,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         label.layer.masksToBounds = true
         label.text = lesson.title
         label.numberOfLines = 0
-        label.font = MenuViewController.titleLabelFont
+        label.font = Theme.headlineFont
         
         return label
     }()
@@ -245,7 +245,6 @@ extension MenuViewController {
 
     
     static let shadowOffset: CGSize = CGSize(width: UIScreen.main.bounds.width * 0.01, height: UIScreen.main.bounds.height * 0.006)
-    static let titleLabelFont: UIFont = UIFont.systemFont(ofSize: UIScreen.main.bounds.width * 0.05)
     static let titleLabelinset = UIScreen.main.bounds.width * 0.03
     
     static let titleShadowViewTopOffset = UIScreen.main.bounds.height * 0.12

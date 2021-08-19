@@ -44,7 +44,7 @@ class VocabularyTableViewCell: UITableViewCell {
         textView.backgroundColor = contentView.backgroundColor
         textView.isEditable = false
         textView.isScrollEnabled = false
-        textView.font = VocabularyTableViewCell.font
+        textView.font = Theme.bodyFont
         textView.contentInset = VocabularyTableViewCell.contentInset
         
         return textView
@@ -113,11 +113,10 @@ class VocabularyTableViewCell: UITableViewCell {
 }
 
 extension VocabularyTableViewCell {
-    static let font = UIFont.systemFont(ofSize: 16)
     static let contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
     static let posAttributes: [NSAttributedString.Key: Any] = [
         .backgroundColor : UIColor.lightBlue,
-        .font: VocabularyTableViewCell.font
+        .font: Theme.bodyFont
     ]
 }
 

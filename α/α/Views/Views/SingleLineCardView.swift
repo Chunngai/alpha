@@ -60,7 +60,6 @@ extension SingleLineCardView {
             paragraph.lineBreakMode = .byWordWrapping
             return paragraph
         }(),
-        .font: UIFont.systemFont(ofSize: 25),
-        .foregroundColor: UIColor.black
+        .font: Theme.title1Font
     ]
 }
