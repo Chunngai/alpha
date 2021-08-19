@@ -12,7 +12,7 @@ class TextTableViewCell: UITableViewCell {
         
     // MARK: - Views
     
-    lazy var textView: TextViewWithRoundCornersBackground = {
+    lazy var textView: RoundCornersBgTextView = {
         let textStorage = NSTextStorage()
 
         let textLayoutManager = LayoutManagerForRoundedCornersBackground()
@@ -24,7 +24,7 @@ class TextTableViewCell: UITableViewCell {
         
         // TODO: - Wrap the code above.
         
-        let textView = TextViewWithRoundCornersBackground(frame: CGRect.zero, textContainer: textContainer)
+        let textView = RoundCornersBgTextView(frame: CGRect.zero, textContainer: textContainer)
         contentView.addSubview(textView)
         
         textView.backgroundColor = .white
@@ -50,7 +50,7 @@ class TextTableViewCell: UITableViewCell {
     
     func updateViews() {
         self.selectionStyle = .none
-        self.backgroundColor = .background
+        self.backgroundColor = Theme.backgroundColor
         
         textView.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
@@ -74,9 +74,9 @@ class TextTableViewCell: UITableViewCell {
             
             let range = textView.text.range(of: posToken)
             if range != nil {
-                textView.textStorage.setAll(
+                textView.textStorage.set(
                     attributes: TextTableViewCell.posAttributes,
-                    for: posToken
+                    forAll: posToken
                 )
             }
         }
@@ -127,7 +127,7 @@ extension TextTableViewCell {
 //    static let wordMeaningsFont = UIFont.systemFont(ofSize: 15)
     static let posAttributes: [NSAttributedString.Key: Any] = [
         .font: Theme.bodyFont,
-        .backgroundColor : UIColor.lightBlue
+        .backgroundColor : Theme.lightBlue
     ]
     static let grayTextAttributes: [NSAttributedString.Key: Any] = [
         .font : Theme.bodyFont,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VocabularyTableViewCell: UITableViewCell {
+class VocabListTableViewCell: UITableViewCell {
     
     // MARK: - Models
     
@@ -16,11 +16,11 @@ class VocabularyTableViewCell: UITableViewCell {
     
     // MARK: - Controllers
     
-    var delegate: VocabularyViewController!
+    var delegate: VocabListViewController!
     
     // MARK: - Views
     
-    lazy var textView: TextViewWithRoundCornersBackground = {
+    lazy var textView: RoundCornersBgTextView = {
         let textStorage = NSTextStorage()
 
         let textLayoutManager = LayoutManagerForRoundedCornersBackground()
@@ -32,7 +32,7 @@ class VocabularyTableViewCell: UITableViewCell {
         
         // TODO: - Wrap the code above.
         
-        let textView = TextViewWithRoundCornersBackground(frame: CGRect.zero, textContainer: textContainer)
+        let textView = RoundCornersBgTextView(frame: CGRect.zero, textContainer: textContainer)
         contentView.addSubview(textView)
         
         textView.addGestureRecognizer({
@@ -45,7 +45,7 @@ class VocabularyTableViewCell: UITableViewCell {
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.font = Theme.bodyFont
-        textView.contentInset = VocabularyTableViewCell.contentInset
+        textView.contentInset = VocabListTableViewCell.contentInset
         
         return textView
     }()
@@ -71,7 +71,7 @@ class VocabularyTableViewCell: UITableViewCell {
         }
     }
     
-    func updateValues(word: Word, delegate: VocabularyViewController) {
+    func updateValues(word: Word, delegate: VocabListViewController) {
         self.word = word
         self.delegate = delegate
         
@@ -105,17 +105,17 @@ class VocabularyTableViewCell: UITableViewCell {
     func highlightPosToken(in posTokenList: [String]) {
         for posToken in posTokenList {
             textView.textStorage.setAttributes(
-                VocabularyTableViewCell.posAttributes,
+                VocabListTableViewCell.posAttributes,
                 range: textView.text!.nsrange(of: posToken, options: String.caseAndDiacriticInsensitiveCompareOptions)!
             )
         }
     }
 }
 
-extension VocabularyTableViewCell {
+extension VocabListTableViewCell {
     static let contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
     static let posAttributes: [NSAttributedString.Key: Any] = [
-        .backgroundColor : UIColor.lightBlue,
+        .backgroundColor : Theme.lightBlue,
         .font: Theme.bodyFont
     ]
 }

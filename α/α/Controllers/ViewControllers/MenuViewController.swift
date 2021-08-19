@@ -18,11 +18,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - Models
     
     var lesson: Lesson!
-    
-    // MARK: - Controllers
-        
-    var delegate: HomeViewController!
-    
+                
     // MARK: - Views
     
     lazy var titieLabelShadowView: UIView = {
@@ -30,21 +26,21 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         view.addSubview(labelView)
         
         labelView.layer.shadowColor = UIColor.lightGray.cgColor
-        labelView.layer.shadowOpacity = 0.8
-        labelView.layer.shadowRadius = 10
+        labelView.layer.shadowOpacity = MenuViewController.shadowOpacity
+        labelView.layer.shadowRadius = MenuViewController.shadowRadius
         labelView.layer.shadowOffset = MenuViewController.shadowOffset
         
         return labelView
     }()
     
     lazy var titleLabel: PaddingLabel = {
-        let label = PaddingLabel(padding: MenuViewController.titleLabelinset)
+        let label = PaddingLabel(padding: MenuViewController.titleInset)
         titieLabelShadowView.addSubview(label)
         
         label.backgroundColor = .white
-        label.textColor = .black
+        label.textColor = Theme.textColor
         label.textAlignment = .center
-        label.layer.cornerRadius = 15
+        label.layer.cornerRadius = MenuViewController.titleCornerRadius
         label.layer.masksToBounds = true
         label.text = lesson.title
         label.numberOfLines = 0
@@ -57,8 +53,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let label = UILabel()
         titleLabel.addSubview(label)
         
-        label.backgroundColor = UIColor.lightBlue
-        label.textColor = .black
+        label.backgroundColor = Theme.lightBlue
+        label.textColor = Theme.textColor
         label.textAlignment = .center
         label.layer.cornerRadius = titleLabel.layer.cornerRadius
         label.layer.maskedCorners = CACornerMask(rawValue:CACornerMask.layerMaxXMaxYCorner.rawValue)
@@ -73,8 +69,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         view.addSubview(labelView)
         
         labelView.layer.shadowColor = UIColor.lightGray.cgColor
-        labelView.layer.shadowOpacity = 0.8
-        labelView.layer.shadowRadius = 10
+        labelView.layer.shadowOpacity = MenuViewController.shadowOpacity
+        labelView.layer.shadowRadius = MenuViewController.shadowRadius
         labelView.layer.shadowOffset = MenuViewController.shadowOffset
             
         return labelView
@@ -87,9 +83,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .white
-        tableView.layer.cornerRadius = 15
-        tableView.estimatedRowHeight = MenuViewController.tableViewEstimatedRowHeight
-        tableView.rowHeight = MenuViewController.tableViewrowHeight
+        tableView.layer.cornerRadius = MenuViewController.tableCornerRadius
+        tableView.rowHeight = MenuViewController.tableRowHeight
         tableView.isScrollEnabled = false
         
         return tableView
@@ -105,7 +100,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func updateViews() {
         navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = .background
+        view.backgroundColor = Theme.backgroundColor
         
         lessonLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
@@ -116,9 +111,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         titieLabelShadowView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(MenuViewController.titleShadowViewTopOffset)
-            make.height.equalTo(MenuViewController.titleShadowViewHeight)
-            make.width.equalTo(MenuViewController.titleShadowViewWidth)
+            make.top.equalToSuperview().offset(107)
+            make.height.equalTo(224)
+            make.width.equalTo(372)
         }
         titleLabel.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
@@ -128,8 +123,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         menuTableShadowView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(titieLabelShadowView.snp.bottom).offset(MenuViewController.tableShadowViewOffset)
-            make.height.equalTo(MenuViewController.tableViewrowHeight * CGFloat(rowNumber))
+            make.top.equalTo(titieLabelShadowView.snp.bottom).offset(22)
+            make.height.equalTo(MenuViewController.tableRowHeight * CGFloat(rowNumber))
             make.width.equalTo(titieLabelShadowView.snp.width)
         }
         menuTableView.snp.makeConstraints { (make) in
@@ -139,12 +134,13 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    func updateValues(lesson: Lesson, delegate: HomeViewController) {
+    func updateValues(lesson: Lesson) {
         self.lesson = lesson
-        self.delegate = delegate
         prepareForDrawingTable()
     }
-    
+}
+
+extension MenuViewController {
     // MARK: - Utils
     
     func prepareForDrawingTable() {
@@ -155,34 +151,34 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         rowNumber += 1
         cellLabelDict[index] = MenuViewController.labels[0]
         cellImageViewDict[index] = MenuViewController.images[0]
-        actions.append(delegate.learningButtonTapped)
+        actions.append(learningButtonTapped)
 
         if lesson.vocab != nil {
             rowNumber += 1
             cellLabelDict[index] = MenuViewController.labels[1]
             cellImageViewDict[index] = MenuViewController.images[1]
-            actions.append(delegate.vocabButtonTapped)
+            actions.append(vocabButtonTapped)
         }
         
         if lesson.sentences != nil {
             rowNumber += 1
             cellLabelDict[index] = MenuViewController.labels[2]
             cellImageViewDict[index] = MenuViewController.images[2]
-            actions.append(delegate.sentencesButtonTapped)
+            actions.append(sentencesButtonTapped)
         }
         
         if lesson.reading != nil {
             rowNumber += 1
             cellLabelDict[index] = MenuViewController.labels[3]
             cellImageViewDict[index] = MenuViewController.images[3]
-            actions.append(delegate.readingButtonTapped)
+            actions.append(readingButtonTapped)
         }
         
         if lesson.sentences != nil {
             rowNumber += 1
             cellLabelDict[index] = MenuViewController.labels[4]
             cellImageViewDict[index] = MenuViewController.images[4]
-            actions.append(delegate.testButtonTapped)
+            actions.append(testButtonTapped)
         }
     }
 }
@@ -199,9 +195,9 @@ extension MenuViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: MenuViewController.functionCellReuseIdentifier)
+        let cell = UITableViewCell(style: .default, reuseIdentifier: MenuViewController.cellReuseIdentifier)
         cell.backgroundColor = .white
-        cell.textLabel?.textColor = .black
+        cell.textLabel?.textColor = Theme.textColor
         cell.textLabel?.text = cellLabelDict[indexPath.row]
         cell.imageView?.image = cellImageViewDict[indexPath.row]?.scale(to: 0.4)
         cell.selectionStyle = .none
@@ -219,6 +215,59 @@ extension MenuViewController {
 }
 
 extension MenuViewController {
+    // MARK: - Functions
+    
+    func learningButtonTapped(lesson: Lesson) {
+        let learningViewController = PDFViewController()
+        learningViewController.updateValues(fileName: lesson.pdfName)
+        navigationController?.pushViewController(learningViewController, animated: true)
+    }
+    
+    func vocabButtonTapped(lesson: Lesson) {
+        guard lesson.vocab != nil && lesson.vocab!.count > 0 else { return }
+        
+        let vocabViewController = TextViewController()
+        vocabViewController.updateValues(vocab: lesson.vocab!)
+        navigationController?.pushViewController(vocabViewController, animated: true)
+    }
+    
+    func sentencesButtonTapped(lesson: Lesson) {
+        guard lesson.sentences != nil && lesson.sentences!.count > 0 else { return }
+        
+        let sentencesViewController = TextViewController()
+        sentencesViewController.updateValues(sentences: lesson.sentences!)
+        navigationController?.pushViewController(sentencesViewController, animated: true)
+    }
+    
+    func readingButtonTapped(lesson: Lesson) {
+        guard lesson.reading != nil else { return }
+        
+        let readingViewController = ReadingViewController()
+        readingViewController.updateValues(reading: lesson.reading!)
+        navigationController?.pushViewController(readingViewController, animated: true)
+    }
+    
+    func testButtonTapped(lesson: Lesson) {
+        guard lesson.sentences != nil && lesson.sentences!.count > 0 else { return }
+        
+        let testViewController = TestViewController()
+        testViewController.updateValues(sentences: lesson.sentences!)
+        navigationController?.pushViewController(testViewController, animated: true)
+    }
+}
+
+extension MenuViewController {
+    static let shadowOffset: CGSize = CGSize(width: 4, height: 5)
+    static let shadowOpacity: Float = 0.8
+    static let shadowRadius: CGFloat = 10
+    
+    static let titleInset = 10
+    static let titleCornerRadius: CGFloat = 10
+    
+    static let cellReuseIdentifier = "MenuTableViewCell"
+    static let tableRowHeight: CGFloat = 80
+    static let tableCornerRadius: CGFloat = 15
+    
     static let labels = [
         "Learning",
         "Vocabulary",
@@ -227,36 +276,10 @@ extension MenuViewController {
         "Test"
     ]
     static let images = [
-//        0: UIImage(imageLiteralResourceName: "learning"),
-//        1: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
-//        2: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
-//        3: UIImage(imageLiteralResourceName: "vocab_sents_reading"),
-//        4: UIImage(imageLiteralResourceName: "test")
-        0: UIImage(imageLiteralResourceName: "learning_icon").setColor(color: .lightBlueForIcon),
-        1: UIImage(imageLiteralResourceName: "vocab_icon").setColor(color: .lightBlueForIcon),
-        2: UIImage(imageLiteralResourceName: "sentences_icon").setColor(color: .lightBlueForIcon),
-        3: UIImage(imageLiteralResourceName: "reading_icon").setColor(color: .lightBlueForIcon),
-        4: UIImage(imageLiteralResourceName: "test_icon").setColor(color: .lightBlueForIcon)
+        0: UIImage(imageLiteralResourceName: "learning_icon").setColor(color: Theme.lightBlueForIcon),
+        1: UIImage(imageLiteralResourceName: "vocab_icon").setColor(color: Theme.lightBlueForIcon),
+        2: UIImage(imageLiteralResourceName: "sentences_icon").setColor(color: Theme.lightBlueForIcon),
+        3: UIImage(imageLiteralResourceName: "reading_icon").setColor(color: Theme.lightBlueForIcon),
+        4: UIImage(imageLiteralResourceName: "test_icon").setColor(color: Theme.lightBlueForIcon)
     ]
-    
-    static let functionCellReuseIdentifier = "MenuTableViewCell"
-    static let tableViewEstimatedRowHeight: CGFloat = UIScreen.main.bounds.height * 0.145
-    static let tableViewrowHeight: CGFloat = UIScreen.main.bounds.height * 0.090
-
-    
-    static let shadowOffset: CGSize = CGSize(width: UIScreen.main.bounds.width * 0.01, height: UIScreen.main.bounds.height * 0.006)
-    static let titleLabelinset = UIScreen.main.bounds.width * 0.03
-    
-    static let titleShadowViewTopOffset = UIScreen.main.bounds.height * 0.12
-    static let titleShadowViewHeight = UIScreen.main.bounds.height * 0.25
-    static let titleShadowViewWidth = UIScreen.main.bounds.width * 0.9
-    static let tableShadowViewOffset = UIScreen.main.bounds.height * 0.025
-}
-
-protocol MenuViewControllerDelegate {
-    func learningButtonTapped(lesson: Lesson)
-    func vocabButtonTapped(lesson: Lesson)
-    func sentencesButtonTapped(lesson: Lesson)
-    func readingButtonTapped(lesson: Lesson)
-    func testButtonTapped(lesson: Lesson)
 }

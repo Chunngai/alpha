@@ -39,7 +39,7 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.register(
             TextTableViewCell.classForCoder(),
-            forCellReuseIdentifier: TextViewController.tableViewCellReuseIdentifier
+            forCellReuseIdentifier: TextViewController.cellReuseIdentifier
         )
         tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .none
@@ -48,8 +48,8 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return tableView
     }()
     
-    lazy var displayListBarButtonItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(image: TextViewController.barButtonItemSystemImageWhenDisplayingLoop, style: .plain, target: self, action: #selector(barButtonItemTapped))
+    lazy var barButtonItem: UIBarButtonItem = {
+        let item = UIBarButtonItem(image: TextViewController.barButtonItemForLoop, style: .plain, target: self, action: #selector(barButtonItemTapped))
         return item
     }()
     
@@ -62,8 +62,8 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func updateViews() {        
-        view.backgroundColor = .background
-        navigationItem.rightBarButtonItem = displayListBarButtonItem
+        view.backgroundColor = Theme.backgroundColor
+        navigationItem.rightBarButtonItem = barButtonItem
         
         // TODO: - Wrap the code here
 //        loopView = CardLoopView(frame: CGRect(
@@ -86,7 +86,9 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         loopView.updateValues(vocab: vocab, sentences: sentences)
     }
-    
+}
+
+extension TextViewController {
     // MARK: - Actions
     
     @objc func barButtonItemTapped() {
@@ -96,19 +98,21 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
             displayLoop()
         }
     }
-    
-    // MARK: - Utils
+}
+
+extension TextViewController {
+    // MARK: - Functions
     
     func displayList() {
         listView.isHidden = false
         loopView.isHidden = true
-        displayListBarButtonItem.image = TextViewController.barButtonItemSystemImageWhenDisplayingList
+        barButtonItem.image = TextViewController.barButtonItemForList
     }
     
     func displayLoop() {
         listView.isHidden = true
         loopView.isHidden = false
-        displayListBarButtonItem.image = TextViewController.barButtonItemSystemImageWhenDisplayingLoop
+        barButtonItem.image = TextViewController.barButtonItemForLoop
     }
 }
 
@@ -130,7 +134,7 @@ extension TextViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TextViewController.tableViewCellReuseIdentifier) as! TextTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TextViewController.cellReuseIdentifier) as! TextTableViewCell
         if let vocab = vocab {
             cell.updateValues(word: vocab[indexPath.row])
         } else if let sentences = sentences {
@@ -150,18 +154,7 @@ extension TextViewController {
 }
 
 extension TextViewController {
-    static let tableViewRowHeight: CGFloat = UIScreen.main.bounds.height * 0.065
-    static let tableViewCellReuseIdentifier = "TextTableViewCell"
-    static let barButtonItemSystemImageWhenDisplayingList = UIImage(systemName: "line.horizontal.3.decrease.circle.fill")
-    static let barButtonItemSystemImageWhenDisplayingLoop = UIImage(systemName: "line.horizontal.3.decrease.circle")
-//    static let posBackgroundColors: [String: UIColor] = [
-//        "verb": UIColor.verbColor,
-//        "noun": UIColor.systemYellow,
-//        "pronoun": UIColor.systemOrange,
-//        "adjective": UIColor.systemPink,
-//        "adverb": UIColor.systemGreen,
-//        "preposition": UIColor.systemPurple,
-//        "conjunction": UIColor.brown,
-//        "particle": UIColor.magenta
-//    ]
+    static let cellReuseIdentifier = "TextTableViewCell"
+    static let barButtonItemForList = UIImage(systemName: "line.horizontal.3.decrease.circle.fill")
+    static let barButtonItemForLoop = UIImage(systemName: "line.horizontal.3.decrease.circle")
 }

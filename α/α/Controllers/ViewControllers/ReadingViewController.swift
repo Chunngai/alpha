@@ -26,8 +26,8 @@ class ReadingViewController: UIViewController {
             return gestureRecognizer
         }())
         
-        mainView.backgroundColor = .lightBlue
-        mainView.layer.cornerRadius = 10
+        mainView.backgroundColor = Theme.lightBlue
+        mainView.layer.cornerRadius = ReadingViewController.cornerRadius
         mainView.layer.masksToBounds = true
         
         return mainView
@@ -39,8 +39,8 @@ class ReadingViewController: UIViewController {
         
         label.backgroundColor = self.mainView.backgroundColor
         label.numberOfLines = 0
-        label.textColor = .black
-        
+        label.textColor = Theme.textColor
+
         return label
     }()
     
@@ -65,17 +65,7 @@ class ReadingViewController: UIViewController {
         textView.isSelectable = false
         textView.attributedText = NSAttributedString(
             string: " ",
-            attributes: [
-                NSAttributedString.Key.paragraphStyle: {
-                    let paragraph = NSMutableParagraphStyle()
-                    paragraph.lineSpacing = 5
-                    paragraph.alignment = .justified
-                    paragraph.lineBreakMode = .byWordWrapping
-                    return paragraph
-                }(),
-                NSAttributedString.Key.font: Theme.bodyFont,
-                NSAttributedString.Key.foregroundColor: UIColor.black
-            ]
+            attributes: ReadingViewController.textViewAttrs
         )
         
         return textView
@@ -84,21 +74,21 @@ class ReadingViewController: UIViewController {
     lazy var explanationLabelShadowView: UIView = {
         let labelView = UIView()
         labelView.layer.shadowColor = UIColor.lightGray.cgColor
-        labelView.layer.shadowOpacity = 0.8
-        labelView.layer.shadowRadius = 10
+        labelView.layer.shadowOpacity = ReadingViewController.shadowOpacity
+        labelView.layer.shadowRadius = ReadingViewController.shadowRadius
         labelView.layer.shadowOffset = ReadingViewController.shadowOffset
         labelView.tag = 1
         return labelView
     }()
     
     lazy var explanationLabel: PaddingLabel = {
-        let label = PaddingLabel(padding: ReadingViewController.explnationLabelinset)
+        let label = PaddingLabel(padding: ReadingViewController.explnationInset)
         explanationLabelShadowView.addSubview(label)
         
         label.backgroundColor = self.mainView.backgroundColor
-        label.textColor = .darkGray
+        label.textColor = Theme.weakTextColor
         label.textAlignment = .left
-        label.layer.cornerRadius = 10
+        label.layer.cornerRadius = ReadingViewController.cornerRadius
         label.layer.masksToBounds = true
         label.numberOfLines = 0
         label.font = Theme.footNoteFont
@@ -115,7 +105,7 @@ class ReadingViewController: UIViewController {
     }
     
     func updateViews() {
-        view.backgroundColor = .background
+        view.backgroundColor = Theme.backgroundColor
         
         mainView.snp.makeConstraints { (make) in
             make.height.equalToSuperview().multipliedBy(0.80)
@@ -129,24 +119,6 @@ class ReadingViewController: UIViewController {
             make.leading.equalToSuperview().inset(25)
             make.trailing.equalToSuperview().inset(25)
         }
-        titleLabel.attributedText = {
-            let title = NSMutableAttributedString(string: reading.title)
-            
-            let splits = reading.title.split(separator: "\n")
-            let mainTitle = splits[0]
-            let subTitle = splits[1]
-            
-            title.set(
-                attributes: [.font: Theme.title1Font],
-                for: String(mainTitle)
-            )
-            
-            title.set(
-                attributes: [.font: Theme.title2Font],
-                for: String(subTitle)
-            )
-            return title
-        }()
         
         separationLine.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
@@ -161,14 +133,18 @@ class ReadingViewController: UIViewController {
             make.width.equalToSuperview().multipliedBy(0.8)
             make.centerX.equalToSuperview()
         }
-        textView.text = makeText(text: reading.text)
-        colorVocab()
+        
+        titleLabel.attributedText = makeTitle()
+        textView.text = makeText()
+        hightlightVocab()
     }
     
     func updateValues(reading: Reading) {
         self.reading = reading
     }
+}
 
+extension ReadingViewController {
     // MARK: - Actions
     
     @objc func somewhereInTextViewTapped(_ sender: UITapGestureRecognizer) {
@@ -245,11 +221,32 @@ class ReadingViewController: UIViewController {
             view.removeFromSuperview()
         }
     }
-    
+}
+ 
+extension ReadingViewController {
     // MARK: - Utils
     
-    func makeText(text: String) -> String {
-        let paras = text.split(separator: "\n")
+    func makeTitle() -> NSMutableAttributedString {
+        let title = NSMutableAttributedString(string: reading.title)
+        let splits = reading.title.split(separator: "\n")
+        
+        let mainTitle = splits[0]
+        title.set(
+            attributes: [.font: Theme.title1Font],
+            for: String(mainTitle)
+        )
+        
+        let subTitle = splits[1]
+        title.set(
+            attributes: [.font: Theme.title2Font],
+            for: String(subTitle)
+        )
+        
+        return title
+    }
+    
+    func makeText() -> String {
+        let paras = reading.text.split(separator: "\n")
         var text = ""
         for para in paras {
             text += String(para).leftIndent(by: 4)
@@ -258,11 +255,11 @@ class ReadingViewController: UIViewController {
         return text
     }
     
-    func colorVocab() {
+    func hightlightVocab() {
         textView.attributedText = {
             let text = NSMutableAttributedString(attributedString: textView.attributedText!)
             for wordItem in reading.vocab {
-                text.setTextColor(for: wordItem.word, color: .systemBlue)
+                text.setTextColor(for: wordItem.word, color: Theme.highlightedTextColor)
             }
             return text
         }()
@@ -270,7 +267,7 @@ class ReadingViewController: UIViewController {
     
     func getWordItemFromTappedSpan(span: String) -> WordItem? {
         for wordItem in reading.vocab {
-            if wordItem.word.compare(span, options: [String.CompareOptions.caseInsensitive, String.CompareOptions.diacriticInsensitive], range: nil, locale: nil) == .orderedSame {
+            if wordItem.word.compare(span, options: String.caseAndDiacriticInsensitiveCompareOptions, range: nil, locale: nil) == .orderedSame {
                 return wordItem
             }
         }
@@ -278,11 +275,11 @@ class ReadingViewController: UIViewController {
     }
     
     func popExplanationView(at point: CGPoint, with wordItem: WordItem) {
-        let width: CGFloat = 200
-        let yOffset: CGFloat = 10
+        let width: CGFloat = ReadingViewController.explanationWidth
+        let yOffset: CGFloat = ReadingViewController.explanationYOffset
 
         let safeX: CGFloat
-        let safeFactor: CGFloat = 1.2
+        let safeFactor: CGFloat = ReadingViewController.explanationSafeFactor
         if point.x + width * safeFactor <= mainView.frame.maxX {
             safeX = point.x
         } else {
@@ -304,6 +301,24 @@ class ReadingViewController: UIViewController {
 }
 
 extension ReadingViewController {
-    static let shadowOffset: CGSize = CGSize(width: UIScreen.main.bounds.width * 0.01, height: UIScreen.main.bounds.height * 0.006)
-    static let explnationLabelinset = UIScreen.main.bounds.width * 0.025
+    static let textViewAttrs: [NSAttributedString.Key: Any] = [
+        .paragraphStyle: {
+            let paragraph = NSMutableParagraphStyle()
+            paragraph.lineSpacing = 5
+            paragraph.alignment = .justified
+            paragraph.lineBreakMode = .byWordWrapping
+            return paragraph
+        }(),
+        .font: Theme.bodyFont,
+        .foregroundColor: UIColor.black
+    ]
+    
+    static let shadowOpacity: Float = 0.8
+    static let shadowRadius: CGFloat = 10
+    static let shadowOffset: CGSize = CGSize(width: 4, height: 5)
+    static let cornerRadius: CGFloat = 10
+    static let explnationInset = 10
+    static let explanationWidth: CGFloat = 200
+    static let explanationYOffset: CGFloat = 10
+    static let explanationSafeFactor: CGFloat = 1.2
 }

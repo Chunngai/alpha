@@ -9,9 +9,9 @@
 import UIKit
 import SnapKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeLessonTableViewCellDelegate, HomeIndexTableViewCellDelegate, MenuViewControllerDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeIndexTableViewCellDelegate, HomeLessonTableViewCellDelegate {
     
-    lazy var indexCellMapping: [(title: String, funcWhenTapped: () -> Void)] = [
+    lazy var indexCellTitleFuncMapping: [(title: String, funcWhenTapped: () -> Void)] = [
         (title: "Text Book", funcWhenTapped: textBookButtonTapped),
         (title: "Vocabulary", funcWhenTapped: vocabularyButtonTapped)
     ]
@@ -30,11 +30,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.register(
             HomeLessonTableViewCell.classForCoder(),
-            forCellReuseIdentifier: HomeViewController.homeLessonTableViewCellReuseIdentifier
+            forCellReuseIdentifier: HomeViewController.lessonCellReuseIdentifier
         )
         tableView.register(
             HomeIndexTableViewCell.classForCoder(),
-            forCellReuseIdentifier: HomeViewController.homeIndexTableViewCellReuseIdentifier
+            forCellReuseIdentifier: HomeViewController.indexCellReuseIdentifier
         )
         tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .none
@@ -50,13 +50,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         lessons = TextBook.loadLessons()
         
-        initViews()
+        updateViews()
     }
 
-    func initViews() {
+    func updateViews() {
         navigationItem.title = "Ελληνική"
         navigationItem.largeTitleDisplayMode = .always
-        view.backgroundColor = .background
+        view.backgroundColor = Theme.backgroundColor
         
         // Cannot add the snippet of code below to the closure of lessonTableView.
         // There must be some code that accesses the lessonTableView
@@ -93,11 +93,11 @@ extension HomeViewController {
         
         switch (section) {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewController.homeIndexTableViewCellReuseIdentifier) as! HomeIndexTableViewCell
-            cell.updateValues(buttonTitle: indexCellMapping[row].title, funcWhenTapped: indexCellMapping[row].funcWhenTapped)
+            let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewController.indexCellReuseIdentifier) as! HomeIndexTableViewCell
+            cell.updateValues(buttonTitle: indexCellTitleFuncMapping[row].title, funcWhenTapped: indexCellTitleFuncMapping[row].funcWhenTapped)
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewController.homeLessonTableViewCellReuseIdentifier) as! HomeLessonTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewController.lessonCellReuseIdentifier) as! HomeLessonTableViewCell
             cell.updateValues(lesson: lessons[row], delegate: self)
             return cell
         default:
@@ -107,77 +107,33 @@ extension HomeViewController {
 }
 
 extension HomeViewController {
-    // MARK: - HomeTableViewCell Delegate
-    
-    func pushMenuViewController(lesson: Lesson) {
-        let menuViewController = MenuViewController()
-        menuViewController.updateValues(lesson: lesson, delegate: self)
-        navigationController?.pushViewController(menuViewController, animated: true)
-    }
-}
-
-extension HomeViewController {
     // MARK: - HomeIndexTableViewCell Delegate
     
     func textBookButtonTapped() {
-        let learningViewController = ContentViewController()
-        learningViewController.navigationItem.largeTitleDisplayMode = .never
+        let learningViewController = PDFViewController()
         learningViewController.updateValues(fileName: "textBook")
         navigationController?.pushViewController(learningViewController, animated: true)
     }
     
     func vocabularyButtonTapped() {
-        let vocabularyViewController = VocabularyViewController()
+        let vocabularyViewController = VocabListViewController()
         vocabularyViewController.updateValues(lessons: lessons)
         navigationController?.pushViewController(vocabularyViewController, animated: true)
     }
 }
- 
+
 extension HomeViewController {
-    // MARK: - MenuViewController Deleagte
+    // MARK: - HomeLessonTableViewCell Delegate
     
-    func learningButtonTapped(lesson: Lesson) {
-        let learningViewController = ContentViewController()
-        learningViewController.updateValues(fileName: lesson.pdfName)
-        navigationController?.pushViewController(learningViewController, animated: true)
-    }
-    
-    func vocabButtonTapped(lesson: Lesson) {
-        guard lesson.vocab != nil && lesson.vocab!.count > 0 else { return }
-        
-        let vocabViewController = TextViewController()
-        vocabViewController.updateValues(vocab: lesson.vocab!)
-        navigationController?.pushViewController(vocabViewController, animated: true)
-    }
-    
-    func sentencesButtonTapped(lesson: Lesson) {
-        guard lesson.sentences != nil && lesson.sentences!.count > 0 else { return }
-        
-        let sentencesViewController = TextViewController()
-        sentencesViewController.updateValues(sentences: lesson.sentences!)
-        navigationController?.pushViewController(sentencesViewController, animated: true)
-    }
-    
-    func readingButtonTapped(lesson: Lesson) {
-        guard lesson.reading != nil else { return }
-        
-        let readingViewController = ReadingViewController()
-        readingViewController.updateValues(reading: lesson.reading!)
-        navigationController?.pushViewController(readingViewController, animated: true)
-    }
-    
-    func testButtonTapped(lesson: Lesson) {
-        guard lesson.sentences != nil && lesson.sentences!.count > 0 else { return }
-        
-        let testViewController = TestViewController()
-        testViewController.updateValues(sentences: lesson.sentences!)
-        navigationController?.pushViewController(testViewController, animated: true)
+    func pushMenuViewController(lesson: Lesson) {
+        let menuViewController = MenuViewController()
+        menuViewController.updateValues(lesson: lesson)
+        navigationController?.pushViewController(menuViewController, animated: true)
     }
 }
 
 extension HomeViewController {
-    static let homeLessonTableViewCellReuseIdentifier = "HomeLessonTableViewCell"
-    static let homeIndexTableViewCellReuseIdentifier = "HomeIndexTableViewCell"
-    static let tableViewEstimatedRowHeight: CGFloat = UIScreen.main.bounds.height * 0.145
-    static let tableViewRowHeight: CGFloat = UIScreen.main.bounds.height * 0.065
+    static let lessonCellReuseIdentifier = "HomeLessonTableViewCell"
+    static let indexCellReuseIdentifier = "HomeIndexTableViewCell"
+    static let tableViewRowHeight: CGFloat = 58
 }

@@ -16,6 +16,7 @@ class CardLoopView: UIView, UIScrollViewDelegate {
         }
     }
     private var totalPage: Int!
+    
     private var isBrief: Bool = true
     
     // MARK: - Models
@@ -132,14 +133,18 @@ class CardLoopView: UIView, UIScrollViewDelegate {
         
         totalPage = vocab != nil ? vocab!.count : sentences!.count
     }
+}
     
+extension CardLoopView {
     // MARK: - Actions
     
     @objc func viewDoubleTapped() {
         isBrief.toggle()
         updateTexts()
     }
+}
 
+extension CardLoopView {
     // MARK: - Utils
     
     func updateTexts() {
@@ -167,15 +172,15 @@ class CardLoopView: UIView, UIScrollViewDelegate {
 
 extension CardLoopView {
     
-    private func endScrollMethod(ratio:CGFloat) {
-        if ratio <= 0.7 {
+    private func endScrollMethod(ratio: CGFloat) {
+        if ratio <= CardLoopView.leftRatioThreshold {
             if currentPage - 1 < 0 {
                 currentPage = totalPage - 1
             } else {
                 currentPage -= 1
             }
         }
-        if ratio >= 1.3 {
+        if ratio >= CardLoopView.rightRatioThreshold {
             if currentPage == totalPage - 1 {
                 currentPage = 0
             } else {
@@ -197,4 +202,9 @@ extension CardLoopView {
             self.endScrollMethod(ratio: ratio)
         }
     }
+}
+
+extension CardLoopView {
+    static let leftRatioThreshold: CGFloat = 0.7
+    static let rightRatioThreshold: CGFloat = 1.3
 }

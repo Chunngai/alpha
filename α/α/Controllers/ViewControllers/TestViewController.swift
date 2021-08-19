@@ -48,8 +48,8 @@ class TestViewController: UIViewController, UITextFieldDelegate {
             return tapGestureRecognizer
         }())
         
-        mainView.backgroundColor = .lightBlue
-        mainView.layer.cornerRadius = 10
+        mainView.backgroundColor = Theme.lightBlue
+        mainView.layer.cornerRadius = TestViewController.cornerRadius
         mainView.layer.masksToBounds = true
         
         return mainView
@@ -67,10 +67,8 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         }())
         
         label.backgroundColor = self.mainView.backgroundColor
-        label.textColor = .black
+        label.textColor = Theme.textColor
         label.textAlignment = .center
-        label.layer.cornerRadius = 15
-        label.layer.masksToBounds = true
         label.numberOfLines = 0
         label.font = Theme.title1Font
         label.isUserInteractionEnabled = true
@@ -84,10 +82,8 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         
         textField.delegate = self
         textField.backgroundColor = self.mainView.backgroundColor
-        textField.textColor = .black
+        textField.textColor = Theme.textColor
         textField.textAlignment = .center
-        textField.layer.cornerRadius = 15
-        textField.layer.masksToBounds = true
         textField.font = Theme.title2Font
         
         return textField
@@ -107,7 +103,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     }
     
     func updateViews() {
-        view.backgroundColor = .background
+        view.backgroundColor = Theme.backgroundColor
         
         mainView.snp.makeConstraints { (make) in
             make.height.equalToSuperview().multipliedBy(0.80)
@@ -146,7 +142,9 @@ class TestViewController: UIViewController, UITextFieldDelegate {
             testItems.append(english2GreekTestItem)
         }
     }
-    
+}
+
+extension TestViewController {
     // MARK: - Actions
     
     @objc func mainViewRightSwiped() {
@@ -185,8 +183,10 @@ class TestViewController: UIViewController, UITextFieldDelegate {
             view.frame.origin.y = 0
         }
     }
-    
-    // MARK: - Utils
+}
+
+extension TestViewController {
+    // MARK: - Functions
     
     func update() {
         questionLabel.text = testItems[currentTestItemIndex]["Q"]
@@ -281,46 +281,6 @@ extension TestViewController {
     }
 }
 
-extension Sentence {
-    func removeAsterisk(string: String) -> String {
-        return string.replacingOccurrences(of: "*", with: "")
-    }
-    
-    var greekSentenceQ: String {
-        return removeAsterisk(string: greekSentence)
-    }
-    
-    var greekSentenceA: String {
-        return removeAsterisk(string: greekSentence)
-    }
-    
-    var englishSentenceQ: String {
-        return removeAsterisk(string: englishSentence)
-    }
-    
-    var englishSentenceA: String {
-        return removeAsterisk(string: englishSentence)
-            .replacingOccurrences(of: " (sg.)", with: "")
-            .replacingOccurrences(of: " (pl.)", with: "")
-    }
-}
-
-extension Sequence where Iterator.Element:NSAttributedString {
-    func joined(with separator: NSAttributedString, ignoring charactersToIgnore: String = "") -> NSAttributedString {
-        var isFirst = true
-        return self.reduce(NSMutableAttributedString()) {
-            (r, e) in
-            if isFirst {
-                isFirst = false
-            } else if !charactersToIgnore.contains(e.string) {
-                r.append(separator)
-            }
-            r.append(e)
-            return r
-        }
-    }
-    
-    func joined(with separator: String, ignoring charactersToIgnore: String = "") -> NSAttributedString {
-        return joined(with: NSAttributedString(string: separator), ignoring: charactersToIgnore)
-    }
+extension TestViewController {
+    static let cornerRadius: CGFloat = 10
 }

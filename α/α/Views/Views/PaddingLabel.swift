@@ -46,7 +46,7 @@ class PaddingLabel: UIView {
     }
     
     convenience init() {
-        self.init(padding: 10)
+        self.init(padding: PaddingLabel.defaultPadding)
     }
     
     required init?(coder: NSCoder) {
@@ -63,4 +63,8 @@ extension PaddingLabel {
             label[keyPath: keyPath] = newValue
         }
     }
+}
+
+extension PaddingLabel {
+    static let defaultPadding: CGFloat = 10
 }

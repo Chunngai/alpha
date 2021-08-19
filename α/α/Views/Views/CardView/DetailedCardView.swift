@@ -17,7 +17,7 @@ class DetailedCardView: BaseCardView {
         mainView.addSubview(label)
         
         label.backgroundColor = mainView.backgroundColor
-        label.textColor = .black
+        label.textColor = Theme.textColor
         label.textAlignment = .left
         label.numberOfLines = 0
         label.font = Theme.title1Font
@@ -30,7 +30,7 @@ class DetailedCardView: BaseCardView {
         mainView.addSubview(label)
 
         label.backgroundColor = mainView.backgroundColor
-        label.textColor = .lightGray
+        label.textColor = Theme.weakTextColor
         label.textAlignment = .left
         label.numberOfLines = 0
         label.text = "Meanings: "
@@ -39,11 +39,11 @@ class DetailedCardView: BaseCardView {
         return label
     }()
     
-    lazy var meaningsContentTextView: TextViewWithRoundCornersBackground = {
+    lazy var meaningsContentTextView: RoundCornersBgTextView = {
         let textStorage = NSTextStorage()
 
         let textLayoutManager = LayoutManagerForRoundedCornersBackground()
-        textLayoutManager.cornerRadius = 5
+        textLayoutManager.cornerRadius = DetailedCardView.textBackgroundCornerRadius
         textStorage.addLayoutManager(textLayoutManager)
         
         let textContainer = NSTextContainer(size: mainView.bounds.size)
@@ -51,15 +51,15 @@ class DetailedCardView: BaseCardView {
         
         // TODO: - Wrap the code above.
         
-        let textView = TextViewWithRoundCornersBackground(frame: CGRect.zero, textContainer: textContainer)
+        let textView = RoundCornersBgTextView(frame: CGRect.zero, textContainer: textContainer)
         mainView.addSubview(textView)
         
         textView.backgroundColor = .lightText
-        textView.textColor = .black
+        textView.textColor = Theme.textColor
         textView.textAlignment = .left
         textView.font = Theme.bodyFont
         textView.sizeToFit()
-        textView.layer.cornerRadius = 5
+        textView.layer.cornerRadius = DetailedCardView.cornerRadius
         textView.layer.masksToBounds = true
         textView.isEditable = false
         // The statement below makes contentSize.height be 0.
@@ -74,7 +74,7 @@ class DetailedCardView: BaseCardView {
         mainView.addSubview(label)
         
         label.backgroundColor = mainView.backgroundColor
-        label.textColor = .lightGray
+        label.textColor = Theme.weakTextColor
         label.textAlignment = .left
         label.numberOfLines = 0
         label.font = Theme.headlineFont
@@ -88,12 +88,12 @@ class DetailedCardView: BaseCardView {
         mainView.addSubview(label)
         
         label.backgroundColor = .lightText
-        label.textColor = .black
+        label.textColor = Theme.textColor
         label.textAlignment = .left
         label.numberOfLines = 0
         label.font = Theme.bodyFont
         label.sizeToFit()
-        label.layer.cornerRadius = 5
+        label.layer.cornerRadius = DetailedCardView.cornerRadius
         label.layer.masksToBounds = true
         
         return label
@@ -144,7 +144,9 @@ class DetailedCardView: BaseCardView {
             make.width.equalTo(wordLabel.snp.width)
         }
     }
-    
+}
+
+extension DetailedCardView {
     // MARK: - Utils
     
     func highlightPosTokens() {
@@ -153,9 +155,9 @@ class DetailedCardView: BaseCardView {
             
             let range = meaningsContentTextView.text.range(of: posToken)
             if range != nil {
-                meaningsContentTextView.textStorage.setAll(
+                meaningsContentTextView.textStorage.set(
                     attributes: TextTableViewCell.posAttributes,
-                    for: posToken
+                    forAll: posToken
                 )
             }
         }
@@ -163,6 +165,7 @@ class DetailedCardView: BaseCardView {
 }
 
 extension DetailedCardView {
-    static let labelInset = UIScreen.main.bounds.width * 0.02
+    static let textBackgroundCornerRadius: CGFloat = 5
+    static let labelInset = 10
     static let textViewInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 }

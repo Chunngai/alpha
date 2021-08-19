@@ -13,11 +13,11 @@ class MainNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initViews()
+        updateViews()
     }
     
-    func initViews() {
+    func updateViews() {
         navigationBar.prefersLargeTitles = true
-        navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationBar.largeTitleTextAttributes = Theme.naviBarLargeTitleTextAttrs
     }
 }

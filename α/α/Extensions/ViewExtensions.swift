@@ -42,12 +42,6 @@ extension UIColor {
     }
 }
 
-extension UIColor {
-    static let lightBlue = intRGB2UIColor(red: 210, green: 239, blue: 255)
-    static let lightBlueForIcon = intRGB2UIColor(red: 190, green: 219, blue: 235)
-    static let background = UIColor.systemGray6
-}
-
 extension UIImage {
     func resize(to targetSize: CGSize) -> UIImage {
         let size = self.size
@@ -106,7 +100,7 @@ extension NSMutableAttributedString {
         }
     }
     
-    func setAll(attributes: [NSAttributedString.Key: Any], for textToFind: String) {
+    func set(attributes: [NSAttributedString.Key: Any], forAll textToFind: String) {
         var range = NSRange(location: 0, length: self.length)
         while (range.location != NSNotFound) {
             range = (self.string as NSString).range(of: textToFind, options: [], range: range)

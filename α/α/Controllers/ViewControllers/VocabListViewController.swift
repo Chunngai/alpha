@@ -1,5 +1,5 @@
 //
-//  VocabularyViewController.swift
+//  VocabListViewController.swift
 //  α
 //
 //  Created by Sola on 2021/8/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VocabularyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, VocabularyTableViewCellDelegate {
+class VocabListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, VocabularyTableViewCellDelegate {
     
     var dataSource: [(lessonId: Int, vocab: [Word])] {
         var dataSource: [(lessonId: Int, vocab: [Word])]
@@ -42,7 +42,10 @@ class VocabularyViewController: UIViewController, UITableViewDataSource, UITable
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(VocabularyTableViewCell.classForCoder(), forCellReuseIdentifier: VocabularyViewController.cellReuseIdentifier)
+        tableView.register(
+            VocabListTableViewCell.classForCoder(),
+            forCellReuseIdentifier: VocabListViewController.cellReuseIdentifier
+        )
         tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .singleLine
         
@@ -54,13 +57,13 @@ class VocabularyViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateInitialViews()
+        updateViews()
     }
     
-    func updateInitialViews() {
+    func updateViews() {
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.titleView = searchBar
-        view.backgroundColor = .background
+        view.backgroundColor = Theme.backgroundColor
                 
         tableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
@@ -70,12 +73,14 @@ class VocabularyViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func updateValues(lessons: [Lesson]) {
-        getWords(lessons: lessons)
+        getWords(from: lessons)
     }
-    
+}
+
+extension VocabListViewController {
     // MARK: - Utils
     
-    func getWords(lessons: [Lesson]) {
+    func getWords(from lessons: [Lesson]) {
         for lesson in lessons {
             if let vocab = lesson.vocab {
                 allLessonIdsAndWords.append((lessonId: lesson.id, vocab: vocab))
@@ -84,7 +89,7 @@ class VocabularyViewController: UIViewController, UITableViewDataSource, UITable
     }
 }
 
-extension VocabularyViewController {
+extension VocabListViewController {
     // MARK: - UITableView Data Source
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -98,13 +103,13 @@ extension VocabularyViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let word = dataSource[indexPath.section].vocab[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: VocabularyViewController.cellReuseIdentifier) as! VocabularyTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: VocabListViewController.cellReuseIdentifier) as! VocabListTableViewCell
         cell.updateValues(word: word, delegate: self)
         return cell
     }
 }
 
-extension VocabularyViewController {
+extension VocabListViewController {
     // MARK: - UITableView Delegate
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -116,7 +121,7 @@ extension VocabularyViewController {
     }
 }
 
-extension VocabularyViewController {
+extension VocabListViewController {
     // MARK: - UISearchBar Delegate
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -141,18 +146,20 @@ extension VocabularyViewController {
     }
 }
 
-extension VocabularyViewController {
-    // MARK: - VocabularyTableViewCell Delegate
+extension VocabListViewController {
+    // MARK: - VocabListTableViewCell Delegate
     
     func pushWordDetails(word: Word) {
         let vocabViewController = TextViewController()
         vocabViewController.updateValues(vocab: [word])
+        // Disables the right bar button.
         vocabViewController.navigationItem.rightBarButtonItem = nil
+        // Disables scrolling.
         vocabViewController.loopView.loopScrollView.isScrollEnabled = false
         navigationController?.pushViewController(vocabViewController, animated: true)
     }
 }
 
-extension VocabularyViewController {
+extension VocabListViewController {
     static let cellReuseIdentifier = "VocabularyTableViewCell"
 }

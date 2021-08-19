@@ -16,8 +16,8 @@ class BaseCardView: UIView {
         let mainView = UIView()
         addSubview(mainView)
         
-        mainView.backgroundColor = .lightBlue
-        mainView.layer.cornerRadius = 10
+        mainView.backgroundColor = Theme.lightBlue
+        mainView.layer.cornerRadius = BaseCardView.cornerRadius
         mainView.layer.masksToBounds = true
         
         return mainView
@@ -43,4 +43,8 @@ class BaseCardView: UIView {
             make.centerY.equalToSuperview()
         }
     }
+}
+
+extension BaseCardView {
+    static let cornerRadius: CGFloat = 10
 }

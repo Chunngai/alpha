@@ -43,7 +43,7 @@ class HomeTableViewCell: UITableViewCell {
         
         button.layer.cornerRadius = 8
         button.layer.masksToBounds = true
-        button.backgroundColor = .lightBlue
+        button.backgroundColor = Theme.lightBlue
         button.setTitleColor(.black, for: .normal)
         button.contentHorizontalAlignment = .left
         button.titleEdgeInsets = HomeTableViewCell.buttonTitleEdgeInsets
@@ -66,7 +66,7 @@ class HomeTableViewCell: UITableViewCell {
     
     func updateInitialViews() {
         self.selectionStyle = .none
-        self.backgroundColor = .background
+        self.backgroundColor = Theme.backgroundColor
         
         button.snp.makeConstraints { (make) in
             make.width.equalToSuperview()

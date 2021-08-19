@@ -10,6 +10,7 @@ import Foundation
 
 extension String {
     static let caseAndDiacriticInsensitiveCompareOptions: String.CompareOptions = [.caseInsensitive, .diacriticInsensitive]
+    
     func caseAndDiacriticInsensitivelyContains(_ aString: String) -> Bool {
         return self.range(of: aString, options: String.caseAndDiacriticInsensitiveCompareOptions) != nil
     }
@@ -29,6 +30,26 @@ extension String {
     
     func indent(leftIndent: Int, rightIndent: Int) -> String {
         return String(repeating: " ", count: leftIndent) + self + String(repeating: " ", count: rightIndent)
+    }
+}
+
+extension Sequence where Iterator.Element:NSAttributedString {
+    func joined(with separator: NSAttributedString, ignoring charactersToIgnore: String = "") -> NSAttributedString {
+        var isFirst = true
+        return self.reduce(NSMutableAttributedString()) {
+            (r, e) in
+            if isFirst {
+                isFirst = false
+            } else if !charactersToIgnore.contains(e.string) {
+                r.append(separator)
+            }
+            r.append(e)
+            return r
+        }
+    }
+    
+    func joined(with separator: String, ignoring charactersToIgnore: String = "") -> NSAttributedString {
+        return joined(with: NSAttributedString(string: separator), ignoring: charactersToIgnore)
     }
 }
 
@@ -68,5 +89,29 @@ extension Word {
         wordMeaningsConstructor = wordMeaningsItems.joined(separator: "\n")
         
         return wordMeaningsConstructor
+    }
+}
+
+extension Sentence {
+    func removeAsterisk(string: String) -> String {
+        return string.replacingOccurrences(of: "*", with: "")
+    }
+    
+    var greekSentenceQ: String {
+        return removeAsterisk(string: greekSentence)
+    }
+    
+    var greekSentenceA: String {
+        return removeAsterisk(string: greekSentence)
+    }
+    
+    var englishSentenceQ: String {
+        return removeAsterisk(string: englishSentence)
+    }
+    
+    var englishSentenceA: String {
+        return removeAsterisk(string: englishSentence)
+            .replacingOccurrences(of: " (sg.)", with: "")
+            .replacingOccurrences(of: " (pl.)", with: "")
     }
 }

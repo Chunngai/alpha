@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import PDFKit
 
-class ContentViewController: UIViewController {
+class PDFViewController: UIViewController {
 
     var document: PDFDocument!
     
@@ -39,6 +39,8 @@ class ContentViewController: UIViewController {
     }
 
     func updateViews() {
+        navigationItem.largeTitleDisplayMode = .never
+        
         // TODO: - how to display the pdf view wo the pring statement here?
         // TODO: - or use snapkit here?
         print(pdfView)

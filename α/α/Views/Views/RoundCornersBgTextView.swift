@@ -1,5 +1,5 @@
 //
-//  TextViewWithRoundCornersBackground.swift
+//  RoundCornersBgTextView.swift
 //  α
 //
 //  Created by Sola on 2021/8/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextViewWithRoundCornersBackground: UITextView {
+class RoundCornersBgTextView: UITextView {
     
     // MARK: - Init
     
@@ -28,7 +28,7 @@ class TextViewWithRoundCornersBackground: UITextView {
     
 }
 
-extension TextViewWithRoundCornersBackground {
+extension RoundCornersBgTextView {
     func centerVertically() {
         let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
         let size = sizeThatFits(fittingSize)
@@ -40,7 +40,7 @@ extension TextViewWithRoundCornersBackground {
 
 class LayoutManagerForRoundedCornersBackground: NSLayoutManager {
     
-    var cornerRadius: CGFloat = 5
+    var cornerRadius: CGFloat = LayoutManagerForRoundedCornersBackground.defaultCornerRadius
     
     override func fillBackgroundRectArray(_ rectArray: UnsafePointer<CGRect>, count rectCount: Int, forCharacterRange charRange: NSRange, color: UIColor) {
         let path = CGMutablePath.init()
@@ -103,4 +103,8 @@ class LayoutManagerForRoundedCornersBackground: NSLayoutManager {
         ctx!.addPath(path)
         ctx!.drawPath(using: .fillStroke)
     }
+}
+
+extension LayoutManagerForRoundedCornersBackground {
+    static let defaultCornerRadius: CGFloat = 5
 }

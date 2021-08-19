@@ -45,8 +45,10 @@ class CardViewSelector: UIView {
             make.top.bottom.left.right.equalToSuperview()
         }
     }
-    
-    // MARK: - Utils
+}
+ 
+extension CardViewSelector {
+    // MARK: - Functions
     
     func displayWord(word: Word, isBrief: Bool) {
         if isBrief {

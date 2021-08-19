@@ -10,11 +10,11 @@ import UIKit
 
 class UnderLineTextField: UITextField {
     override func draw(_ rect: CGRect) {
-        let lineHeight: CGFloat = 0.5
-        let lineColor = UIColor.gray
+        let lineHeight: CGFloat = UnderLineTextField.lineHeight
+        let lineColor = UIColor.gray.cgColor
         
         guard let content = UIGraphicsGetCurrentContext() else { return }
-        content.setFillColor(lineColor.cgColor)
+        content.setFillColor(lineColor)
         content.fill(CGRect(
             x: 0,
             y: self.frame.height - lineHeight,
@@ -23,4 +23,8 @@ class UnderLineTextField: UITextField {
         ))
         UIGraphicsBeginImageContextWithOptions(rect.size, true, 0)
     }
+}
+
+extension UnderLineTextField {
+    static let lineHeight: CGFloat = 0.5
 }
