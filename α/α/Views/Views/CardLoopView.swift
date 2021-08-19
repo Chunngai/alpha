@@ -99,6 +99,12 @@ class CardLoopView: UIView, UIScrollViewDelegate {
         self.sentences = sentences
         
         totalPage = vocab != nil ? vocab!.count : sentences!.count
+        
+        // Temporary solution for word detail from vocab controller.
+        // TODO: - Fix it.
+        if let vocab = vocab, vocab.count == 1 {
+            loopScrollView.isScrollEnabled = false
+        }
     }
     
     // MARK: - Actions

@@ -10,6 +10,14 @@ import UIKit
 
 class VocabularyTableViewCell: UITableViewCell {
     
+    // MARK: - Models
+    
+    var word: Word!
+    
+    // MARK: - Controllers
+    
+    var delegate: VocabularyViewController!
+    
     // MARK: - Views
     
     lazy var textView: TextViewWithRoundCornersBackground = {
@@ -26,6 +34,12 @@ class VocabularyTableViewCell: UITableViewCell {
         
         let textView = TextViewWithRoundCornersBackground(frame: CGRect.zero, textContainer: textContainer)
         contentView.addSubview(textView)
+        
+        textView.addGestureRecognizer({
+            let recognizer = UITapGestureRecognizer()
+            recognizer.addTarget(self, action: #selector(textViewTapped))
+            return recognizer
+        }())
         
         textView.backgroundColor = contentView.backgroundColor
         textView.isEditable = false
@@ -57,12 +71,19 @@ class VocabularyTableViewCell: UITableViewCell {
         }
     }
     
-    func updateValues(wordEntry: String, wordMeanings: [Word.Meanings]) {
-        let posTokenList: [String] = getPosTokenList(wordMeanings: wordMeanings)
+    func updateValues(word: Word, delegate: VocabularyViewController) {
+        self.word = word
+        self.delegate = delegate
         
-        textView.text = posTokenList.joined(separator: " ") + " " + wordEntry
-
+        let posTokenList: [String] = getPosTokenList(wordMeanings: word.meanings)
+        textView.text = posTokenList.joined(separator: " ") + " " + word.wordEntry
         highlightPosToken(in: posTokenList)
+    }
+    
+    // MARK: - Actions
+    
+    @objc func textViewTapped() {
+        delegate.pushWordDetails(word: word)
     }
     
     // MARK: - Utils
@@ -98,4 +119,8 @@ extension VocabularyTableViewCell {
         .backgroundColor : UIColor.lightBlue,
         .font: VocabularyTableViewCell.font
     ]
+}
+
+protocol VocabularyTableViewCellDelegate {
+    func pushWordDetails(word: Word)
 }

@@ -53,6 +53,12 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         view.backgroundColor = .background
         navigationItem.rightBarButtonItem = displayListBarButtonItem
 
+        // Temporary solution for word detail from vocab controller.
+        // TODO: - Fix it.
+        if let vocab = vocab, vocab.count == 1 {
+            navigationItem.rightBarButtonItem = nil
+        }
+        
         // TODO: - Wrap the code here
         loopView = CardLoopView(frame: CGRect(
             x: 0,

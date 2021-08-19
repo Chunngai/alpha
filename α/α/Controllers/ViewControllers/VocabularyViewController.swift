@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VocabularyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class VocabularyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, VocabularyTableViewCellDelegate {
     
     var dataSource: [(lessonId: Int, vocab: [Word])] {
         var dataSource: [(lessonId: Int, vocab: [Word])]
@@ -99,7 +99,7 @@ extension VocabularyViewController {
         let word = dataSource[indexPath.section].vocab[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: VocabularyViewController.cellReuseIdentifier) as! VocabularyTableViewCell
-        cell.updateValues(wordEntry: word.wordEntry, wordMeanings: word.meanings)
+        cell.updateValues(word: word, delegate: self)
         return cell
     }
 }
@@ -138,6 +138,16 @@ extension VocabularyViewController {
         }
         
         tableView.reloadData()
+    }
+}
+
+extension VocabularyViewController {
+    // MARK: - VocabularyTableViewCell Delegate
+    
+    func pushWordDetails(word: Word) {
+        let vocabViewController = TextViewController()
+        vocabViewController.updateValues(vocab: [word])
+        navigationController?.pushViewController(vocabViewController, animated: true)
     }
 }
 
