@@ -66,7 +66,10 @@ class LayoutManagerForRoundedCornersBackground: NSLayoutManager {
         } else {
             let lastRect = rectCount - 1
             
-            path.move(to: CGPoint(x: rectArray[0].minX + cornerRadius, y: rectArray[0].maxY + cornerRadius))
+            path.move(to: CGPoint(
+                x: rectArray[0].minX + cornerRadius,
+                y: rectArray[0].maxY + cornerRadius
+            ))
             
             path.addLine(to: CGPoint(
                 x: rectArray[0].minX + cornerRadius,

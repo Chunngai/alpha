@@ -136,24 +136,6 @@ class DetailedCardView: BaseCardView {
 }
 
 extension DetailedCardView {
-    // MARK: - Utils
-    
-    func highlightPosTokens() {
-        for pos in Word.posList {
-            let posToken = Word.posAbbr[pos]!.indent(leftIndent: 1, rightIndent: 1)
-            
-            let range = meaningsContentTextView.text.range(of: posToken)
-            if range != nil {
-                meaningsContentTextView.textStorage.set(
-                    attributes: TextTableViewCell.posAttributes,
-                    forAll: posToken
-                )
-            }
-        }
-    }
-}
-
-extension DetailedCardView {
     static let textBackgroundCornerRadius: CGFloat = 5
     static let labelInset = 10
     static let textViewInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)

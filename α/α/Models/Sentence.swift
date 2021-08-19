@@ -9,34 +9,8 @@
 import Foundation
 
 struct Sentence: Codable {
-    private var greek: String?
-    private var english: String?
-    private var greek_: String?
-    private var english_: String?
-}
- 
-extension Sentence {
-    var greekSentence: String {
-        if let greek = greek {
-            return greek
-        } else {
-            return "\(greek_!)*"
-        }
-    }
-    
-    var englishSentence: String {
-        if let english = english {
-            return english
-        } else {
-            return "\(english_!)*"
-        }
-    }
-    
-    var isGreekTranslated: Bool {
-        return greek_ != nil
-    }
-    
-    var isEnglishTranslated: Bool {
-        return english_ != nil
-    }
+    var greek: String?
+    var english: String?
+    var greek_: String?
+    var english_: String?
 }

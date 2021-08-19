@@ -54,7 +54,7 @@ extension CardViewSelector {
         if isBrief {
             displaySingleLine(string: word.wordEntry)
         } else {
-            displayDetailed(wordEntry: word.wordEntry, wordMeanings: word.wordMeaningsWithMarks, explanationString: word.explanation)
+            displayDetailed(wordEntry: word.wordEntry, wordMeanings: word.wordMeanings, explanationString: word.explanation)
         }
     }
     
@@ -88,6 +88,6 @@ extension CardViewSelector {
             detailedCardView.explanationContentLabel.isHidden = true
         }
         
-        detailedCardView.highlightPosTokens()
+        PosToken.highlightPosTokensInTextView(textView: detailedCardView.meaningsContentTextView)
     }
 }

@@ -64,9 +64,8 @@ class VocabListTableViewCell: UITableViewCell {
         self.word = word
         self.delegate = delegate
         
-        let posTokenList: [String] = getPosTokenList(wordMeanings: word.meanings)
-        textView.text = posTokenList.joined(separator: " ") + " " + word.wordEntry
-        highlightPosToken(in: posTokenList)
+        textView.text = makeText()
+        PosToken.highlightPosTokensInTextView(textView: textView)
     }
     
     // MARK: - Actions
@@ -77,36 +76,29 @@ class VocabListTableViewCell: UITableViewCell {
     
     // MARK: - Utils
     
-    func getPosTokenList(wordMeanings: [Word.Meanings]) -> [String] {
-        var list: [String] = []
-        for item in wordMeanings {
-            let pos = Word.posAbbr[item.pos]
-            if let pos = pos {
-                let posToken = pos.indent(leftIndent: 1, rightIndent: 1)
-                if !list.contains(posToken) {
-                    list.append(posToken)
+    func makeText() -> String {
+        var posTokens: [PosToken] = []
+        for item in word.meanings {
+            if let pos = item.pos {
+                let posToken = PosToken(pos: pos)
+                if !posTokens.contains(posToken) {
+                    posTokens.append(posToken)
                 }
             }
         }
-        return list
-    }
-    
-    func highlightPosToken(in posTokenList: [String]) {
-        for posToken in posTokenList {
-            textView.textStorage.setAttributes(
-                VocabListTableViewCell.posAttributes,
-                range: textView.text!.nsrange(of: posToken, options: String.caseAndDiacriticInsensitiveCompareOptions)!
-            )
+        
+        var text = ""
+        for posToken in posTokens {
+            text.append(posToken.token)
+            text.append(" ")
         }
+        text.append(word.wordEntry)
+        return text
     }
 }
 
 extension VocabListTableViewCell {
     static let contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
-    static let posAttributes: [NSAttributedString.Key: Any] = [
-        .backgroundColor : Theme.lightBlue,
-        .font: Theme.bodyFont
-    ]
 }
 
 protocol VocabularyTableViewCellDelegate {

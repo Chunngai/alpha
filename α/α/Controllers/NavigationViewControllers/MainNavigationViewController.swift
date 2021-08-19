@@ -18,6 +18,12 @@ class MainNavigationViewController: UINavigationController {
     
     func updateViews() {
         navigationBar.prefersLargeTitles = true
-        navigationBar.largeTitleTextAttributes = Theme.naviBarLargeTitleTextAttrs
+        navigationBar.largeTitleTextAttributes = MainNavigationViewController.largeTitleTextAttrs
     }
+}
+
+extension MainNavigationViewController {
+    static let largeTitleTextAttrs: [NSAttributedString.Key: Any] = [
+        .foregroundColor: UIColor.black
+    ]
 }

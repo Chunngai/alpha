@@ -57,25 +57,11 @@ class TextTableViewCell: UITableViewCell {
     
     // MARK: - Utils
     
-    func highlightPosTokens() {
-        for pos in Word.posList {
-            let posToken = Word.posAbbr[pos]!.indent(leftIndent: 1, rightIndent: 1)
-            
-            let range = textView.text.range(of: posToken)
-            if range != nil {
-                textView.textStorage.set(
-                    attributes: TextTableViewCell.posAttributes,
-                    forAll: posToken
-                )
-            }
-        }
-    }
-    
     func make(word: Word) {
         var text = ""
         text += word.wordEntry
         text += "\n"
-        text += word.wordMeaningsWithMarks
+        text += word.wordMeanings
         textView.text = text
         
         textView.textStorage.set(
@@ -86,7 +72,7 @@ class TextTableViewCell: UITableViewCell {
             for: word.wordEntry
         )
         
-        highlightPosTokens()
+        PosToken.highlightPosTokensInTextView(textView: textView)
     }
     
     func make(sentence: Sentence) {
@@ -112,8 +98,6 @@ class TextTableViewCell: UITableViewCell {
 extension TextTableViewCell {
     static let textViewInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
     
-//    static let wordEntryFont = UIFont.systemFont(ofSize: 17)
-//    static let wordMeaningsFont = UIFont.systemFont(ofSize: 15)
     static let posAttributes: [NSAttributedString.Key: Any] = [
         .font: Theme.bodyFont,
         .backgroundColor : Theme.lightBlue

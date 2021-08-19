@@ -54,16 +54,22 @@
 		FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54225B2B2C70084CEDE /* Lesson.swift */; };
 		FF4CB54925B2C6E10084CEDE /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */; };
 		FF4CB54D25B2E2480084CEDE /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54C25B2E2480084CEDE /* PDFViewController.swift */; };
-		FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */; };
 		FF4D926E26C7CF54009598F2 /* VocabListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4D926D26C7CF54009598F2 /* VocabListViewController.swift */; };
 		FF4FC922268E0227000885C3 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4FC921268E0227000885C3 /* TextTableViewCell.swift */; };
 		FF51645B26CCB9E8009C4BEF /* VocabListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF51645A26CCB9E8009C4BEF /* VocabListTableViewCell.swift */; };
-		FF51645E26CCDCBE009C4BEF /* TypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF51645D26CCDCBE009C4BEF /* TypeExtensions.swift */; };
 		FF51646026CCDDF3009C4BEF /* RoundCornersBgTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF51645F26CCDDF3009C4BEF /* RoundCornersBgTextView.swift */; };
 		FF52BCB526C798EF0095A7D0 /* textBook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF52BCB226C798EF0095A7D0 /* textBook.pdf */; };
 		FF52BCB726C79BF30095A7D0 /* HomeIndexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */; };
 		FF52BCB926C79F570095A7D0 /* HomeLessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */; };
 		FF627D7126CE2C50004182D6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D7026CE2C50004182D6 /* Theme.swift */; };
+		FF627D7C26CE7EF9004182D6 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D7B26CE7EF8004182D6 /* StringExt.swift */; };
+		FF627D8026CE7F2F004182D6 /* NSAttributedStringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D7F26CE7F2F004182D6 /* NSAttributedStringExt.swift */; };
+		FF627D8426CE7F83004182D6 /* WordExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D8326CE7F83004182D6 /* WordExt.swift */; };
+		FF627D8626CE7FDE004182D6 /* SentenceExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D8526CE7FDE004182D6 /* SentenceExt.swift */; };
+		FF627D8926CE8029004182D6 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D8826CE8029004182D6 /* UIColorExt.swift */; };
+		FF627D8B26CE80CC004182D6 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D8A26CE80CC004182D6 /* UIImageExt.swift */; };
+		FF627D8D26CE8109004182D6 /* UISearchBarExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D8C26CE8109004182D6 /* UISearchBarExt.swift */; };
+		FF627D9126CE8A2C004182D6 /* PosToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D9026CE8A2C004182D6 /* PosToken.swift */; };
 		FF6E86FB2688EBA100C4A3A5 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FA2688EBA100C4A3A5 /* Word.swift */; };
 		FF6E86FF2688EBB500C4A3A5 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */; };
 		FFA3B7D025BAFC78002F9D4C /* BaseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3B7CF25BAFC78002F9D4C /* BaseCardView.swift */; };
@@ -172,16 +178,22 @@
 		FF4CB54225B2B2C70084CEDE /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		FF4CB54C25B2E2480084CEDE /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
-		FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FF4D926D26C7CF54009598F2 /* VocabListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabListViewController.swift; sourceTree = "<group>"; };
 		FF4FC921268E0227000885C3 /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		FF51645A26CCB9E8009C4BEF /* VocabListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VocabListTableViewCell.swift; path = "α/Controllers/ViewControllers/VocabListTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		FF51645D26CCDCBE009C4BEF /* TypeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeExtensions.swift; sourceTree = "<group>"; };
 		FF51645F26CCDDF3009C4BEF /* RoundCornersBgTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornersBgTextView.swift; sourceTree = "<group>"; };
 		FF52BCB226C798EF0095A7D0 /* textBook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = textBook.pdf; path = ../../lessons/textBook.pdf; sourceTree = "<group>"; };
 		FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexTableViewCell.swift; sourceTree = "<group>"; };
 		FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonTableViewCell.swift; sourceTree = "<group>"; };
 		FF627D7026CE2C50004182D6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		FF627D7B26CE7EF8004182D6 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		FF627D7F26CE7F2F004182D6 /* NSAttributedStringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExt.swift; sourceTree = "<group>"; };
+		FF627D8326CE7F83004182D6 /* WordExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordExt.swift; sourceTree = "<group>"; };
+		FF627D8526CE7FDE004182D6 /* SentenceExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceExt.swift; sourceTree = "<group>"; };
+		FF627D8826CE8029004182D6 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
+		FF627D8A26CE80CC004182D6 /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
+		FF627D8C26CE8109004182D6 /* UISearchBarExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBarExt.swift; sourceTree = "<group>"; };
+		FF627D9026CE8A2C004182D6 /* PosToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosToken.swift; sourceTree = "<group>"; };
 		FF6E86FA2688EBA100C4A3A5 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		FFA3B7CF25BAFC78002F9D4C /* BaseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCardView.swift; sourceTree = "<group>"; };
@@ -343,6 +355,7 @@
 				FF4583D726899003001115C9 /* UnderlineTextField.swift */,
 				FFEFA7A9268BE88E005622C7 /* SeparationLine.swift */,
 				FF51645F26CCDDF3009C4BEF /* RoundCornersBgTextView.swift */,
+				FF627D9026CE8A2C004182D6 /* PosToken.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -396,8 +409,9 @@
 		FF51645C26CCDCA6009C4BEF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FF51645D26CCDCBE009C4BEF /* TypeExtensions.swift */,
-				FF4CB55025B3293F0084CEDE /* ViewExtensions.swift */,
+				FF627D8726CE8017004182D6 /* ViewExtensions */,
+				FF627D8226CE7F64004182D6 /* ModelExtensions */,
+				FF627D8126CE7F36004182D6 /* TypeExtensions */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -421,6 +435,34 @@
 				FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */,
 			);
 			path = HomeCell;
+			sourceTree = "<group>";
+		};
+		FF627D8126CE7F36004182D6 /* TypeExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF627D7B26CE7EF8004182D6 /* StringExt.swift */,
+				FF627D7F26CE7F2F004182D6 /* NSAttributedStringExt.swift */,
+			);
+			path = TypeExtensions;
+			sourceTree = "<group>";
+		};
+		FF627D8226CE7F64004182D6 /* ModelExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF627D8326CE7F83004182D6 /* WordExt.swift */,
+				FF627D8526CE7FDE004182D6 /* SentenceExt.swift */,
+			);
+			path = ModelExtensions;
+			sourceTree = "<group>";
+		};
+		FF627D8726CE8017004182D6 /* ViewExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF627D8826CE8029004182D6 /* UIColorExt.swift */,
+				FF627D8A26CE80CC004182D6 /* UIImageExt.swift */,
+				FF627D8C26CE8109004182D6 /* UISearchBarExt.swift */,
+			);
+			path = ViewExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -607,11 +649,16 @@
 			files = (
 				FF4CB54D25B2E2480084CEDE /* PDFViewController.swift in Sources */,
 				FF49449425B1EBC100B4EDAA /* MainNavigationViewController.swift in Sources */,
+				FF627D8626CE7FDE004182D6 /* SentenceExt.swift in Sources */,
 				FF6E86FF2688EBB500C4A3A5 /* Sentence.swift in Sources */,
+				FF627D8426CE7F83004182D6 /* WordExt.swift in Sources */,
+				FF627D8026CE7F2F004182D6 /* NSAttributedStringExt.swift in Sources */,
 				FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */,
+				FF627D7C26CE7EF9004182D6 /* StringExt.swift in Sources */,
 				FF2917BC25B0746600A076F3 /* HomeViewController.swift in Sources */,
 				FF4CB54925B2C6E10084CEDE /* MenuViewController.swift in Sources */,
 				FFEFA7AA268BE88E005622C7 /* SeparationLine.swift in Sources */,
+				FF627D9126CE8A2C004182D6 /* PosToken.swift in Sources */,
 				FF4BD5ED26CBE75300818D9F /* PaddingLabel.swift in Sources */,
 				FF52BCB926C79F570095A7D0 /* HomeLessonTableViewCell.swift in Sources */,
 				FF2917B825B0746600A076F3 /* AppDelegate.swift in Sources */,
@@ -623,17 +670,18 @@
 				FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */,
 				FF627D7126CE2C50004182D6 /* Theme.swift in Sources */,
 				FF45EDC92685F86A0008E469 /* DetailedCardView.swift in Sources */,
+				FF627D8926CE8029004182D6 /* UIColorExt.swift in Sources */,
+				FF627D8B26CE80CC004182D6 /* UIImageExt.swift in Sources */,
 				FF52BCB726C79BF30095A7D0 /* HomeIndexTableViewCell.swift in Sources */,
 				FF4241DD26876A620002C4F4 /* CardViewSelector.swift in Sources */,
 				FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */,
-				FF4CB55125B3293F0084CEDE /* ViewExtensions.swift in Sources */,
 				FF4D926E26C7CF54009598F2 /* VocabListViewController.swift in Sources */,
+				FF627D8D26CE8109004182D6 /* UISearchBarExt.swift in Sources */,
 				FF4FC922268E0227000885C3 /* TextTableViewCell.swift in Sources */,
 				FF45EDC72685F8040008E469 /* SingleLineCardView.swift in Sources */,
 				FF2917BA25B0746600A076F3 /* SceneDelegate.swift in Sources */,
 				FF51646026CCDDF3009C4BEF /* RoundCornersBgTextView.swift in Sources */,
 				FFAC17B925B4937C003D84BA /* CardLoopView.swift in Sources */,
-				FF51645E26CCDCBE009C4BEF /* TypeExtensions.swift in Sources */,
 				FF4583D826899003001115C9 /* UnderlineTextField.swift in Sources */,
 				FFEFA7A4268BE86F005622C7 /* ReadingViewController.swift in Sources */,
 			);
