@@ -18,10 +18,9 @@ class SingleLineCardView: BaseCardView {
 
         label.backgroundColor = mainView.backgroundColor
         label.numberOfLines = 0
-        label.attributedText = NSAttributedString(
-            string: " ",
-            attributes: SingleLineCardView.labelAttributes
-        )
+        label.textAlignment = .center
+        label.lineBreakMode = .byWordWrapping
+        label.font = Theme.title1Font
         
         return label
     }()
@@ -52,14 +51,4 @@ class SingleLineCardView: BaseCardView {
 
 extension SingleLineCardView {
     static let labelPadding = 20
-    static let labelAttributes: [NSAttributedString.Key: Any] = [
-        .paragraphStyle: {
-            let paragraph = NSMutableParagraphStyle()
-            paragraph.lineSpacing = 5
-            paragraph.alignment = .center
-            paragraph.lineBreakMode = .byWordWrapping
-            return paragraph
-        }(),
-        .font: Theme.title1Font
-    ]
 }

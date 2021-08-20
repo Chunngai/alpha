@@ -10,13 +10,15 @@ import UIKit
 
 class RoundCornersBgTextView: UITextView {
     
+    var shouldCenterVertically: Bool!
+    
     // MARK: - Init
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
     }
     
-    convenience init(frame: CGRect, textContainerSize: CGSize) {
+    convenience init(frame: CGRect, textContainerSize: CGSize, shoudCenterVertically: Bool = true) {
         let textStorage = NSTextStorage()
         
         let textLayoutManager = LayoutManagerForRoundedCornersBackground()
@@ -27,6 +29,8 @@ class RoundCornersBgTextView: UITextView {
         textLayoutManager.addTextContainer(textContainer)
         
         self.init(frame: frame, textContainer: textContainer)
+        
+        self.shouldCenterVertically = shoudCenterVertically
     }
     
     required init?(coder: NSCoder) {
@@ -36,7 +40,9 @@ class RoundCornersBgTextView: UITextView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        centerVertically()
+        if shouldCenterVertically {
+            centerVertically()
+        }
     }
     
 }
@@ -49,6 +55,14 @@ extension RoundCornersBgTextView {
         let positiveTopOffset = max(1, topOffset)
         contentOffset.y = -positiveTopOffset
     }
+}
+
+extension RoundCornersBgTextView {
+    func scrollToTop(animated: Bool = true) {
+        // https://stackoverflow.com/questions/9450302/get-uiscrollview-to-scroll-to-the-top
+        let offset = CGPoint(x: 0, y: -contentInset.top)
+        setContentOffset(offset, animated: animated)
+   }
 }
 
 class LayoutManagerForRoundedCornersBackground: NSLayoutManager {

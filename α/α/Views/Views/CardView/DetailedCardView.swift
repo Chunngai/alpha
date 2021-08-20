@@ -72,20 +72,25 @@ class DetailedCardView: BaseCardView {
         return label
     }()
     
-    lazy var explanationContentLabel: PaddingLabel = {
-        let label = PaddingLabel(padding: DetailedCardView.labelInset)
-        mainView.addSubview(label)
+    lazy var explanationContentTextView: RoundCornersBgTextView = {
+        let textView = RoundCornersBgTextView(
+            frame: CGRect.zero,
+            textContainerSize: mainView.bounds.size,
+            shoudCenterVertically: false
+        )
+        mainView.addSubview(textView)
         
-        label.backgroundColor = .lightText
-        label.textColor = Theme.textColor
-        label.textAlignment = .left
-        label.numberOfLines = 0
-        label.font = Theme.bodyFont
-        label.sizeToFit()
-        label.layer.cornerRadius = DetailedCardView.cornerRadius
-        label.layer.masksToBounds = true
+        textView.backgroundColor = .lightText
+        textView.textColor = Theme.textColor
+        textView.textAlignment = .left
+        textView.font = Theme.bodyFont
+        textView.sizeToFit()
+        textView.layer.cornerRadius = DetailedCardView.cornerRadius
+        textView.layer.masksToBounds = true
+        textView.isEditable = false
+        textView.contentInset = DetailedCardView.textViewInsets
         
-        return label
+        return textView
     }()
 
     // MARK: - Init
@@ -127,10 +132,11 @@ class DetailedCardView: BaseCardView {
             make.width.equalTo(wordLabel.snp.width)
         }
         
-        explanationContentLabel.snp.makeConstraints { (make) in
+        explanationContentTextView.snp.makeConstraints { (make) in
             make.top.equalTo(explanationLabel.snp.bottom).offset(10)
             make.leading.equalTo(wordLabel.snp.leading)
             make.width.equalTo(wordLabel.snp.width)
+            make.bottom.equalTo(safeAreaInsets).inset(30)
         }
     }
 }

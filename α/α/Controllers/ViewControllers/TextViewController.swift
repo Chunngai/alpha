@@ -8,13 +8,23 @@
 
 import UIKit
 
-class TextViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TextViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TextTableViewCellDelegate {
+    
+    var isSingleMode: Bool {
+        if let vocab = vocab {
+            return vocab.count == 1
+        } else if let sentences = sentences {
+            return sentences.count == 1
+        } else {
+            return false
+        }
+    }
     
     // MARK: - Models
     
     var vocab: [Word]?
     var sentences: [Sentence]?
-        
+    
     // MARK: - Views
     
     lazy var loopView: CardLoopView = {
@@ -58,12 +68,17 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func updateViews() {        
         view.backgroundColor = Theme.backgroundColor
-        navigationItem.rightBarButtonItem = barButtonItem
+        if !isSingleMode {
+            navigationItem.rightBarButtonItem = barButtonItem
+        }
         
         loopView.snp.makeConstraints { (make) in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.width.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        if isSingleMode {
+            loopView.loopScrollView.isScrollEnabled = false
         }
         
         listView.snp.makeConstraints { (make) in
@@ -127,20 +142,20 @@ extension TextViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TextViewController.cellReuseIdentifier) as! TextTableViewCell
         if let vocab = vocab {
-            cell.updateValues(word: vocab[indexPath.row])
+            cell.updateValues(word: vocab[indexPath.row], delegate: self, cellId: indexPath.row)
         } else if let sentences = sentences {
-            cell.updateValues(sentence: sentences[indexPath.row])
+            cell.updateValues(sentence: sentences[indexPath.row], delegate: self, cellId: indexPath.row)
         }
         return cell
     }
 }
 
 extension TextViewController {
-    // MARK: - UITableView Delegate
+    // MARK: - TextTableViewCell Delegate
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func switchToLoopView(cellId: Int) {
         displayLoop()
-        loopView.currentPage = indexPath.row
+        loopView.currentPage = cellId
     }
 }
 

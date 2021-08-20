@@ -10,11 +10,24 @@ import UIKit
 
 class TextTableViewCell: UITableViewCell {
         
+    var cellId: Int!
+    
+    // MARK: - Controllers
+    
+    var delegate: TextViewController!
+    
     // MARK: - Views
     
     lazy var textView: RoundCornersBgTextView = {
         let textView = RoundCornersBgTextView(frame: CGRect.zero, textContainerSize: self.contentView.bounds.size)
         contentView.addSubview(textView)
+        
+        textView.addGestureRecognizer({
+            let gestureRecognizer = UITapGestureRecognizer()
+            gestureRecognizer.numberOfTapsRequired = 1
+            gestureRecognizer.addTarget(self, action: #selector(textViewTapped))
+            return gestureRecognizer
+        }())
         
         textView.backgroundColor = .white
         textView.isEditable = false
@@ -47,14 +60,27 @@ class TextTableViewCell: UITableViewCell {
         }
     }
     
-    func updateValues(word: Word? = nil, sentence: Sentence? = nil) {
+    func updateValues(word: Word? = nil, sentence: Sentence? = nil, delegate: TextViewController, cellId: Int) {
         if let word = word {
             make(word: word)
         } else if let sentence = sentence {
             make(sentence: sentence)
         }
+        
+        self.delegate = delegate
+        self.cellId = cellId
     }
+}
+
+extension TextTableViewCell {
+    // MARK: - Actions
     
+    @objc func textViewTapped() {
+        delegate.switchToLoopView(cellId: cellId)
+    }
+}
+
+extension TextTableViewCell {
     // MARK: - Utils
     
     func make(word: Word) {
@@ -110,4 +136,8 @@ extension TextTableViewCell {
         .font : Theme.bodyFont,
         .foregroundColor : UIColor.black
     ]
+}
+
+protocol TextTableViewCellDelegate {
+    func switchToLoopView(cellId: Int)
 }

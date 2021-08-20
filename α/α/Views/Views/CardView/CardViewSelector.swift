@@ -81,12 +81,13 @@ extension CardViewSelector {
         detailedCardView.meaningsContentTextView.text = wordMeanings
         if let explanationString = explanationString {
             detailedCardView.explanationLabel.isHidden = false
-            detailedCardView.explanationContentLabel.isHidden = false
-            detailedCardView.explanationContentLabel.text = explanationString
+            detailedCardView.explanationContentTextView.isHidden = false
+            detailedCardView.explanationContentTextView.text = explanationString
         } else {
             detailedCardView.explanationLabel.isHidden = true
-            detailedCardView.explanationContentLabel.isHidden = true
+            detailedCardView.explanationContentTextView.isHidden = true
         }
+        detailedCardView.explanationContentTextView.scrollToTop(animated: false)
         
         PosToken.highlightPosTokensInTextView(textView: detailedCardView.meaningsContentTextView)
     }

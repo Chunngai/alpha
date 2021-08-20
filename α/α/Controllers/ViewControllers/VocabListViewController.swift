@@ -153,10 +153,6 @@ extension VocabListViewController {
     func pushWordDetails(word: Word) {
         let vocabViewController = TextViewController()
         vocabViewController.updateValues(vocab: [word])
-        // Disables the right bar button.
-        vocabViewController.navigationItem.rightBarButtonItem = nil
-        // Disables scrolling.
-        vocabViewController.loopView.loopScrollView.isScrollEnabled = false
         navigationController?.pushViewController(vocabViewController, animated: true)
     }
 }
