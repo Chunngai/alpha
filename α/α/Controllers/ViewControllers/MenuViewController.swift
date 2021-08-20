@@ -112,7 +112,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         titleLabelShadowView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             // https://stackoverflow.com/questions/67749841/how-to-account-for-the-height-of-the-navigation-bar-in-snapkit
-            make.top.equalTo(view.safeAreaLayoutGuide).multipliedBy(1.5)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(30)
             make.height.equalToSuperview().multipliedBy(0.26)
             make.width.equalToSuperview().multipliedBy(0.89)
         }

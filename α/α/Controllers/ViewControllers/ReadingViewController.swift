@@ -102,6 +102,10 @@ class ReadingViewController: UIViewController {
         super.viewDidLoad()
 
         updateViews()
+        
+        titleLabel.attributedText = makeTitle()
+        textView.text = makeText()
+        hightlightVocab()
     }
     
     func updateViews() {
@@ -133,10 +137,6 @@ class ReadingViewController: UIViewController {
             make.width.equalToSuperview().multipliedBy(0.8)
             make.centerX.equalToSuperview()
         }
-        
-        titleLabel.attributedText = makeTitle()
-        textView.text = makeText()
-        hightlightVocab()
     }
     
     func updateValues(reading: Reading) {

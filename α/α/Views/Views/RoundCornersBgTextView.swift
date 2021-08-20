@@ -110,7 +110,8 @@ class LayoutManagerForRoundedCornersBackground: NSLayoutManager {
         color.set()
         
         let ctx = UIGraphicsGetCurrentContext()
-        ctx!.setLineWidth(cornerRadius * 2.0)
+//        ctx!.setLineWidth(cornerRadius * 2.0)
+        ctx!.setLineWidth(cornerRadius * 1.2)
         ctx!.setLineJoin(.round)
         
         ctx!.setAllowsAntialiasing(true)
