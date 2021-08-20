@@ -37,4 +37,7 @@ struct Theme {
     static let prepositionColor: UIColor = UIColor.intRGB2UIColor(red: 223, green: 236, blue: 213)
     static let conjunctionColor: UIColor = UIColor.intRGB2UIColor(red: 226, green: 226, blue: 251)
     static let particleColor: UIColor = UIColor.intRGB2UIColor(red: 220, green: 214, blue: 205)
+    
+    static let elColor: UIColor = UIColor.intRGB2UIColor(red: 205, green: 229, blue: 255)
+    static let enColor: UIColor = UIColor.intRGB2UIColor(red: 255, green: 219, blue: 232)
 }

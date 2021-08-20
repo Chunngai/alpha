@@ -61,3 +61,9 @@ extension Sequence where Iterator.Element: NSAttributedString {
         return joined(with: NSAttributedString(string: separator), ignoring: charactersToIgnore)
     }
 }
+
+extension Dictionary where Key == NSAttributedString.Key, Value == Any {
+    func mergingByKeepingOwnKeys(_ other: [NSAttributedString.Key: Any]) -> [NSAttributedString.Key: Any] {
+        return self.merging(other) { (a, b) -> Value in a }
+    }
+}

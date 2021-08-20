@@ -39,6 +39,16 @@ extension Sentence {
 }
 
 extension Sentence {
+    var elSentWoAsterisk: String {
+        removeAsterisk(string: greekSentence)
+    }
+    
+    var enSentWoAsterisk: String {
+        removeAsterisk(string: englishSentence)
+    }
+}
+
+extension Sentence {
     var greekSentenceQ: String {
         return removeAsterisk(string: greekSentence)
     }

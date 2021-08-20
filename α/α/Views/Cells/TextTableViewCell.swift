@@ -91,51 +91,93 @@ extension TextTableViewCell {
         textView.text = text
         
         textView.textStorage.set(
-            attributes: TextTableViewCell.grayTextAttributes
+            attributes: TextTableViewCell.wordEntryAttributes,
+            for: word.wordEntry
         )
         textView.textStorage.set(
-            attributes: TextTableViewCell.blackTextAttributes,
-            for: word.wordEntry
+            attributes: TextTableViewCell.wordMeaningsAttributes,
+            for: word.wordMeanings
         )
         
         PosToken.highlightPosTokensInTextView(textView: textView)
     }
     
     func make(sentence: Sentence) {
-        var text = ""
+        var sentTextLangToken = ""
+        var sentTranslationLangToken = ""
+        var sentText = ""
+        var sentTranslation = ""
         if sentence.isEnglishTranslated {
-            text = sentence.greekSentence
+            sentTextLangToken = TextTableViewCell.greekLangToken
+            sentText = sentence.elSentWoAsterisk
+            sentTranslationLangToken = TextTableViewCell.englishLangToken
+            sentTranslation = sentence.enSentWoAsterisk
         } else {
-            text = sentence.englishSentence
+            sentTextLangToken = TextTableViewCell.englishLangToken
+            sentText = sentence.enSentWoAsterisk
+            sentTranslationLangToken = TextTableViewCell.greekLangToken
+            sentTranslation = sentence.elSentWoAsterisk
         }
+        
+        var text = ""
+        text.append(sentTextLangToken)
+        text.append(sentText)
+        text.append("\n")
+        text.append(sentTranslationLangToken)
+        text.append(sentTranslation)
+        
         textView.text = text
-        
         textView.textStorage.set(
-            attributes: TextTableViewCell.blackTextAttributes
+            attributes: TextTableViewCell.greekLangTokenAttrs,
+            for: TextTableViewCell.greekLangToken
         )
-        
-        // TODO: - Fix here.
-        if text.count < 45 {  // For short sentences.
-            textView.text += "\n"
-        }
+        textView.textStorage.set(
+            attributes: TextTableViewCell.englishLangTokenAttrs,
+            for: TextTableViewCell.englishLangToken
+        )
+        textView.textStorage.set(
+            attributes: TextTableViewCell.sentenceTextAttributes,
+            for: sentText
+        )
+        textView.textStorage.set(
+            attributes: TextTableViewCell.sentenceTranslationAttributes,
+            for: sentTranslation
+        )
     }
 }
 
 extension TextTableViewCell {
     static let textViewInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
     
-    static let posAttributes: [NSAttributedString.Key: Any] = [
+    static let greekLangToken = " el  "
+    static let englishLangToken = " en "
+    
+    static let commonTextAttrs: [NSAttributedString.Key: Any] = [
+        .paragraphStyle: {
+            let paraStyle = NSMutableParagraphStyle()
+            paraStyle.alignment = .left
+            paraStyle.lineSpacing = 5
+            paraStyle.lineBreakMode = .byWordWrapping
+            return paraStyle
+        }(),
         .font: Theme.bodyFont,
-        .backgroundColor : Theme.lightBlue
+        
     ]
-    static let grayTextAttributes: [NSAttributedString.Key: Any] = [
-        .font : Theme.bodyFont,
-        .foregroundColor : UIColor.gray
-    ]
-    static let blackTextAttributes: [NSAttributedString.Key: Any] = [
-        .font : Theme.bodyFont,
-        .foregroundColor : UIColor.black
-    ]
+    
+    static let wordEntryAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: Theme.textColor]
+        .mergingByKeepingOwnKeys(TextTableViewCell.commonTextAttrs)
+    static let wordMeaningsAttributes: [NSAttributedString.Key: Any] = [.foregroundColor : Theme.weakTextColor]
+        .mergingByKeepingOwnKeys(TextTableViewCell.commonTextAttrs)
+    
+    static let greekLangTokenAttrs: [NSAttributedString.Key: Any] = [.backgroundColor: Theme.elColor]
+        .mergingByKeepingOwnKeys(TextTableViewCell.commonTextAttrs)
+    static let englishLangTokenAttrs: [NSAttributedString.Key: Any] = [.backgroundColor: Theme.enColor]
+        .mergingByKeepingOwnKeys(TextTableViewCell.commonTextAttrs)
+    
+    static let sentenceTextAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: Theme.textColor]
+        .mergingByKeepingOwnKeys(TextTableViewCell.commonTextAttrs)
+    static let sentenceTranslationAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: Theme.weakTextColor]
+        .mergingByKeepingOwnKeys(TextTableViewCell.commonTextAttrs)
 }
 
 protocol TextTableViewCellDelegate {
