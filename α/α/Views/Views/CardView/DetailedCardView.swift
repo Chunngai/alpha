@@ -89,6 +89,7 @@ class DetailedCardView: BaseCardView {
         textView.layer.masksToBounds = true
         textView.isEditable = false
         textView.contentInset = DetailedCardView.textViewInsets
+        textView.showsVerticalScrollIndicator = false
         
         return textView
     }()

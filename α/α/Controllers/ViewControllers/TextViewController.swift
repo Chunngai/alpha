@@ -49,6 +49,7 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .none
         tableView.isHidden = true
+        tableView.showsVerticalScrollIndicator = false
         
         return tableView
     }()

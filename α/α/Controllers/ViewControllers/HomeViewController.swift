@@ -39,6 +39,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .none
         tableView.rowHeight = HomeViewController.tableViewRowHeight
+        tableView.showsVerticalScrollIndicator = false
         
         return tableView
     }()

@@ -60,7 +60,8 @@ extension RoundCornersBgTextView {
 extension RoundCornersBgTextView {
     func scrollToTop(animated: Bool = true) {
         // https://stackoverflow.com/questions/9450302/get-uiscrollview-to-scroll-to-the-top
-        let offset = CGPoint(x: 0, y: -contentInset.top)
+        // Note that the left content inset should be taken into consideration.
+        let offset = CGPoint(x: -contentInset.left, y: -contentInset.top)
         setContentOffset(offset, animated: animated)
    }
 }
