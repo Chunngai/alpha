@@ -21,31 +21,13 @@ class CardLoopView: UIView, UIScrollViewDelegate {
     
     // MARK: - Models
     
-    private var vocab: [Word]? {
-        willSet{
-            currentPage = 0
-        }
-        didSet {
-            updateTexts()
-        }
-    }
-    private var sentences: [Sentence]? {
-        willSet{
-            currentPage = 0
-        }
-        didSet {
-            updateTexts()
-        }
-    }
+    private var vocab: [Word]?
+    private var sentences: [Sentence]?
         
     // MARK: - Views
     
-    lazy var width: CGFloat = {
-        return self.frame.size.width
-    }()
-    lazy var height: CGFloat = {
-        return self.frame.size.height
-    }()
+    var width: CGFloat!
+    var height: CGFloat!
     
     lazy private var cardView0: CardViewSelector = {
         let cardView = CardViewSelector()
@@ -75,7 +57,6 @@ class CardLoopView: UIView, UIScrollViewDelegate {
         let scrollView = UIScrollView()
         addSubview(scrollView)
         
-        scrollView.contentSize = CGSize(width: width * 3.0, height: height)
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.delegate = self
@@ -89,12 +70,23 @@ class CardLoopView: UIView, UIScrollViewDelegate {
         
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.updateViews()
     }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        width = self.frame.size.width
+        height = self.frame.size.height
+        
+        self.updateViews()
+        
+        loopScrollView.contentSize = CGSize(width: width * 3.0, height: height)
+        
+        updateTexts()
     }
     
     private func updateViews(){

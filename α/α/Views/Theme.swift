@@ -32,7 +32,7 @@ struct Theme {
     static let verbColor: UIColor = UIColor.intRGB2UIColor(red: 205, green: 229, blue: 255)
     static let nounColor: UIColor = UIColor.intRGB2UIColor(red: 255, green: 236, blue: 160)
     static let pronounColor: UIColor = UIColor.intRGB2UIColor(red: 255, green: 220, blue: 151)
-    static let adjectiveColor: UIColor = UIColor.intRGB2UIColor(red: 255, green: 197, blue: 181)
+    static let adjectiveColor: UIColor = UIColor.intRGB2UIColor(red: 255, green: 217, blue: 201)
     static let adverbColor: UIColor = UIColor.intRGB2UIColor(red: 255, green: 219, blue: 232)
     static let prepositionColor: UIColor = UIColor.intRGB2UIColor(red: 223, green: 236, blue: 213)
     static let conjunctionColor: UIColor = UIColor.intRGB2UIColor(red: 226, green: 226, blue: 251)

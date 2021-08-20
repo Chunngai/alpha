@@ -48,6 +48,7 @@ class VocabListViewController: UIViewController, UITableViewDataSource, UITableV
         )
         tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .singleLine
+        tableView.rowHeight = VocabListViewController.tableRowHeight
         
         return tableView
     }()
@@ -162,4 +163,5 @@ extension VocabListViewController {
 
 extension VocabListViewController {
     static let cellReuseIdentifier = "VocabularyTableViewCell"
+    static let tableRowHeight: CGFloat = 50
 }

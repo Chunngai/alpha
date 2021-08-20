@@ -18,16 +18,11 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - Views
     
     lazy var loopView: CardLoopView = {
-        // TODO: - Fix it
-        let loopView = CardLoopView(
-            frame: CGRect(
-                x: 0,
-                y: 88,
-                width: 414,
-                height: 764
-            )
-        )
+        let loopView = CardLoopView()
         view.addSubview(loopView)
+        
+        loopView.updateValues(vocab: vocab, sentences: sentences)
+        
         return loopView
     }()
     
@@ -65,12 +60,11 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         view.backgroundColor = Theme.backgroundColor
         navigationItem.rightBarButtonItem = barButtonItem
         
-//        loopView = CardLoopView(frame: CGRect(
-//            x: 0,
-//            y: (navigationController?.navigationBar.frame.maxY)!,
-//            width: view.frame.width,
-//            height: view.frame.height - (navigationController?.navigationBar.frame.maxY)! - (navigationController?.navigationBar.frame.height)!)
-//        )
+        loopView.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.width.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
         
         listView.snp.makeConstraints { (make) in
             make.width.equalToSuperview().multipliedBy(0.90)
@@ -82,8 +76,6 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func updateValues(vocab: [Word]? = nil, sentences: [Sentence]? = nil) {
         self.vocab = vocab
         self.sentences = sentences
-        
-        loopView.updateValues(vocab: vocab, sentences: sentences)
     }
 }
 
