@@ -63,6 +63,7 @@ class ReadingViewController: UIViewController {
         textView.backgroundColor = self.mainView.backgroundColor
         textView.isEditable = false
         textView.isSelectable = false
+        textView.showsVerticalScrollIndicator = false
         textView.attributedText = NSAttributedString(
             string: " ",
             attributes: ReadingViewController.textViewAttrs
