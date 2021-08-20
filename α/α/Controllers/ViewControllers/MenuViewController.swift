@@ -259,7 +259,7 @@ extension MenuViewController {
 
 extension MenuViewController {
     static let shadowOffset: CGSize = CGSize(width: 1, height: 1)
-    static let shadowOpacity: Float = 0.5
+    static let shadowOpacity: Float = 0.3
     static let shadowRadius: CGFloat = 10
     
     static let titleInset = 10

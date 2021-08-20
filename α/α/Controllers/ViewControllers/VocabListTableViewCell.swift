@@ -34,7 +34,7 @@ class VocabListTableViewCell: UITableViewCell {
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.font = Theme.bodyFont
-        textView.contentInset = VocabListTableViewCell.contentInset
+        textView.textContainerInset = VocabListTableViewCell.textViewInset
         
         return textView
     }()
@@ -98,7 +98,7 @@ class VocabListTableViewCell: UITableViewCell {
 }
 
 extension VocabListTableViewCell {
-    static let contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
+    static let textViewInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
 }
 
 protocol VocabularyTableViewCellDelegate {

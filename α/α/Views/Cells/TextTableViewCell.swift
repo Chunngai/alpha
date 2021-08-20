@@ -33,7 +33,7 @@ class TextTableViewCell: UITableViewCell {
         textView.isEditable = false
         // The statement below makes contentSize.height be 0.
         textView.isScrollEnabled = false  // Wo it the cell height is not accurate.
-        textView.contentInset = TextTableViewCell.textViewInsets
+        textView.textContainerInset = TextTableViewCell.textViewInsets
         
         return textView
     }()
@@ -109,21 +109,23 @@ extension TextTableViewCell {
         var sentTranslation = ""
         if sentence.isEnglishTranslated {
             sentTextLangToken = TextTableViewCell.greekLangToken
-            sentText = sentence.elSentWoAsterisk
+            sentText = sentence.greekSentence
             sentTranslationLangToken = TextTableViewCell.englishLangToken
-            sentTranslation = sentence.enSentWoAsterisk
+            sentTranslation = sentence.englishSentence
         } else {
             sentTextLangToken = TextTableViewCell.englishLangToken
-            sentText = sentence.enSentWoAsterisk
+            sentText = sentence.englishSentence
             sentTranslationLangToken = TextTableViewCell.greekLangToken
-            sentTranslation = sentence.elSentWoAsterisk
+            sentTranslation = sentence.greekSentence
         }
         
         var text = ""
         text.append(sentTextLangToken)
+        text.append(" ")
         text.append(sentText)
         text.append("\n")
         text.append(sentTranslationLangToken)
+        text.append(" ")
         text.append(sentTranslation)
         
         textView.text = text
@@ -153,15 +155,8 @@ extension TextTableViewCell {
     static let englishLangToken = " en "
     
     static let commonTextAttrs: [NSAttributedString.Key: Any] = [
-        .paragraphStyle: {
-            let paraStyle = NSMutableParagraphStyle()
-            paraStyle.alignment = .left
-            paraStyle.lineSpacing = 5
-            paraStyle.lineBreakMode = .byWordWrapping
-            return paraStyle
-        }(),
+        .paragraphStyle: Theme.paraStyle,
         .font: Theme.bodyFont,
-        
     ]
     
     static let wordEntryAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: Theme.textColor]

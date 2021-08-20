@@ -13,7 +13,7 @@ extension Sentence {
         if let greek = greek {
             return greek
         } else {
-            return "\(greek_!)*"
+            return "\(greek_!)"
         }
     }
     
@@ -21,12 +21,8 @@ extension Sentence {
         if let english = english {
             return english
         } else {
-            return "\(english_!)*"
+            return "\(english_!)"
         }
-    }
-    
-    func removeAsterisk(string: String) -> String {
-        return string.replacingOccurrences(of: "*", with: "")
     }
     
     var isGreekTranslated: Bool {
@@ -39,30 +35,20 @@ extension Sentence {
 }
 
 extension Sentence {
-    var elSentWoAsterisk: String {
-        removeAsterisk(string: greekSentence)
-    }
-    
-    var enSentWoAsterisk: String {
-        removeAsterisk(string: englishSentence)
-    }
-}
-
-extension Sentence {
     var greekSentenceQ: String {
-        return removeAsterisk(string: greekSentence)
+        return greekSentence
     }
     
     var greekSentenceA: String {
-        return removeAsterisk(string: greekSentence)
+        return greekSentence
     }
     
     var englishSentenceQ: String {
-        return removeAsterisk(string: englishSentence)
+        return englishSentence
     }
     
     var englishSentenceA: String {
-        return removeAsterisk(string: englishSentence)
+        return englishSentence
             .replacingOccurrences(of: " (sg.)", with: "")
             .replacingOccurrences(of: " (pl.)", with: "")
     }

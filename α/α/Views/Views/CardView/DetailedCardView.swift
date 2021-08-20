@@ -53,7 +53,7 @@ class DetailedCardView: BaseCardView {
         textView.isEditable = false
         // The statement below makes contentSize.height be 0.
         textView.isScrollEnabled = false  // Wo it the cell height is not accurate.
-        textView.contentInset = DetailedCardView.textViewInsets
+        textView.textContainerInset = DetailedCardView.textViewInset
         
         return textView
     }()
@@ -88,7 +88,7 @@ class DetailedCardView: BaseCardView {
         textView.layer.cornerRadius = DetailedCardView.cornerRadius
         textView.layer.masksToBounds = true
         textView.isEditable = false
-        textView.contentInset = DetailedCardView.textViewInsets
+        textView.textContainerInset = DetailedCardView.textViewInset
         textView.showsVerticalScrollIndicator = false
         
         return textView
@@ -143,7 +143,5 @@ class DetailedCardView: BaseCardView {
 }
 
 extension DetailedCardView {
-    static let textBackgroundCornerRadius: CGFloat = 5
-    static let labelInset = 10
-    static let textViewInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    static let textViewInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 }

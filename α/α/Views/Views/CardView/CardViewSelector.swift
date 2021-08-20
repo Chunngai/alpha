@@ -52,25 +52,42 @@ extension CardViewSelector {
     
     func displayWord(word: Word, isBrief: Bool) {
         if isBrief {
-            displaySingleLine(string: word.wordEntry)
+            displaySingleLine(string: NSAttributedString(string: word.wordEntry))
         } else {
             displayDetailed(wordEntry: word.wordEntry, wordMeanings: word.wordMeanings, explanationString: word.explanation)
         }
     }
     
     func displaySentence(sentence: Sentence, isBrief: Bool) {
+        var string = ""
+        var shouldChangeColor: Bool = false
         if sentence.isEnglishTranslated {
-            displaySingleLine(string: isBrief ? sentence.greekSentence : sentence.englishSentence)
+            if isBrief {
+                string = sentence.greekSentence
+            } else {
+                string = sentence.englishSentence
+                shouldChangeColor = true
+            }
         } else if sentence.isGreekTranslated {
-            displaySingleLine(string: isBrief ? sentence.englishSentence : sentence.greekSentence)
+            if isBrief {
+                string = sentence.englishSentence
+            } else {
+                string = sentence.greekSentence
+                shouldChangeColor = true
+            }
         }
+        let attrString = NSMutableAttributedString(string: string)
+        if shouldChangeColor {
+            attrString.setTextColor(color: Theme.weakTextColor)
+        }
+        displaySingleLine(string: attrString)
     }
     
-    func displaySingleLine(string: String) {
+    func displaySingleLine(string: NSAttributedString) {
         singleLineCardView.isHidden = false
         detailedCardView.isHidden = true
         
-        singleLineCardView.label.text = string
+        singleLineCardView.label.attributedText = string
     }
     
     func displayDetailed(wordEntry: String, wordMeanings: String, explanationString: String?) {

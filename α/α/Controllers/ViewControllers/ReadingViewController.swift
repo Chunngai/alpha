@@ -250,7 +250,7 @@ extension ReadingViewController {
         let paras = reading.text.split(separator: "\n")
         var text = ""
         for para in paras {
-            text += String(para).leftIndent(by: 4)
+            text += String(para).leftIndent(by: 4 * 2)
             text += "\n"
         }
         return text
@@ -303,13 +303,7 @@ extension ReadingViewController {
 
 extension ReadingViewController {
     static let textViewAttrs: [NSAttributedString.Key: Any] = [
-        .paragraphStyle: {
-            let paragraph = NSMutableParagraphStyle()
-            paragraph.lineSpacing = 5
-            paragraph.alignment = .justified
-            paragraph.lineBreakMode = .byWordWrapping
-            return paragraph
-        }(),
+        .paragraphStyle: Theme.paraStyle,
         .font: Theme.bodyFont,
         .foregroundColor: UIColor.black
     ]

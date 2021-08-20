@@ -40,4 +40,14 @@ struct Theme {
     
     static let elColor: UIColor = UIColor.intRGB2UIColor(red: 205, green: 229, blue: 255)
     static let enColor: UIColor = UIColor.intRGB2UIColor(red: 255, green: 219, blue: 232)
+    
+    // MARK: - Paras
+    
+    static var paraStyle: NSMutableParagraphStyle {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineSpacing = 5
+        paragraph.alignment = .left
+        paragraph.lineBreakMode = .byWordWrapping
+        return paragraph
+    }
 }
