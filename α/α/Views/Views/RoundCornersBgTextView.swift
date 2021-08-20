@@ -66,6 +66,28 @@ extension RoundCornersBgTextView {
    }
 }
 
+extension RoundCornersBgTextView {
+    var numberOfLines: Int {
+        // https://stackoverflow.com/questions/5837348/counting-the-number-of-lines-in-a-uitextview-lines-wrapped-by-frame-size
+        // https://stackoverflow.com/questions/56776318/calculating-if-text-in-uitextview-is-less-than-the-4-maximumnumberoflines-limit
+        // Note that the accurate line number can be calculated
+        // only after the width of the text view is determined.
+        // (More tricks are required when the text view is
+        // in a table view cell.)
+        var numberOfLines = 0
+        var index = 0
+        var lineRange = NSRange()
+        
+        while index < layoutManager.numberOfGlyphs {
+            layoutManager.lineFragmentRect(forGlyphAt: index, effectiveRange: &lineRange)
+            index = NSMaxRange(lineRange)
+            numberOfLines += 1
+        }
+        
+        return numberOfLines
+    }
+}
+
 class LayoutManagerForRoundedCornersBackground: NSLayoutManager {
     
     var cornerRadius: CGFloat = LayoutManagerForRoundedCornersBackground.defaultCornerRadius
