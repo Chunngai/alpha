@@ -40,6 +40,16 @@ extension NSMutableAttributedString {
     func setTextColor(for textToFind: String? = nil, color: UIColor) {
         set(attributes: [NSAttributedString.Key.foregroundColor : color], for: textToFind)
     }
+    
+    func setUnderline(for textToFind: String? = nil, color: UIColor = .black, style: NSUnderlineStyle = NSUnderlineStyle.single) {
+        set(
+            attributes: [
+                .underlineColor: color,
+                .underlineStyle: style.rawValue,
+            ],
+            for: textToFind
+        )
+    }
 }
 
 extension Sequence where Iterator.Element: NSAttributedString {

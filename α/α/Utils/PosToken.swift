@@ -40,16 +40,4 @@ extension PosToken {
         }
         return posTokens
     }
-    
-    static func highlightPosTokensInTextView(textView: UITextView, font: UIFont = Theme.bodyFont) {
-        for posToken in PosToken.posTokens {
-            textView.textStorage.set(
-                attributes: [
-                    .font: font,
-                    .backgroundColor: posToken.color
-                ],
-                forAll: posToken.token
-            )
-        }
-    }
 }

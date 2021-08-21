@@ -59,6 +59,7 @@
 		FF51645B26CCB9E8009C4BEF /* VocabListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF51645A26CCB9E8009C4BEF /* VocabListTableViewCell.swift */; };
 		FF51646026CCDDF3009C4BEF /* RoundCornersBgTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF51645F26CCDDF3009C4BEF /* RoundCornersBgTextView.swift */; };
 		FF52507026D0C57A003DBB74 /* LessonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52506F26D0C57A003DBB74 /* LessonExt.swift */; };
+		FF52507A26D11F60003DBB74 /* PosTokenExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52507926D11F60003DBB74 /* PosTokenExt.swift */; };
 		FF52BCB526C798EF0095A7D0 /* textBook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF52BCB226C798EF0095A7D0 /* textBook.pdf */; };
 		FF52BCB726C79BF30095A7D0 /* HomeIndexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */; };
 		FF52BCB926C79F570095A7D0 /* HomeLessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */; };
@@ -184,6 +185,7 @@
 		FF51645A26CCB9E8009C4BEF /* VocabListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VocabListTableViewCell.swift; path = "α/Controllers/ViewControllers/VocabListTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		FF51645F26CCDDF3009C4BEF /* RoundCornersBgTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornersBgTextView.swift; sourceTree = "<group>"; };
 		FF52506F26D0C57A003DBB74 /* LessonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonExt.swift; sourceTree = "<group>"; };
+		FF52507926D11F60003DBB74 /* PosTokenExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosTokenExt.swift; sourceTree = "<group>"; };
 		FF52BCB226C798EF0095A7D0 /* textBook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = textBook.pdf; path = ../../lessons/textBook.pdf; sourceTree = "<group>"; };
 		FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexTableViewCell.swift; sourceTree = "<group>"; };
 		FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonTableViewCell.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 		FF51645C26CCDCA6009C4BEF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FF52507826D11F4A003DBB74 /* UtilExtensions */,
 				FF627D8726CE8017004182D6 /* ViewExtensions */,
 				FF627D8226CE7F64004182D6 /* ModelExtensions */,
 				FF627D8126CE7F36004182D6 /* TypeExtensions */,
@@ -424,6 +427,14 @@
 				FF627D9026CE8A2C004182D6 /* PosToken.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FF52507826D11F4A003DBB74 /* UtilExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF52507926D11F60003DBB74 /* PosTokenExt.swift */,
+			);
+			path = UtilExtensions;
 			sourceTree = "<group>";
 		};
 		FF627D7626CE73F9004182D6 /* CardView */ = {
@@ -694,6 +705,7 @@
 				FF2917BA25B0746600A076F3 /* SceneDelegate.swift in Sources */,
 				FF51646026CCDDF3009C4BEF /* RoundCornersBgTextView.swift in Sources */,
 				FFAC17B925B4937C003D84BA /* CardLoopView.swift in Sources */,
+				FF52507A26D11F60003DBB74 /* PosTokenExt.swift in Sources */,
 				FF4583D826899003001115C9 /* UnderlineTextField.swift in Sources */,
 				FFEFA7A4268BE86F005622C7 /* ReadingViewController.swift in Sources */,
 			);

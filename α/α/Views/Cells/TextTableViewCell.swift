@@ -114,7 +114,7 @@ extension TextTableViewCell {
             delay: 0.3,
             options: [.curveEaseInOut, .autoreverse],
             animations: {
-                UIView.setAnimationRepeatCount(3)
+                UIView.setAnimationRepeatCount(2)
                 UIView.setAnimationRepeatAutoreverses(true)
                 self.textView.backgroundColor = Theme.lightBlue
         }) { _ in

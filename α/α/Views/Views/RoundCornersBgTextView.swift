@@ -21,7 +21,7 @@ class RoundCornersBgTextView: UITextView {
     convenience init(frame: CGRect, textContainerSize: CGSize, shoudCenterVertically: Bool = true) {
         let textStorage = NSTextStorage()
         
-        let textLayoutManager = LayoutManagerForRoundedCornersBackground()
+        let textLayoutManager = RoundCornersBgLayoutManager()
         textLayoutManager.cornerRadius = 5
         textStorage.addLayoutManager(textLayoutManager)
         
@@ -88,9 +88,23 @@ extension RoundCornersBgTextView {
     }
 }
 
-class LayoutManagerForRoundedCornersBackground: NSLayoutManager {
+extension RoundCornersBgTextView {
+    func setRoundCornersBackground(forAll textToFind: String, withColor color: UIColor, withFont font: UIFont) {
+        textStorage.set(
+            attributes: [
+                .font: font,
+                .backgroundColor: color
+//                .underlineColor: color,
+//                .underlineStyle: NSUnderlineStyle.single.rawValue
+            ],
+            forAll: textToFind
+        )
+    }
+}
+
+class RoundCornersBgLayoutManager: NSLayoutManager {
     
-    var cornerRadius: CGFloat = LayoutManagerForRoundedCornersBackground.defaultCornerRadius
+    var cornerRadius: CGFloat = RoundCornersBgLayoutManager.defaultCornerRadius
     
     override func fillBackgroundRectArray(_ rectArray: UnsafePointer<CGRect>, count rectCount: Int, forCharacterRange charRange: NSRange, color: UIColor) {
         let path = CGMutablePath.init()
@@ -157,8 +171,45 @@ class LayoutManagerForRoundedCornersBackground: NSLayoutManager {
         ctx!.addPath(path)
         ctx!.drawPath(using: .fillStroke)
     }
+    
+    // https://stackoverflow.com/questions/16362407/nsattributedstring-background-color-and-rounded-corners
+//    override func drawUnderline(
+//        forGlyphRange glyphRange: NSRange,
+//        underlineType underlineVal: NSUnderlineStyle,
+//        baselineOffset: CGFloat,
+//        lineFragmentRect lineRect: CGRect,
+//        lineFragmentGlyphRange lineGlyphRange: NSRange,
+//        containerOrigin: CGPoint
+//    ) {
+//        let firstPosition  = location(forGlyphAt: glyphRange.location).x
+//        
+//        let lastPosition: CGFloat
+//        
+//        if NSMaxRange(glyphRange) < NSMaxRange(lineGlyphRange) {
+//            lastPosition = location(forGlyphAt: NSMaxRange(glyphRange)).x
+//        } else {
+//            lastPosition = lineFragmentUsedRect(
+//                forGlyphAt: NSMaxRange(glyphRange) - 1,
+//                effectiveRange: nil).size.width
+//        }
+//        
+//        var lineRect = lineRect
+//        let height = lineRect.size.height * 3.5 / 4.0  // replace your under line height
+//        lineRect.origin.x += firstPosition
+//        lineRect.size.width = lastPosition - firstPosition
+//        lineRect.size.height = height
+//        
+//        lineRect.origin.x += containerOrigin.x
+//        lineRect.origin.y += containerOrigin.y
+//        
+//        lineRect = lineRect.integral.insetBy(dx: 0.5, dy: 0.5)
+//        
+//        // set your cornerRadius
+//        let path = UIBezierPath(roundedRect: lineRect, cornerRadius: cornerRadius)
+//        path.fill()
+//    }
 }
 
-extension LayoutManagerForRoundedCornersBackground {
+extension RoundCornersBgLayoutManager {
     static let defaultCornerRadius: CGFloat = 5
 }

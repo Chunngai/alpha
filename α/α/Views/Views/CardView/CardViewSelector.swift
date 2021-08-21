@@ -60,25 +60,25 @@ extension CardViewSelector {
     
     func displaySentence(sentence: Sentence, isBrief: Bool) {
         var string = ""
-        var shouldChangeColor: Bool = false
+        var shouldUnderline: Bool = false
         if sentence.isEnglishTranslated {
             if isBrief {
                 string = sentence.greekSentence
             } else {
                 string = sentence.englishSentence
-                shouldChangeColor = true
+                shouldUnderline = true
             }
         } else if sentence.isGreekTranslated {
             if isBrief {
                 string = sentence.englishSentence
             } else {
                 string = sentence.greekSentence
-                shouldChangeColor = true
+                shouldUnderline = true
             }
         }
         let attrString = NSMutableAttributedString(string: string)
-        if shouldChangeColor {
-            attrString.setTextColor(color: Theme.weakTextColor)
+        if shouldUnderline {
+            attrString.setUnderline(color: .gray)
         }
         displaySingleLine(string: attrString)
     }
