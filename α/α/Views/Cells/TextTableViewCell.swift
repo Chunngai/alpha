@@ -84,17 +84,43 @@ extension TextTableViewCell {
     // MARK: - TextViewController Delegate
     
     func attractAttention() {
-        UIView.animate(
+        
+//        UIView.animate(
+//            withDuration: 0.3,
+//            delay: 0.3,
+//            options: [.curveEaseInOut, .autoreverse, .repeat],
+//            animations: {
+//                UIView.modifyAnimations(withRepeatCount: 3, autoreverses: true, animations: {
+//                    self.textView.backgroundColor = Theme.lightBlue
+//                })
+//        }) {
+//            _ in
+//            self.textView.backgroundColor = .white
+//        }
+        
+//        textView.backgroundColor = Theme.lightBlue
+//        UIView.animate(
+//            withDuration: 0.3,
+//            delay: 0.3,
+//            options: [.curveEaseInOut, .autoreverse, .repeat],
+//            animations: {
+//                UIView.modifyAnimations(withRepeatCount: 2, autoreverses: true, animations: {
+//                    self.textView.backgroundColor = .white
+//                })
+//        })
+        
+        let propertyAnimator = UIViewPropertyAnimator.runningPropertyAnimator(
             withDuration: 0.3,
             delay: 0.3,
-            options: [.curveEaseInOut, .autoreverse, .repeat],
+            options: [.curveEaseInOut, .autoreverse],
             animations: {
-                UIView.modifyAnimations(withRepeatCount: 2, autoreverses: true, animations: {
-                    self.textView.backgroundColor = Theme.lightBlue
-                })
+                UIView.setAnimationRepeatCount(3)
+                UIView.setAnimationRepeatAutoreverses(true)
+                self.textView.backgroundColor = Theme.lightBlue
         }) { _ in
             self.textView.backgroundColor = .white
         }
+        propertyAnimator.startAnimation()
     }
 }
  
