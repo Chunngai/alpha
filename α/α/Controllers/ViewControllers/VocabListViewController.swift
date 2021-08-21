@@ -10,6 +10,9 @@ import UIKit
 
 class VocabListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, VocabularyTableViewCellDelegate {
     
+    var allLessonIdsAndWords: [(lessonId: Int, vocab: [Word])] = []
+    var searchedLessonIdsAndWords: [(lessonId: Int, vocab: [Word])] = []
+    
     var dataSource: [(lessonId: Int, vocab: [Word])] {
         var dataSource: [(lessonId: Int, vocab: [Word])]
         if !searchBar.isEmpty {
@@ -22,8 +25,11 @@ class VocabListViewController: UIViewController, UITableViewDataSource, UITableV
     
     // MARK: - Models
     
-    var allLessonIdsAndWords: [(lessonId: Int, vocab: [Word])] = []
-    var searchedLessonIdsAndWords: [(lessonId: Int, vocab: [Word])] = []
+    var lessons: [Lesson]! {
+        didSet {
+            getAllLessonIdsAndWords(from: lessons)
+        }
+    }
     
     // MARK: - Views
     
@@ -74,14 +80,14 @@ class VocabListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func updateValues(lessons: [Lesson]) {
-        getWords(from: lessons)
+        self.lessons = lessons
     }
 }
 
 extension VocabListViewController {
     // MARK: - Utils
     
-    func getWords(from lessons: [Lesson]) {
+    func getAllLessonIdsAndWords(from lessons: [Lesson]) {
         for lesson in lessons {
             if let vocab = lesson.vocab {
                 allLessonIdsAndWords.append((lessonId: lesson.id, vocab: vocab))
@@ -160,7 +166,11 @@ extension VocabListViewController {
     
     func pushWordDetails(word: Word) {
         let vocabViewController = TextViewController()
-        vocabViewController.updateValues(vocab: [word])
+        vocabViewController.updateValues(
+            vocab: lessons.vocab,
+            indexOfWordToDisplayFirst: lessons.vocab.firstIndex(of: word)!,
+            shouldInBriefAtFirst: false
+        )
         navigationController?.pushViewController(vocabViewController, animated: true)
     }
 }

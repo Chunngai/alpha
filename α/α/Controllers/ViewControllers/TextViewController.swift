@@ -10,16 +10,11 @@ import UIKit
 
 class TextViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TextTableViewCellDelegate {
     
-    var isSingleMode: Bool {
-        if let vocab = vocab {
-            return vocab.count == 1
-        } else if let sentences = sentences {
-            return sentences.count == 1
-        } else {
-            return false
-        }
-    }
-    
+    // From vocab: tapped word; for single lesson: first word.
+    var indexOfWordToDisplayFirst: Int!
+    // From vocab: false; for single lesson: true.
+    var shouldInBriefAtFirst: Bool!
+        
     // MARK: - Models
     
     var vocab: [Word]?
@@ -31,7 +26,12 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let loopView = CardLoopView()
         view.addSubview(loopView)
         
-        loopView.updateValues(vocab: vocab, sentences: sentences)
+        loopView.updateValues(
+            vocab: vocab,
+            sentences: sentences,
+            indexOfWordToDisplayFirst: indexOfWordToDisplayFirst,
+            isBrief: shouldInBriefAtFirst
+        )
         
         return loopView
     }()
@@ -65,21 +65,19 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         
         updateViews()
+        updateLayouts()
     }
     
     func updateViews() {        
         view.backgroundColor = Theme.backgroundColor
-        if !isSingleMode {
-            navigationItem.rightBarButtonItem = barButtonItem
-        }
-        
+        navigationItem.rightBarButtonItem = barButtonItem
+    }
+    
+    func updateLayouts() {
         loopView.snp.makeConstraints { (make) in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.width.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide)
-        }
-        if isSingleMode {
-            loopView.loopScrollView.isScrollEnabled = false
         }
         
         listView.snp.makeConstraints { (make) in
@@ -89,9 +87,11 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    func updateValues(vocab: [Word]? = nil, sentences: [Sentence]? = nil) {
+    func updateValues(vocab: [Word]? = nil, sentences: [Sentence]? = nil, indexOfWordToDisplayFirst: Int = 0, shouldInBriefAtFirst: Bool = true) {
         self.vocab = vocab
         self.sentences = sentences
+        self.indexOfWordToDisplayFirst = indexOfWordToDisplayFirst
+        self.shouldInBriefAtFirst = shouldInBriefAtFirst
     }
 }
 
@@ -101,6 +101,17 @@ extension TextViewController {
     @objc func barButtonItemTapped() {
         if listView.isHidden {
             displayList()
+            
+            let indexPathOfCellToAttractAttention = IndexPath(row: loopView.currentPage!, section: 0)
+            listView.scrollToRow(
+                at: indexPathOfCellToAttractAttention,
+                at: UITableView.ScrollPosition.middle,
+                animated: false
+            )
+            let cell = listView.cellForRow(at: indexPathOfCellToAttractAttention) as? TextTableViewCell
+            if let cell = cell {
+                cell.attractAttention()
+            }
         } else if loopView.isHidden {
             displayLoop()
         }
@@ -156,7 +167,7 @@ extension TextViewController {
     
     func switchToLoopView(cellId: Int) {
         displayLoop()
-        loopView.currentPage = cellId
+        loopView.switchTo(page: cellId)
     }
 }
 
@@ -164,4 +175,8 @@ extension TextViewController {
     static let cellReuseIdentifier = "TextTableViewCell"
     static let barButtonItemForList = UIImage(systemName: "line.horizontal.3.decrease.circle.fill")
     static let barButtonItemForLoop = UIImage(systemName: "line.horizontal.3.decrease.circle")
+}
+
+protocol TextViewControllerDelegate {
+    func attractAttention()
 }

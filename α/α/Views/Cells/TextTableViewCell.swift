@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextTableViewCell: UITableViewCell {
+class TextTableViewCell: UITableViewCell, TextViewControllerDelegate {
         
     var cellId: Int!
     
@@ -80,6 +80,24 @@ extension TextTableViewCell {
     }
 }
 
+extension TextTableViewCell {
+    // MARK: - TextViewController Delegate
+    
+    func attractAttention() {
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0.3,
+            options: [.curveEaseInOut, .autoreverse, .repeat],
+            animations: {
+                UIView.modifyAnimations(withRepeatCount: 2, autoreverses: true, animations: {
+                    self.textView.backgroundColor = Theme.lightBlue
+                })
+        }) { _ in
+            self.textView.backgroundColor = .white
+        }
+    }
+}
+ 
 extension TextTableViewCell {
     // MARK: - Utils
     

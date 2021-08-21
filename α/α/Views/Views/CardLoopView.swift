@@ -10,14 +10,14 @@ import UIKit
 
 class CardLoopView: UIView, UIScrollViewDelegate {
 
-    var currentPage: Int = 0 {
+    var currentPage: Int! {
         didSet {
             updateTexts()
         }
     }
     private var totalPage: Int!
     
-    private var isBrief: Bool = true
+    var isBrief: Bool!
     
     // MARK: - Models
     
@@ -119,9 +119,12 @@ class CardLoopView: UIView, UIScrollViewDelegate {
         }
     }
     
-    func updateValues(vocab: [Word]?, sentences: [Sentence]?) {
+    func updateValues(vocab: [Word]?, sentences: [Sentence]?, indexOfWordToDisplayFirst: Int, isBrief: Bool) {
         self.vocab = vocab
         self.sentences = sentences
+        
+        self.currentPage = indexOfWordToDisplayFirst
+        self.isBrief = isBrief
         
         totalPage = vocab != nil ? vocab!.count : sentences!.count
     }
@@ -140,6 +143,8 @@ extension CardLoopView {
     // MARK: - Utils
     
     func updateTexts() {
+        guard width != nil else { return }
+        
         if let vocab = vocab {
             let textView1Word = vocab[currentPage]
             let textView0Word = currentPage == 0 ? vocab.last! : vocab[currentPage - 1]
@@ -159,6 +164,10 @@ extension CardLoopView {
         }
 
         loopScrollView.contentOffset = CGPoint(x: width, y: 0)
+    }
+    
+    func switchTo(page: Int) {
+        currentPage = page
     }
 }
 
