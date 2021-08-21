@@ -284,6 +284,7 @@
 		FF2917B625B0746600A076F3 /* α */ = {
 			isa = PBXGroup;
 			children = (
+				FF52507526D11CB2003DBB74 /* Utils */,
 				FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */,
 				FF4CB53F25B2B2840084CEDE /* Models */,
 				FF49449225B1EA5800B4EDAA /* Controllers */,
@@ -357,7 +358,6 @@
 				FF4583D726899003001115C9 /* UnderlineTextField.swift */,
 				FFEFA7A9268BE88E005622C7 /* SeparationLine.swift */,
 				FF51645F26CCDDF3009C4BEF /* RoundCornersBgTextView.swift */,
-				FF627D9026CE8A2C004182D6 /* PosToken.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -416,6 +416,14 @@
 				FF627D8126CE7F36004182D6 /* TypeExtensions */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FF52507526D11CB2003DBB74 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FF627D9026CE8A2C004182D6 /* PosToken.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		FF627D7626CE73F9004182D6 /* CardView */ = {
