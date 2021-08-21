@@ -37,7 +37,7 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }()
     
     lazy var listView: UITableView = {
-        let tableView = UITableView(frame: CGRect(), style: .grouped)
+        let tableView = UITableView(frame: CGRect(), style: .plain)
         view.addSubview(tableView)
         
         tableView.dataSource = self
@@ -47,7 +47,7 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
             forCellReuseIdentifier: TextViewController.cellReuseIdentifier
         )
         tableView.backgroundColor = view.backgroundColor
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
         tableView.isHidden = true
         tableView.showsVerticalScrollIndicator = false
         
@@ -81,9 +81,9 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         listView.snp.makeConstraints { (make) in
-            make.width.equalToSuperview().multipliedBy(0.90)
-            make.height.equalToSuperview()
-            make.centerX.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.width.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
     

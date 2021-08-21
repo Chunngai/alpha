@@ -48,13 +48,16 @@ class VocabListTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        updateInitialViews()
+        updateViews()
+        updateLayouts()
     }
     
-    func updateInitialViews() {
+    func updateViews() {
         self.selectionStyle = .none
         self.backgroundColor = .white
-        
+    }
+    
+    func updateLayouts() {
         textView.snp.makeConstraints { (make) in
             make.height.width.equalToSuperview()
         }

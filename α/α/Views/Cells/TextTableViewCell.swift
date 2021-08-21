@@ -56,7 +56,7 @@ class TextTableViewCell: UITableViewCell, TextViewControllerDelegate {
         
         textView.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.9)
+            make.height.equalToSuperview()
         }
     }
     
@@ -193,7 +193,7 @@ extension TextTableViewCell {
 }
 
 extension TextTableViewCell {
-    static let textViewInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+    static let textViewInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
     static let greekLangToken = " el  "
     static let englishLangToken = " en "
