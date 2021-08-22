@@ -100,6 +100,7 @@ class DetailedCardView: BaseCardView {
         super.init(frame: frame)
         
         self.updateViews()
+        self.updateLayouts()
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -108,7 +109,9 @@ class DetailedCardView: BaseCardView {
     
     override func updateViews() {
         super.updateViews()
-        
+    }
+    
+    func updateLayouts() {
         wordLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().inset(30)
             make.leading.equalToSuperview().inset(25)
@@ -139,6 +142,26 @@ class DetailedCardView: BaseCardView {
             make.width.equalTo(wordLabel.snp.width)
             make.bottom.equalTo(safeAreaInsets).inset(30)
         }
+    }
+}
+
+extension DetailedCardView: CardViewSelectorDetailedDelegate {
+    // MARK: - CardViewSelectorDetailedDelegate
+    
+    func set(wordEntry: String, wordMeanings: String, explanationString: String?) {
+        wordLabel.text = wordEntry
+        meaningsContentTextView.text = wordMeanings
+        if let explanationString = explanationString {
+            explanationLabel.isHidden = false
+            explanationContentTextView.isHidden = false
+            explanationContentTextView.text = explanationString
+        } else {
+            explanationLabel.isHidden = true
+            explanationContentTextView.isHidden = true
+        }
+        explanationContentTextView.scrollToTop(animated: false)
+        
+        Token.highlightTokens(in: meaningsContentTextView)
     }
 }
 

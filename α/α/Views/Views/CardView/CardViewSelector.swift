@@ -30,6 +30,7 @@ class CardViewSelector: UIView {
         super.init(frame: frame)
         
         self.updateViews()
+        self.updateLayouts()
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -37,6 +38,9 @@ class CardViewSelector: UIView {
     }
     
     func updateViews() {
+    }
+    
+    func updateLayouts() {
         singleLineCardView.snp.makeConstraints { (make) in
             make.top.bottom.left.right.equalToSuperview()
         }
@@ -54,28 +58,18 @@ extension CardViewSelector {
         if isBrief {
             displaySingleLine(string: NSAttributedString(string: word.wordEntry))
         } else {
-            displayDetailed(wordEntry: word.wordEntry, wordMeanings: word.wordMeanings, explanationString: word.explanation)
+            displayDetailed(
+                wordEntry: word.wordEntry,
+                wordMeanings: word.wordMeanings,
+                explanationString: word.explanation
+            )
         }
     }
     
     func displaySentence(sentence: Sentence, isBrief: Bool) {
-        var string = ""
-        var shouldUnderline: Bool = false
-        if sentence.isEnglishTranslated {
-            if isBrief {
-                string = sentence.greekSentence
-            } else {
-                string = sentence.englishSentence
-                shouldUnderline = true
-            }
-        } else if sentence.isGreekTranslated {
-            if isBrief {
-                string = sentence.englishSentence
-            } else {
-                string = sentence.greekSentence
-                shouldUnderline = true
-            }
-        }
+        let string = isBrief ? sentence.text : sentence.translation
+        let shouldUnderline: Bool = !isBrief
+        
         let attrString = NSMutableAttributedString(string: string)
         if shouldUnderline {
             attrString.setUnderline(color: .gray)
@@ -87,25 +81,25 @@ extension CardViewSelector {
         singleLineCardView.isHidden = false
         detailedCardView.isHidden = true
         
-        singleLineCardView.label.attributedText = string
+        singleLineCardView.set(text: string)
     }
     
     func displayDetailed(wordEntry: String, wordMeanings: String, explanationString: String?) {
         detailedCardView.isHidden = false
         singleLineCardView.isHidden = true
         
-        detailedCardView.wordLabel.text = wordEntry
-        detailedCardView.meaningsContentTextView.text = wordMeanings
-        if let explanationString = explanationString {
-            detailedCardView.explanationLabel.isHidden = false
-            detailedCardView.explanationContentTextView.isHidden = false
-            detailedCardView.explanationContentTextView.text = explanationString
-        } else {
-            detailedCardView.explanationLabel.isHidden = true
-            detailedCardView.explanationContentTextView.isHidden = true
-        }
-        detailedCardView.explanationContentTextView.scrollToTop(animated: false)
-        
-        Token.highlightTokens(in: detailedCardView.meaningsContentTextView)
+        detailedCardView.set(
+            wordEntry: wordEntry,
+            wordMeanings: wordMeanings,
+            explanationString: explanationString
+        )
     }
+}
+
+protocol CardViewSelectorSingleLineDelegate {
+    func set(text: NSAttributedString)
+}
+
+protocol CardViewSelectorDetailedDelegate {
+    func set(wordEntry: String, wordMeanings: String, explanationString: String?)
 }

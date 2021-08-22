@@ -31,6 +31,7 @@ class SingleLineCardView: BaseCardView {
         super.init(frame: frame)
         
         self.updateViews()
+        self.updateLayouts()
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -39,13 +40,23 @@ class SingleLineCardView: BaseCardView {
     
     override func updateViews() {
         super.updateViews()
-        
+    }
+    
+    func updateLayouts() {
         label.snp.makeConstraints { (make) in
             make.height.equalToSuperview()
             make.width.equalToSuperview()
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
+    }
+}
+
+extension SingleLineCardView: CardViewSelectorSingleLineDelegate {
+    // MARK: - CardViewSelector delegate
+    
+    func set(text: NSAttributedString) {
+        label.attributedText = text
     }
 }
 
