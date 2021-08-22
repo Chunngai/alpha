@@ -59,7 +59,6 @@
 		FF51645B26CCB9E8009C4BEF /* VocabListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF51645A26CCB9E8009C4BEF /* VocabListTableViewCell.swift */; };
 		FF51646026CCDDF3009C4BEF /* RoundCornersBgTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF51645F26CCDDF3009C4BEF /* RoundCornersBgTextView.swift */; };
 		FF52507026D0C57A003DBB74 /* LessonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52506F26D0C57A003DBB74 /* LessonExt.swift */; };
-		FF52507A26D11F60003DBB74 /* PosTokenExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52507926D11F60003DBB74 /* PosTokenExt.swift */; };
 		FF52BCB526C798EF0095A7D0 /* textBook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF52BCB226C798EF0095A7D0 /* textBook.pdf */; };
 		FF52BCB726C79BF30095A7D0 /* HomeIndexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */; };
 		FF52BCB926C79F570095A7D0 /* HomeLessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */; };
@@ -71,12 +70,13 @@
 		FF627D8926CE8029004182D6 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D8826CE8029004182D6 /* UIColorExt.swift */; };
 		FF627D8B26CE80CC004182D6 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D8A26CE80CC004182D6 /* UIImageExt.swift */; };
 		FF627D8D26CE8109004182D6 /* UISearchBarExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D8C26CE8109004182D6 /* UISearchBarExt.swift */; };
-		FF627D9126CE8A2C004182D6 /* PosToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D9026CE8A2C004182D6 /* PosToken.swift */; };
 		FF6E86FB2688EBA100C4A3A5 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FA2688EBA100C4A3A5 /* Word.swift */; };
 		FF6E86FF2688EBB500C4A3A5 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */; };
 		FFA3B7D025BAFC78002F9D4C /* BaseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3B7CF25BAFC78002F9D4C /* BaseCardView.swift */; };
 		FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B425B492FD003D84BA /* TextViewController.swift */; };
 		FFAC17B925B4937C003D84BA /* CardLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B825B4937C003D84BA /* CardLoopView.swift */; };
+		FFC2BE7126D15A6800A44F3C /* lesson13.json in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BE6E26D15A6800A44F3C /* lesson13.json */; };
+		FFC2BE7E26D1E27600A44F3C /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BE7D26D1E27600A44F3C /* Token.swift */; };
 		FFEFA7A4268BE86F005622C7 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEFA7A3268BE86F005622C7 /* ReadingViewController.swift */; };
 		FFEFA7A8268BE88E005622C7 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEFA7A7268BE88E005622C7 /* Reading.swift */; };
 		FFEFA7AA268BE88E005622C7 /* SeparationLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEFA7A9268BE88E005622C7 /* SeparationLine.swift */; };
@@ -185,7 +185,6 @@
 		FF51645A26CCB9E8009C4BEF /* VocabListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VocabListTableViewCell.swift; path = "α/Controllers/ViewControllers/VocabListTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		FF51645F26CCDDF3009C4BEF /* RoundCornersBgTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornersBgTextView.swift; sourceTree = "<group>"; };
 		FF52506F26D0C57A003DBB74 /* LessonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonExt.swift; sourceTree = "<group>"; };
-		FF52507926D11F60003DBB74 /* PosTokenExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosTokenExt.swift; sourceTree = "<group>"; };
 		FF52BCB226C798EF0095A7D0 /* textBook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = textBook.pdf; path = ../../lessons/textBook.pdf; sourceTree = "<group>"; };
 		FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexTableViewCell.swift; sourceTree = "<group>"; };
 		FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonTableViewCell.swift; sourceTree = "<group>"; };
@@ -197,12 +196,13 @@
 		FF627D8826CE8029004182D6 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
 		FF627D8A26CE80CC004182D6 /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		FF627D8C26CE8109004182D6 /* UISearchBarExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBarExt.swift; sourceTree = "<group>"; };
-		FF627D9026CE8A2C004182D6 /* PosToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosToken.swift; sourceTree = "<group>"; };
 		FF6E86FA2688EBA100C4A3A5 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		FFA3B7CF25BAFC78002F9D4C /* BaseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCardView.swift; sourceTree = "<group>"; };
 		FFAC17B425B492FD003D84BA /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		FFAC17B825B4937C003D84BA /* CardLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLoopView.swift; sourceTree = "<group>"; };
+		FFC2BE6E26D15A6800A44F3C /* lesson13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson13.json; path = ../../lessons/lesson13.json; sourceTree = "<group>"; };
+		FFC2BE7D26D1E27600A44F3C /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		FFEFA7A3268BE86F005622C7 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
 		FFEFA7A7268BE88E005622C7 /* Reading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		FFEFA7A9268BE88E005622C7 /* SeparationLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparationLine.swift; sourceTree = "<group>"; };
@@ -261,6 +261,7 @@
 				FF2120CF26BE5C9500B71D63 /* lesson11.pdf */,
 				FF4B38CC26C794C000E56988 /* lesson12.json */,
 				FF2120D126BE5C9500B71D63 /* lesson12.pdf */,
+				FFC2BE6E26D15A6800A44F3C /* lesson13.json */,
 				FF2120DC26BE5C9600B71D63 /* lesson13.pdf */,
 				FF2120DD26BE5C9600B71D63 /* lesson14.pdf */,
 				FF2120C426BE5C9400B71D63 /* lesson15.pdf */,
@@ -286,8 +287,8 @@
 		FF2917B625B0746600A076F3 /* α */ = {
 			isa = PBXGroup;
 			children = (
-				FF52507526D11CB2003DBB74 /* Utils */,
 				FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */,
+				FFC2BE7C26D1E26700A44F3C /* Utils */,
 				FF4CB53F25B2B2840084CEDE /* Models */,
 				FF49449225B1EA5800B4EDAA /* Controllers */,
 				FF49449125B1EA4400B4EDAA /* Views */,
@@ -402,8 +403,8 @@
 		FF4CB53F25B2B2840084CEDE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FF4CB54225B2B2C70084CEDE /* Lesson.swift */,
 				FF6E86FA2688EBA100C4A3A5 /* Word.swift */,
+				FF4CB54225B2B2C70084CEDE /* Lesson.swift */,
 				FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */,
 				FFEFA7A7268BE88E005622C7 /* Reading.swift */,
 			);
@@ -413,28 +414,11 @@
 		FF51645C26CCDCA6009C4BEF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FF52507826D11F4A003DBB74 /* UtilExtensions */,
 				FF627D8726CE8017004182D6 /* ViewExtensions */,
 				FF627D8226CE7F64004182D6 /* ModelExtensions */,
 				FF627D8126CE7F36004182D6 /* TypeExtensions */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		FF52507526D11CB2003DBB74 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				FF627D9026CE8A2C004182D6 /* PosToken.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		FF52507826D11F4A003DBB74 /* UtilExtensions */ = {
-			isa = PBXGroup;
-			children = (
-				FF52507926D11F60003DBB74 /* PosTokenExt.swift */,
-			);
-			path = UtilExtensions;
 			sourceTree = "<group>";
 		};
 		FF627D7626CE73F9004182D6 /* CardView */ = {
@@ -485,6 +469,14 @@
 				FF627D8C26CE8109004182D6 /* UISearchBarExt.swift */,
 			);
 			path = ViewExtensions;
+			sourceTree = "<group>";
+		};
+		FFC2BE7C26D1E26700A44F3C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FFC2BE7D26D1E27600A44F3C /* Token.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -637,6 +629,7 @@
 				FF2120EC26BE5C9600B71D63 /* lesson6.pdf in Resources */,
 				FF2120F026BE5C9600B71D63 /* lesson1.pdf in Resources */,
 				FF2120F526BE5C9600B71D63 /* lesson2.pdf in Resources */,
+				FFC2BE7126D15A6800A44F3C /* lesson13.json in Resources */,
 				FF2120ED26BE5C9600B71D63 /* lesson10.pdf in Resources */,
 				FF2917C125B0746700A076F3 /* Assets.xcassets in Resources */,
 				FF2120F126BE5C9600B71D63 /* lesson4.json in Resources */,
@@ -681,7 +674,6 @@
 				FF4CB54925B2C6E10084CEDE /* MenuViewController.swift in Sources */,
 				FFEFA7AA268BE88E005622C7 /* SeparationLine.swift in Sources */,
 				FF52507026D0C57A003DBB74 /* LessonExt.swift in Sources */,
-				FF627D9126CE8A2C004182D6 /* PosToken.swift in Sources */,
 				FF4BD5ED26CBE75300818D9F /* PaddingLabel.swift in Sources */,
 				FF52BCB926C79F570095A7D0 /* HomeLessonTableViewCell.swift in Sources */,
 				FF2917B825B0746600A076F3 /* AppDelegate.swift in Sources */,
@@ -695,6 +687,7 @@
 				FF45EDC92685F86A0008E469 /* DetailedCardView.swift in Sources */,
 				FF627D8926CE8029004182D6 /* UIColorExt.swift in Sources */,
 				FF627D8B26CE80CC004182D6 /* UIImageExt.swift in Sources */,
+				FFC2BE7E26D1E27600A44F3C /* Token.swift in Sources */,
 				FF52BCB726C79BF30095A7D0 /* HomeIndexTableViewCell.swift in Sources */,
 				FF4241DD26876A620002C4F4 /* CardViewSelector.swift in Sources */,
 				FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */,
@@ -705,7 +698,6 @@
 				FF2917BA25B0746600A076F3 /* SceneDelegate.swift in Sources */,
 				FF51646026CCDDF3009C4BEF /* RoundCornersBgTextView.swift in Sources */,
 				FFAC17B925B4937C003D84BA /* CardLoopView.swift in Sources */,
-				FF52507A26D11F60003DBB74 /* PosTokenExt.swift in Sources */,
 				FF4583D826899003001115C9 /* UnderlineTextField.swift in Sources */,
 				FFEFA7A4268BE86F005622C7 /* ReadingViewController.swift in Sources */,
 			);

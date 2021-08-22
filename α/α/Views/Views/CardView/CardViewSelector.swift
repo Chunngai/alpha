@@ -106,6 +106,6 @@ extension CardViewSelector {
         }
         detailedCardView.explanationContentTextView.scrollToTop(animated: false)
         
-        PosToken.highlightPosTokensInTextView(textView: detailedCardView.meaningsContentTextView)
+        Token.highlightTokens(in: detailedCardView.meaningsContentTextView)
     }
 }

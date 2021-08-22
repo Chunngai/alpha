@@ -20,7 +20,8 @@ struct Word: Codable, Equatable {
     struct Meanings: Codable, Equatable {
         var pos: String!
         var meanings: String!
-        var usage: String?
+        var labels: [String]?
+        var usage: String?  // TODO: - change here.
     }
     
     var forms: [Form]!
@@ -45,6 +46,7 @@ extension Word.Meanings {
     static func == (lhs: Word.Meanings, rhs: Word.Meanings) -> Bool {
         return lhs.pos == rhs.pos
             && lhs.meanings == rhs.meanings
+            && lhs.labels == rhs.labels
             && lhs.usage == rhs.usage
     }
 }

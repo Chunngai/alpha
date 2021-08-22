@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 extension PosToken {
-    static func highlightPosTokensInTextView(textView: RoundCornersBgTextView, font: UIFont = Theme.bodyFont) {
-        for posToken in PosToken.posTokens {
+    static func highlightTokensInTextView(textView: RoundCornersBgTextView, font: UIFont = Theme.bodyFont) {
+        for token in PosToken.posTokens + LabelToken.labelTokens + UsageToken.usageTokens {
             textView.setRoundCornersBackground(
-                forAll: posToken.token,
-                withColor: posToken.color,
+                forAll: token.token,
+                withColor: token.color,
                 withFont: font
             )
         }

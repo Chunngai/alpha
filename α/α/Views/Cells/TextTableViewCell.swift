@@ -48,12 +48,15 @@ class TextTableViewCell: UITableViewCell, TextViewControllerDelegate {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         updateViews()
+        updateLayouts()
     }
     
     func updateViews() {
         self.selectionStyle = .none
         self.backgroundColor = Theme.backgroundColor
-        
+    }
+    
+    func updateLayouts() {
         textView.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
             make.height.equalToSuperview()
@@ -128,12 +131,7 @@ extension TextTableViewCell {
     // MARK: - Utils
     
     func make(word: Word) {
-        var text = ""
-        text += word.wordEntry
-        text += "\n"
-        text += word.wordMeanings
-        textView.text = text
-        
+        textView.text = word.detailedContent
         textView.textStorage.set(
             attributes: TextTableViewCell.wordEntryAttributes,
             for: word.wordEntry
@@ -142,61 +140,32 @@ extension TextTableViewCell {
             attributes: TextTableViewCell.wordMeaningsAttributes,
             for: word.wordMeanings
         )
-        
-        PosToken.highlightPosTokensInTextView(textView: textView)
+        Token.highlightTokens(in: textView)
     }
     
     func make(sentence: Sentence) {
-        var sentTextLangToken = ""
-        var sentTranslationLangToken = ""
-        var sentText = ""
-        var sentTranslation = ""
-        if sentence.isEnglishTranslated {
-            sentTextLangToken = TextTableViewCell.greekLangToken
-            sentText = sentence.greekSentence
-            sentTranslationLangToken = TextTableViewCell.englishLangToken
-            sentTranslation = sentence.englishSentence
-        } else {
-            sentTextLangToken = TextTableViewCell.englishLangToken
-            sentText = sentence.englishSentence
-            sentTranslationLangToken = TextTableViewCell.greekLangToken
-            sentTranslation = sentence.greekSentence
-        }
-        
-        var text = ""
-        text.append(sentTextLangToken)
-        text.append(" ")
-        text.append(sentText)
-        text.append("\n")
-        text.append(sentTranslationLangToken)
-        text.append(" ")
-        text.append(sentTranslation)
-        
-        textView.text = text
+        textView.text = sentence.content
         textView.textStorage.set(
             attributes: TextTableViewCell.greekLangTokenAttrs,
-            for: TextTableViewCell.greekLangToken
+            for: Sentence.greekLangToken
         )
         textView.textStorage.set(
             attributes: TextTableViewCell.englishLangTokenAttrs,
-            for: TextTableViewCell.englishLangToken
+            for: Sentence.englishLangToken
         )
         textView.textStorage.set(
             attributes: TextTableViewCell.sentenceTextAttributes,
-            for: sentText
+            for: sentence.text
         )
         textView.textStorage.set(
             attributes: TextTableViewCell.sentenceTranslationAttributes,
-            for: sentTranslation
+            for: sentence.translation
         )
     }
 }
 
 extension TextTableViewCell {
     static let textViewInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    
-    static let greekLangToken = " el  "
-    static let englishLangToken = " en "
     
     static let commonTextAttrs: [NSAttributedString.Key: Any] = [
         .paragraphStyle: Theme.paraStyle,

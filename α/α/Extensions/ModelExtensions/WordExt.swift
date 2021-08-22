@@ -10,6 +10,119 @@ import Foundation
 import UIKit
 
 extension Word {
+    private var wordEntrySep: String {
+        return ", "
+    }
+    private var prefixSuffixSep: String {
+        return "·"
+    }
+    
+    var wordEntry: String {
+        return forms.compactMap {
+            wordEntry(of: $0)
+        }.joined(separator: wordEntrySep)
+    }
+    
+    private func wordEntry(of form: Form) -> String {
+        func articleSequence() -> String {
+            if let articles = form.articles {
+                return articles.joined(separator: wordEntrySep) + " "
+            } else {
+                return ""
+            }
+        }
+        
+        func prefixSequence() -> String {
+            if let prefices = form.prefices {
+                return prefices.joined(separator: prefixSuffixSep + wordEntrySep) + prefixSuffixSep
+            } else {
+                return ""
+            }
+        }
+        
+        func suffixSequence() -> String {
+            if let suffices = form.suffices {
+                return prefixSuffixSep + suffices.joined(separator: wordEntrySep + prefixSuffixSep)
+            } else {
+                return ""
+            }
+        }
+        
+        return articleSequence() + prefixSequence() + form.stem + suffixSequence()
+    }
+}
+ 
+extension Word {
+    var wordMeanings: String {
+        return meanings.compactMap {
+            var meaningsItem = ""
+            
+            meaningsItem = meaningsItem
+                .appending(Token.makeToken(from: Word.posAbbrs[$0.pos!] ?? $0.pos!))
+                .appending(" ")
+            
+            if let labels = $0.labels {
+                for label in labels {
+                    meaningsItem = meaningsItem
+                        .appending(Token.makeToken(from: label))
+                        .appending(" ")
+                }
+            }
+            
+            meaningsItem = meaningsItem.appending($0.meanings!)
+                .appending(".")
+            
+            if let usage = $0.usage {
+                meaningsItem = meaningsItem
+                    .appending("\n")
+                    .appending("☆ \(usage)")
+            }
+            
+            return meaningsItem
+        }.joined(separator: "\n")
+    }
+}
+
+extension Word {
+    var briefContent: String {
+        var posList: [String] = []
+        var labelList: [String] = []
+        // TODO: - Usage
+        
+        for item in meanings {
+            if let pos = item.pos {
+                if !posList.contains(pos) {
+                    posList.append(pos)
+                }
+            }
+            if let labels = item.labels {
+                for label in labels {
+                    if !labelList.contains(label) {
+                        labelList.append(label)
+                    }
+                }
+            }
+        }
+        
+        var text = ""
+        for pos in posList {
+            text.append(Token.makeToken(from: Word.posAbbrs[pos] ?? pos))
+            text.append(" ")
+        }
+        for label in labelList {
+            text.append(Token.makeToken(from: label))
+            text.append(" ")
+        }
+        text.append(wordEntry)
+        return text
+    }
+    
+    var detailedContent: String {
+        return wordEntry.appending("\n").appending(wordMeanings)
+    }
+}
+
+extension Word {
     static let posAbbrs: [String: String] = [
         "verb": "v.",
         "noun": "n.",
@@ -20,90 +133,4 @@ extension Word {
         "conjunction": "conj.",
         "particle": "part."
     ]
-    static let posColors: [String: UIColor] = [
-        "verb": Theme.verbColor,
-        "noun": Theme.nounColor,
-        "pronoun": Theme.pronounColor,
-        "adjective": Theme.adjectiveColor,
-        "adverb": Theme.adverbColor,
-        "preposition": Theme.prepositionColor,
-        "conjunction": Theme.conjunctionColor,
-        "particle": Theme.particleColor
-    ]
-    
-    static let posList = Word.posAbbrs.keys
-}
-
-extension Word {
-    var wordEntry: String {
-        var wordEntryConstructor = ""
-        
-        var wordEntriesOfEachForm: [String] = []
-        for form in forms {
-            let wordEntryOfForm = getWordEntry(of: form)
-            wordEntriesOfEachForm.append(wordEntryOfForm)
-        }
-        wordEntryConstructor.append(wordEntriesOfEachForm.joined(separator: ", "))
-        
-        return wordEntryConstructor
-    }
-    
-    func getWordEntry(of form: Form) -> String {
-        func articleSequence(of form: Form, with articles: [String]) -> String {
-            return articles.joined(separator: ", ") + " "
-        }
-        
-        func prefixSequence(of form: Form, with prefices: [String]) -> String {
-            return prefices.joined(separator: "·, ") + "·"
-        }
-        
-        func suffixSequence(of form: Form, with suffices: [String]) -> String {
-            return "·" + suffices.joined(separator: ", ·")
-        }
-        
-        var wordEntryOfForm = ""
-        
-        if let articles = form.articles {
-            wordEntryOfForm += articleSequence(of: form, with: articles)
-        }
-        
-        wordEntryOfForm += form.stem
-        
-        if let prefices = form.prefices {
-            wordEntryOfForm += prefixSequence(of: form, with: prefices)
-        }
-        
-        if let suffices = form.suffices {
-            wordEntryOfForm += suffixSequence(of: form, with: suffices)
-        }
-        
-        return wordEntryOfForm
-    }
-}
- 
-extension Word {
-    var wordMeanings: String {
-        var wordMeaningsConstructor = ""
-        
-        var wordMeaningsItems: [String] = []
-        for wordMeaningsItem in meanings {
-            var wordMeaningsItemConstructor = ""
-            
-            var pos = wordMeaningsItem.pos!
-            if let abbrPos = Word.posAbbrs[wordMeaningsItem.pos!] {
-                pos = abbrPos
-            }
-            wordMeaningsItemConstructor = " \(pos) "
-            wordMeaningsItemConstructor += " "
-            wordMeaningsItemConstructor.append("\(wordMeaningsItem.meanings!).")
-            if let usage = wordMeaningsItem.usage {
-                wordMeaningsItemConstructor.append("\n☆ \(usage)")
-            }
-            
-            wordMeaningsItems.append(wordMeaningsItemConstructor)
-        }
-        wordMeaningsConstructor = wordMeaningsItems.joined(separator: "\n")
-        
-        return wordMeaningsConstructor
-    }
 }

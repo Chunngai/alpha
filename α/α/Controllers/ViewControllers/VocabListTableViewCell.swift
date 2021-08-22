@@ -67,36 +67,16 @@ class VocabListTableViewCell: UITableViewCell {
         self.word = word
         self.delegate = delegate
         
-        textView.text = makeText()
-        PosToken.highlightPosTokensInTextView(textView: textView)
+        textView.text = word.briefContent
+        Token.highlightTokens(in: textView)
     }
-    
+}
+ 
+extension VocabListTableViewCell {
     // MARK: - Actions
     
     @objc func textViewTapped() {
         delegate.pushWordDetails(word: word)
-    }
-    
-    // MARK: - Utils
-    
-    func makeText() -> String {
-        var posTokens: [PosToken] = []
-        for item in word.meanings {
-            if let pos = item.pos {
-                let posToken = PosToken(pos: pos)
-                if !posTokens.contains(posToken) {
-                    posTokens.append(posToken)
-                }
-            }
-        }
-        
-        var text = ""
-        for posToken in posTokens {
-            text.append(posToken.token)
-            text.append(" ")
-        }
-        text.append(word.wordEntry)
-        return text
     }
 }
 
