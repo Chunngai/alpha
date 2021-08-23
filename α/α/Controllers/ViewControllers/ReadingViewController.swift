@@ -266,7 +266,7 @@ extension ReadingViewController {
         }()
     }
     
-    func getWordItemFromTappedSpan(span: String) -> WordItem? {
+    func getWordItemFromTappedSpan(span: String) -> Reading.WordItem? {
         for wordItem in reading.vocab {
             if wordItem.word.compare(span, options: String.caseAndDiacriticInsensitiveCompareOptions, range: nil, locale: nil) == .orderedSame {
                 return wordItem
@@ -275,7 +275,7 @@ extension ReadingViewController {
         return nil
     }
     
-    func popExplanationView(at point: CGPoint, with wordItem: WordItem) {
+    func popExplanationView(at point: CGPoint, with wordItem: Reading.WordItem) {
         let width: CGFloat = ReadingViewController.explanationWidth
         let yOffset: CGFloat = ReadingViewController.explanationYOffset
 

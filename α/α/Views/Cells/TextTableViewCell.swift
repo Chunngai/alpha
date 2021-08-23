@@ -8,10 +8,14 @@
 
 import UIKit
 
-class TextTableViewCell: UITableViewCell, TextViewControllerDelegate {
-        
-    var cellId: Int!
+class TextTableViewCell: UITableViewCell {
+           
+    var isVocab: Bool!
     
+    // MARK: - Models
+    
+    var wordOrSentence: WordOrSentence!
+
     // MARK: - Controllers
     
     var delegate: TextViewController!
@@ -63,15 +67,24 @@ class TextTableViewCell: UITableViewCell, TextViewControllerDelegate {
         }
     }
     
-    func updateValues(word: Word? = nil, sentence: Sentence? = nil, delegate: TextViewController, cellId: Int) {
-        if let word = word {
-            make(word: word)
-        } else if let sentence = sentence {
-            make(sentence: sentence)
-        }
-        
+    func updateValues(
+        wordOrSentence: WordOrSentence,
+        contentType: Lesson.ContentType,
+        delegate: TextViewController,
+        shouldDisplayBriefWordContentAtFirst: Bool
+    ) {
+        self.wordOrSentence = wordOrSentence
+        self.isVocab = contentType == .vocab
         self.delegate = delegate
-        self.cellId = cellId
+        
+        if isVocab {
+            make(
+                word: wordOrSentence as! Word,
+                shouldDisplayBriefWordContentAtFirst: shouldDisplayBriefWordContentAtFirst
+            )
+        } else {
+            make(sentence: wordOrSentence as! Sentence)
+        }
     }
 }
 
@@ -79,12 +92,51 @@ extension TextTableViewCell {
     // MARK: - Actions
     
     @objc func textViewTapped() {
-        delegate.switchToLoopView(cellId: cellId)
+        delegate.switchToLoopView(for: wordOrSentence)
+    }
+}
+ 
+extension TextTableViewCell {
+    // MARK: - Utils
+    
+    func make(word: Word, shouldDisplayBriefWordContentAtFirst: Bool) {
+        textView.text = shouldDisplayBriefWordContentAtFirst ?
+            word.briefContent :
+            word.detailedContent
+        textView.textStorage.set(
+            attributes: TextTableViewCell.wordEntryAttributes,
+            for: word.wordEntry
+        )
+        textView.textStorage.set(
+            attributes: TextTableViewCell.wordMeaningsAttributes,
+            for: word.wordMeanings
+        )
+        Token.highlightTokens(in: textView)
+    }
+    
+    func make(sentence: Sentence) {
+        textView.text = sentence.content
+        textView.textStorage.set(
+            attributes: TextTableViewCell.greekLangTokenAttrs,
+            for: Sentence.greekLangToken
+        )
+        textView.textStorage.set(
+            attributes: TextTableViewCell.englishLangTokenAttrs,
+            for: Sentence.englishLangToken
+        )
+        textView.textStorage.set(
+            attributes: TextTableViewCell.sentenceTextAttributes,
+            for: sentence.text
+        )
+        textView.textStorage.set(
+            attributes: TextTableViewCell.sentenceTranslationAttributes,
+            for: sentence.translation
+        )
     }
 }
 
-extension TextTableViewCell {
-    // MARK: - TextViewController Delegate
+extension TextTableViewCell: TextViewControllerCellDelegate {
+    // MARK: - TextViewController Cell Delegate
     
     func attractAttention() {
         
@@ -126,43 +178,6 @@ extension TextTableViewCell {
         propertyAnimator.startAnimation()
     }
 }
- 
-extension TextTableViewCell {
-    // MARK: - Utils
-    
-    func make(word: Word) {
-        textView.text = word.detailedContent
-        textView.textStorage.set(
-            attributes: TextTableViewCell.wordEntryAttributes,
-            for: word.wordEntry
-        )
-        textView.textStorage.set(
-            attributes: TextTableViewCell.wordMeaningsAttributes,
-            for: word.wordMeanings
-        )
-        Token.highlightTokens(in: textView)
-    }
-    
-    func make(sentence: Sentence) {
-        textView.text = sentence.content
-        textView.textStorage.set(
-            attributes: TextTableViewCell.greekLangTokenAttrs,
-            for: Sentence.greekLangToken
-        )
-        textView.textStorage.set(
-            attributes: TextTableViewCell.englishLangTokenAttrs,
-            for: Sentence.englishLangToken
-        )
-        textView.textStorage.set(
-            attributes: TextTableViewCell.sentenceTextAttributes,
-            for: sentence.text
-        )
-        textView.textStorage.set(
-            attributes: TextTableViewCell.sentenceTranslationAttributes,
-            for: sentence.translation
-        )
-    }
-}
 
 extension TextTableViewCell {
     static let textViewInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -189,5 +204,5 @@ extension TextTableViewCell {
 }
 
 protocol TextTableViewCellDelegate {
-    func switchToLoopView(cellId: Int)
+    func switchToLoopView(for wordOrSentence: WordOrSentence)
 }

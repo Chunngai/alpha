@@ -9,13 +9,13 @@
 import Foundation
 
 struct Reading: Codable {
+    struct WordItem: Codable {
+        var word: String!
+        var explanation: String!
+    }
+    
     var title: String!
     var text: String!
     var vocab: [WordItem]!
     var translation: String!
-}
-
-struct WordItem: Codable {
-    var word: String!
-    var explanation: String!
 }

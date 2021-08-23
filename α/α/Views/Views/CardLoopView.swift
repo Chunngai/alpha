@@ -10,7 +10,7 @@ import UIKit
 
 class CardLoopView: UIView, UIScrollViewDelegate {
 
-    var currentPage: Int! {
+    var currentPage: Int = 0 {
         didSet {
             updateTexts()
         }
@@ -21,8 +21,7 @@ class CardLoopView: UIView, UIScrollViewDelegate {
     
     // MARK: - Models
     
-    private var vocab: [Word]?
-    private var sentences: [Sentence]?
+    private var vocabOrSentences: WordOrSentenceContainer!
         
     // MARK: - Views
     
@@ -119,14 +118,14 @@ class CardLoopView: UIView, UIScrollViewDelegate {
         }
     }
     
-    func updateValues(vocab: [Word]?, sentences: [Sentence]?, indexOfWordToDisplayFirst: Int, isBrief: Bool) {
-        self.vocab = vocab
-        self.sentences = sentences
-        
-        self.currentPage = indexOfWordToDisplayFirst
+    func updateValues(vocabOrSentences: [WordOrSentence], contentType: Lesson.ContentType, isBrief: Bool) {
+        self.vocabOrSentences = WordOrSentenceContainer(
+            vocabOrSentences: vocabOrSentences,
+            contentType: contentType
+        )
         self.isBrief = isBrief
         
-        totalPage = vocab != nil ? vocab!.count : sentences!.count
+        totalPage = vocabOrSentences.count
     }
 }
     
@@ -145,7 +144,9 @@ extension CardLoopView {
     func updateTexts() {
         guard width != nil else { return }
         
-        if let vocab = vocab {
+        if vocabOrSentences.havingInterestInVocab {
+            let vocab = vocabOrSentences.vocabOrSentences as! [Word]
+            
             let textView1Word = vocab[currentPage]
             let textView0Word = currentPage == 0 ? vocab.last! : vocab[currentPage - 1]
             let textView2Word = currentPage == vocab.count - 1 ? vocab.first! : vocab[currentPage + 1]
@@ -153,7 +154,9 @@ extension CardLoopView {
             cardView0.displayWord(word: textView0Word, isBrief: isBrief)
             cardView1.displayWord(word: textView1Word, isBrief: isBrief)
             cardView2.displayWord(word: textView2Word, isBrief: isBrief)
-        } else if let sentences = sentences {
+        } else {
+            let sentences = vocabOrSentences.vocabOrSentences as! [Sentence]
+            
             let textView1Sentence = sentences[currentPage]
             let textView0Sentence = currentPage == 0 ? sentences.last! : sentences[currentPage - 1]
             let textView2Sentence = currentPage == sentences.count - 1 ? sentences.first! : sentences[currentPage + 1]
@@ -164,10 +167,6 @@ extension CardLoopView {
         }
 
         loopScrollView.contentOffset = CGPoint(x: width, y: 0)
-    }
-    
-    func switchTo(page: Int) {
-        currentPage = page
     }
 }
 
@@ -202,6 +201,16 @@ extension CardLoopView {
             let ratio = scrollView.contentOffset.x / width
             self.endScrollMethod(ratio: ratio)
         }
+    }
+}
+
+extension CardLoopView: TextViewControllerLoopViewDelegate {
+    var currentWordOrSentence: WordOrSentence {
+        return vocabOrSentences.vocabOrSentences[currentPage]
+    }
+    
+    func switchToPageFor(_ wordOrSentence: WordOrSentence) {
+        currentPage = vocabOrSentences.firstIndex(of: wordOrSentence)!
     }
 }
 

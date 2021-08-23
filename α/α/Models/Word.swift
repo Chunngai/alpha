@@ -8,16 +8,16 @@
 
 import Foundation
 
-struct Word: Codable, Equatable {
+struct Word: Codable {
     
-    struct Form: Codable, Equatable {
+    struct Form: Codable {
         var stem: String!
         var prefices: [String]?
         var suffices: [String]?
         var articles: [String]?
     }
     
-    struct Meanings: Codable, Equatable {
+    struct Meanings: Codable {
         var pos: String!
         var meanings: String!
         var labels: [String]?
@@ -29,7 +29,7 @@ struct Word: Codable, Equatable {
     var explanation: String?
 }
 
-extension Word.Form {
+extension Word.Form: Equatable {
     // MARK: - Equatable
     
     static func == (lhs: Word.Form, rhs: Word.Form) -> Bool {
@@ -40,7 +40,7 @@ extension Word.Form {
     }
 }
 
-extension Word.Meanings {
+extension Word.Meanings: Equatable {
     // MARK: - Equatable
     
     static func == (lhs: Word.Meanings, rhs: Word.Meanings) -> Bool {
@@ -51,7 +51,7 @@ extension Word.Meanings {
     }
 }
 
-extension Word {
+extension Word: Equatable {
     // MARK: - Equatable
     
     static func == (lhs: Word, rhs: Word) -> Bool {

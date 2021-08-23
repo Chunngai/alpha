@@ -228,7 +228,7 @@ extension MenuViewController {
         guard lesson.vocab != nil && lesson.vocab!.count > 0 else { return }
         
         let vocabViewController = TextViewController()
-        vocabViewController.updateValues(vocab: lesson.vocab!)
+        vocabViewController.updateValues(vocab: [lesson])
         navigationController?.pushViewController(vocabViewController, animated: true)
     }
     
@@ -236,7 +236,7 @@ extension MenuViewController {
         guard lesson.sentences != nil && lesson.sentences!.count > 0 else { return }
         
         let sentencesViewController = TextViewController()
-        sentencesViewController.updateValues(sentences: lesson.sentences!)
+        sentencesViewController.updateValues(sentences: [lesson])
         navigationController?.pushViewController(sentencesViewController, animated: true)
     }
     

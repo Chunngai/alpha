@@ -14,3 +14,14 @@ struct Sentence: Codable {
     var greek_: String?
     var english_: String?
 }
+
+extension Sentence: Equatable {
+    // MARK: - Equatable
+    
+    static func == (lhs: Sentence, rhs: Sentence) -> Bool {
+        return lhs.greek == rhs.greek
+            && lhs.english == rhs.english
+            && lhs.greek_ == rhs.greek_
+            && lhs.english_ == rhs.english_
+    }
+}

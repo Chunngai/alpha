@@ -117,8 +117,15 @@ extension HomeViewController {
     }
     
     func vocabularyButtonTapped() {
-        let vocabularyViewController = VocabListViewController()
-        vocabularyViewController.updateValues(lessons: lessons)
+        let vocab = Array<Lesson>(lessons[TextBook.firstLessonIdOfFromAlphaToOmegaHavingVocabAndSentences - 1..<lessons.endIndex])
+        
+        let vocabularyViewController = TextViewController()
+        vocabularyViewController.updateValues(
+            vocab: vocab,
+            shouldInBriefAtFirst: false,
+            shouldDisplayListAtFirst: true,
+            shouldDisplayBriefWordContentAtFirst: true
+        )
         navigationController?.pushViewController(vocabularyViewController, animated: true)
     }
 }
