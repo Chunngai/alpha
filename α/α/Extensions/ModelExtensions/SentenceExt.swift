@@ -16,19 +16,15 @@ extension Sentence {
     var englishSentence: String {
         return english ?? english_!
     }
-    
-    var isGreekTranslated: Bool {
-        return greek_ != nil
-    }
-    
-    var isEnglishTranslated: Bool {
-        return english_ != nil
-    }
 }
 
 extension Sentence {
     static var greekLangToken = Token.makeToken(from: "el ")
     static var englishLangToken = Token.makeToken(from: "en")
+    
+    var isEnglishTranslated: Bool {
+        return english_ != nil
+    }
     
     var textLangToken: String {
         return isEnglishTranslated ? Sentence.greekLangToken : Sentence.englishLangToken
@@ -44,6 +40,11 @@ extension Sentence {
     
     var translation: String {
         return isEnglishTranslated ? englishSentence : greekSentence
+    }
+    
+    var briefContent: String {
+        return textLangToken.appending(" ")
+            .appending(text)
     }
     
     var content: String {

@@ -120,6 +120,12 @@ extension Word {
     var detailedContent: String {
         return wordEntry.appending("\n").appending(wordMeanings)
     }
+    
+    var content: String {
+        return wordEntry.appending("\n")
+            .appending(wordMeanings).appending("\n")
+            .appending(explanation ?? "")
+    }
 }
 
 extension Word {

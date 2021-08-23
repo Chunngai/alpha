@@ -13,8 +13,35 @@ typealias LessonSearchResult = Lesson
 class TextViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     var shouldBeBriefInDetailedCardViewAtFirst: Bool!
-    var shouldDisplayListAtFirst: Bool!
-    var shouldBeBriefContentInListAtFirst: Bool!
+    var isDisplayingList: Bool! {
+        didSet {
+            guard oldValue != nil else {
+                return
+            }
+            
+            if self.isDisplayingList {
+                displayList()
+                scrollToCellOf(loopView.currentWordOrSentence)
+            } else {
+                displayLoop()
+            }
+        }
+    }
+    var isListContentBrief: Bool! {
+        didSet {
+            // If oldValue is nil (when updateValues() invoked),
+            // the frame of listView is set to (0, 0, 0, 0)
+            // and afterwards reloadData() has no effect.
+            guard oldValue != nil else {
+                return
+            }
+            
+            briefDetailedSwitchingBarButtonItem.image = isListContentBrief ?
+                TextViewController.barButtonItemForDetailedList :
+                TextViewController.barButtonItemForBriefList
+            listView.reloadData()
+        }
+    }
     
     var searchedVocabOrSentences = LessonContainer()
     var dataSource: LessonContainer {
@@ -40,7 +67,7 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
             contentType: dataSource.contentTypeHavingInterestIn,
             isBrief: shouldBeBriefInDetailedCardViewAtFirst
         )
-        loopView.isHidden = shouldDisplayListAtFirst ? true : false
+        loopView.isHidden = isDisplayingList ? true : false
         
         return loopView
     }()
@@ -58,21 +85,31 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .singleLine
         tableView.showsVerticalScrollIndicator = false
-        tableView.isHidden = shouldDisplayListAtFirst ? false : true
+        tableView.isHidden = isDisplayingList ? false : true
         
         return tableView
     }()
     
-    lazy var barButtonItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(
-            image: shouldDisplayListAtFirst ?
-                TextViewController.barButtonItemForList :
-                TextViewController.barButtonItemForLoop,
+    lazy var loopListSwitchingBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(
+            image: isDisplayingList ?
+                TextViewController.barButtonItemForLoop :
+                TextViewController.barButtonItemForList,
             style: .plain,
             target: self,
-            action: #selector(barButtonItemTapped)
+            action: #selector(switchBetweenLoopAndList)
         )
-        return item
+    }()
+    
+    lazy var briefDetailedSwitchingBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(
+            image: isListContentBrief ?
+                TextViewController.barButtonItemForDetailedList :
+                TextViewController.barButtonItemForBriefList,
+            style: .plain,
+            target: self,
+            action: #selector(switchBetweenBriefAndDetailed)
+        )
     }()
     
     lazy var searchBar: UISearchBar = {
@@ -80,7 +117,7 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         searchBar.delegate = self
         searchBar.sizeToFit()
-        searchBar.isHidden = shouldDisplayListAtFirst ? false : true
+        searchBar.isHidden = isDisplayingList ? false : true
 
         return searchBar
     }()
@@ -96,7 +133,12 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func updateViews() {        
         view.backgroundColor = Theme.backgroundColor
-        navigationItem.rightBarButtonItem = barButtonItem
+        // https://stackoverflow.com/questions/22741824/how-to-adjust-space-between-two-uibarbuttonitem-in-rightbarbuttonitems?answertab=active#tab-top
+        UIStackView.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).spacing = TextViewController.spaceBetweenBarButtonItems
+        navigationItem.rightBarButtonItems = [loopListSwitchingBarButtonItem]
+        if isDisplayingList {
+            navigationItem.rightBarButtonItems?.append(briefDetailedSwitchingBarButtonItem)
+        }
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.titleView = searchBar
     }
@@ -130,44 +172,41 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         self.shouldBeBriefInDetailedCardViewAtFirst = shouldInBriefAtFirst
-        self.shouldDisplayListAtFirst = shouldDisplayListAtFirst
-        self.shouldBeBriefContentInListAtFirst = shouldDisplayBriefWordContentAtFirst
+        self.isDisplayingList = shouldDisplayListAtFirst
+        self.isListContentBrief = shouldDisplayBriefWordContentAtFirst
     }
 }
 
 extension TextViewController {
     // MARK: - Actions
     
-    @objc func barButtonItemTapped() {
-        if listView.isHidden {
-            displayList()
-            scrollToCellOf(loopView.currentWordOrSentence)
-        } else if loopView.isHidden {
-            displayLoop()
-        }
+    @objc func switchBetweenLoopAndList() {
+        isDisplayingList.toggle()
+    }
+    
+    @objc func switchBetweenBriefAndDetailed() {
+        isListContentBrief.toggle()
     }
 }
 
 extension TextViewController {
-    // MARK: - Functions
+    // MARK: - Utils
     
     func displayList() {
         listView.isHidden = false
         loopView.isHidden = true
-        barButtonItem.image = TextViewController.barButtonItemForList
+        loopListSwitchingBarButtonItem.image = TextViewController.barButtonItemForLoop
+        navigationItem.rightBarButtonItems?.append(briefDetailedSwitchingBarButtonItem)
         searchBar.isHidden = false
     }
     
     func displayLoop() {
         listView.isHidden = true
         loopView.isHidden = false
-        barButtonItem.image = TextViewController.barButtonItemForLoop
+        loopListSwitchingBarButtonItem.image = TextViewController.barButtonItemForList
+        navigationItem.rightBarButtonItems?.removeLast()
         searchBar.isHidden = true
     }
-}
-
-extension TextViewController {
-    // MARK: - Utils
     
     func flatten(_ listToFlatten: LessonContainer) -> [WordOrSentence] {
         var flattenedList: [WordOrSentence] = []
@@ -225,7 +264,7 @@ extension TextViewController {
             wordOrSentence: dataSource.lessons[section].content(of: dataSource.contentTypeHavingInterestIn)![row],
             contentType: dataSource.contentTypeHavingInterestIn,
             delegate: self,
-            shouldDisplayBriefWordContentAtFirst: shouldBeBriefContentInListAtFirst
+            isBrief: isListContentBrief
         )
         
         return cell
@@ -260,7 +299,7 @@ extension TextViewController: TextTableViewCellDelegate {
     // MARK: - TextTableViewCell Delegate
     
     func switchToLoopView(for wordOrSentence: WordOrSentence) {
-        displayLoop()
+        isDisplayingList = false
         loopView.switchToPageFor(wordOrSentence)
     }
 }
@@ -277,18 +316,9 @@ extension TextViewController {
             var matchedWordsOrSentences: [Any] = []
             
             for wordOrSentence in lesson.content(of: allVocabOrSentences.contentTypeHavingInterestIn)! {
-                var contentToMatch: String
-                if allVocabOrSentences.havingInterestInVocab {
-                    let word = wordOrSentence as! Word
-                    contentToMatch = word.wordEntry
-                        + word.wordMeanings
-                        + (word.explanation ?? "")
-                } else {
-                    let sentence = wordOrSentence as! Sentence
-                    contentToMatch = sentence.greekSentence
-                    + sentence.englishSentence
-                }
-                
+                let contentToMatch = allVocabOrSentences.havingInterestInVocab ?
+                    (wordOrSentence as! Word).content :
+                    (wordOrSentence as! Sentence).content
                 if contentToMatch.caseAndDiacriticInsensitivelyContains(keyWord) {
                     matchedWordsOrSentences.append(wordOrSentence)
                 }
@@ -314,8 +344,13 @@ extension TextViewController {
 
 extension TextViewController {
     static let cellReuseIdentifier = "TextTableViewCell"
-    static let barButtonItemForList = UIImage(systemName: "line.horizontal.3.decrease.circle.fill")
-    static let barButtonItemForLoop = UIImage(systemName: "line.horizontal.3.decrease.circle")
+    
+    static let spaceBetweenBarButtonItems: CGFloat = -5
+    
+    static let barButtonItemForList = UIImage(systemName: "list.dash")
+    static let barButtonItemForLoop = UIImage(systemName: "square.on.square")
+    static let barButtonItemForBriefList = UIImage(systemName: "line.horizontal.3.decrease.circle.fill")
+    static let barButtonItemForDetailedList = UIImage(systemName: "line.horizontal.3.decrease.circle")
 }
 
 protocol TextViewControllerCellDelegate {

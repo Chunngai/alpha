@@ -11,6 +11,7 @@ import UIKit
 class TextTableViewCell: UITableViewCell {
            
     var isVocab: Bool!
+    var isBrief: Bool!
     
     // MARK: - Models
     
@@ -71,17 +72,15 @@ class TextTableViewCell: UITableViewCell {
         wordOrSentence: WordOrSentence,
         contentType: Lesson.ContentType,
         delegate: TextViewController,
-        shouldDisplayBriefWordContentAtFirst: Bool
+        isBrief: Bool
     ) {
         self.wordOrSentence = wordOrSentence
         self.isVocab = contentType == .vocab
         self.delegate = delegate
+        self.isBrief = isBrief
         
         if isVocab {
-            make(
-                word: wordOrSentence as! Word,
-                shouldDisplayBriefWordContentAtFirst: shouldDisplayBriefWordContentAtFirst
-            )
+            make(word: wordOrSentence as! Word)
         } else {
             make(sentence: wordOrSentence as! Sentence)
         }
@@ -99,8 +98,8 @@ extension TextTableViewCell {
 extension TextTableViewCell {
     // MARK: - Utils
     
-    func make(word: Word, shouldDisplayBriefWordContentAtFirst: Bool) {
-        textView.text = shouldDisplayBriefWordContentAtFirst ?
+    func make(word: Word) {
+        textView.text = isBrief ?
             word.briefContent :
             word.detailedContent
         textView.textStorage.set(
@@ -115,7 +114,9 @@ extension TextTableViewCell {
     }
     
     func make(sentence: Sentence) {
-        textView.text = sentence.content
+        textView.text = isBrief ?
+            sentence.briefContent :
+            sentence.content
         textView.textStorage.set(
             attributes: TextTableViewCell.greekLangTokenAttrs,
             for: Sentence.greekLangToken
@@ -180,7 +181,7 @@ extension TextTableViewCell: TextViewControllerCellDelegate {
 }
 
 extension TextTableViewCell {
-    static let textViewInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    static let textViewInsets = UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
     
     static let commonTextAttrs: [NSAttributedString.Key: Any] = [
         .paragraphStyle: Theme.paraStyle,
