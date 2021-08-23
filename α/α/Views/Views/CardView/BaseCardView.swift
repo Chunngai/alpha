@@ -12,13 +12,23 @@ class BaseCardView: UIView {
     
     // MARK: - Views
     
+    lazy var scrollView: UIScrollView = {
+       let scrollView = UIScrollView()
+        addSubview(scrollView)
+        
+        scrollView.backgroundColor = Theme.lightBlue
+        scrollView.layer.cornerRadius = BaseCardView.cornerRadius
+        scrollView.layer.masksToBounds = true
+        scrollView.showsVerticalScrollIndicator = false
+        
+        return scrollView
+    }()
+    
     lazy var mainView: UIView = {
         let mainView = UIView()
-        addSubview(mainView)
+        scrollView.addSubview(mainView)
         
         mainView.backgroundColor = Theme.lightBlue
-        mainView.layer.cornerRadius = BaseCardView.cornerRadius
-        mainView.layer.masksToBounds = true
         
         return mainView
     }()
@@ -29,6 +39,7 @@ class BaseCardView: UIView {
         super.init(frame: frame)
         
         self.updateViews()
+        self.updateLayouts()
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -36,11 +47,20 @@ class BaseCardView: UIView {
     }
     
     func updateViews() {
-        mainView.snp.makeConstraints { (make) in
+    }
+    
+    func updateLayouts() {
+        scrollView.snp.makeConstraints { (make) in
             make.height.equalToSuperview().multipliedBy(0.90)
             make.width.equalToSuperview().multipliedBy(0.90)
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
+        }
+        
+        mainView.snp.makeConstraints { (make) in
+            make.top.bottom.equalTo(scrollView)
+            make.width.equalToSuperview().multipliedBy(0.85)
+            make.centerX.equalToSuperview()
         }
     }
 }

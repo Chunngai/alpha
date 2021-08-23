@@ -42,12 +42,12 @@ class SingleLineCardView: BaseCardView {
         super.updateViews()
     }
     
-    func updateLayouts() {
+    override func updateLayouts() {
+        super.updateLayouts()
+        
         label.snp.makeConstraints { (make) in
-            make.height.equalToSuperview()
             make.width.equalToSuperview()
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+            make.top.bottom.equalTo(safeAreaLayoutGuide)
         }
     }
 }

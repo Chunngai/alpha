@@ -12,7 +12,7 @@ class DetailedCardView: BaseCardView {
     
     // MARK: - Views
     
-    lazy var wordLabel: UILabel = {
+    lazy var entryLabel: UILabel = {
         let label = UILabel()
         mainView.addSubview(label)
         
@@ -88,6 +88,7 @@ class DetailedCardView: BaseCardView {
         textView.layer.cornerRadius = DetailedCardView.cornerRadius
         textView.layer.masksToBounds = true
         textView.isEditable = false
+        textView.isScrollEnabled = false
         textView.textContainerInset = DetailedCardView.textViewInset
         textView.showsVerticalScrollIndicator = false
         
@@ -111,36 +112,41 @@ class DetailedCardView: BaseCardView {
         super.updateViews()
     }
     
-    func updateLayouts() {
-        wordLabel.snp.makeConstraints { (make) in
+    override func updateLayouts() {
+        super.updateLayouts()
+        
+        entryLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().inset(30)
-            make.leading.equalToSuperview().inset(25)
-            make.trailing.equalToSuperview().inset(25)
+            make.width.equalToSuperview()
+            make.centerX.equalToSuperview()
         }
         
         meaningsLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(wordLabel.snp.bottom).offset(20)
-            make.leading.equalTo(wordLabel.snp.leading)
-            make.width.equalTo(wordLabel.snp.width)
+            make.top.equalTo(entryLabel.snp.bottom).offset(20)
+            make.leading.equalTo(entryLabel.snp.leading)
+            make.width.equalTo(entryLabel.snp.width)
         }
         
         meaningsContentTextView.snp.makeConstraints { (make) in
             make.top.equalTo(meaningsLabel.snp.bottom).offset(10)
-            make.leading.equalTo(wordLabel.snp.leading)
-            make.width.equalTo(wordLabel.snp.width)
+            make.leading.equalTo(entryLabel.snp.leading)
+            make.width.equalTo(entryLabel.snp.width)
         }
         
         explanationLabel.snp.makeConstraints { (make) in
             make.top.equalTo(meaningsContentTextView.snp.bottom).offset(20)
-            make.leading.equalTo(wordLabel.snp.leading)
-            make.width.equalTo(wordLabel.snp.width)
+            make.leading.equalTo(entryLabel.snp.leading)
+            make.width.equalTo(entryLabel.snp.width)
         }
         
         explanationContentTextView.snp.makeConstraints { (make) in
             make.top.equalTo(explanationLabel.snp.bottom).offset(10)
-            make.leading.equalTo(wordLabel.snp.leading)
-            make.width.equalTo(wordLabel.snp.width)
-            make.bottom.equalTo(safeAreaInsets).inset(30)
+            make.leading.equalTo(entryLabel.snp.leading)
+            make.width.equalTo(entryLabel.snp.width)
+            // The bottom constraint is important to determine
+            // the content size of the scrollview.
+            // https://blog.csdn.net/longshihua/article/details/78441466
+            make.bottom.equalToSuperview().inset(30)
         }
     }
 }
@@ -149,7 +155,7 @@ extension DetailedCardView: CardViewSelectorDetailedDelegate {
     // MARK: - CardViewSelectorDetailedDelegate
     
     func set(wordEntry: String, wordMeanings: String, explanationString: String?) {
-        wordLabel.text = wordEntry
+        entryLabel.text = wordEntry
         meaningsContentTextView.text = wordMeanings
         if let explanationString = explanationString {
             explanationLabel.isHidden = false
@@ -162,6 +168,8 @@ extension DetailedCardView: CardViewSelectorDetailedDelegate {
         explanationContentTextView.scrollToTop(animated: false)
         
         Token.highlightTokens(in: meaningsContentTextView)
+        
+        scrollView.scrollToTop(animated: false)
     }
 }
 

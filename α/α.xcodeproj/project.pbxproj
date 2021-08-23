@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FF1E2F2A26D36B15009DB3F8 /* WordOrSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E2F2926D36B15009DB3F8 /* WordOrSentence.swift */; };
 		FF1E2F2D26D3744B009DB3F8 /* ContentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E2F2C26D3744B009DB3F8 /* ContentContainer.swift */; };
+		FF1E2F2F26D404B9009DB3F8 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E2F2E26D404B9009DB3F8 /* UIScrollView.swift */; };
 		FF2120DE26BE5C9600B71D63 /* lesson15.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120C426BE5C9400B71D63 /* lesson15.pdf */; };
 		FF2120DF26BE5C9600B71D63 /* lesson5.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF2120C526BE5C9400B71D63 /* lesson5.pdf */; };
 		FF2120E026BE5C9600B71D63 /* lesson6.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2120C626BE5C9400B71D63 /* lesson6.json */; };
@@ -131,6 +132,7 @@
 /* Begin PBXFileReference section */
 		FF1E2F2926D36B15009DB3F8 /* WordOrSentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOrSentence.swift; sourceTree = "<group>"; };
 		FF1E2F2C26D3744B009DB3F8 /* ContentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentContainer.swift; sourceTree = "<group>"; };
+		FF1E2F2E26D404B9009DB3F8 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		FF2120C426BE5C9400B71D63 /* lesson15.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson15.pdf; path = ../../lessons/lesson15.pdf; sourceTree = "<group>"; };
 		FF2120C526BE5C9400B71D63 /* lesson5.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = lesson5.pdf; path = ../../lessons/lesson5.pdf; sourceTree = "<group>"; };
 		FF2120C626BE5C9400B71D63 /* lesson6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson6.json; path = ../../lessons/lesson6.json; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				FF627D8826CE8029004182D6 /* UIColorExt.swift */,
 				FF627D8A26CE80CC004182D6 /* UIImageExt.swift */,
 				FF627D8C26CE8109004182D6 /* UISearchBarExt.swift */,
+				FF1E2F2E26D404B9009DB3F8 /* UIScrollView.swift */,
 			);
 			path = ViewExtensions;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				FF627D8626CE7FDE004182D6 /* SentenceExt.swift in Sources */,
 				FF71EA7526D265B1009E5FDF /* TextBookExt.swift in Sources */,
 				FF6E86FF2688EBB500C4A3A5 /* Sentence.swift in Sources */,
+				FF1E2F2F26D404B9009DB3F8 /* UIScrollView.swift in Sources */,
 				FF627D8426CE7F83004182D6 /* WordExt.swift in Sources */,
 				FF627D8026CE7F2F004182D6 /* NSAttributedStringExt.swift in Sources */,
 				FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */,

@@ -58,15 +58,6 @@ extension RoundCornersBgTextView {
 }
 
 extension RoundCornersBgTextView {
-    func scrollToTop(animated: Bool = true) {
-        // https://stackoverflow.com/questions/9450302/get-uiscrollview-to-scroll-to-the-top
-        // Note that the left content inset should be taken into consideration.
-        let offset = CGPoint(x: -contentInset.left, y: -contentInset.top)
-        setContentOffset(offset, animated: animated)
-   }
-}
-
-extension RoundCornersBgTextView {
     var numberOfLines: Int {
         // https://stackoverflow.com/questions/5837348/counting-the-number-of-lines-in-a-uitextview-lines-wrapped-by-frame-size
         // https://stackoverflow.com/questions/56776318/calculating-if-text-in-uitextview-is-less-than-the-4-maximumnumberoflines-limit
