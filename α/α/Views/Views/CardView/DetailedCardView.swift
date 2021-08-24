@@ -164,9 +164,8 @@ extension DetailedCardView: CardViewSelectorDetailedDelegate {
         } else {
             explanationLabel.isHidden = true
             explanationContentTextView.isHidden = true
+            explanationContentTextView.text = ""
         }
-        explanationContentTextView.scrollToTop(animated: false)
-        
         Token.highlightTokens(in: meaningsContentTextView)
         
         scrollView.scrollToTop(animated: false)
