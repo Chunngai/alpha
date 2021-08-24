@@ -27,6 +27,8 @@ struct Word: Codable {
     var forms: [Form]!
     var meanings: [Meanings]!
     var explanation: String?
+    // Sentences containing the word.
+    var sentences: [String]?
 }
 
 extension Word.Form: Equatable {
@@ -58,5 +60,7 @@ extension Word: Equatable {
         return lhs.forms == rhs.forms
             && lhs.meanings == rhs.meanings
             && lhs.explanation == rhs.explanation
+        
+            && lhs.sentences == rhs.sentences
     }
 }

@@ -61,7 +61,8 @@ extension CardViewSelector {
             displayDetailed(
                 wordEntry: word.wordEntry,
                 wordMeanings: word.wordMeanings,
-                explanationString: word.explanation
+                wordExplanation: word.explanation ?? "",
+                wordSentences: word.wordSentences ?? ""
             )
         }
     }
@@ -84,14 +85,15 @@ extension CardViewSelector {
         singleLineCardView.set(text: string)
     }
     
-    func displayDetailed(wordEntry: String, wordMeanings: String, explanationString: String?) {
+    func displayDetailed(wordEntry: String, wordMeanings: String, wordExplanation: String, wordSentences: String) {
         detailedCardView.isHidden = false
         singleLineCardView.isHidden = true
         
         detailedCardView.set(
             wordEntry: wordEntry,
             wordMeanings: wordMeanings,
-            explanationString: explanationString
+            wordExplanation: wordExplanation,
+            wordSentences: wordSentences
         )
     }
 }
@@ -101,5 +103,5 @@ protocol CardViewSelectorSingleLineDelegate {
 }
 
 protocol CardViewSelectorDetailedDelegate {
-    func set(wordEntry: String, wordMeanings: String, explanationString: String?)
+    func set(wordEntry: String, wordMeanings: String, wordExplanation: String, wordSentences: String)
 }

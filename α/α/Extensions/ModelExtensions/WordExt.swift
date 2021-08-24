@@ -129,6 +129,18 @@ extension Word {
 }
 
 extension Word {
+    var wordSentences: String? {
+        guard let sentences = sentences else {
+            return nil
+        }
+        
+        return sentences.compactMap {
+            "• " + $0
+        }.joined(separator: "\n")
+    }
+}
+
+extension Word {
     static let posAbbrs: [String: String] = [
         "verb": "v.",
         "noun": "n.",

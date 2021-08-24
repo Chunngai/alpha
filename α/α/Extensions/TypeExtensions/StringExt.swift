@@ -36,3 +36,29 @@ extension String {
         return String(repeating: " ", count: leftIndent) + self + String(repeating: " ", count: rightIndent)
     }
 }
+
+extension String {
+    func split(with separators: String, byKeeping separatorsToKeep: String) -> [String] {
+        var stringBuffer = ""
+        var splits: [String] = []
+        for character in self {
+            if separators.contains(character) {
+                if !stringBuffer.isEmpty {
+                    splits.append(stringBuffer)
+                }
+                if separatorsToKeep.contains(character) {
+                    splits.append(String(character))
+                }
+                
+                stringBuffer = ""
+            }
+            else {
+                stringBuffer += String(character)
+            }
+        }
+        if !stringBuffer.isEmpty {
+            splits.append(stringBuffer)
+        }
+        return splits
+    }
+}

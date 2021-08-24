@@ -204,61 +204,16 @@ extension TestViewController {
         currentTestItemIndex += 1
         update()
     }
-}
-
-extension TestViewController {
-    // MARK: - UITextField Delegate
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        checkInputAnswer()
-        isCommitted = true
-        
-        textField.resignFirstResponder()
-        
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.resignFirstResponder()
-    }
-}
-
-extension TestViewController {
-    // MARK: - Text Processing
-    
-    static let punctuations = ",.·;?!"
-    
-    func tokenize(string: String) -> [String] {
-        var tokens: [String] = []
-        
-        for tokenSeparatedBySpace in string.components(separatedBy: " ") {
-            var tokenBuffer: String = ""
-            for characterOfTokenSeparatedBySpace in tokenSeparatedBySpace {
-                if !TestViewController.punctuations.contains(characterOfTokenSeparatedBySpace) {
-                    tokenBuffer += String(characterOfTokenSeparatedBySpace)
-                    continue
-                }
-                
-                if tokenBuffer != "" {
-                    tokens.append(tokenBuffer)
-                    tokenBuffer = ""
-                }
-                
-                tokens.append(String(characterOfTokenSeparatedBySpace))
-            }
-            if tokenBuffer != "" {
-                tokens.append(tokenBuffer)
-                tokenBuffer = ""
-            }
-        }
-        return tokens
-    }
     
     func checkInputAnswer() {
-        guard let inputAnswer = answerTextField.text else { return }
+        guard let inputAnswer = answerTextField.text else {
+            return
+        }
         
-        let goldAnswerTokens = tokenize(string: testItems[currentTestItemIndex]["A"]!)
-        var inputAnswerTokens = tokenize(string: inputAnswer.replacingOccurrences(of: "’", with: "\'"))
+        let tokenizer = Tokenizer()
+        
+        let goldAnswerTokens = tokenizer.tokenize(string: testItems[currentTestItemIndex]["A"]!)
+        var inputAnswerTokens = tokenizer.tokenize(string: inputAnswer.replacingOccurrences(of: "’", with: "\'"))
         
         var matchedTokens: [NSMutableAttributedString] = []
         for token in goldAnswerTokens {
@@ -276,8 +231,25 @@ extension TestViewController {
         }
         questionLabel.attributedText = matchedTokens.joined(
             with: " ",
-            ignoring: TestViewController.punctuations
+            ignoring: tokenizer.punctuations
         )
+    }
+}
+
+extension TestViewController {
+    // MARK: - UITextField Delegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        checkInputAnswer()
+        isCommitted = true
+        
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
     }
 }
 
