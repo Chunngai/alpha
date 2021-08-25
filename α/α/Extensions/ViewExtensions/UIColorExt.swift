@@ -41,3 +41,24 @@ extension UIColor {
         )
     }
 }
+
+extension UIColor {
+    typealias RGBA = (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
+    var rgba: RGBA? {
+        var (r, g, b, a): RGBA = (0, 0, 0, 0)
+        return getRed(&r, green: &g, blue: &b, alpha: &a) ? (r,g,b,a) : nil
+    }
+    
+    static func mix(_ colorA: UIColor, with colorB: UIColor) -> UIColor {
+        let mixedR = (colorA.rgba!.red + colorB.rgba!.red) / 2
+        let mixedG = (colorA.rgba!.green + colorB.rgba!.green) / 2
+        let mixedB = (colorA.rgba!.blue + colorB.rgba!.blue) / 2
+        let mixedA = (colorA.rgba!.alpha + colorB.rgba!.alpha) / 2
+        return UIColor(
+            red: mixedR,
+            green: mixedG,
+            blue: mixedB,
+            alpha: mixedA
+        )
+    }
+}

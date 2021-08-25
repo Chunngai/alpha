@@ -110,7 +110,7 @@ extension TextTableViewCell {
             attributes: TextTableViewCell.wordMeaningsAttributes,
             for: word.wordMeanings
         )
-        Token.highlightTokens(in: textView)
+        AttributeToken.highlightAttributeTokens(in: textView)
     }
     
     func make(sentence: Sentence) {

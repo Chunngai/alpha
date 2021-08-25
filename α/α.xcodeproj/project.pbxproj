@@ -79,7 +79,7 @@
 		FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B425B492FD003D84BA /* TextViewController.swift */; };
 		FFAC17B925B4937C003D84BA /* CardLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B825B4937C003D84BA /* CardLoopView.swift */; };
 		FFC2BE7126D15A6800A44F3C /* lesson13.json in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BE6E26D15A6800A44F3C /* lesson13.json */; };
-		FFC2BE7E26D1E27600A44F3C /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BE7D26D1E27600A44F3C /* Token.swift */; };
+		FFC2BE7E26D1E27600A44F3C /* AttributeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BE7D26D1E27600A44F3C /* AttributeToken.swift */; };
 		FFEFA7A4268BE86F005622C7 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEFA7A3268BE86F005622C7 /* ReadingViewController.swift */; };
 		FFEFA7A8268BE88E005622C7 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEFA7A7268BE88E005622C7 /* Reading.swift */; };
 		FFEFA7AA268BE88E005622C7 /* SeparationLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEFA7A9268BE88E005622C7 /* SeparationLine.swift */; };
@@ -208,7 +208,7 @@
 		FFAC17B425B492FD003D84BA /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		FFAC17B825B4937C003D84BA /* CardLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLoopView.swift; sourceTree = "<group>"; };
 		FFC2BE6E26D15A6800A44F3C /* lesson13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson13.json; path = ../../lessons/lesson13.json; sourceTree = "<group>"; };
-		FFC2BE7D26D1E27600A44F3C /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		FFC2BE7D26D1E27600A44F3C /* AttributeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeToken.swift; sourceTree = "<group>"; };
 		FFEFA7A3268BE86F005622C7 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
 		FFEFA7A7268BE88E005622C7 /* Reading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		FFEFA7A9268BE88E005622C7 /* SeparationLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparationLine.swift; sourceTree = "<group>"; };
@@ -489,7 +489,7 @@
 		FFC2BE7C26D1E26700A44F3C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				FFC2BE7D26D1E27600A44F3C /* Token.swift */,
+				FFC2BE7D26D1E27600A44F3C /* AttributeToken.swift */,
 				FF1E2F2C26D3744B009DB3F8 /* ContentContainer.swift */,
 				FF52BA8926D4ABE7002C96D4 /* TextProcessing.swift */,
 			);
@@ -707,7 +707,7 @@
 				FF45EDC92685F86A0008E469 /* DetailedCardView.swift in Sources */,
 				FF627D8926CE8029004182D6 /* UIColorExt.swift in Sources */,
 				FF627D8B26CE80CC004182D6 /* UIImageExt.swift in Sources */,
-				FFC2BE7E26D1E27600A44F3C /* Token.swift in Sources */,
+				FFC2BE7E26D1E27600A44F3C /* AttributeToken.swift in Sources */,
 				FF52BCB726C79BF30095A7D0 /* HomeIndexTableViewCell.swift in Sources */,
 				FF4241DD26876A620002C4F4 /* CardViewSelector.swift in Sources */,
 				FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */,

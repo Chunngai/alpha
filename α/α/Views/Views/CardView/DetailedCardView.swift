@@ -173,7 +173,7 @@ extension DetailedCardView: CardViewSelectorDetailedDelegate {
         entryLabel.text = wordEntry
         
         meaningsContentTextView.text = wordMeanings
-        Token.highlightTokens(in: meaningsContentTextView)
+        AttributeToken.highlightAttributeTokens(in: meaningsContentTextView)
 
         if !wordExplanation.isEmpty {
             explanationLabel.isHidden = false

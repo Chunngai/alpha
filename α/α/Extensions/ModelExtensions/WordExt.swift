@@ -57,26 +57,31 @@ extension Word {
         return meanings.compactMap {
             var meaningsItem = ""
             
-            meaningsItem = meaningsItem
-                .appending(Token.makeToken(from: Word.posAbbrs[$0.pos!] ?? $0.pos!))
-                .appending(" ")
+            if let pos = $0.pos {
+                meaningsItem = meaningsItem
+                    .appending(AttributeToken.makeToken(from: Word.posAbbrs[pos]!))
+                    .appending(" ")
+            }
             
             if let labels = $0.labels {
                 for label in labels {
                     meaningsItem = meaningsItem
-                        .appending(Token.makeToken(from: label))
+                        .appending(AttributeToken.makeToken(from: label))
                         .appending(" ")
                 }
             }
             
-            meaningsItem = meaningsItem.appending($0.meanings!)
-                .appending(".")
-            
             if let usage = $0.usage {
-                meaningsItem = meaningsItem
-                    .appending("\n")
-                    .appending("☆ \(usage)")
+                for usageItem in usage {
+                    meaningsItem = meaningsItem
+                        .appending(AttributeToken.makeToken(from: usageItem))
+                        .appending(" ")
+                }
             }
+            
+            meaningsItem = meaningsItem
+                .appending($0.meanings!)
+                .appending(".")
             
             return meaningsItem
         }.joined(separator: "\n")
@@ -87,7 +92,7 @@ extension Word {
     var briefContent: String {
         var posList: [String] = []
         var labelList: [String] = []
-        // TODO: - Usage
+        var usageList: [String] = []
         
         for item in meanings {
             if let pos = item.pos {
@@ -102,15 +107,26 @@ extension Word {
                     }
                 }
             }
+            if let usage = item.usage {
+                for usageItem in usage {
+                    if !usageList.contains(usageItem) {
+                        usageList.append(usageItem)
+                    }
+                }
+            }
         }
         
         var text = ""
-        for pos in posList {
-            text.append(Token.makeToken(from: Word.posAbbrs[pos] ?? pos))
+        for pos in posList.sorted() {
+            text.append(AttributeToken.makeToken(from: Word.posAbbrs[pos]!))
             text.append(" ")
         }
-        for label in labelList {
-            text.append(Token.makeToken(from: label))
+        for label in labelList.sorted() {
+            text.append(AttributeToken.makeToken(from: label))
+            text.append(" ")
+        }
+        for usageItem in usageList.sorted() {
+            text.append(AttributeToken.makeToken(from: usageItem))
             text.append(" ")
         }
         text.append(wordEntry)
@@ -118,7 +134,8 @@ extension Word {
     }
     
     var detailedContent: String {
-        return wordEntry.appending("\n").appending(wordMeanings)
+        return wordEntry.appending("\n")
+            .appending(wordMeanings)
     }
     
     var content: String {
@@ -149,6 +166,6 @@ extension Word {
         "adverb": "adv.",
         "preposition": "prep.",
         "conjunction": "conj.",
-        "particle": "part."
+        "particle": "part.",
     ]
 }

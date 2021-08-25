@@ -19,8 +19,8 @@ extension Sentence {
 }
 
 extension Sentence {
-    static var greekLangToken = Token.makeToken(from: "el ")
-    static var englishLangToken = Token.makeToken(from: "en")
+    static var greekLangToken = AttributeToken.makeToken(from: "el ")
+    static var englishLangToken = AttributeToken.makeToken(from: "en")
     
     var isEnglishTranslated: Bool {
         return english_ != nil

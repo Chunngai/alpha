@@ -18,10 +18,10 @@ struct Word: Codable {
     }
     
     struct Meanings: Codable {
-        var pos: String!
+        var pos: String?
         var meanings: String!
         var labels: [String]?
-        var usage: String?  // TODO: - change here.
+        var usage: [String]?
     }
     
     var forms: [Form]!

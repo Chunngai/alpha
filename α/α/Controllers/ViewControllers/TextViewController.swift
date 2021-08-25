@@ -23,6 +23,7 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 displayList()
                 scrollToCellOf(loopView.currentWordOrSentence)
             } else {
+                searchBar.resignFirstResponder()
                 displayLoop()
             }
         }
