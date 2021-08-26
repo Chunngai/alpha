@@ -17,7 +17,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     // MARK: - Models
     
-    var lesson: Lesson!
+    var lesson: Lesson! {
+        didSet {
+            prepareForDrawingTable()
+        }
+    }
                 
     // MARK: - Views
     
@@ -96,12 +100,16 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
 
         updateViews()
+        updateLayouts()
     }
     
     func updateViews() {
+        navigationItem.title = "Lesson \(lesson.id!)"
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = Theme.backgroundColor
-        
+    }
+     
+    func updateLayouts() {
         lessonLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.23)
@@ -137,7 +145,6 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func updateValues(lesson: Lesson) {
         self.lesson = lesson
-        prepareForDrawingTable()
     }
 }
 
@@ -200,7 +207,7 @@ extension MenuViewController {
         cell.backgroundColor = .white
         cell.textLabel?.textColor = Theme.textColor
         cell.textLabel?.text = cellLabelDict[indexPath.row]
-        cell.imageView?.image = cellImageViewDict[indexPath.row]?.scale(to: 0.4)
+        cell.imageView?.image = cellImageViewDict[indexPath.row]
         cell.selectionStyle = .none
         
         return cell
@@ -269,6 +276,8 @@ extension MenuViewController {
     static let tableRowHeight: CGFloat = 80
     static let tableCornerRadius: CGFloat = 15
     
+    static let iconScale: CGFloat = 0.4
+    
     static let labels = [
         "Learning",
         "Vocabulary",
@@ -277,10 +286,10 @@ extension MenuViewController {
         "Test"
     ]
     static let images = [
-        0: UIImage(imageLiteralResourceName: "learning_icon").setColor(color: Theme.lightBlueForIcon),
-        1: UIImage(imageLiteralResourceName: "vocab_icon").setColor(color: Theme.lightBlueForIcon),
-        2: UIImage(imageLiteralResourceName: "sentences_icon").setColor(color: Theme.lightBlueForIcon),
-        3: UIImage(imageLiteralResourceName: "reading_icon").setColor(color: Theme.lightBlueForIcon),
-        4: UIImage(imageLiteralResourceName: "test_icon").setColor(color: Theme.lightBlueForIcon)
+        0: UIImage(imageLiteralResourceName: "learning_icon").setColor(color: Theme.lightBlueForIcon).scale(to: MenuViewController.iconScale),
+        1: UIImage(imageLiteralResourceName: "vocab_icon").setColor(color: Theme.lightBlueForIcon).scale(to: MenuViewController.iconScale),
+        2: UIImage(imageLiteralResourceName: "sentences_icon").setColor(color: Theme.lightBlueForIcon).scale(to: MenuViewController.iconScale),
+        3: UIImage(imageLiteralResourceName: "reading_icon").setColor(color: Theme.lightBlueForIcon).scale(to: MenuViewController.iconScale),
+        4: UIImage(imageLiteralResourceName: "test_icon").setColor(color: Theme.lightBlueForIcon).scale(to: MenuViewController.iconScale)
     ]
 }

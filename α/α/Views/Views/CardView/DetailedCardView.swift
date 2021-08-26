@@ -157,7 +157,8 @@ class DetailedCardView: BaseCardView {
         
         viewStack.snp.makeConstraints { (make) in
             make.top.equalToSuperview().inset(30)
-            make.width.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.8)
+            make.centerX.equalToSuperview()
             // The bottom constraint is important to determine
             // the content size of the scrollview.
             // https://blog.csdn.net/longshihua/article/details/78441466

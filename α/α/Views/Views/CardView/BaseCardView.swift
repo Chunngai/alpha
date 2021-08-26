@@ -59,7 +59,7 @@ class BaseCardView: UIView {
         
         mainView.snp.makeConstraints { (make) in
             make.top.bottom.equalTo(scrollView)
-            make.width.equalToSuperview().multipliedBy(0.85)
+            make.width.equalToSuperview()
             make.centerX.equalToSuperview()
         }
     }

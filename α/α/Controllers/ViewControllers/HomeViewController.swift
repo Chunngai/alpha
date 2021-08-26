@@ -13,7 +13,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     lazy var indexCellTitleFuncMapping: [(title: String, funcWhenTapped: () -> Void)] = [
         (title: "Text Book", funcWhenTapped: textBookButtonTapped),
-        (title: "Vocabulary", funcWhenTapped: vocabularyButtonTapped)
+        (title: "Vocabulary", funcWhenTapped: vocabularyButtonTapped),
+        (title: "Sentences", funcWhenTapped: sentencesButtonTapped),
     ]
     
     // MARK: - Models
@@ -52,13 +53,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         lessons = TextBook.loadLessons()
         
         updateViews()
+        updateLayouts()
     }
 
     func updateViews() {
         navigationItem.title = "Ελληνική"
         navigationItem.largeTitleDisplayMode = .always
         view.backgroundColor = Theme.backgroundColor
-        
+    }
+     
+    func updateLayouts() {
         // Cannot add the snippet of code below to the closure of lessonTableView.
         // There must be some code that accesses the lessonTableView
         // to activate it since it is lazy.
@@ -80,7 +84,7 @@ extension HomeViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
         case 0:
-            return 2
+            return indexCellTitleFuncMapping.count
         case 1:
             return lessons.count
         default:
@@ -127,6 +131,19 @@ extension HomeViewController {
             shouldDisplayBriefWordContentAtFirst: true
         )
         navigationController?.pushViewController(vocabularyViewController, animated: true)
+    }
+    
+    func sentencesButtonTapped() {
+        let sentences = Array<Lesson>(lessons[TextBook.firstLessonIdOfFromAlphaToOmegaHavingVocabAndSentences - 1..<lessons.endIndex])
+        
+        let sentencesViewController = TextViewController()
+        sentencesViewController.updateValues(
+            sentences: sentences,
+            shouldInBriefAtFirst: true,
+            shouldDisplayListAtFirst: true,
+            shouldDisplayBriefWordContentAtFirst: true
+        )
+        navigationController?.pushViewController(sentencesViewController, animated: true)
     }
 }
 
