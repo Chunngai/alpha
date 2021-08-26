@@ -61,16 +61,19 @@ class HomeTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        updateInitialViews()
+        updateViews()
+        updateLayouts()
     }
     
-    func updateInitialViews() {
+    func updateViews() {
         self.selectionStyle = .none
         self.backgroundColor = Theme.backgroundColor
-        
+    }
+    
+    func updateLayouts() {
         button.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
-            make.top.equalToSuperview().inset(HomeTableViewCell.buttonTopInset)
+            make.top.equalToSuperview().inset(5)
             make.bottom.equalToSuperview()
         }
     }
@@ -84,7 +87,6 @@ class HomeTableViewCell: UITableViewCell {
 extension HomeTableViewCell {
     static let labelWidth: CGFloat = UIScreen.main.bounds.width * 0.085
     
-    static let buttonTopInset: CGFloat = UIScreen.main.bounds.height * 0.005
     static let buttonTitleEdgeInsets = UIEdgeInsets(
         top: 0,
         left: labelWidth + UIScreen.main.bounds.width * 0.030,
