@@ -86,7 +86,7 @@ class TextTableViewCell: UITableViewCell {
             make(sentence: wordOrSentence as! Sentence)
         }
         
-        if let textToHighlight = textToHighlight?.trimmingWhitespacesAndNewlines(),
+        if let textToHighlight = textToHighlight,
             !textToHighlight.isEmpty {
             highlight(textToHighlight)
         }

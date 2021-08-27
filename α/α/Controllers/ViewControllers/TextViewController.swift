@@ -280,7 +280,7 @@ extension TextViewController {
             contentType: dataSource.contentTypeHavingInterestIn,
             delegate: self,
             isBrief: isListContentBrief,
-            textToHighlight: searchBar.text
+            textToHighlight: searchBar.keyWord
         )
         
         return cell
@@ -326,7 +326,9 @@ extension TextViewController {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchedVocabOrSentences.lessons.removeAll(keepingCapacity: false)
         
-        guard let keyWord = searchBar.text else { return }
+        guard let keyWord = searchBar.keyWord else {
+            return
+        }
         
         for lesson in allVocabOrSentences.lessons {
             var matchedWordsOrSentences: [Any] = []

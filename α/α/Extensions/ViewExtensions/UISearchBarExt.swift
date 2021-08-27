@@ -17,4 +17,8 @@ extension UISearchBar {
             return true
         }
     }
+    
+    var keyWord: String? {
+        self.text?.trimmingWhitespacesAndNewlines()
+    }
 }
