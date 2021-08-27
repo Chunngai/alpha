@@ -194,19 +194,33 @@ extension TextViewController {
     // MARK: - Utils
     
     func displayList() {
-        listView.isHidden = false
-        loopView.isHidden = true
-        loopListSwitchingBarButtonItem.image = TextViewController.barButtonItemForLoop
-        navigationItem.rightBarButtonItems?.append(briefDetailedSwitchingBarButtonItem)
-        searchBar.isHidden = false
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+            self.listView.alpha = 1
+            self.loopView.alpha = 0
+            self.searchBar.alpha = 1
+        }, completion: { _ in
+            self.listView.isHidden = false
+            self.loopView.isHidden = true
+            self.searchBar.isHidden = false
+            
+            self.loopListSwitchingBarButtonItem.image = TextViewController.barButtonItemForLoop
+            self.navigationItem.rightBarButtonItems?.append(self.briefDetailedSwitchingBarButtonItem)
+        })
     }
     
     func displayLoop() {
-        listView.isHidden = true
-        loopView.isHidden = false
-        loopListSwitchingBarButtonItem.image = TextViewController.barButtonItemForList
-        navigationItem.rightBarButtonItems?.removeLast()
-        searchBar.isHidden = true
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+            self.listView.alpha = 0
+            self.loopView.alpha = 1
+            self.searchBar.alpha = 0
+        }, completion: { _ in
+            self.listView.isHidden = true
+            self.loopView.isHidden = false
+            self.searchBar.isHidden = true
+            
+            self.loopListSwitchingBarButtonItem.image = TextViewController.barButtonItemForList
+            self.navigationItem.rightBarButtonItems?.removeLast()
+        })
     }
     
     func flatten(_ listToFlatten: LessonContainer) -> [WordOrSentence] {

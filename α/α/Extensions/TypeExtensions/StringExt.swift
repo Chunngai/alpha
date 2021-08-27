@@ -62,3 +62,9 @@ extension String {
         return splits
     }
 }
+
+extension String {
+    func trimmingWhitespacesAndNewlines() -> String {
+        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    }
+}

@@ -20,7 +20,7 @@ extension UIColor {
     }
     
     static func hexRGB2UIColor (_ hex:String) -> UIColor {
-        var hexString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        var hexString: String = hex.trimmingWhitespacesAndNewlines().uppercased()
         
         if (hexString.hasPrefix("#")) {
             hexString.remove(at: hexString.startIndex)

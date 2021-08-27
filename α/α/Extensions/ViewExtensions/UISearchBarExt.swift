@@ -12,7 +12,7 @@ import UIKit
 extension UISearchBar {
     var isEmpty: Bool {
         if let keyWords = text {
-            return keyWords.trimmingCharacters(in: CharacterSet.whitespaces).count == 0
+            return keyWords.trimmingWhitespacesAndNewlines().count == 0
         } else {
             return true
         }
