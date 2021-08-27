@@ -85,7 +85,7 @@ class TextViewController: UIViewController, UITableViewDataSource, UITableViewDe
         )
         tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .singleLine
-        tableView.showsVerticalScrollIndicator = false
+//        tableView.showsVerticalScrollIndicator = false
         tableView.isHidden = isDisplayingList ? false : true
         
         return tableView
@@ -265,7 +265,8 @@ extension TextViewController {
             wordOrSentence: dataSource.lessons[section].content(of: dataSource.contentTypeHavingInterestIn)![row],
             contentType: dataSource.contentTypeHavingInterestIn,
             delegate: self,
-            isBrief: isListContentBrief
+            isBrief: isListContentBrief,
+            textToHighlight: searchBar.text
         )
         
         return cell

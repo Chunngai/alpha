@@ -72,7 +72,8 @@ class TextTableViewCell: UITableViewCell {
         wordOrSentence: WordOrSentence,
         contentType: Lesson.ContentType,
         delegate: TextViewController,
-        isBrief: Bool
+        isBrief: Bool,
+        textToHighlight: String?
     ) {
         self.wordOrSentence = wordOrSentence
         self.isVocab = contentType == .vocab
@@ -83,6 +84,11 @@ class TextTableViewCell: UITableViewCell {
             make(word: wordOrSentence as! Word)
         } else {
             make(sentence: wordOrSentence as! Sentence)
+        }
+        
+        if let textToHighlight = textToHighlight?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
+            !textToHighlight.isEmpty {
+            highlight(textToHighlight)
         }
     }
 }
@@ -132,6 +138,13 @@ extension TextTableViewCell {
         textView.textStorage.set(
             attributes: TextTableViewCell.sentenceTranslationAttributes,
             for: sentence.translation
+        )
+    }
+    
+    func highlight(_ textToHighlight: String) {
+        textView.textStorage.setTextColor(
+            for: textToHighlight,
+            color: Theme.highlightedTextColor
         )
     }
 }

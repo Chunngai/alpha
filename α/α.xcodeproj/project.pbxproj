@@ -64,6 +64,7 @@
 		FF52BCB526C798EF0095A7D0 /* textBook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF52BCB226C798EF0095A7D0 /* textBook.pdf */; };
 		FF52BCB726C79BF30095A7D0 /* HomeIndexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */; };
 		FF52BCB926C79F570095A7D0 /* HomeLessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */; };
+		FF60A15426D89A79001AFE7F /* lesson14.json in Resources */ = {isa = PBXBuildFile; fileRef = FF60A15126D89A78001AFE7F /* lesson14.json */; };
 		FF627D7126CE2C50004182D6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D7026CE2C50004182D6 /* Theme.swift */; };
 		FF627D7C26CE7EF9004182D6 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D7B26CE7EF8004182D6 /* StringExt.swift */; };
 		FF627D8026CE7F2F004182D6 /* NSAttributedStringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D7F26CE7F2F004182D6 /* NSAttributedStringExt.swift */; };
@@ -193,6 +194,7 @@
 		FF52BCB226C798EF0095A7D0 /* textBook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = textBook.pdf; path = ../../lessons/textBook.pdf; sourceTree = "<group>"; };
 		FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexTableViewCell.swift; sourceTree = "<group>"; };
 		FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonTableViewCell.swift; sourceTree = "<group>"; };
+		FF60A15126D89A78001AFE7F /* lesson14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson14.json; path = ../../lessons/lesson14.json; sourceTree = "<group>"; };
 		FF627D7026CE2C50004182D6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FF627D7B26CE7EF8004182D6 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		FF627D7F26CE7F2F004182D6 /* NSAttributedStringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExt.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				FF2120D126BE5C9500B71D63 /* lesson12.pdf */,
 				FFC2BE6E26D15A6800A44F3C /* lesson13.json */,
 				FF2120DC26BE5C9600B71D63 /* lesson13.pdf */,
+				FF60A15126D89A78001AFE7F /* lesson14.json */,
 				FF2120DD26BE5C9600B71D63 /* lesson14.pdf */,
 				FF2120C426BE5C9400B71D63 /* lesson15.pdf */,
 				FF52BCB226C798EF0095A7D0 /* textBook.pdf */,
@@ -638,6 +641,7 @@
 				FF2120EF26BE5C9600B71D63 /* lesson7.json in Resources */,
 				FF52BCB526C798EF0095A7D0 /* textBook.pdf in Resources */,
 				FF2120E726BE5C9600B71D63 /* lesson9.pdf in Resources */,
+				FF60A15426D89A79001AFE7F /* lesson14.json in Resources */,
 				FF2120F326BE5C9600B71D63 /* lesson3.pdf in Resources */,
 				FF2120E026BE5C9600B71D63 /* lesson6.json in Resources */,
 				FF2120F426BE5C9600B71D63 /* lesson2.json in Resources */,

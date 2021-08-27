@@ -62,9 +62,13 @@ extension AttributeToken {
             "ἡ·ος": Theme.nounColor,  // Fem. noun ending with ος
             "epi.": Theme.nounColor,  // Epicene.
             
+            // Pronoun attrs.
+            "pers.": Theme.pronounColor,  // Presonal.
+            
             // Adjective attrs.
             "sub.": Theme.adjectiveColor,  // Substantive.
             "2end.": Theme.adjectiveColor,  // Masculine & neuter forms only.
+            "intens.": Theme.adjectiveColor,  // Intensive.
             
             // Pronouns & adjective attrs.
             "dem.": UIColor.mix(Theme.pronounColor, with: Theme.adjectiveColor),  // Demonstrative.

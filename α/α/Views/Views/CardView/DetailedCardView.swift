@@ -46,6 +46,7 @@ class DetailedCardView: BaseCardView {
         // The statement below makes contentSize.height be 0.
         textView.isScrollEnabled = false  // Wo it the cell height is not accurate.
         textView.textContainerInset = DetailedCardView.textViewInset
+        textView.isSelectable = false
         return textView
     }()
     
@@ -77,6 +78,7 @@ class DetailedCardView: BaseCardView {
         textView.isScrollEnabled = false
         textView.textContainerInset = DetailedCardView.textViewInset
         textView.showsVerticalScrollIndicator = false
+        textView.isSelectable = false
         return textView
     }()
     
@@ -105,6 +107,7 @@ class DetailedCardView: BaseCardView {
         textView.isScrollEnabled = false
         textView.textContainerInset = DetailedCardView.textViewInset
         textView.showsVerticalScrollIndicator = false
+        textView.isSelectable = false
         textView.attributedText = NSAttributedString(
             string: " ",
             attributes: DetailedCardView.textViewAttrs
