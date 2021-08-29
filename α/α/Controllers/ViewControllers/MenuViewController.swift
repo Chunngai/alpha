@@ -25,21 +25,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 
     // MARK: - Views
     
-    lazy var titleLabelShadowView: UIView = {
-        let labelView = UIView()
-        view.addSubview(labelView)
-        
-        labelView.layer.shadowColor = UIColor.lightGray.cgColor
-        labelView.layer.shadowOpacity = MenuViewController.shadowOpacity
-        labelView.layer.shadowRadius = MenuViewController.shadowRadius
-        labelView.layer.shadowOffset = MenuViewController.shadowOffset
-        
-        return labelView
-    }()
-    
     lazy var titleLabel: PaddingLabel = {
         let label = PaddingLabel(padding: MenuViewController.titleInset)
-        titleLabelShadowView.addSubview(label)
+        view.addSubview(label)
         
         label.backgroundColor = .white
         label.textColor = Theme.textColor
@@ -68,21 +56,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return label
     }()
     
-    lazy var menuTableShadowView: UIView = {
-        let labelView = UIView()
-        view.addSubview(labelView)
-        
-        labelView.layer.shadowColor = UIColor.lightGray.cgColor
-        labelView.layer.shadowOpacity = MenuViewController.shadowOpacity
-        labelView.layer.shadowRadius = MenuViewController.shadowRadius
-        labelView.layer.shadowOffset = MenuViewController.shadowOffset
-            
-        return labelView
-    }()
-    
     lazy var menuTableView: UITableView = {
         let tableView = UITableView(frame: CGRect(), style: .plain)
-        menuTableShadowView.addSubview(tableView)
+        view.addSubview(tableView)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -117,29 +93,19 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             make.width.equalToSuperview().multipliedBy(0.39)
         }
         
-        titleLabelShadowView.snp.makeConstraints { (make) in
+        titleLabel.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             // https://stackoverflow.com/questions/67749841/how-to-account-for-the-height-of-the-navigation-bar-in-snapkit
             make.top.equalTo(view.safeAreaLayoutGuide).offset(30)
             make.height.equalToSuperview().multipliedBy(0.26)
             make.width.equalToSuperview().multipliedBy(0.89)
         }
-        titleLabel.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.98)
-            make.height.equalToSuperview().multipliedBy(0.95)
-        }
         
-        menuTableShadowView.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(titleLabelShadowView.snp.bottom).offset(22)
-            make.height.equalTo(MenuViewController.tableRowHeight * CGFloat(rowNumber))
-            make.width.equalTo(titleLabelShadowView.snp.width)
-        }
         menuTableView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
+            make.top.equalTo(titleLabel.snp.bottom).offset(22)
+            make.height.equalTo(MenuViewController.tableRowHeight * CGFloat(rowNumber))
             make.width.equalTo(titleLabel.snp.width)
-            make.height.equalTo(menuTableShadowView)
         }
     }
     

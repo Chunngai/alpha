@@ -19,25 +19,31 @@ class ReadingViewController: UIViewController {
     lazy var mainView: UIView = {
         let mainView = UIView()
         view.addSubview(mainView)
+        return mainView
+    }()
+    
+    lazy var cardView: UIView = {
+        let cardView = UIView()
+        mainView.addSubview(cardView)
         
-        mainView.addGestureRecognizer({
+        cardView.addGestureRecognizer({
             let gestureRecognizer = UITapGestureRecognizer()
             gestureRecognizer.addTarget(self, action: #selector(removeExplanationLabel))
             return gestureRecognizer
         }())
         
-        mainView.backgroundColor = Theme.lightBlue
-        mainView.layer.cornerRadius = ReadingViewController.cornerRadius
-        mainView.layer.masksToBounds = true
+        cardView.backgroundColor = Theme.lightBlue
+        cardView.layer.cornerRadius = ReadingViewController.cornerRadius
+        cardView.layer.masksToBounds = true
         
-        return mainView
+        return cardView
     }()
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        self.mainView.addSubview(label)
+        cardView.addSubview(label)
         
-        label.backgroundColor = self.mainView.backgroundColor
+        label.backgroundColor = cardView.backgroundColor
         label.numberOfLines = 0
         label.textColor = Theme.textColor
 
@@ -46,13 +52,13 @@ class ReadingViewController: UIViewController {
     
     lazy var separationLine: SeparationLine = {
         let line = SeparationLine()
-        self.mainView.addSubview(line)
+        cardView.addSubview(line)
         return line
     }()
     
     lazy var textView: UITextView = {
         let textView = UITextView()
-        self.mainView.addSubview(textView)
+        cardView.addSubview(textView)
         
         textView.addGestureRecognizer({
             let tapGestureRecognizer = UITapGestureRecognizer()
@@ -60,7 +66,7 @@ class ReadingViewController: UIViewController {
             return tapGestureRecognizer
         }())
         
-        textView.backgroundColor = self.mainView.backgroundColor
+        textView.backgroundColor = cardView.backgroundColor
         textView.isEditable = false
         textView.isSelectable = false
         textView.showsVerticalScrollIndicator = false
@@ -86,7 +92,7 @@ class ReadingViewController: UIViewController {
         let label = PaddingLabel(padding: ReadingViewController.explnationInset)
         explanationLabelShadowView.addSubview(label)
         
-        label.backgroundColor = self.mainView.backgroundColor
+        label.backgroundColor = cardView.backgroundColor
         label.textColor = Theme.weakTextColor
         label.textAlignment = .left
         label.layer.cornerRadius = ReadingViewController.cornerRadius
@@ -103,6 +109,7 @@ class ReadingViewController: UIViewController {
         super.viewDidLoad()
 
         updateViews()
+        updateLayouts()
         
         titleLabel.attributedText = makeTitle()
         textView.text = makeText()
@@ -111,12 +118,20 @@ class ReadingViewController: UIViewController {
     
     func updateViews() {
         view.backgroundColor = Theme.backgroundColor
-        
+    }
+     
+    func updateLayouts() {
         mainView.snp.makeConstraints { (make) in
-            make.height.equalToSuperview().multipliedBy(0.80)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.width.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        cardView.snp.makeConstraints { (make) in
+            make.height.equalToSuperview().multipliedBy(0.90)
             make.width.equalToSuperview().multipliedBy(0.90)
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(20)
+            make.centerY.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints { (make) in
@@ -211,14 +226,14 @@ extension ReadingViewController {
         let wordItem = getWordItemFromTappedSpan(span: tappedSpan)
         if let wordItem = wordItem {
             popExplanationView(
-                at: sender.location(in: mainView),
+                at: sender.location(in: cardView),
                 with: wordItem
             )
         }
     }
     
     @objc func removeExplanationLabel() {
-        for view in mainView.subviews where view.tag == 1 {
+        for view in cardView.subviews where view.tag == 1 {
             view.removeFromSuperview()
         }
     }
@@ -281,13 +296,13 @@ extension ReadingViewController {
 
         let safeX: CGFloat
         let safeFactor: CGFloat = ReadingViewController.explanationSafeFactor
-        if point.x + width * safeFactor <= mainView.frame.maxX {
+        if point.x + width * safeFactor <= cardView.frame.maxX {
             safeX = point.x
         } else {
-            safeX = mainView.frame.maxX - width * safeFactor
+            safeX = cardView.frame.maxX - width * safeFactor
         }
                 
-        mainView.addSubview(explanationLabelShadowView)
+        cardView.addSubview(explanationLabelShadowView)
         explanationLabelShadowView.snp.makeConstraints { (make) in
             make.leading.equalTo(safeX)
             make.top.equalTo(point.y + yOffset)

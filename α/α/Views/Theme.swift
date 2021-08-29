@@ -22,7 +22,7 @@ struct Theme {
     
     // MARK: - Colors
     
-    static let backgroundColor = UIColor.systemGray6
+    static let backgroundColor = UIColor.systemGroupedBackground
     static let lightBlue = UIColor.intRGB2UIColor(red: 210, green: 239, blue: 255)
     static let lightBlueForIcon = UIColor.intRGB2UIColor(red: 190, green: 219, blue: 235)
     static let textColor = UIColor.black
