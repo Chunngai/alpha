@@ -47,10 +47,10 @@
 		FF4583D826899003001115C9 /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4583D726899003001115C9 /* UnderlineTextField.swift */; };
 		FF45EDC72685F8040008E469 /* SingleLineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDC62685F8040008E469 /* SingleLineCardView.swift */; };
 		FF45EDC92685F86A0008E469 /* DetailedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDC82685F86A0008E469 /* DetailedCardView.swift */; };
+		FF48855F26F1A78C00587244 /* LessonWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48855E26F1A78C00587244 /* LessonWeb.swift */; };
 		FF48A9092688EB8100E965E2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48A9082688EB8100E965E2 /* TestViewController.swift */; };
 		FF49449425B1EBC100B4EDAA /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */; };
-		FF4944AC25B1F77300B4EDAA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; };
-		FF4944AD25B1F77300B4EDAA /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF4944A825B1F73400B4EDAA /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF4958E626E687FF00F7AAE0 /* lesson15.json in Resources */ = {isa = PBXBuildFile; fileRef = FF4958E326E687FF00F7AAE0 /* lesson15.json */; };
 		FF4B38CF26C794C000E56988 /* lesson12.json in Resources */ = {isa = PBXBuildFile; fileRef = FF4B38CC26C794C000E56988 /* lesson12.json */; };
 		FF4BD5ED26CBE75300818D9F /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4BD5EC26CBE75300818D9F /* PaddingLabel.swift */; };
 		FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */; };
@@ -64,6 +64,8 @@
 		FF52BCB526C798EF0095A7D0 /* textBook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF52BCB226C798EF0095A7D0 /* textBook.pdf */; };
 		FF52BCB726C79BF30095A7D0 /* HomeIndexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */; };
 		FF52BCB926C79F570095A7D0 /* HomeLessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */; };
+		FF5F16C826E52E2500CCEB66 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5F16C526E52E0300CCEB66 /* SnapKit.framework */; };
+		FF5F16C926E52E2500CCEB66 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF5F16C526E52E0300CCEB66 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF60A15426D89A79001AFE7F /* lesson14.json in Resources */ = {isa = PBXBuildFile; fileRef = FF60A15126D89A78001AFE7F /* lesson14.json */; };
 		FF627D7126CE2C50004182D6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D7026CE2C50004182D6 /* Theme.swift */; };
 		FF627D7C26CE7EF9004182D6 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF627D7B26CE7EF8004182D6 /* StringExt.swift */; };
@@ -101,16 +103,16 @@
 			remoteGlobalIDString = FF2917B325B0746600A076F3;
 			remoteInfo = "α";
 		};
-		FF4944A725B1F73400B4EDAA /* PBXContainerItemProxy */ = {
+		FF5F16C426E52E0300CCEB66 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */;
+			containerPortal = FF5F16BF26E52E0300CCEB66 /* SnapKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EEBCC9D819CC627D0083B827;
 			remoteInfo = SnapKit;
 		};
-		FF4944A925B1F73400B4EDAA /* PBXContainerItemProxy */ = {
+		FF5F16C626E52E0300CCEB66 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */;
+			containerPortal = FF5F16BF26E52E0300CCEB66 /* SnapKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EEBCC9E219CC627E0083B827;
 			remoteInfo = "SnapKit Tests";
@@ -124,7 +126,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FF4944AD25B1F77300B4EDAA /* SnapKit.framework in Embed Frameworks */,
+				FF5F16C926E52E2500CCEB66 /* SnapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,9 +180,10 @@
 		FF4583D726899003001115C9 /* UnderlineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
 		FF45EDC62685F8040008E469 /* SingleLineCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineCardView.swift; sourceTree = "<group>"; };
 		FF45EDC82685F86A0008E469 /* DetailedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCardView.swift; sourceTree = "<group>"; };
+		FF48855E26F1A78C00587244 /* LessonWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonWeb.swift; sourceTree = "<group>"; };
 		FF48A9082688EB8100E965E2 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
-		FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "../../../SnapKit-develop/SnapKit.xcodeproj"; sourceTree = "<group>"; };
+		FF4958E326E687FF00F7AAE0 /* lesson15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson15.json; path = ../../lessons/lesson15.json; sourceTree = "<group>"; };
 		FF4B38CC26C794C000E56988 /* lesson12.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson12.json; path = ../../lessons/lesson12.json; sourceTree = "<group>"; };
 		FF4BD5EC26CBE75300818D9F /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -194,6 +197,7 @@
 		FF52BCB226C798EF0095A7D0 /* textBook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = textBook.pdf; path = ../../lessons/textBook.pdf; sourceTree = "<group>"; };
 		FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexTableViewCell.swift; sourceTree = "<group>"; };
 		FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonTableViewCell.swift; sourceTree = "<group>"; };
+		FF5F16BF26E52E0300CCEB66 /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "../../../../Downloads/SnapKit-develop/SnapKit.xcodeproj"; sourceTree = "<group>"; };
 		FF60A15126D89A78001AFE7F /* lesson14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson14.json; path = ../../lessons/lesson14.json; sourceTree = "<group>"; };
 		FF627D7026CE2C50004182D6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FF627D7B26CE7EF8004182D6 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
@@ -221,7 +225,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF4944AC25B1F77300B4EDAA /* SnapKit.framework in Frameworks */,
+				FF5F16C826E52E2500CCEB66 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +285,7 @@
 				FF2120DC26BE5C9600B71D63 /* lesson13.pdf */,
 				FF60A15126D89A78001AFE7F /* lesson14.json */,
 				FF2120DD26BE5C9600B71D63 /* lesson14.pdf */,
+				FF4958E326E687FF00F7AAE0 /* lesson15.json */,
 				FF2120C426BE5C9400B71D63 /* lesson15.pdf */,
 				FF52BCB226C798EF0095A7D0 /* textBook.pdf */,
 				FF2917B625B0746600A076F3 /* α */,
@@ -304,8 +309,8 @@
 		FF2917B625B0746600A076F3 /* α */ = {
 			isa = PBXGroup;
 			children = (
+				FF5F16BF26E52E0300CCEB66 /* SnapKit.xcodeproj */,
 				FF1E2F2626D36B09009DB3F8 /* Protocols */,
-				FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */,
 				FFC2BE7C26D1E26700A44F3C /* Utils */,
 				FF4CB53F25B2B2840084CEDE /* Models */,
 				FF49449225B1EA5800B4EDAA /* Controllers */,
@@ -400,15 +405,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		FF4944A325B1F73400B4EDAA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FF4944A825B1F73400B4EDAA /* SnapKit.framework */,
-				FF4944AA25B1F73400B4EDAA /* SnapKit Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		FF4944AB25B1F77300B4EDAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				FF4CB54225B2B2C70084CEDE /* Lesson.swift */,
+				FF48855E26F1A78C00587244 /* LessonWeb.swift */,
 				FF6E86FA2688EBA100C4A3A5 /* Word.swift */,
 				FF6E86FE2688EBB500C4A3A5 /* Sentence.swift */,
 				FFEFA7A7268BE88E005622C7 /* Reading.swift */,
@@ -435,6 +432,15 @@
 				FF627D8126CE7F36004182D6 /* TypeExtensions */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FF5F16C026E52E0300CCEB66 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF5F16C526E52E0300CCEB66 /* SnapKit.framework */,
+				FF5F16C726E52E0300CCEB66 /* SnapKit Tests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		FF627D7626CE73F9004182D6 /* CardView */ = {
@@ -592,8 +598,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = FF4944A325B1F73400B4EDAA /* Products */;
-					ProjectRef = FF4944A225B1F73400B4EDAA /* SnapKit.xcodeproj */;
+					ProductGroup = FF5F16C026E52E0300CCEB66 /* Products */;
+					ProjectRef = FF5F16BF26E52E0300CCEB66 /* SnapKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -606,18 +612,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		FF4944A825B1F73400B4EDAA /* SnapKit.framework */ = {
+		FF5F16C526E52E0300CCEB66 /* SnapKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SnapKit.framework;
-			remoteRef = FF4944A725B1F73400B4EDAA /* PBXContainerItemProxy */;
+			remoteRef = FF5F16C426E52E0300CCEB66 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		FF4944AA25B1F73400B4EDAA /* SnapKit Tests.xctest */ = {
+		FF5F16C726E52E0300CCEB66 /* SnapKit Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "SnapKit Tests.xctest";
-			remoteRef = FF4944A925B1F73400B4EDAA /* PBXContainerItemProxy */;
+			remoteRef = FF5F16C626E52E0300CCEB66 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -641,6 +647,7 @@
 				FF2120EF26BE5C9600B71D63 /* lesson7.json in Resources */,
 				FF52BCB526C798EF0095A7D0 /* textBook.pdf in Resources */,
 				FF2120E726BE5C9600B71D63 /* lesson9.pdf in Resources */,
+				FF4958E626E687FF00F7AAE0 /* lesson15.json in Resources */,
 				FF60A15426D89A79001AFE7F /* lesson14.json in Resources */,
 				FF2120F326BE5C9600B71D63 /* lesson3.pdf in Resources */,
 				FF2120E026BE5C9600B71D63 /* lesson6.json in Resources */,
@@ -705,6 +712,7 @@
 				FFA3B7D025BAFC78002F9D4C /* BaseCardView.swift in Sources */,
 				FFEFA7A8268BE88E005622C7 /* Reading.swift in Sources */,
 				FF6E86FB2688EBA100C4A3A5 /* Word.swift in Sources */,
+				FF48855F26F1A78C00587244 /* LessonWeb.swift in Sources */,
 				FF48A9092688EB8100E965E2 /* TestViewController.swift in Sources */,
 				FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */,
 				FF627D7126CE2C50004182D6 /* Theme.swift in Sources */,

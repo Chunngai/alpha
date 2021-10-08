@@ -41,63 +41,8 @@ struct TextBook: Codable {
                 lessons.append(lesson)
             }
         }
-//        TextBook.collectSentencesForWords(from: &lessons)
+
         return lessons
     }
 }
 
-//extension TextBook {
-//    static func collectSentencesAndTokens(from lessons: [Lesson]) -> [String: [String]] {
-//        var greekSentencesAndTokens: [String: [String]] = [:]
-//
-//        let tokenizer = Tokenizer()
-//        for lesson in lessons {
-//            guard let sentences = lesson.sentences else {
-//                continue
-//            }
-//            for sentence in sentences {
-//                guard let greekSentence = sentence.greek else {
-//                    break
-//                }
-//                greekSentencesAndTokens[greekSentence] = tokenizer.tokenize(string: greekSentence, withSeparatorsKept: false)
-//            }
-//        }
-//        return greekSentencesAndTokens
-//    }
-//
-//    static func collectSentences(for word: Word, from greekSentencesAndTokens: [String: [String]]) -> [String]? {
-//        var sentencesForWord: [String] = []
-//
-//        let wordStems = word.forms.compactMap {
-//            return $0.stem.components(separatedBy: " (")[0]
-//        }
-//        for (greekSentence, sentenceTokens) in greekSentencesAndTokens {
-//            secondFor: for wordStem in wordStems {
-//                for sentenceToken in sentenceTokens {
-//                    if sentenceToken.caseAndDiacriticInsensitivelyContains(wordStem) {
-//                        sentencesForWord.append(greekSentence)
-//                        break secondFor
-//                    }
-//                }
-//            }
-//        }
-//        if sentencesForWord.count > 0 {
-//            return sentencesForWord
-//        } else {
-//            return nil
-//        }
-//    }
-//
-//    static func collectSentencesForWords(from lessons: inout [Lesson]) {
-//        let greekSentencesAndTokens: [String: [String]] = TextBook.collectSentencesAndTokens(from: lessons)
-//        for (lessonId, lesson) in lessons.enumerated() {
-//            guard let vocab = lesson.vocab else {
-//                continue
-//            }
-//
-//            for (i, word) in vocab.enumerated() {
-//                lessons[lessonId].vocab![i].sentences = collectSentences(for: word, from: greekSentencesAndTokens)
-//            }
-//        }
-//    }
-//}
