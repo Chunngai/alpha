@@ -181,7 +181,7 @@ extension PracticeViewController {
     @objc private func buttonTapped() {
         guard button.isActivated else { return }
         
-        let yOffset = view.frame.maxY - mainView.frame.maxY
+        var yOffset = view.frame.maxY - mainView.frame.maxY
         
         if shouldCheck {
             similarity = currentPractice.check()
@@ -195,7 +195,11 @@ extension PracticeViewController {
             } else {
                 button.setToSimilarityState()
                 similarityBottomView.updateValues(similarity: similarity, answer: currentPractice.answer, input: (currentPractice as! TranslationPractice).inputSentence)
-                similarityBottomView.floatUp(by: yOffset * 1.3)
+                
+                similarityBottomView.layoutIfNeeded()
+                yOffset = similarityBottomView.label.frame.height
+                
+                similarityBottomView.floatUp(by: yOffset + 130)
                 
             }
         } else {
@@ -209,7 +213,9 @@ extension PracticeViewController {
                 incorrectBottomView.floatDown(by: yOffset + Theme.bodyFont.pointSize)
             } else {
                 similarityBottomView.clear()
-                similarityBottomView.floatDown(by: yOffset * 1.3)
+                
+                yOffset = similarityBottomView.label.frame.height
+                similarityBottomView.floatDown(by: yOffset + 130)
             }
         }
         

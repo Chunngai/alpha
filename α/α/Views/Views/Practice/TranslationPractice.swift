@@ -123,7 +123,8 @@ class TranslationPractice: UIView, Practice {
         textView.snp.makeConstraints { (make) in
             make.width.equalToSuperview().multipliedBy(0.9)
             make.height.equalTo(350)
-            make.centerX.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.top.equalTo(questionLabel.snp.bottom).offset(20)
         }
     }
     
