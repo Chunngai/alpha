@@ -13,7 +13,9 @@ class ClozePractice: ChoicePractice {
     var originalSentence: String!
     var maskedWord: String!
     var maskedSentence: String {
-        originalSentence.replacingOccurrences(of: maskedWord, with: "______")
+        //        originalSentence.replacingOccurrences(of: maskedWord, with: "______")
+        originalSentence.replacingOccurrences(of: " \(maskedWord!)", with: " ______")
+            .replacingOccurrences(of: "\(maskedWord!) ", with: "______ ")
     }
     
     internal override var question: String {
