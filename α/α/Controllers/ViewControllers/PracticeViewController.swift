@@ -162,7 +162,8 @@ extension PracticeViewController {
     // MARK: - Utils
     
     private func getPracticeId() -> Int {
-        return Int(arc4random_uniform(5))
+//        return Int(arc4random_uniform(5))
+        return 0
     }
     
     internal func activateCheckButton() {

@@ -77,7 +77,7 @@ class ChoicePractice: UIView, Practice {
     lazy var choicesStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: choiceButtons)
         stack.axis = .vertical
-        stack.distribution = .equalCentering
+        stack.distribution = .equalSpacing
         stack.alignment = .center
         stack.spacing = 10
         return stack
@@ -104,6 +104,16 @@ class ChoicePractice: UIView, Practice {
         super.init(coder: coder)
     }
     
+    override func layoutSubviews() {
+        for choiceButton in choiceButtons {
+            choiceButton.snp.removeConstraints()
+            choiceButton.snp.makeConstraints { (make) in
+                make.width.equalToSuperview()
+                make.height.equalTo(choiceButton.titleLabel!.frame.height + 30)
+            }
+        }
+    }
+    
     func updateViews() {
         addSubview(questionLabel)
         addSubview(choicesStack)
@@ -120,12 +130,6 @@ class ChoicePractice: UIView, Practice {
             make.width.equalToSuperview().multipliedBy(0.9)
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
-        }
-        for choiceButton in choiceButtons {
-            choiceButton.snp.makeConstraints { (make) in
-                make.width.equalToSuperview()
-                make.height.greaterThanOrEqualTo(50)
-            }
         }
     }
     
