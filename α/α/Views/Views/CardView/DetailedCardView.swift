@@ -207,7 +207,7 @@ extension DetailedCardView: CardViewSelectorDetailedDelegate {
 extension DetailedCardView {
     static let textViewInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     static let textViewAttrs: [NSAttributedString.Key: Any] = [
-        .paragraphStyle: Theme.paraStyle,
+        .paragraphStyle: Theme.paraStyle1,
         .font: Theme.bodyFont,
         .foregroundColor: UIColor.black
     ]

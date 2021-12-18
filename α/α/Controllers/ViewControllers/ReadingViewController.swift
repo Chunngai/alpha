@@ -318,7 +318,7 @@ extension ReadingViewController {
 
 extension ReadingViewController {
     static let textViewAttrs: [NSAttributedString.Key: Any] = [
-        .paragraphStyle: Theme.paraStyle,
+        .paragraphStyle: Theme.paraStyle1,
         .font: Theme.bodyFont,
         .foregroundColor: UIColor.black
     ]

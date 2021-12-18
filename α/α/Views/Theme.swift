@@ -23,8 +23,10 @@ struct Theme {
     // MARK: - Colors
     
     static let backgroundColor = UIColor.systemGroupedBackground
-    static let lightBlue = UIColor.intRGB2UIColor(red: 210, green: 239, blue: 255)
-    static let lightBlueForIcon = UIColor.intRGB2UIColor(red: 190, green: 219, blue: 235)
+//    static let lightBlue = UIColor.intRGB2UIColor(red: 210, green: 239, blue: 255)
+    static let lightBlue = UIColor.intRGB2UIColor(red: 205, green: 229, blue: 255)
+    static let lightBlue2 = UIColor.intRGB2UIColor(red: 190, green: 219, blue: 235)
+    static let lightBlue3 = UIColor.intRGB2UIColor(red: 205, green: 229, blue: 255)
     static let textColor = UIColor.black
     static let weakTextColor = UIColor.darkGray
     static let highlightedTextColor = UIColor.systemBlue
@@ -45,11 +47,19 @@ struct Theme {
     
     // MARK: - Paras
     
-    static var paraStyle: NSMutableParagraphStyle {
+    static var paraStyle1: NSMutableParagraphStyle {
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = 5
         paragraph.alignment = .left
         paragraph.lineBreakMode = .byWordWrapping
+        return paragraph
+    }
+    
+    static var paraStyle2: NSMutableParagraphStyle {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineSpacing = 5
+        paragraph.alignment = .left
+        paragraph.lineBreakMode = .byTruncatingTail
         return paragraph
     }
 }

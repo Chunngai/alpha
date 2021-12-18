@@ -13,10 +13,16 @@ import Foundation
 struct Tokenizer {
     let punctuations = ",.·;?!"
     
-    func tokenize(string: String, withSeparatorsKept shouldKeepSeparators: Bool = true) -> [String] {
+    func tokenize(string: String, withSeparatorsKept shouldKeepSeparators: Bool = true, lowercase: Bool = false) -> [String] {
         let separators = punctuations + " "
         let separatorsToKeep = shouldKeepSeparators ? punctuations : ""
         
-        return string.split(with: separators, byKeeping: separatorsToKeep)
+        var tokens = string.split(with: separators, byKeeping: separatorsToKeep)
+        if lowercase {
+            tokens = tokens.compactMap({ (token) -> String in
+                token.lowercased()
+            })
+        }
+        return tokens
     }
 }

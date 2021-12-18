@@ -148,11 +148,11 @@ extension MenuViewController {
             actions.append(readingButtonTapped)
         }
         
-        if lesson.sentences != nil {
+        if lesson.vocab != nil {
             rowNumber += 1
             cellLabelDict[index] = MenuViewController.labels[4]
             cellImageViewDict[index] = MenuViewController.images[4]
-            actions.append(testButtonTapped)
+            actions.append(practiceButtonTapped)
         }
     }
 }
@@ -221,12 +221,12 @@ extension MenuViewController {
         navigationController?.pushViewController(readingViewController, animated: true)
     }
     
-    func testButtonTapped(lesson: Lesson) {
-        guard lesson.sentences != nil && lesson.sentences!.count > 0 else { return }
+    func practiceButtonTapped(lesson: Lesson) {
+        guard lesson.vocab != nil else { return }
         
-        let testViewController = TestViewController()
-        testViewController.updateValues(sentences: lesson.sentences!)
-        navigationController?.pushViewController(testViewController, animated: true)
+        let practiceViewController = PracticeViewController()
+        practiceViewController.updateValues(lesson: lesson)
+        navigationController?.pushViewController(practiceViewController, animated: true)
     }
 }
 
@@ -249,13 +249,13 @@ extension MenuViewController {
         "Vocabulary",
         "Sentences",
         "Reading",
-        "Test"
+        "Practice"
     ]
     static let images = [
-        0: UIImage(imageLiteralResourceName: "learning_icon").setColor(color: Theme.lightBlueForIcon).scale(to: MenuViewController.iconScale),
-        1: UIImage(imageLiteralResourceName: "vocab_icon").setColor(color: Theme.lightBlueForIcon).scale(to: MenuViewController.iconScale),
-        2: UIImage(imageLiteralResourceName: "sentences_icon").setColor(color: Theme.lightBlueForIcon).scale(to: MenuViewController.iconScale),
-        3: UIImage(imageLiteralResourceName: "reading_icon").setColor(color: Theme.lightBlueForIcon).scale(to: MenuViewController.iconScale),
-        4: UIImage(imageLiteralResourceName: "test_icon").setColor(color: Theme.lightBlueForIcon).scale(to: MenuViewController.iconScale)
+        0: UIImage(imageLiteralResourceName: "learning_icon").setColor(color: Theme.lightBlue2).scale(to: MenuViewController.iconScale),
+        1: UIImage(imageLiteralResourceName: "vocab_icon").setColor(color: Theme.lightBlue2).scale(to: MenuViewController.iconScale),
+        2: UIImage(imageLiteralResourceName: "sentences_icon").setColor(color: Theme.lightBlue2).scale(to: MenuViewController.iconScale),
+        3: UIImage(imageLiteralResourceName: "reading_icon").setColor(color: Theme.lightBlue2).scale(to: MenuViewController.iconScale),
+        4: UIImage(imageLiteralResourceName: "practice_icon").setColor(color: Theme.lightBlue2).scale(to: MenuViewController.iconScale)
     ]
 }

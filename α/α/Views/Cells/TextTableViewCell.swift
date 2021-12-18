@@ -197,7 +197,7 @@ extension TextTableViewCell {
     static let textViewInsets = UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
     
     static let commonTextAttrs: [NSAttributedString.Key: Any] = [
-        .paragraphStyle: Theme.paraStyle,
+        .paragraphStyle: Theme.paraStyle1,
         .font: Theme.bodyFont,
     ]
     

@@ -73,7 +73,7 @@ extension CardViewSelector {
         
         let attrString = NSMutableAttributedString(string: string)
         if shouldUnderline {
-            attrString.setUnderline(color: .gray)
+            attrString.setUnderline(for: nil, color: .gray)
         }
         displaySingleLine(string: attrString)
     }

@@ -54,23 +54,3 @@ extension Sentence {
             .appending(translation)
     }
 }
-
-extension Sentence {
-    var greekSentenceQ: String {
-        return greekSentence
-    }
-    
-    var greekSentenceA: String {
-        return greekSentence
-    }
-    
-    var englishSentenceQ: String {
-        return englishSentence
-    }
-    
-    var englishSentenceA: String {
-        return englishSentence
-            .replacingOccurrences(of: " (sg.)", with: "")
-            .replacingOccurrences(of: " (pl.)", with: "")
-    }
-}

@@ -48,11 +48,15 @@
 		FF45EDC72685F8040008E469 /* SingleLineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDC62685F8040008E469 /* SingleLineCardView.swift */; };
 		FF45EDC92685F86A0008E469 /* DetailedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45EDC82685F86A0008E469 /* DetailedCardView.swift */; };
 		FF48855F26F1A78C00587244 /* LessonWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48855E26F1A78C00587244 /* LessonWeb.swift */; };
-		FF48A9092688EB8100E965E2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48A9082688EB8100E965E2 /* TestViewController.swift */; };
+		FF4889422711D8C300C55ACF /* TranslationPractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4889412711D8C300C55ACF /* TranslationPractice.swift */; };
 		FF49449425B1EBC100B4EDAA /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */; };
 		FF4958E626E687FF00F7AAE0 /* lesson15.json in Resources */ = {isa = PBXBuildFile; fileRef = FF4958E326E687FF00F7AAE0 /* lesson15.json */; };
+		FF4A682727100B3700B12167 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4A682627100B3700B12167 /* PracticeViewController.swift */; };
 		FF4B38CF26C794C000E56988 /* lesson12.json in Resources */ = {isa = PBXBuildFile; fileRef = FF4B38CC26C794C000E56988 /* lesson12.json */; };
 		FF4BD5ED26CBE75300818D9F /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4BD5EC26CBE75300818D9F /* PaddingLabel.swift */; };
+		FF4BE4562710F9EB0020A30D /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4BE4552710F9EB0020A30D /* BottomView.swift */; };
+		FF4BE45A27111A020020A30D /* ClozePractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4BE45927111A020020A30D /* ClozePractice.swift */; };
+		FF4BE45C27111A190020A30D /* ChoicePractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4BE45B27111A190020A30D /* ChoicePractice.swift */; };
 		FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */; };
 		FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54225B2B2C70084CEDE /* Lesson.swift */; };
 		FF4CB54925B2C6E10084CEDE /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */; };
@@ -64,6 +68,7 @@
 		FF52BCB526C798EF0095A7D0 /* textBook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF52BCB226C798EF0095A7D0 /* textBook.pdf */; };
 		FF52BCB726C79BF30095A7D0 /* HomeIndexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */; };
 		FF52BCB926C79F570095A7D0 /* HomeLessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */; };
+		FF57FE832711FDC500054E8A /* SimilarityBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57FE822711FDC500054E8A /* SimilarityBottomView.swift */; };
 		FF5F16C826E52E2500CCEB66 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5F16C526E52E0300CCEB66 /* SnapKit.framework */; };
 		FF5F16C926E52E2500CCEB66 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF5F16C526E52E0300CCEB66 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF60A15426D89A79001AFE7F /* lesson14.json in Resources */ = {isa = PBXBuildFile; fileRef = FF60A15126D89A78001AFE7F /* lesson14.json */; };
@@ -81,6 +86,11 @@
 		FFA3B7D025BAFC78002F9D4C /* BaseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3B7CF25BAFC78002F9D4C /* BaseCardView.swift */; };
 		FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B425B492FD003D84BA /* TextViewController.swift */; };
 		FFAC17B925B4937C003D84BA /* CardLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC17B825B4937C003D84BA /* CardLoopView.swift */; };
+		FFAC558E27101D69005ADC0F /* WordChoicePractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC558D27101D69005ADC0F /* WordChoicePractice.swift */; };
+		FFAC559227102FE7005ADC0F /* Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC559127102FE7005ADC0F /* Practice.swift */; };
+		FFAC5594271036CA005ADC0F /* PracticeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC5593271036CA005ADC0F /* PracticeButton.swift */; };
+		FFAC559627103EE0005ADC0F /* CorrectBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC559527103EE0005ADC0F /* CorrectBottomView.swift */; };
+		FFAC559827103EED005ADC0F /* IncorrectBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC559727103EED005ADC0F /* IncorrectBottomView.swift */; };
 		FFC2BE7126D15A6800A44F3C /* lesson13.json in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BE6E26D15A6800A44F3C /* lesson13.json */; };
 		FFC2BE7E26D1E27600A44F3C /* AttributeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BE7D26D1E27600A44F3C /* AttributeToken.swift */; };
 		FFEFA7A4268BE86F005622C7 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEFA7A3268BE86F005622C7 /* ReadingViewController.swift */; };
@@ -181,11 +191,15 @@
 		FF45EDC62685F8040008E469 /* SingleLineCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineCardView.swift; sourceTree = "<group>"; };
 		FF45EDC82685F86A0008E469 /* DetailedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCardView.swift; sourceTree = "<group>"; };
 		FF48855E26F1A78C00587244 /* LessonWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonWeb.swift; sourceTree = "<group>"; };
-		FF48A9082688EB8100E965E2 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		FF4889412711D8C300C55ACF /* TranslationPractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationPractice.swift; sourceTree = "<group>"; };
 		FF49449325B1EBC100B4EDAA /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		FF4958E326E687FF00F7AAE0 /* lesson15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson15.json; path = ../../lessons/lesson15.json; sourceTree = "<group>"; };
+		FF4A682627100B3700B12167 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		FF4B38CC26C794C000E56988 /* lesson12.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson12.json; path = ../../lessons/lesson12.json; sourceTree = "<group>"; };
 		FF4BD5EC26CBE75300818D9F /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		FF4BE4552710F9EB0020A30D /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
+		FF4BE45927111A020020A30D /* ClozePractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClozePractice.swift; sourceTree = "<group>"; };
+		FF4BE45B27111A190020A30D /* ChoicePractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePractice.swift; sourceTree = "<group>"; };
 		FF4C268A25C99A420030DFAD /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		FF4CB54225B2B2C70084CEDE /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		FF4CB54825B2C6E10084CEDE /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +211,7 @@
 		FF52BCB226C798EF0095A7D0 /* textBook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = textBook.pdf; path = ../../lessons/textBook.pdf; sourceTree = "<group>"; };
 		FF52BCB626C79BF30095A7D0 /* HomeIndexTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexTableViewCell.swift; sourceTree = "<group>"; };
 		FF52BCB826C79F570095A7D0 /* HomeLessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonTableViewCell.swift; sourceTree = "<group>"; };
+		FF57FE822711FDC500054E8A /* SimilarityBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarityBottomView.swift; sourceTree = "<group>"; };
 		FF5F16BF26E52E0300CCEB66 /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = "../../../../Downloads/SnapKit-develop/SnapKit.xcodeproj"; sourceTree = "<group>"; };
 		FF60A15126D89A78001AFE7F /* lesson14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson14.json; path = ../../lessons/lesson14.json; sourceTree = "<group>"; };
 		FF627D7026CE2C50004182D6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -213,6 +228,11 @@
 		FFA3B7CF25BAFC78002F9D4C /* BaseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCardView.swift; sourceTree = "<group>"; };
 		FFAC17B425B492FD003D84BA /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		FFAC17B825B4937C003D84BA /* CardLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLoopView.swift; sourceTree = "<group>"; };
+		FFAC558D27101D69005ADC0F /* WordChoicePractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordChoicePractice.swift; sourceTree = "<group>"; };
+		FFAC559127102FE7005ADC0F /* Practice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practice.swift; sourceTree = "<group>"; };
+		FFAC5593271036CA005ADC0F /* PracticeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeButton.swift; sourceTree = "<group>"; };
+		FFAC559527103EE0005ADC0F /* CorrectBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectBottomView.swift; sourceTree = "<group>"; };
+		FFAC559727103EED005ADC0F /* IncorrectBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncorrectBottomView.swift; sourceTree = "<group>"; };
 		FFC2BE6E26D15A6800A44F3C /* lesson13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = lesson13.json; path = ../../lessons/lesson13.json; sourceTree = "<group>"; };
 		FFC2BE7D26D1E27600A44F3C /* AttributeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeToken.swift; sourceTree = "<group>"; };
 		FFEFA7A3268BE86F005622C7 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				FF1E2F2926D36B15009DB3F8 /* WordOrSentence.swift */,
+				FFAC559127102FE7005ADC0F /* Practice.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -359,7 +380,7 @@
 				FF4CB54C25B2E2480084CEDE /* PDFViewController.swift */,
 				FFAC17B425B492FD003D84BA /* TextViewController.swift */,
 				FFEFA7A3268BE86F005622C7 /* ReadingViewController.swift */,
-				FF48A9082688EB8100E965E2 /* TestViewController.swift */,
+				FF4A682627100B3700B12167 /* PracticeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -377,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				FF627D7626CE73F9004182D6 /* CardView */,
+				FFAC558A27101D27005ADC0F /* Practice */,
 				FFAC17B825B4937C003D84BA /* CardLoopView.swift */,
 				FF4BD5EC26CBE75300818D9F /* PaddingLabel.swift */,
 				FF4583D726899003001115C9 /* UnderlineTextField.swift */,
@@ -493,6 +515,22 @@
 				FF1E2F2E26D404B9009DB3F8 /* UIScrollView.swift */,
 			);
 			path = ViewExtensions;
+			sourceTree = "<group>";
+		};
+		FFAC558A27101D27005ADC0F /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				FF4BE45B27111A190020A30D /* ChoicePractice.swift */,
+				FFAC558D27101D69005ADC0F /* WordChoicePractice.swift */,
+				FFAC5593271036CA005ADC0F /* PracticeButton.swift */,
+				FF4BE4552710F9EB0020A30D /* BottomView.swift */,
+				FFAC559527103EE0005ADC0F /* CorrectBottomView.swift */,
+				FFAC559727103EED005ADC0F /* IncorrectBottomView.swift */,
+				FF57FE822711FDC500054E8A /* SimilarityBottomView.swift */,
+				FF4BE45927111A020020A30D /* ClozePractice.swift */,
+				FF4889412711D8C300C55ACF /* TranslationPractice.swift */,
+			);
+			path = Practice;
 			sourceTree = "<group>";
 		};
 		FFC2BE7C26D1E26700A44F3C /* Utils */ = {
@@ -691,21 +729,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF4CB54D25B2E2480084CEDE /* PDFViewController.swift in Sources */,
+				FFAC558E27101D69005ADC0F /* WordChoicePractice.swift in Sources */,
 				FF49449425B1EBC100B4EDAA /* MainNavigationViewController.swift in Sources */,
 				FF52BA8A26D4ABE7002C96D4 /* TextProcessing.swift in Sources */,
+				FFAC5594271036CA005ADC0F /* PracticeButton.swift in Sources */,
 				FF627D8626CE7FDE004182D6 /* SentenceExt.swift in Sources */,
+				FF4889422711D8C300C55ACF /* TranslationPractice.swift in Sources */,
+				FF4A682727100B3700B12167 /* PracticeViewController.swift in Sources */,
 				FF71EA7526D265B1009E5FDF /* TextBookExt.swift in Sources */,
 				FF6E86FF2688EBB500C4A3A5 /* Sentence.swift in Sources */,
 				FF1E2F2F26D404B9009DB3F8 /* UIScrollView.swift in Sources */,
 				FF627D8426CE7F83004182D6 /* WordExt.swift in Sources */,
 				FF627D8026CE7F2F004182D6 /* NSAttributedStringExt.swift in Sources */,
 				FFAC17B525B492FD003D84BA /* TextViewController.swift in Sources */,
+				FF57FE832711FDC500054E8A /* SimilarityBottomView.swift in Sources */,
 				FF627D7C26CE7EF9004182D6 /* StringExt.swift in Sources */,
 				FF2917BC25B0746600A076F3 /* HomeViewController.swift in Sources */,
 				FF4CB54925B2C6E10084CEDE /* MenuViewController.swift in Sources */,
 				FFEFA7AA268BE88E005622C7 /* SeparationLine.swift in Sources */,
 				FF52507026D0C57A003DBB74 /* LessonExt.swift in Sources */,
+				FF4BE45C27111A190020A30D /* ChoicePractice.swift in Sources */,
 				FF4BD5ED26CBE75300818D9F /* PaddingLabel.swift in Sources */,
+				FFAC559227102FE7005ADC0F /* Practice.swift in Sources */,
 				FF1E2F2D26D3744B009DB3F8 /* ContentContainer.swift in Sources */,
 				FF52BCB926C79F570095A7D0 /* HomeLessonTableViewCell.swift in Sources */,
 				FF2917B825B0746600A076F3 /* AppDelegate.swift in Sources */,
@@ -713,22 +758,25 @@
 				FFEFA7A8268BE88E005622C7 /* Reading.swift in Sources */,
 				FF6E86FB2688EBA100C4A3A5 /* Word.swift in Sources */,
 				FF48855F26F1A78C00587244 /* LessonWeb.swift in Sources */,
-				FF48A9092688EB8100E965E2 /* TestViewController.swift in Sources */,
 				FF4C268B25C99A420030DFAD /* HomeTableViewCell.swift in Sources */,
 				FF627D7126CE2C50004182D6 /* Theme.swift in Sources */,
 				FF45EDC92685F86A0008E469 /* DetailedCardView.swift in Sources */,
 				FF627D8926CE8029004182D6 /* UIColorExt.swift in Sources */,
+				FF4BE45A27111A020020A30D /* ClozePractice.swift in Sources */,
 				FF627D8B26CE80CC004182D6 /* UIImageExt.swift in Sources */,
 				FFC2BE7E26D1E27600A44F3C /* AttributeToken.swift in Sources */,
 				FF52BCB726C79BF30095A7D0 /* HomeIndexTableViewCell.swift in Sources */,
 				FF4241DD26876A620002C4F4 /* CardViewSelector.swift in Sources */,
+				FFAC559827103EED005ADC0F /* IncorrectBottomView.swift in Sources */,
 				FF4CB54325B2B2C70084CEDE /* Lesson.swift in Sources */,
 				FF627D8D26CE8109004182D6 /* UISearchBarExt.swift in Sources */,
 				FF4FC922268E0227000885C3 /* TextTableViewCell.swift in Sources */,
 				FF45EDC72685F8040008E469 /* SingleLineCardView.swift in Sources */,
+				FF4BE4562710F9EB0020A30D /* BottomView.swift in Sources */,
 				FF2917BA25B0746600A076F3 /* SceneDelegate.swift in Sources */,
 				FF51646026CCDDF3009C4BEF /* RoundCornersBgTextView.swift in Sources */,
 				FFAC17B925B4937C003D84BA /* CardLoopView.swift in Sources */,
+				FFAC559627103EE0005ADC0F /* CorrectBottomView.swift in Sources */,
 				FF1E2F2A26D36B15009DB3F8 /* WordOrSentence.swift in Sources */,
 				FF4583D826899003001115C9 /* UnderlineTextField.swift in Sources */,
 				FFEFA7A4268BE86F005622C7 /* ReadingViewController.swift in Sources */,

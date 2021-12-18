@@ -146,6 +146,18 @@ extension Word {
 }
 
 extension Word {
+    var elEntry: String {
+        return wordEntry
+    }
+    
+    var enEntry: String {
+        return meanings.compactMap { (meanings) -> String in
+            meanings.meanings
+        }.joined(separator: "; ")
+    }
+}
+
+extension Word {
     var wordSentences: String? {
         guard let sentences = sentences else {
             return nil

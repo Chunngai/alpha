@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 extension NSMutableAttributedString {
-    func set(attributes: [NSAttributedString.Key: Any], for textToFind: String? = nil) {
+    func set(attributes: [NSAttributedString.Key: Any], for textToFind: String? = nil, compareOptions: String.CompareOptions = String.caseAndDiacriticInsensitiveCompareOptions) {
         let range: NSRange?
         if let textToFind = textToFind {
-            range = self.mutableString.range(of: textToFind, options: String.caseAndDiacriticInsensitiveCompareOptions)
+            range = self.mutableString.range(of: textToFind, options: compareOptions)
         } else {
             range = NSMakeRange(0, self.length)
         }
@@ -22,10 +22,10 @@ extension NSMutableAttributedString {
         }
     }
     
-    func set(attributes: [NSAttributedString.Key: Any], forAll textToFind: String) {
+    func set(attributes: [NSAttributedString.Key: Any], forAll textToFind: String, compareOptions: String.CompareOptions = String.caseAndDiacriticInsensitiveCompareOptions) {
         var range = NSRange(location: 0, length: self.length)
         while (range.location != NSNotFound) {
-            range = (self.string as NSString).range(of: textToFind, options: [], range: range)
+            range = (self.string as NSString).range(of: textToFind, options: compareOptions, range: range)
             if (range.location != NSNotFound) {
                 self.addAttributes(attributes, range: NSRange(location: range.location, length: textToFind.count))
                 range = NSRange(location: range.location + range.length, length: self.string.count - (range.location + range.length))
@@ -33,21 +33,33 @@ extension NSMutableAttributedString {
         }
     }
     
-    func setBackgroundColor(for textToFind: String? = nil, color: UIColor) {
-        set(attributes: [.backgroundColor : color], for: textToFind)
+    func setBackgroundColor(for textToFind: String? = nil, color: UIColor, compareOptions: String.CompareOptions = String.caseAndDiacriticInsensitiveCompareOptions) {
+        set(attributes: [.backgroundColor : color], for: textToFind, compareOptions: compareOptions)
     }
     
-    func setTextColor(for textToFind: String? = nil, color: UIColor) {
-        set(attributes: [NSAttributedString.Key.foregroundColor : color], for: textToFind)
+    func setTextColor(for textToFind: String? = nil, color: UIColor, compareOptions: String.CompareOptions = String.caseAndDiacriticInsensitiveCompareOptions) {
+        set(attributes: [NSAttributedString.Key.foregroundColor : color], for: textToFind, compareOptions: compareOptions)
     }
     
-    func setUnderline(for textToFind: String? = nil, color: UIColor = .black, style: NSUnderlineStyle = NSUnderlineStyle.single) {
+    func setUnderline(for textToFind: String? = nil, color: UIColor = .black, style: NSUnderlineStyle = NSUnderlineStyle.single, compareOptions: String.CompareOptions = String.caseAndDiacriticInsensitiveCompareOptions) {
         set(
             attributes: [
                 .underlineColor: color,
                 .underlineStyle: style.rawValue,
             ],
-            for: textToFind
+            for: textToFind,
+            compareOptions: compareOptions
+        )
+    }
+    
+    func setUnderline(forAll textToFind: String? = nil, color: UIColor = .black, style: NSUnderlineStyle = NSUnderlineStyle.single, compareOptions: String.CompareOptions = String.caseAndDiacriticInsensitiveCompareOptions) {
+        set(
+            attributes: [
+                .underlineColor: color,
+                .underlineStyle: style.rawValue,
+            ],
+            forAll: textToFind!,
+            compareOptions: compareOptions
         )
     }
 }
