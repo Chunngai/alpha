@@ -36,8 +36,12 @@ class SimilarityBottomView: BottomView {
     }
     
     func updateValues(similarity: Float, answer: String, input: String) {
+        let newPrompt = prompt.replacingOccurrences(
+            of: SimilarityBottomView.similarityPlaceholder,
+            with: String(Int(similarity * 100)) + "%"
+        )
         let attrString = NSMutableAttributedString(string:
-            prompt.replacingOccurrences(of: SimilarityBottomView.similarityPlaceholder, with: String(Int(similarity * 100)) + "%")
+            newPrompt
                 + "\n"
                 + answer
         )
@@ -57,6 +61,9 @@ class SimilarityBottomView: BottomView {
         for inputToken in inputTokens {
             attrString.setUnderline(forAll: inputToken, color: label.textColor, style: .single, compareOptions: String.CompareOptions.caseInsensitive)
         }
+        
+        // Removes possible underlines in the prompt.
+        attrString.setUnderline(forAll: newPrompt, color: UIColor.hexRGB2UIColor("#FFEF90"), style: .single)
         
         label.attributedText = attrString
     }
